@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SolutionsAccordion from '../components/SolutionsAccordion.astro';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, ArrowRight, Sparkles, Layers } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Solutions", url: "https://invisprotect.com/solutions/" }
+]);
+---
+
+<BaseLayout
+  title="Safety Solutions Interactive Explorer | InvisProtect"
+  description="Explore InvisProtect's 5 architectural safety systems: SS316 invisible grills, apartment balcony safety nets, construction debris netting, pigeon exclusion, and specialty solutions."
+  canonicalUrl="/solutions/"
+  schema={[breadcrumbs]}
+>
+  <!-- Full-Width Interactive Solutions Showcase -->
+  <section style="background: #090D16; min-height: calc(100vh - 80px); display: flex; flex-direction: column; justify-content: center; position: relative;">
+    <div style="padding: 2.5rem 1.5rem 1.5rem 1.5rem; max-width: 1400px; margin: 0 auto; width: 100%; text-align: center;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.35rem 0.9rem; border-radius: 30px; margin-bottom: 1rem;">
+        <Sparkles size={14} color="#38BDF8" />
+        <span style="font-size: 0.76rem; font-weight: 800; color: #BAE6FD; letter-spacing: 0.12em; text-transform: uppercase;">
+          ARCHITECTURAL SAFETY CATALOG
+        </span>
+      </div>
+      <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: #FFFFFF; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 0.75rem;">
+        Explore Solutions By Category
+      </h1>
+      <p style="font-size: 1.05rem; color: #94A3B8; max-width: 720px; margin: 0 auto; line-height: 1.6;">
+        Hover over any safety system to expand details, view specifications, and access dedicated sub-categories.
+      </p>
+    </div>
+
+    <!-- Full-Width Interactive Accordion Component -->
+    <div style="width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 1.5rem 3rem 1.5rem; box-sizing: border-box;">
+      <SolutionsAccordion isStandalone={true} />
+    </div>
+  </section>
+
+  <!-- Quick Assistance / Consultation Strip -->
+  <section style="background: #0F172A; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 2.5rem 1.5rem; text-align: center;">
+    <div class="container" style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+      <div style="text-align: left;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.25rem;">
+          Need a Custom Multi-Balcony Consultation?
+        </h3>
+        <p style="font-size: 0.9rem; color: #94A3B8; margin: 0;">
+          Our structural engineers provide free on-site laser measurement across Hyderabad, Vizag & Vijayawada.
+        </p>
+      </div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="/invisible-grill-cost/" class="btn btn-primary" style="background: #0284C7;">
+          <span>Instant Cost Estimator</span>
+          <ArrowRight size={14} />
+        </a>
+        <a href="/contact/" class="btn btn-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.25);">
+          <span>Schedule Site Visit</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>

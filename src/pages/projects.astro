@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryFilter from '../components/react/GalleryFilter';
+import TrustSection from '../components/TrustSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { Sparkles, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Projects", url: "https://invisprotect.com/projects/" }
+]);
+---
+
+<BaseLayout
+  title="Completed High-Rise Installations & Projects | InvisProtect"
+  description="Explore completed case studies and verified architectural safety installations in Hyderabad, Vizag, and Vijayawada. Floor levels, square footage, and client feedback."
+  canonicalUrl="/projects/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      <span class="badge-emerald" style="margin-bottom: 1.25rem;">
+        Verified High-Rise Work
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Engineering Case Studies & <br />
+        <span style="color: #38BDF8;">Completed Projects</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
+        Real verified projects across My Home Bhooja, Aparna Serene Park, Prestige High Fields, Sea Pearl Vizag, and Fortune Heights Vijayawada.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="/invisible-grill-cost/" class="btn btn-primary">
+          <span>Calculate Your Space</span>
+        </a>
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20see%20more%20project%20photos%20of%20installations%20in%20my%20area.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Request Society Photos</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Case Studies Island -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <GalleryFilter client:load />
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>

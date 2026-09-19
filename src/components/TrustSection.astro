@@ -1,0 +1,173 @@
+---
+import { business } from '../data/business';
+import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
+---
+
+<section class="trust-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge-emerald">
+        <Award size={14} />
+        Metallurgical Certification
+      </span>
+      <h2>Safety Is Not A Marketing Slogan</h2>
+      <p>
+        Every InvisProtect installation is backed by physical laboratory metallurgical certification, calibrated mechanical tensioning, and strict work-at-height engineering standards.
+      </p>
+    </div>
+
+    <div class="grid-4">
+      <div class="arch-card trust-card">
+        <div class="trust-icon-box anchor-box">
+          <Anchor size={24} />
+        </div>
+        <div class="trust-tag-row">
+          <span class="trust-pill ss316-pill">
+            SS316 MARINE ALLOY
+          </span>
+        </div>
+        <h3 class="trust-card-title">Virgin SS316 Marine Grade</h3>
+        <p class="trust-card-desc">
+          Enriched with 2.5% Molybdenum to prevent pitting corrosion. Will never rust or stain, even in coastal salt air or heavy monsoon climates.
+        </p>
+      </div>
+
+      <div class="arch-card trust-card">
+        <div class="trust-icon-box load-box">
+          <ShieldCheck size={24} />
+        </div>
+        <div class="trust-tag-row">
+          <span class="trust-pill load-pill">
+            400+ KGF TESTED
+          </span>
+        </div>
+        <h3 class="trust-card-title">400+ kg Breaking Load</h3>
+        <p class="trust-card-desc">
+          High-tensile cables withstand massive instantaneous impact. Impossible for toddlers or energetic pets to separate or force through.
+        </p>
+      </div>
+
+      <div class="arch-card trust-card">
+        <div class="trust-icon-box harness-box">
+          <HardHat size={24} />
+        </div>
+        <div class="trust-tag-row">
+          <span class="trust-pill harness-pill">
+            IS 3521 HARNESS
+          </span>
+        </div>
+        <h3 class="trust-card-title">Certified Technicians</h3>
+        <p class="trust-card-desc">
+          Our field teams undergo rigorous work-at-height certification. Every high-rise tower installation utilizes dual-lanyard lifelines and helmet gear.
+        </p>
+      </div>
+
+      <div class="arch-card trust-card">
+        <div class="trust-icon-box warranty-box">
+          <FileText size={24} />
+        </div>
+        <div class="trust-tag-row">
+          <span class="trust-pill warranty-pill">
+            10 YEARS DIRECT
+          </span>
+        </div>
+        <h3 class="trust-card-title">10-Year Direct Guarantee</h3>
+        <p class="trust-card-desc">
+          Written guarantee certificate on cable tensile integrity and aluminium track anchoring, including complimentary re-tensioning inspection.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .trust-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.85rem 1.65rem;
+  }
+
+  .trust-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .anchor-box {
+    background: #E0F2FE;
+    color: #0284C7;
+  }
+
+  .load-box {
+    background: #DCFCE7;
+    color: #16A34A;
+  }
+
+  .harness-box {
+    background: #FEF3C7;
+    color: #D97706;
+  }
+
+  .warranty-box {
+    background: #F3E8FF;
+    color: #9333EA;
+  }
+
+  .trust-tag-row {
+    margin-bottom: 0.65rem;
+  }
+
+  .trust-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-xs);
+    letter-spacing: 0.04em;
+    display: inline-block;
+  }
+
+  .ss316-pill {
+    color: #0369A1;
+    background: #E0F2FE;
+  }
+
+  .load-pill {
+    color: #15803D;
+    background: #DCFCE7;
+  }
+
+  .harness-pill {
+    color: #B45309;
+    background: #FEF3C7;
+  }
+
+  .warranty-pill {
+    color: #7E22CE;
+    background: #F3E8FF;
+  }
+
+  .trust-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 0.55rem;
+    line-height: 1.25;
+  }
+
+  .trust-card-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+  }
+</style>

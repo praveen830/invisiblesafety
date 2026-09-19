@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { business } from '../data/business';
+import { getBreadcrumbSchema, getLocalBusinessSchema } from '../utils/seo';
+import { Phone, MessageCircle, Mail, MapPin, Clock, Calendar, CheckCircle2 } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Contact", url: "https://invisprotect.com/contact/" }
+]);
+const localSchema = getLocalBusinessSchema();
+---
+
+<BaseLayout
+  title="Contact Us & Book Free Laser Measurement | InvisProtect"
+  description="Contact InvisProtect for invisible safety grills and safety nets in Hyderabad, Vizag, and Vijayawada. Same-day site visits, laser measurement & instant WhatsApp quote."
+  canonicalUrl="/contact/"
+  schema={[localSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      <span class="badge-emerald" style="margin-bottom: 1.25rem;">
+        15-Minute Response Commitment
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Schedule Your Free <br />
+        <span style="color: #38BDF8;">Doorstep Laser Measurement</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+        Our technical specialist will visit your home with physical SS316 wire and track samples, measure your space accurately with laser meters, and give you an exact quote with zero obligation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Methods & Booking Form -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1000px; margin: 0 auto;">
+        <!-- Left: Direct Business Contact Cards -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div class="arch-card" style="border-color: rgba(37, 211, 102, 0.3); background: rgba(17, 24, 39, 0.9);">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(37, 211, 102, 0.15); display: flex; align-items: center; justify-content: center; color: #25D366;">
+                <MessageCircle size={22} />
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">WhatsApp Instant Chat</h3>
+                <span style="font-size: 0.75rem; color: #10B981; font-weight: 600;">Average reply: &lt; 5 minutes</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5; margin-bottom: 1rem;">
+              Fastest way to get answers, send balcony photos, or request same-day site visits.
+            </p>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hello%20InvisProtect%2C%20I%20would%20like%20to%20schedule%20a%20site%20measurement%20for%20my%20balcony.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="width: 100%; font-size: 0.88rem;"
+            >
+              <MessageCircle size={16} />
+              <span>Chat Directly on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="arch-card">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(2, 132, 199, 0.15); display: flex; align-items: center; justify-content: center; color: #38BDF8;">
+                <Phone size={22} />
+              </div>
+              <div>
+                <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">Direct Phone Line</h3>
+                <span style="font-size: 0.75rem; color: #94A3B8;">8:00 AM – 8:30 PM Every Day</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5; margin-bottom: 1rem;">
+              Speak directly with an installation engineer for technical consultation.
+            </p>
+            <a
+              href={`tel:${business.phoneRaw}`}
+              class="btn btn-outline"
+              style="width: 100%; font-size: 0.88rem;"
+            >
+              <Phone size={15} color="#38BDF8" />
+              <span>Call {business.phone}</span>
+            </a>
+          </div>
+
+          <!-- Operating Hours & Base Address -->
+          <div class="arch-card" style="font-size: 0.88rem; color: #94A3B8;">
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.75rem;">
+              <span style="flex-shrink: 0; margin-top: 2px;"><MapPin size={18} color="#38BDF8" /></span>
+              <div>
+                <strong style="color: #FFFFFF; display: block;">Central Operations Hub:</strong>
+                {business.address.street}, {business.address.locality}, {business.address.city}, {business.address.state} {business.address.pincode}
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <Clock size={16} color="#38BDF8" />
+              <span>{business.hours}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Client-side Form Generating WhatsApp Message -->
+        <div class="arch-card" style="background: rgba(17, 24, 39, 0.85); border-color: rgba(56, 189, 248, 0.25);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem;">
+            <Calendar size={20} color="#38BDF8" />
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #FFFFFF; margin: 0;">Book Site Visit</h3>
+          </div>
+
+          <form id="contact-booking-form" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label class="form-label" for="cust-name">Your Full Name *</label>
+              <input type="text" id="cust-name" required class="form-input" placeholder="e.g. Ramesh Kumar" />
+            </div>
+
+            <div>
+              <label class="form-label" for="cust-phone">Mobile Number *</label>
+              <input type="tel" id="cust-phone" required class="form-input" placeholder="e.g. 9876543210" />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-label" for="cust-city">City *</label>
+                <select id="cust-city" class="form-input">
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Visakhapatnam">Visakhapatnam</option>
+                  <option value="Vijayawada">Vijayawada</option>
+                  <option value="Other Area">Other Region</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="cust-service">Safety Solution *</label>
+                <select id="cust-service" class="form-input">
+                  <option value="SS316 Invisible Grills">Invisible Grills</option>
+                  <option value="Balcony Safety Nets">Balcony Safety Nets</option>
+                  <option value="Anti-Pigeon Netting">Pigeon Protection Nets</option>
+                  <option value="Child Safety Grills">Child Safety Barrier</option>
+                  <option value="Duct Area Nets">Duct & Shaft Nets</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="cust-address">Apartment / Society Name & Locality *</label>
+              <input type="text" id="cust-address" required class="form-input" placeholder="e.g. Flat 1402, My Home Bhooja, Hitec City" />
+            </div>
+
+            <div>
+              <label class="form-label" for="cust-timing">Preferred Inspection Date / Time</label>
+              <input type="text" id="cust-timing" class="form-input" placeholder="e.g. Tomorrow morning around 11:00 AM" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem; width: 100%;">
+              <span>Submit & Send to WhatsApp</span>
+            </button>
+
+            <p style="font-size: 0.75rem; color: #64748B; text-align: center; margin: 0; line-height: 1.4;">
+              Your information is transmitted directly into our official WhatsApp chat for instant verification. We respect your privacy.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-booking-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('cust-name') as HTMLInputElement)?.value;
+      const phone = (document.getElementById('cust-phone') as HTMLInputElement)?.value;
+      const city = (document.getElementById('cust-city') as HTMLSelectElement)?.value;
+      const service = (document.getElementById('cust-service') as HTMLSelectElement)?.value;
+      const address = (document.getElementById('cust-address') as HTMLInputElement)?.value;
+      const timing = (document.getElementById('cust-timing') as HTMLInputElement)?.value;
+
+      const messageLines = [
+        `Hello InvisProtect,`,
+        `I would like to book a free doorstep laser measurement:`,
+        ``,
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Service: ${service}`,
+        `City: ${city}`,
+        `Society / Address: ${address}`,
+        `Preferred Timing: ${timing || 'As soon as convenient'}`,
+        ``,
+        `Please confirm the technician's appointment.`
+      ];
+
+      const url = `https://wa.me/919989645222?text=${encodeURIComponent(messageLines.join('\n'))}`;
+      window.open(url, '_blank');
+    });
+  }
+</script>

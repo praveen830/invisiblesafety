@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EngineeringSection from '../components/EngineeringSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { ShieldCheck, Check, AlertCircle, Wrench, ArrowRight, MessageCircle } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Materials & SS316", url: "https://invisprotect.com/materials/" }
+]);
+---
+
+<BaseLayout
+  title="SS316 Marine Grade Steel Engineering & Wire Specs | InvisProtect"
+  description="Learn why virgin SS316 marine-grade stainless steel with 2.5% Molybdenum is non-negotiable for high-rise balconies. Wire breaking load, DuPont nylon casing, and aerospace tracks."
+  canonicalUrl="/materials/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 880px;">
+      <span class="badge-arch" style="margin-bottom: 1.25rem;">
+        Metallurgical Certification & Standards
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        The Science of SS316 <br />
+        <span style="color: #38BDF8;">Marine-Grade Architecture</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 740px; margin: 0 auto 2rem auto;">
+        Not all stainless steel is created equal. Cheap local fabricators often install interior-grade SS202 or SS304 that rusts in monsoons. Discover why InvisProtect strictly mandates virgin SS316 marine alloy.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20please%20share%20your%20SS316%20test%20reports%20and%20cable%20specifications.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Request Metallurgical Test Report</span>
+        </a>
+        <a href="/invisible-grill-cost/" class="btn btn-primary">
+          <span>Calculate Balcony Cost</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steel Grade Chemical Composition Comparison -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Chemical Composition</span>
+        <h2>Why Molybdenum Makes All The Difference</h2>
+        <p>Understanding the chemistry behind true coastal and high-humidity corrosion resistance.</p>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; background: rgba(17, 24, 39, 0.7); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <thead>
+            <tr style="background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Alloy Grade</th>
+              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Molybdenum (Mo) Content</th>
+              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Resistance to Salt & Acid Rain</th>
+              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Suitability for Balconies</th>
+            </tr>
+          </thead>
+          <tbody style="font-size: 0.92rem; color: #CBD5E1;">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(2, 132, 199, 0.08);">
+              <td style="padding: 1.2rem 1.5rem; font-weight: 700; color: #38BDF8;">
+                InvisProtect SS316 (Marine Grade)
+              </td>
+              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 700;">2.0% – 2.5% Mo</td>
+              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 600;">Immune to chloride & pitting corrosion</td>
+              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 600;">Optimal (10-Year Rust-Free Life)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #FFFFFF;">SS304 (Food / Indoor Grade)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">0% (No Molybdenum)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #F59E0B;">Develops brown tea-staining & pits in 1-2 years</td>
+              <td style="padding: 1.2rem 1.5rem; color: #F59E0B;">Indoor only; unsuitable for coastal balcony air</td>
+            </tr>
+            <tr>
+              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #FFFFFF;">SS202 (Low-Cost Commercial)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">0% (High Manganese substitute)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">Rapidly oxidizes and rusts in first monsoon</td>
+              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">Severe Hazard: Cable snapping risk</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Section -->
+  <EngineeringSection />
+
+  <!-- Track & Hardware Anatomy -->
+  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">Hardware Anatomy</span>
+        <h2>Precision Track & Anchorage System</h2>
+        <p>A cable is only as dependable as the anchoring tracks holding it under tension.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="arch-card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">6063-T6 Structural Aluminium</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+            Extruded from architectural grade aluminum-magnesium-silicon alloy, heat treated to T6 temper for high tensile yield strength and zero warping under continuous cable tension.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Hard Anodized Protective Finish</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+            25-micron electrochemical oxide coat prevents aluminum oxidation, matching the subtle architectural hues of modern balcony frames.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Concealed Locking Track Cover</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+            A snap-fit aesthetic cover completely conceals anchor screw heads and tension barrels, shielding internal components from rainwater and dust accumulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="installation" title="Installation & Materials FAQ" />
+</BaseLayout>

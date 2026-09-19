@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { pricing } from '../data/pricing';
+import { business } from '../data/business';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { Calculator, CheckCircle2, ShieldCheck, FileCheck, ArrowRight, MessageCircle, Phone } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Invisible Grill Cost", url: "https://invisprotect.com/invisible-grill-cost/" }
+]);
+---
+
+<BaseLayout
+  title="Invisible Grill Price Per Sq Ft & Cost Estimator | InvisProtect"
+  description="Transparent invisible grill pricing guide in India. SS316 marine cables starting at ₹190/sq.ft. Calculate opening cost instantly with our live calculator."
+  canonicalUrl="/invisible-grill-cost/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="text-align: center; max-width: 900px;">
+      <span class="badge-emerald" style="margin-bottom: 1.25rem;">
+        100% Transparent Unit Economics
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+        Invisible Grill Pricing & <br />
+        <span style="color: #0284C7;">Smart Cost Estimator</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.6; margin-bottom: 2rem; max-width: 740px; margin-left: auto; margin-right: auto;">
+        No hidden charges, no surprise upcharges on installation day. Understand our per-square-foot rates, wire gauge tiers, and calculate your exact balcony budget in seconds.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="#calculator" class="btn btn-primary">
+          <span>Go to Interactive Calculator</span>
+          <ArrowRight size={17} />
+        </a>
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20know%20the%20exact%20price%20per%20sq.ft%20for%20my%20balcony%20area.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Ask Rates on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Breakdown Table -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">Standard Price Sheet</span>
+        <h2>2026 Reference Price Guide</h2>
+        <p>All rates include virgin SS316 cables, aerospace aluminium tracks, anchor studs, and certified installation.</p>
+      </div>
+
+      <div style="max-width: 860px; margin: 0 auto; background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E2E8F0; box-shadow: var(--shadow-card);">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead>
+            <tr style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+              <th style="padding: 1.25rem 1.5rem; color: #475569; font-weight: 700; font-size: 0.92rem;">Specification / Solution</th>
+              <th style="padding: 1.25rem 1.5rem; color: #475569; font-weight: 700; font-size: 0.92rem;">Spacing Profile</th>
+              <th style="padding: 1.25rem 1.5rem; color: #0284C7; font-weight: 700; font-size: 0.92rem;">Rate Per Sq.Ft</th>
+            </tr>
+          </thead>
+          <tbody style="font-size: 0.92rem; color: #334155;">
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">2.0 mm SS316 Marine Invisible Grill</td>
+              <td style="padding: 1.1rem 1.5rem;">50 mm (2" Child/Pet Safe)</td>
+              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹190 / sq.ft</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #F1F5F9; background: #F0F9FF;">
+              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">
+                2.5 mm SS316 Heavy-Duty Marine Grill
+                <span style="font-size: 0.75rem; color: #0284C7; display: block; font-weight: 600;">Most recommended for high-rise towers</span>
+              </td>
+              <td style="padding: 1.1rem 1.5rem;">50 mm (2" Standard)</td>
+              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹225 / sq.ft</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">2.5 mm SS316 Panoramic Open Grill</td>
+              <td style="padding: 1.1rem 1.5rem;">75 mm (3" Wide View)</td>
+              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹207 / sq.ft</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">Anti-Pigeon Monofilament Netting</td>
+              <td style="padding: 1.1rem 1.5rem;">28 mm Diamond Aperture</td>
+              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹28 / sq.ft</td>
+            </tr>
+            <tr>
+              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">Child Fall-Safe Heavy HDPE Netting</td>
+              <td style="padding: 1.1rem 1.5rem;">30 mm High-Impact Mesh</td>
+              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹35 / sq.ft</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="max-width: 860px; margin: 1.5rem auto 0 auto; display: flex; justify-content: space-between; font-size: 0.82rem; color: #64748B; flex-wrap: wrap; gap: 0.5rem;">
+        <span>* Minimum billable opening area is 30 sq.ft</span>
+        <span>* Special 8-12% discounts apply for gated society bulk bookings (5+ flats)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">Self-Service Calculator</span>
+        <h2>Estimate Your Total Balcony Investment</h2>
+        <p>Adjust dimensions and view the live quote with optional pigeon net and cloth hanger add-ons.</p>
+      </div>
+
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <!-- Unit Economics Transparency Note -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 860px;">
+      <div class="arch-card">
+        <h3 style="font-size: 1.3rem; font-weight: 700; color: #0F172A; margin-bottom: 0.75rem;">
+          How We Calculate Fair Business Pricing
+        </h3>
+        <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+          In accordance with strict unit economics, our pricing incorporates:
+        </p>
+        <div style="background: #F1F5F9; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 10px; font-family: monospace; font-size: 0.88rem; color: #0369A1; line-height: 1.6; margin-bottom: 1rem;">
+          Material (SS316 / HDPE) + 12% Cutting Wastage + Stainless Hooks & Anchors + Certified Technician Labour + Work-at-Height Safety Harnesses + 10-Year Direct Guarantee = Final Transparent Price
+        </div>
+        <p style="font-size: 0.82rem; color: #64748B; margin: 0;">
+          {pricing.disclaimer}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection category="pricing" title="Pricing & Quotation Questions" />
+</BaseLayout>

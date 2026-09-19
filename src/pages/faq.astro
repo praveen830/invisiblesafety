@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { faqs } from '../data/faq';
+import { getFAQSchema, getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { HelpCircle, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+
+const faqSchema = getFAQSchema(faqs);
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "FAQ", url: "https://invisprotect.com/faq/" }
+]);
+---
+
+<BaseLayout
+  title="Frequently Asked Questions & Safety Guide | InvisProtect"
+  description="Comprehensive questions and answers regarding invisible grills, tensile ratings, child fall prevention, society approval, pricing per sq ft, and warranty."
+  canonicalUrl="/faq/"
+  schema={[faqSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      <span class="badge-arch" style="margin-bottom: 1.25rem;">
+        Knowledge Center
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Everything You Need To Know <br />
+        <span style="color: #38BDF8;">About Architectural Safety</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
+        Clear, factual answers to common questions about invisible grills, load resistance, building society permissions, fire evacuation safety, and maintenance.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20have%20a%20specific%20question%20about%20my%20balcony%20installation.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Ask An Engineer on WhatsApp</span>
+        </a>
+        <a href="/invisible-grill-cost/" class="btn btn-primary">
+          <span>Calculate Cost</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete FAQ list -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="max-width: 860px;">
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        {faqs.map((faq, idx) => (
+          <details class="faq-item" style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; transition: border-color 0.2s ease;">
+            <summary style="padding: 1.25rem 1.5rem; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: #FFFFFF; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; user-select: none;">
+              <span>{faq.question}</span>
+              <span class="faq-icon" style="color: #38BDF8; font-size: 1.2rem; transition: transform 0.2s ease; margin-left: 1rem;">+</span>
+            </summary>
+            <div style="padding: 0 1.5rem 1.25rem 1.5rem; font-size: 0.95rem; color: #94A3B8; line-height: 1.65; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 0.85rem;">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>
+
+<style>
+  details[open] {
+    border-color: rgba(56, 189, 248, 0.3) !important;
+    background: rgba(17, 24, 39, 0.9) !important;
+  }
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    color: #EF4444;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

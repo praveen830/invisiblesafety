@@ -1,0 +1,631 @@
+---
+import { ArrowRight, ExternalLink } from 'lucide-react';
+
+interface Props {
+  className?: string;
+  isStandalone?: boolean;
+}
+
+const { className = "", isStandalone = false } = Astro.props;
+
+const solutionCategories = [
+  {
+    id: "invisible-grills",
+    categoryLabel: "CATEGORY",
+    title: "INVISIBLE GRILLS",
+    titleLines: ["INVISIBLE", "GRILLS"],
+    badge: "Flagship SS316 · 400+ kgf",
+    pricing: "From ₹190/sq.ft",
+    warranty: "10-Year Direct Warranty",
+    bgImage: "/images/hero-balcony.webp",
+    mainLink: "/invisible-grills/",
+    subLinks: [
+      { name: "Balcony Invisible Grills", href: "/balcony-invisible-grills/" },
+      { name: "Staircase Invisible Grills", href: "/staircase-invisible-grills/" },
+      { name: "Windows Invisible Grills", href: "/window-invisible-grills/" },
+      { name: "Child Safety Invisible Grills", href: "/child-safety-invisible-grills/" },
+      { name: "Balcony Cost Estimator", href: "/invisible-grill-cost/" }
+    ]
+  },
+  {
+    id: "core-safety-nets",
+    categoryLabel: "CATEGORY",
+    title: "CORE SAFETY NETS",
+    titleLines: ["CORE SAFETY", "NETS"],
+    badge: "Apartment Standard",
+    pricing: "From ₹25/sq.ft",
+    warranty: "3-Year Certified Warranty",
+    bgImage: "/images/safety-net-balcony.webp",
+    mainLink: "/safety-nets/",
+    subLinks: [
+      { name: "Balcony Safety Nets", href: "/balcony-safety/" },
+      { name: "Children Safety Nets", href: "/child-safety-nets/" },
+      { name: "Staircase Safety Nets", href: "/staircase-safety-nets/" },
+      { name: "Building Fall Perimeter", href: "/building-safety-nets/" }
+    ]
+  },
+  {
+    id: "construction-industrial",
+    categoryLabel: "CATEGORY",
+    title: "CONSTRUCTION & INDUSTRIAL",
+    titleLines: ["CONSTRUCTION", "& INDUSTRIAL"],
+    badge: "Heavy-Duty Site Grade",
+    pricing: "From ₹22/sq.ft",
+    warranty: "3 to 5-Year Grade",
+    bgImage: "/images/construction-safety-net.jpg",
+    mainLink: "/duct-safety-nets/",
+    subLinks: [
+      { name: "Construction Safety", href: "/construction-safety-nets/" },
+      { name: "Industrial Debris Nets", href: "/industrial-safety-nets/" },
+      { name: "Terrace Top Nets", href: "/terrace-safety-nets/" },
+      { name: "Car Parking Safety Nets", href: "/car-parking-safety-nets/" }
+    ]
+  },
+  {
+    id: "animal-bird-protection",
+    categoryLabel: "CATEGORY",
+    title: "ANIMAL & BIRD PROTECTION",
+    titleLines: ["ANIMAL & BIRD", "PROTECTION"],
+    badge: "100% Humane Exclusion",
+    pricing: "From ₹28/sq.ft",
+    warranty: "UV-Resistant Shield",
+    bgImage: "/images/pigeon-net.webp",
+    mainLink: "/animals-birds-safety-nets/",
+    subLinks: [
+      { name: "Anti-Pigeon Nets", href: "/pigeon-nets/" },
+      { name: "Stainless Steel Bird Spikes", href: "/bird-spikes/" },
+      { name: "Monkey Safety Nets", href: "/monkey-safety-nets/" },
+      { name: "Mosquito Safety Nets", href: "/mosquito-safety-nets/" }
+    ]
+  },
+  {
+    id: "specialty-solutions",
+    categoryLabel: "CATEGORY",
+    title: "SPECIALTY SOLUTIONS",
+    titleLines: ["SPECIALTY", "SOLUTIONS"],
+    badge: "Recreation & Utilities",
+    pricing: "From ₹18/sq.ft",
+    warranty: "High-Impact Tested",
+    bgImage: "/images/swimming-pool-net.jpg",
+    mainLink: "/sports-nets/",
+    subLinks: [
+      { name: "Sports Practice Nets", href: "/sports-practice-nets/" },
+      { name: "Coconut Palm Nets", href: "/coconut-safety-nets/" },
+      { name: "Swimming Pool Nets", href: "/swimming-pool-nets/" },
+      { name: "Balcony Cloth Drying Hangers", href: "/cloth-drying-hangers/" }
+    ]
+  }
+];
+---
+
+<div class={`solutions-accordion-wrapper ${className} ${isStandalone ? 'standalone-mode' : ''}`} id="solutions-interactive-showcase">
+  <div class="accordion-container" role="region" aria-label="Architectural Safety Systems Interactive Explorer">
+    {solutionCategories.map((item, index) => (
+      <div
+        class={`accordion-panel ${index === 0 ? 'is-init-active' : ''}`}
+        data-index={index}
+        tabindex="0"
+      >
+        <!-- Background Image with Zoom on Hover -->
+        <div
+          class="panel-bg"
+          style={`background-image: url('${item.bgImage}');`}
+          aria-hidden="true"
+        ></div>
+
+        <!-- Vignette & Tint Overlays -->
+        <div class="panel-overlay"></div>
+        <div class="panel-hover-overlay"></div>
+
+        <!-- Content Container -->
+        <div class="panel-content">
+          <!-- Top Area: Category Eyebrow & Title -->
+          <div class="panel-header">
+            <span class="panel-eyebrow">{item.categoryLabel}</span>
+            <h3 class="panel-title">
+              {item.titleLines.map((line, i) => (
+                <span class="title-line">{line}{i < item.titleLines.length - 1 ? ' ' : ''}</span>
+              ))}
+            </h3>
+            <span class="panel-badge-mobile">{item.pricing}</span>
+          </div>
+
+          <!-- Middle Area: Expandable Sub-Categories (Visible on hover/active) -->
+          <div class="panel-sublinks-wrapper">
+            <div class="panel-specs-badge">
+              <span class="spec-rate">{item.pricing}</span>
+              <span class="spec-dot">•</span>
+              <span class="spec-warranty">{item.warranty}</span>
+            </div>
+
+            <ul class="panel-sublinks" aria-label={`${item.title} Sub-categories`}>
+              {item.subLinks.map((sub) => (
+                <li>
+                  <a href={sub.href} class="sublink-item">
+                    <span>{sub.name}</span>
+                    <ArrowRight size={13} className="sublink-arrow" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Bottom Area: View Category CTA -->
+          <div class="panel-footer">
+            <a href={item.mainLink} class="panel-cta-btn" aria-label={`Explore all ${item.title}`}>
+              <span class="cta-label">VIEW CATEGORY</span>
+              <ArrowRight size={14} className="cta-icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .solutions-accordion-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    user-select: none;
+  }
+
+  .solutions-accordion-wrapper.standalone-mode {
+    max-width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accordion-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 640px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0F172A;
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    position: relative;
+  }
+
+  .standalone-mode .accordion-container {
+    border-radius: 0;
+    height: calc(100vh - 80px);
+    min-height: 650px;
+    box-shadow: none;
+    border: none;
+  }
+
+  /* Individual Panel */
+  .accordion-panel {
+    position: relative;
+    flex: 1;
+    min-width: 130px;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    transition: flex 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accordion-panel:last-child {
+    border-right: none;
+  }
+
+  /* Background Image & Zoom Transition */
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.01);
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    z-index: 1;
+  }
+
+  /* Dark Vignette Overlay */
+  .panel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.84) 0%,
+      rgba(15, 23, 42, 0.38) 40%,
+      rgba(15, 23, 42, 0.9) 100%
+    );
+    z-index: 2;
+    transition: background 0.5s ease;
+  }
+
+  .panel-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Content Overlay */
+  .panel-content {
+    position: relative;
+    z-index: 4;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.2rem 1.6rem 1.8rem 1.6rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+  }
+
+  /* Header Section */
+  .panel-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .panel-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #F97316;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  }
+
+  .panel-title {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.38em;
+    row-gap: 0.1em;
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: clamp(0.95rem, 1.15vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: none;
+    transition: font-size 0.4s ease, color 0.3s ease;
+  }
+
+  .panel-title .title-line {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .panel-badge-mobile {
+    display: none;
+  }
+
+  /* Sublinks Wrapper (Appears when expanded) */
+  .panel-sublinks-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+    margin: auto 0;
+    max-width: 420px;
+  }
+
+  .panel-specs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(2, 132, 199, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 0.35rem 0.85rem;
+    border-radius: 30px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #BAE6FD;
+    width: fit-content;
+  }
+
+  .spec-rate {
+    color: #38BDF8;
+    font-weight: 800;
+  }
+
+  .spec-dot {
+    opacity: 0.5;
+  }
+
+  .panel-sublinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .sublink-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #F8FAFC;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding: 0.2rem 0;
+    transition: color 0.25s ease, transform 0.25s ease;
+    border-bottom: 1px solid transparent;
+    width: fit-content;
+  }
+
+  .sublink-item span {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .sublink-arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.25s ease;
+    color: #38BDF8;
+  }
+
+  .sublink-item:hover {
+    color: #FFFFFF;
+    transform: translateX(4px);
+  }
+
+  .sublink-item:hover span {
+    border-bottom-color: #38BDF8;
+    color: #38BDF8;
+  }
+
+  .sublink-item:hover .sublink-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Footer Area */
+  .panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1rem;
+  }
+
+  .panel-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #CBD5E1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .panel-cta-btn .cta-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .panel-cta-btn:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+
+  .panel-cta-btn:hover .cta-icon {
+    transform: translateX(4px);
+  }
+
+  /* =========================================================================
+     EXPANDED / HOVER / ACTIVE STATES (Desktop)
+     ========================================================================= */
+  @media (min-width: 900px) {
+    /* Hovered panel expands, others compress */
+    .accordion-container:hover .accordion-panel {
+      flex: 0.85;
+    }
+
+    .accordion-container:hover .accordion-panel:hover,
+    .accordion-panel.is-active {
+      flex: 3.2 !important;
+    }
+
+    .accordion-panel:hover .panel-bg,
+    .accordion-panel.is-active .panel-bg {
+      transform: scale(1.08);
+    }
+
+    .accordion-panel:hover .panel-hover-overlay,
+    .accordion-panel.is-active .panel-hover-overlay {
+      opacity: 0;
+    }
+
+    .accordion-panel:hover .panel-overlay,
+    .accordion-panel.is-active .panel-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.75) 0%,
+        rgba(15, 23, 42, 0.2) 40%,
+        rgba(15, 23, 42, 0.85) 100%
+      );
+    }
+
+    .accordion-panel:hover .panel-title,
+    .accordion-panel.is-active .panel-title {
+      color: #FFFFFF;
+      font-size: 1.65rem;
+    }
+
+    .accordion-panel:hover .panel-sublinks-wrapper,
+    .accordion-panel.is-active .panel-sublinks-wrapper {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .accordion-panel:hover .panel-cta-btn,
+    .accordion-panel.is-active .panel-cta-btn {
+      background: #0284C7;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4);
+    }
+
+    /* Initial state when page loads and mouse hasn't hovered anywhere yet */
+    .accordion-container:not(:hover) .accordion-panel.is-init-active {
+      flex: 3.2;
+    }
+    .accordion-container:not(:hover) .accordion-panel.is-init-active .panel-bg {
+      transform: scale(1.08);
+    }
+    .accordion-container:not(:hover) .accordion-panel.is-init-active .panel-hover-overlay {
+      opacity: 0;
+    }
+    .accordion-container:not(:hover) .accordion-panel.is-init-active .panel-title {
+      font-size: 1.65rem;
+    }
+    .accordion-container:not(:hover) .accordion-panel.is-init-active .panel-sublinks-wrapper {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  /* =========================================================================
+     TABLET & MOBILE RESPONSIVE
+     ========================================================================= */
+  @media (max-width: 899px) {
+    .accordion-container {
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+      border-radius: 16px;
+    }
+
+    .standalone-mode .accordion-container {
+      height: auto;
+      min-height: auto;
+    }
+
+    .accordion-panel {
+      width: 100%;
+      height: 110px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .accordion-panel:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-panel.is-active,
+    .accordion-panel:hover {
+      height: 380px;
+    }
+
+    .accordion-panel.is-active .panel-bg,
+    .accordion-panel:hover .panel-bg {
+      transform: scale(1.06);
+    }
+
+    .accordion-panel.is-active .panel-sublinks-wrapper,
+    .accordion-panel:hover .panel-sublinks-wrapper {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .panel-content {
+      padding: 1.5rem;
+    }
+
+    .panel-title {
+      font-size: 1.2rem;
+    }
+
+    .panel-badge-mobile {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #38BDF8;
+      margin-top: 0.2rem;
+    }
+  }
+</style>
+
+<script>
+  function setupAccordionInteractions() {
+    const container = document.getElementById('solutions-interactive-showcase');
+    if (!container) return;
+
+    const panels = container.querySelectorAll<HTMLElement>('.accordion-panel');
+
+    panels.forEach((panel) => {
+      // Click or tap to expand on touch / mobile devices
+      panel.addEventListener('click', (e) => {
+        // If clicking on an actual link inside the panel, allow native navigation
+        if ((e.target as HTMLElement).closest('a')) {
+          return;
+        }
+
+        panels.forEach((p) => {
+          if (p !== panel) {
+            p.classList.remove('is-active');
+            p.classList.remove('is-init-active');
+          }
+        });
+
+        panel.classList.toggle('is-active');
+      });
+
+      // Keyboard accessibility
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          panels.forEach((p) => {
+            if (p !== panel) {
+              p.classList.remove('is-active');
+              p.classList.remove('is-init-active');
+            }
+          });
+          panel.classList.toggle('is-active');
+        }
+      });
+    });
+
+    // Remove initial active once hovered anywhere
+    container.addEventListener('mouseenter', () => {
+      panels.forEach((p) => p.classList.remove('is-init-active'));
+    }, { once: true });
+  }
+
+  // Setup on page load and on Astro page transitions
+  document.addEventListener('DOMContentLoaded', setupAccordionInteractions);
+  document.addEventListener('astro:page-load', setupAccordionInteractions);
+</script>

@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { pricing } from '../data/pricing';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Check, Sparkles, MessageCircle, Phone, ArrowRight, Activity, Eye, Shield, Award, Layers } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Balcony Invisible Grills",
+  "Architectural SS316 marine-grade invisible safety grills for high-rise balconies. 400+ kg load tested, transparent panoramic views with 10-year direct warranty.",
+  190
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Invisible Grills", url: "https://invisprotect.com/invisible-grills/" },
+  { name: "Balcony Invisible Grills", url: "https://invisprotect.com/balcony-invisible-grills/" }
+]);
+---
+
+<BaseLayout
+  title="Balcony Invisible Grills | High-Rise SS316 Fall Safety | InvisProtect"
+  description="Engineered SS316 marine-grade invisible grills for high-rise balconies starting at ₹190/sq.ft. 400+ kgf load tested, RWA compliant with 10-year zero-rust warranty."
+  canonicalUrl="/balcony-invisible-grills/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <!-- Architectural Hero & Product Showcase -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <!-- Breadcrumb Bar -->
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/invisible-grills/" style="color: #64748B; text-decoration: none;">INVISIBLE GRILLS</a>
+        <span>/</span>
+        <span style="color: #C2410C;">BALCONY INVISIBLE GRILLS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <!-- Left: High-Res Masterpiece Portrait Photography (Matching User Ref) -->
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/hero-balcony.webp"
+              alt="Balcony Invisible Grills Installation"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <Sparkles size={13} /> MOST POPULAR SPECIFICATION
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                AEROSPACE ARCHITECTURAL RIGGING
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                The High-Rise Balcony Aperture
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                Japanese Virgin AISI 316 Stainless Steel • 400+ kgf Load Tested
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Technical Details, Description & Spec Table -->
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #0284C7; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> CERTIFIED FALL PERIMETER SYSTEM
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            BALCONY INVISIBLE GRILLS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #0284C7; margin-bottom: 1.5rem; line-height: 1.4;">
+            Architectural safety panels offering uncompromised 180° panoramic skyline vistas with 400+ kg fall protection.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Factory Price:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #0284C7;">₹190 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ sq.ft</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Official Guarantee:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">10-Year Direct Warranty</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            Traditional cast-iron and box grills destroy the open feeling of contemporary high-rise apartments, block daylight, and violate gated community RWA elevation regulations. InvisProtect Balcony Invisible Grills use precision-tensioned Japanese AISI 316 marine-grade stainless steel cables encased in transparent UV-stabilized nylon to deliver unbreakable 400+ kg tensile fall safety while remaining virtually invisible from 15 feet away.
+          </p>
+
+          <!-- Technical Specification Table (Matching User Screenshot) -->
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Wire Metallurgy</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Virgin Japanese AISI 316 Marine Grade (Rust Proof)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Wire Diameters</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">2.0 mm Standard & 2.5 mm Heavy Duty</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Breaking Load Force</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">400+ kgf (Tensile tested and certified)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Protective Sheathing</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">DuPont UV-stabilized transparent nylon membrane</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Frame & Tracks</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">6063-T6 Aerospace Extruded Aluminium Tracks</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Standard Spacing</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">50 mm (Child/pet proof) or 75 mm</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty Period</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">10 Years Direct Manufacturer Zero-Rust Warranty</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- CTAs -->
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem;">
+              <span>Calculate Balcony Cost</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20get%20a%20quote%20for%20Balcony%20Invisible%20Grills%20(Starting%20₹190/sq.ft).`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>Book Free Site Visit on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Cost Estimator -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
+        <span class="badge-arch">INSTANT ONLINE CALCULATION</span>
+        <h2>Calculate Your Balcony Invisible Grill Cost</h2>
+        <p>
+          Select your dimensions and wire thickness below for an instant itemized estimate including hardware, tracks, and professional installation.
+        </p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <!-- Related Invisible Grills Configurations (Matching Image 1) -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid #F1F5F9;">
+        <div>
+          <div style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem;">
+            COMPLEMENTARY CONFIGURATIONS
+          </div>
+          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.2rem); font-weight: 800; color: #0F172A; margin: 0;">
+            EXPLORE OTHER INVISIBLE GRILL SYSTEMS
+          </h2>
+        </div>
+        <a href="/invisible-grills/" style="color: #0284C7; font-size: 0.88rem; font-weight: 700; text-decoration: none;">
+          View Full Invisible Grills Catalog →
+        </a>
+      </div>
+
+      <div class="grid-3">
+        <!-- Staircase Invisible Grills -->
+        <a href="/staircase-invisible-grills/" class="arch-card" style="text-decoration: none; color: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
+            <img src="/images/staircase-invisible-grills.webp" alt="Staircase Invisible Grills" style="width: 100%; height: 100%; object-fit: cover;" />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              Interior Safety
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #FFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹195 / sq.ft
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">THE SPIRAL ASCENT</div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Staircase Invisible Grills</h3>
+            <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">Floor-to-ceiling vertical tension for duplex and villa stairwells.</p>
+            <span style="font-size: 0.82rem; font-weight: 700; color: #0284C7;">View Engineering Specs →</span>
+          </div>
+        </a>
+
+        <!-- Windows Invisible Grills -->
+        <a href="/window-invisible-grills/" class="arch-card" style="text-decoration: none; color: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
+            <img src="/images/window-invisible-grills.webp" alt="Windows Invisible Grills" style="width: 100%; height: 100%; object-fit: cover;" />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              Maximum Airflow
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #FFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹190 / sq.ft
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">THE FRAMELESS FENESTRATION</div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Windows Invisible Grills</h3>
+            <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">Clear aperture window protection without iron cages or obstructed views.</p>
+            <span style="font-size: 0.82rem; font-weight: 700; color: #0284C7;">View Engineering Specs →</span>
+          </div>
+        </a>
+
+        <!-- Child Safety Invisible Grills -->
+        <a href="/child-safety-invisible-grills/" class="arch-card" style="text-decoration: none; color: inherit; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
+            <img src="/images/child-safety.webp" alt="Child Safety Invisible Grills" style="width: 100%; height: 100%; object-fit: cover;" />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              Toddler Proof
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #FFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹210 / sq.ft
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">THE UNSEEN GUARDIAN</div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Child Safety Invisible Grills</h3>
+            <p style="font-size: 0.85rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">50mm anti-head entrapment spacing engineered to protect toddlers and pets.</p>
+            <span style="font-size: 0.82rem; font-weight: 700; color: #0284C7;">View Engineering Specs →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="invisible-grills" title="Balcony Invisible Grills FAQ" />
+</BaseLayout>

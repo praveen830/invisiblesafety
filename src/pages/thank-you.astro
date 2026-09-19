@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+import { CheckCircle2, MessageCircle, Phone, Home, Clock } from 'lucide-react';
+---
+
+<BaseLayout
+  title="Enquiry Received | InvisProtect"
+  description="Thank you for contacting InvisProtect. Our team will reach out within 15 minutes."
+  noindex={true}
+>
+  <section class="section-spacing" style="text-align: center; min-height: 65vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="max-width: 650px;">
+      <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 2px solid #10B981; display: flex; align-items: center; justify-content: center; color: #34D399; margin: 0 auto 1.5rem auto;">
+        <CheckCircle2 size={42} />
+      </div>
+
+      <span class="badge-emerald" style="margin-bottom: 1rem;">Enquiry Confirmed</span>
+
+      <h1 style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: #FFFFFF; line-height: 1.2; margin-bottom: 1rem;">
+        We've Received Your Request!
+      </h1>
+
+      <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+        Our technical coordinator will review your balcony details and contact you via phone/WhatsApp within <strong style="color: #38BDF8;">15 minutes</strong> to schedule your free laser measurement.
+      </p>
+
+      <!-- Next steps box -->
+      <div class="arch-card" style="text-align: left; margin-bottom: 2rem; background: rgba(17, 24, 39, 0.85);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">What happens next:</h3>
+        <ol style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: #CBD5E1; line-height: 1.5;">
+          <li><strong>Quick Confirmation Call:</strong> We clarify your balcony opening type and schedule a convenient visit time.</li>
+          <li><strong>Doorstep Laser Survey:</strong> Engineer inspects concrete slab, presents physical SS316 wire samples, and measures.</li>
+          <li><strong>Same-Day Transparent Quote:</strong> Fixed, itemized quotation provided on the spot.</li>
+        </ol>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20just%20submitted%20a%20quote%20request%20on%20your%20website%20and%20wanted%20to%20follow%20up.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Follow Up on WhatsApp</span>
+        </a>
+        <a href="/" class="btn btn-outline">
+          <Home size={16} />
+          <span>Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

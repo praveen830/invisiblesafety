@@ -1,0 +1,409 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { pricing } from '../data/pricing';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { Bird, ShieldCheck, Check, AlertTriangle, MessageCircle, Phone, ArrowRight, Activity, Eye, Dog, Heart, Sparkles } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Animals & Birds Safety Nets",
+  "Translucent 0.7mm nylon and UV-stabilized virgin polymer anti-pigeon and pet protection netting for balconies, windows, and duct shafts starting at ₹28/sq.ft.",
+  pricing.safetyNet.pigeonProtection
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Animals & Birds Safety Nets", url: "https://invisprotect.com/animals-birds-safety-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Animals & Birds Safety Nets | Anti-Pigeon & Pet Protection | InvisProtect India"
+  description="Certified Animals & Birds Safety Nets starting at ₹28/sq.ft. 0.7mm translucent bird exclusion mesh and high-tensile pet balcony netting. 100% humane, zero light blockage, UV-stabilized."
+  canonicalUrl="/animals-birds-safety-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <!-- Hero Section -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0FDF4 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #DCFCE7; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #15803D; margin-bottom: 1.25rem;">
+            <Bird size={14} /> 100% HUMANE BIRD & PET PROTECTION
+          </div>
+          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+            Animals & Birds <br />
+            <span style="color: #16A34A;">Safety Nets</span>
+          </h1>
+          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
+            Permanent, hygienic protection against relentless pigeon roosting, corrosive guano, and accidental pet falls. Our 0.7mm–1.0mm ultra-fine transparent monofilament bar birds ethically while keeping curious cats and dogs completely safe on high-rise balconies.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <a href="#estimator" class="btn btn-primary">
+              <span>Calculate Price (From ₹28/sq.ft)</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20need%20a%20quote%20for%20Animals%20%26%20Birds%20Safety%20Nets%20for%20my%20balcony.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+            >
+              <MessageCircle size={17} />
+              <span>WhatsApp Instant Quote</span>
+            </a>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Starting Rate:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #16A34A;">₹28 / sq.ft</span>
+            </div>
+            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Warranty:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #0284C7;">2 to 3 Years</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Showcase -->
+        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
+            <img
+              src="/images/pigeon-net.webp"
+              alt="Animals and Birds Safety Netting on Apartment Balcony"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              width="640"
+              height="360"
+              loading="eager"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #15803D; display: flex; align-items: center; gap: 0.4rem;">
+              <Eye size={14} /> 99% Transparent from 15ft
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <Dog size={14} /> Pet Fall Protection
+            </div>
+          </div>
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
+            <span>28mm Square Grid • UV-Treated Monofilament</span>
+            <span style="color: #16A34A; font-weight: 700;">✓ 100% Humane & Safe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog: Available Animal & Bird Protection Configurations -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid #F1F5F9;">
+        <div>
+          <div style="font-size: 0.76rem; font-weight: 800; color: #15803D; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem;">
+            CURATED CATALOG
+          </div>
+          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; color: #0F172A; letter-spacing: -0.02em; margin: 0;">
+            AVAILABLE ANIMAL & BIRD PROTECTION CONFIGURATIONS
+          </h2>
+        </div>
+        <div style="font-size: 0.88rem; color: #64748B;">
+          Select a configuration for detailed engineering specifications
+        </div>
+      </div>
+
+      <!-- 4-Card Portrait Grid -->
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <!-- 1. Anti-Pigeon Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/pigeon-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/pigeon-net.webp"
+              alt="Anti-Pigeon Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #16A34A;">
+              100% Invisible
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹28 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE TRANSLUCENT EXCLUSION
+              </div>
+              <a href="/pigeon-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  ANTI-PIGEON NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                0.7mm translucent monofilament mesh preventing pigeon infestation and acidic guano without blocking daylight.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ 0.7mm Monofilament (28mm Mesh)
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/pigeon-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Anti-Pigeon%20Nets%20(Starting%20₹28/sq.ft).%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Stainless Steel Bird Spikes -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/bird-spikes/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/pigeon-net.webp"
+              alt="Stainless Steel Bird Spikes"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              AC & Ledge Safe
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹120 / running ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE LEDGE DEFENSE
+              </div>
+              <a href="/bird-spikes/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  STAINLESS STEEL BIRD SPIKES
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                Discreet blunt-tip stainless steel spikes preventing pigeons from perching on AC units and narrow window sills.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ SS304 Anti-Perch Blunt Tips
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/bird-spikes/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Stainless%20Steel%20Bird%20Spikes.%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Monkey Safety Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/monkey-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/safety-net-balcony.webp"
+              alt="Monkey Safety Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #16A34A;">
+              Tear Resistant
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹30 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE PRIMATE BARRIER
+              </div>
+              <a href="/monkey-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  MONKEY SAFETY NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                High-gauge, tear-resistant safety nets designed to prevent monkey intrusions into balconies and open courtyards.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ 2.5mm Heavy-Gauge Knotted Polymer
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/monkey-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Monkey%20Safety%20Nets%20(Starting%20₹30/sq.ft).%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Mosquito Safety Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/mosquito-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/window-invisible-grills.webp"
+              alt="Mosquito Safety Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              Insect Barrier
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              From ₹45 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE VECTOR EXCLUSION
+              </div>
+              <a href="/mosquito-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  MOSQUITO SAFETY NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                Precision-woven fiberglass and stainless steel window mesh blocking mosquitoes and disease vectors with maximum airflow.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ Micro-Mesh Precision Weave
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/mosquito-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Mosquito%20Safety%20Nets.%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 Core Categories: Birds Defense & Pet Protection -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">DUAL SPECIALIZATION</span>
+        <h2>Complete Protection for Birds & Household Pets</h2>
+        <p>
+          Configured to eradicate bird roosting pathogens while protecting active cats and dogs from catastrophic high-rise falls.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <!-- Category 1: Bird & Pigeon Defense -->
+        <div class="arch-card" style="padding: 2rem; background: #F8FAFC; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #DCFCE7; color: #15803D; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <Bird size={24} />
+          </div>
+          <span style="font-size: 0.72rem; font-weight: 800; color: #15803D; text-transform: uppercase; letter-spacing: 0.1em;">CATEGORY 01</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin: 0.25rem 0 0.75rem 0;">
+            Anti-Pigeon & Bird Exclusion Nets
+          </h3>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 1.5rem;">
+            Stops pigeons, mynas, and crows from nesting on balconies, AC compressor brackets, and window sills. Prevents lung-damaging fungal spores (Histoplasmosis) and acidic guano corrosion.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.86rem; color: #334155; margin-bottom: 1.5rem; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#16A34A" /> 0.7mm Translucent UV-treated nylon monofilament</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#16A34A" /> 28mm square diamond mesh (prevents head entry)</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#16A34A" /> Zero shadow, 100% natural breeze and daylight</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#16A34A" /> Stainless steel anchor hooks & high-torque wire border</li>
+          </ul>
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0F172A;">
+            Starting from ₹28 <span style="font-size: 0.82rem; color: #64748B; font-weight: 500;">/ sq.ft</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Cat & Dog Pet Safety Nets -->
+        <div class="arch-card" style="padding: 2rem; background: #F8FAFC; border: 1px solid #E2E8F0;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #E0F2FE; color: #0284C7; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <Dog size={24} />
+          </div>
+          <span style="font-size: 0.72rem; font-weight: 800; color: #0284C7; text-transform: uppercase; letter-spacing: 0.1em;">CATEGORY 02</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin: 0.25rem 0 0.75rem 0;">
+            Pet & Animal Balcony Safety Nets
+          </h3>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 1.5rem;">
+            Playful cats and energetic dogs frequently chase birds or insects off high-rise balcony ledges. Our reinforced high-density polyethylene netting creates an impenetrable safety boundary.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.86rem; color: #334155; margin-bottom: 1.5rem; padding: 0;">
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#0284C7" /> 1.5mm to 2.5mm heavy-gauge knotless virgin HDPE</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#0284C7" /> 150 kg/m² instantaneous impact resistance</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#0284C7" /> Non-toxic, chew-resistant, claw-proof weave</li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;"><Check size={16} color="#0284C7" /> Covers open balcony railings, french windows & voids</li>
+          </ul>
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0F172A;">
+            Starting from ₹30 <span style="font-size: 0.82rem; color: #64748B; font-weight: 500;">/ sq.ft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Area & Cost Calculator -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">TRANSPARENT PRICING</span>
+        <h2>Calculate Animals & Birds Netting Price</h2>
+        <p>Configure your balcony dimensions for an immediate realistic estimate.</p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <FAQSection category="safety-nets" title="Animals & Birds Safety Nets FAQ" />
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisualizerIsland from '../components/react/VisualizerIsland';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { Sparkles, Camera, Eye, ShieldCheck, ArrowRight } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Visualizer", url: "https://invisprotect.com/visualizer/" }
+]);
+---
+
+<BaseLayout
+  title="See It On Your Home | Balcony Safety Visualizer | InvisProtect"
+  description="Visualize invisible grills and safety nets directly on your balcony or window. Upload a photo or select standard high-rise presets to see your unobstructed skyline view."
+  canonicalUrl="/visualizer/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.22) 0%, rgba(9, 13, 22, 1) 80%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px; margin-bottom: 2.5rem;">
+      <span class="badge-arch" style="margin-bottom: 1.25rem;">
+        <Sparkles size={14} /> AI-Assisted Architectural Fit
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Visualize Safety Grills <br />
+        <span style="color: #38BDF8;">On Your Actual Balcony</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+        Worried that safety grills might spoil your panoramic balcony? Upload a photo or select one of our high-rise architectural presets to preview the clean, airy transformation before booking a site visit.
+      </p>
+    </div>
+
+    <div class="container" style="max-width: 1000px;">
+      <VisualizerIsland client:load />
+    </div>
+  </section>
+
+  <!-- How It Works & Tips -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Photo Guidelines</span>
+        <h2>How To Take The Best Balcony Photo</h2>
+        <p>Follow these quick tips for the most realistic visualization of your space.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="arch-card">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #38BDF8; margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.4rem;">Capture Full Opening</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5;">
+            Step back into your living room so the ceiling slab, side walls, and bottom railing are all visible in the frame.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #38BDF8; margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.4rem;">Good Daytime Lighting</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5;">
+            Take the photograph during daylight hours without direct camera glare so the background skyline stands out sharply.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #38BDF8; margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.4rem;">Free Doorstep Check</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5;">
+            Visual previews are for design reference. Our engineer will visit your home with actual physical cable samples for confirmation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="invisible-grill" title="Visualizer & Installation Questions" />
+</BaseLayout>

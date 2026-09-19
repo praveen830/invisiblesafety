@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Building, Shield } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Building & High-Rise Perimeter Safety Nets",
+  "High-rise facade perimeter netting protecting pedestrians and vehicles from accidental object drops starting at ₹25/sq.ft.",
+  25
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Core Safety Nets", url: "https://invisprotect.com/safety-nets/" },
+  { name: "Building Safety Nets", url: "https://invisprotect.com/building-safety-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Building Perimeter Safety Nets | High-Rise Edge Fall Defense | InvisProtect"
+  description="Certified building perimeter and facade safety netting protecting society courtyards and open elevation drops from ₹25/sq.ft. High-impact tested polymer."
+  canonicalUrl="/building-safety-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/safety-nets/" style="color: #64748B; text-decoration: none;">CORE SAFETY NETS</a>
+        <span>/</span>
+        <span style="color: #C2410C;">BUILDING SAFETY NETS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/building-safety-net.jpg"
+              alt="Building Perimeter Safety Net Installation"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #15803D; display: flex; align-items: center; gap: 0.4rem;">
+              <Building size={13} /> GATED SOCIETY STANDARD
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #4ADE80; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                TOWER PERIMETER ELEVATION
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                Building Fall Perimeter
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                UV Resistant Garware Polymers • High-Impact Drop Catch
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #15803D; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> CERTIFIED FALL & OBJECT DROP DEFENSE
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            BUILDING SAFETY NETS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #15803D; margin-bottom: 1.5rem; line-height: 1.4;">
+            Certified fall perimeter netting for tall buildings, open ducts, shafts, and perimeter facades.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Starting Rate:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #15803D;">₹25 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ sq.ft</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">3 to 5 Years</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            High-rise gated societies require robust building-wide perimeter netting across shafts, elevated duct openings, open-air podiums, and exterior balconies to protect residents from catastrophic fall hazards and falling items. InvisProtect Building Safety Nets are engineered with heat-set virgin polymers that withstand harsh monsoon and tropical UV exposure without sagging.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Polymer Standard</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Garware Virgin High-Density Polyethylene (HDPE)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Breaking Force</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">250+ kg Breaking Load Tested</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Weather Resistance</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">100% Heat-Set UV Stabilizers (Zero brittle degradation)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Anchoring</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Stainless Steel Anchor Hooks with Wire Rope Bordering</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Direct Society Replacement Warranty</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #15803D; border-color: #15803D;">
+              <span>Calculate Building Net Price</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20represent%20a%20gated%20society%20and%20need%20Building%20Safety%20Nets.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>Book Society Survey on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Building Safety Nets FAQ" />
+</BaseLayout>

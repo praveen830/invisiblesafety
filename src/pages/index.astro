@@ -1,0 +1,1283 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import VisualizerIsland from '../components/react/VisualizerIsland';
+import SolutionsAccordion from '../components/SolutionsAccordion.astro';
+import { business } from '../data/business';
+import { projects } from '../data/projects';
+import { getLocalBusinessSchema, getFAQSchema } from '../utils/seo';
+import {
+  ShieldCheck,
+  Sparkles,
+  Phone,
+  ArrowRight,
+  CheckCircle,
+  Eye,
+  Activity,
+  Layers,
+  Award,
+  FileText,
+  Check,
+  MapPin,
+  Building2,
+  Wrench,
+  Search,
+  Baby,
+  Dog,
+  Bird,
+  Target,
+  Shield,
+  HardHat,
+  ChevronRight,
+  MessageCircle,
+  Star,
+  Clock,
+  ExternalLink
+} from 'lucide-react';
+
+const localBusinessSchema = getLocalBusinessSchema();
+const faqSchema = getFAQSchema([
+  {
+    question: "What are invisible grills and how are they engineered?",
+    answer: "Invisible grills are high-tensile AISI 316 marine-grade stainless steel cables tested to withstand over 400 kgf tensile force, securing balconies, windows, and staircases while preserving 98% of natural skyline views."
+  },
+  {
+    question: "Do apartment societies in Telangana and Andhra Pradesh approve invisible grills?",
+    answer: "Yes, gated societies and RWAs approve InvisProtect systems because the cables are nearly invisible from street level, preserving building facade elevations without exterior iron cage protrusion."
+  }
+]);
+
+// 05 Architectural Safety Systems (The 5 Main Parts)
+const mainSystems = [
+  {
+    id: "system-invisible-grills",
+    title: "SS316 Invisible Grills",
+    eyebrow: "FLAGSHIP ARCHITECTURAL APERTURE · 70% PRIMARY FOCUS",
+    tagline: "High-tensile Japanese AISI 316 marine-grade stainless steel cables tested to 400+ kgf tensile capacity. Engineered for modern high-rises to preserve 98% unobstructed panoramic skyline views with fire-escape safety.",
+    image: "/images/hero-balcony.webp",
+    badge: "Primary Specialty (70%)",
+    badgeColor: "#0284C7",
+    startingRate: "₹190 / sq.ft",
+    warranty: "10-Year Direct Manufacturer Warranty",
+    route: "/invisible-grills/",
+    subCategories: [
+      "Balcony Invisible Grills",
+      "Staircase Invisible Grills",
+      "Windows Invisible Grills",
+      "Child Safety Invisible Grills"
+    ],
+    ctaText: "Explore Invisible Grills & 4 Sub-Categories"
+  },
+  {
+    id: "system-core-safety-nets",
+    title: "Core Safety Nets",
+    eyebrow: "SYSTEM 02 · RESIDENTIAL FALL PROTECTION",
+    tagline: "Certified high-density virgin Garware polymer netting engineered for whole-balcony anti-fall security, open multi-story stairwell voids, and tall building perimeter elevations.",
+    image: "/images/safety-net-balcony.webp",
+    badge: "Apartment Standard",
+    badgeColor: "#15803D",
+    startingRate: "₹25 / sq.ft",
+    warranty: "3-Year Certified Anti-Sag Warranty",
+    route: "/safety-nets/",
+    subCategories: [
+      "Balcony Safety Nets",
+      "Children Safety Nets",
+      "Staircase Safety Nets",
+      "Building Safety Nets"
+    ],
+    ctaText: "Explore Core Safety Nets & 4 Sub-Categories"
+  },
+  {
+    id: "system-animal-bird",
+    title: "Animal & Bird Protection",
+    eyebrow: "SYSTEM 03 · 100% HUMANE HYGIENE & PET SHIELD",
+    tagline: "0.7mm translucent monofilament netting completely barring pigeons, mites, and acidic guano without blocking daylight, alongside reinforced anti-fall meshes for curious cats and dogs.",
+    image: "/images/pigeon-net.webp",
+    badge: "Humane & Invisible",
+    badgeColor: "#16A34A",
+    startingRate: "₹28 / sq.ft",
+    warranty: "2 to 3-Year UV Protection",
+    route: "/animals-birds-safety-nets/",
+    subCategories: [
+      "Anti-Pigeon Nets",
+      "Bird Exclusion Nets",
+      "Balcony Bird Nets",
+      "Pet Protection Nets"
+    ],
+    ctaText: "Explore Animal & Bird Protection & 4 Sub-Categories"
+  },
+  {
+    id: "system-construction-industrial",
+    title: "Construction & Industrial Nets",
+    eyebrow: "SYSTEM 04 · HEAVY DEBRIS & WORK SITE RIGGING",
+    tagline: "Industrial-grade heavy-ply containment netting for high-rise scaffolding, multi-story utility air shafts, warehouse storage racks, open sky terrace decks, and vehicle parking lots.",
+    image: "/images/construction-safety-net.jpg",
+    badge: "Heavy-Duty Site Grade",
+    badgeColor: "#D97706",
+    startingRate: "₹22 / sq.ft",
+    warranty: "3 to 5-Year Industrial Grade",
+    route: "/duct-safety-nets/",
+    subCategories: [
+      "Construction Safety",
+      "Industrial Safety Nets",
+      "Terrace Top Nets",
+      "Car Parking Safety Nets"
+    ],
+    ctaText: "Explore Construction & Industrial & 4 Sub-Categories"
+  },
+  {
+    id: "system-specialty-solutions",
+    title: "Specialty Solutions",
+    eyebrow: "SYSTEM 05 · RECREATIONAL & DOMESTIC UTILITIES",
+    tagline: "High-velocity ball containment enclosures for rooftop cricket turfs, heavy-ply coconut palm canopy nets, child-safe swimming pool covers, and ceiling-mounted balcony cloth drying pulley systems.",
+    image: "/images/sports-nets.webp",
+    badge: "Recreational & Utility",
+    badgeColor: "#0284C7",
+    startingRate: "₹18 / sq.ft",
+    warranty: "3 to 5-Year High Impact",
+    route: "/sports-nets/",
+    subCategories: [
+      "Sports Practice Nets",
+      "Coconut Safety Nets",
+      "Swimming Pool Nets",
+      "Balcony Cloth Drying Hangers"
+    ],
+    ctaText: "Explore Specialty Solutions & 4 Sub-Categories"
+  }
+];
+---
+
+<BaseLayout
+  title="InvisProtect | Architectural Safety Without Compromising the View"
+  description="India's leading architectural safety company. Premium SS316 marine invisible grills (400+ kg load) and certified safety nets in Hyderabad, Vizag, and Vijayawada. 10-year direct warranty."
+  canonicalUrl="/"
+  schema={[localBusinessSchema, faqSchema]}
+>
+  <!-- 01. HEADER: Rendered via BaseLayout & Header.astro -->
+
+  <!-- 02. HERO: Full-Width Architectural Background -->
+  <Hero />
+
+  <!-- 03. BRAND INTRODUCTION: Philosophy & Purpose -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="max-width: 920px; margin: 0 auto; text-align: center;">
+        <div style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.75rem;">
+          CORE BUSINESS POSITIONING
+        </div>
+        <h2 style="font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 900; color: #0F172A; letter-spacing: -0.025em; line-height: 1.18; margin-bottom: 1.25rem;">
+          Architectural Safety Without Compromising the View.
+        </h2>
+        <p style="font-size: 1.12rem; color: #475569; line-height: 1.7; margin-bottom: 2.5rem;">
+          InvisProtect engineers sophisticated fall-prevention and perimeter safety systems for modern residential high-rises, commercial developments, and selected institutions across Telangana and Andhra Pradesh. We design protection around your space—blending certified metallurgical strength with total visual transparency.
+        </p>
+
+        <!-- Brand Philosophy Pillars (Architectural Design with Elevated UI Style) -->
+        <div class="pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.15rem; text-align: center;">
+          <!-- Pillar 1 -->
+          <div class="pillar-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 3px solid #0284C7; padding: 1.5rem 1rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05); position: relative;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F0F9FF; border: 1px solid #BAE6FD; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem auto; color: #0284C7;">
+              <ShieldCheck size={22} />
+            </div>
+            <div style="display: inline-block; font-size: 0.68rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.55rem; background: #F0F9FF; border-radius: 20px; margin-bottom: 0.35rem;">
+              PILLAR 01
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 900; color: #0F172A; letter-spacing: -0.01em;">SAFETY</div>
+            <div style="font-size: 0.8rem; color: #64748B; margin-top: 0.35rem; font-weight: 500;">400+ kgf load tested</div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 3px solid #0284C7; padding: 1.5rem 1rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05); position: relative;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F0F9FF; border: 1px solid #BAE6FD; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem auto; color: #0284C7;">
+              <Eye size={22} />
+            </div>
+            <div style="display: inline-block; font-size: 0.68rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.55rem; background: #F0F9FF; border-radius: 20px; margin-bottom: 0.35rem;">
+              PILLAR 02
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 900; color: #0F172A; letter-spacing: -0.01em;">ARCHITECTURE</div>
+            <div style="font-size: 0.8rem; color: #64748B; margin-top: 0.35rem; font-weight: 500;">Preserves facade elegance</div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 3px solid #0284C7; padding: 1.5rem 1rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05); position: relative;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F0F9FF; border: 1px solid #BAE6FD; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem auto; color: #0284C7;">
+              <Award size={22} />
+            </div>
+            <div style="display: inline-block; font-size: 0.68rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.55rem; background: #F0F9FF; border-radius: 20px; margin-bottom: 0.35rem;">
+              PILLAR 03
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 900; color: #0F172A; letter-spacing: -0.01em;">QUALITY</div>
+            <div style="font-size: 0.8rem; color: #64748B; margin-top: 0.35rem; font-weight: 500;">Virgin Japanese SS316</div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="pillar-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 3px solid #0284C7; padding: 1.5rem 1rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05); position: relative;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F0F9FF; border: 1px solid #BAE6FD; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem auto; color: #0284C7;">
+              <Activity size={22} />
+            </div>
+            <div style="display: inline-block; font-size: 0.68rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.55rem; background: #F0F9FF; border-radius: 20px; margin-bottom: 0.35rem;">
+              PILLAR 04
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 900; color: #0F172A; letter-spacing: -0.01em;">FUNCTION</div>
+            <div style="font-size: 0.8rem; color: #64748B; margin-top: 0.35rem; font-weight: 500;">Fire-evacuation safe</div>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="pillar-card" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 3px solid #0284C7; padding: 1.5rem 1rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.05); position: relative;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F0F9FF; border: 1px solid #BAE6FD; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem auto; color: #0284C7;">
+              <Clock size={22} />
+            </div>
+            <div style="display: inline-block; font-size: 0.68rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.15rem 0.55rem; background: #F0F9FF; border-radius: 20px; margin-bottom: 0.35rem;">
+              PILLAR 05
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 900; color: #0F172A; letter-spacing: -0.01em;">SERVICE</div>
+            <div style="font-size: 0.8rem; color: #64748B; margin-top: 0.35rem; font-weight: 500;">10-Year direct support</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. OUR 5 ARCHITECTURAL SAFETY SYSTEMS (The Main Parts Dashboard) -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="architectural-systems">
+    <div class="container">
+      <div class="section-header" style="max-width: 820px; margin: 0 auto 3rem auto; text-align: center;">
+        <span class="badge-arch">PRIMARY SYSTEMS CATALOG</span>
+        <h2 style="font-size: clamp(2rem, 3.8vw, 2.75rem); font-weight: 900; color: #0F172A; letter-spacing: -0.025em; margin-bottom: 0.75rem;">
+          Our 5 Architectural Safety Systems
+        </h2>
+        <p style="font-size: 1.08rem; color: #475569; line-height: 1.65; margin: 0;">
+          Select any core safety system below to navigate directly to its dedicated showcase and explore all specialized sub-categories, technical specifications, and instant quotes.
+        </p>
+      </div>
+
+      <!-- SYSTEM 01: Flagship SS316 Invisible Grills (70% Emphasis) -->
+      <div
+        class="arch-card interactive-system-card"
+        id="system-card-1"
+        data-href="/invisible-grills/"
+        data-default-img="/images/hero-balcony.webp"
+        data-default-tag="Virgin Japanese SS316 Core Wire"
+        data-default-href="/invisible-grills/"
+        data-default-cta="Explore Invisible Grills & 4 Sub-Categories"
+        style="background: #FFFFFF; border: 2px solid #0284C7; border-radius: 20px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 16px 40px rgba(2, 132, 199, 0.09); position: relative; cursor: pointer;"
+      >
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: stretch;">
+          <!-- Left: Information & Sub-Categories -->
+          <div style="padding: 2.75rem 2.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
+                <span style="font-size: 0.72rem; font-weight: 800; color: #0284C7; letter-spacing: 0.12em; text-transform: uppercase;">
+                  SYSTEM 01 · PRIMARY FLAGSHIP SPECIALTY (70%)
+                </span>
+                <span style="background: #F0F9FF; border: 1px solid #BAE6FD; color: #0284C7; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 20px;">
+                  10-Year Direct Warranty
+                </span>
+              </div>
+
+              <h3 style="font-size: clamp(1.85rem, 3vw, 2.4rem); font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 0.85rem; line-height: 1.2;">
+                <a href="/invisible-grills/" class="card-title-link" style="text-decoration: none; color: inherit; transition: color 0.25s ease;">
+                  SS316 Invisible Grills
+                </a>
+              </h3>
+
+              <p style="font-size: 1rem; color: #475569; line-height: 1.65; margin-bottom: 1.5rem;">
+                Precision-tensioned Japanese AISI 316 marine-grade stainless steel cables enclosed in transparent DuPont UV-stabilized nylon. Withstands 400+ kgf tensile force while preserving 98% unobstructed panoramic views.
+              </p>
+
+              <!-- Included Sub-Categories Section with Mouseover Interactive Preview & Direct Routing -->
+              <div class="subcategories-interactive-box" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.15rem 1.25rem; margin-bottom: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+                  <span style="font-size: 0.72rem; font-weight: 800; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">
+                    EXPLORE 4 SUB-CATEGORIES (MOUSE OVER TO PREVIEW):
+                  </span>
+                  <span class="hover-helper-hint" style="font-size: 0.7rem; color: #0284C7; font-weight: 600;">Hover & Click to Open</span>
+                </div>
+                <div class="subcat-chips-row" style="display: flex; flex-wrap: wrap; gap: 0.55rem;">
+                  <a
+                    href="/balcony-invisible-grills/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/hero-balcony.webp"
+                    data-sub-title="Balcony Invisible Grills"
+                    data-sub-tag="400+ kgf Load-Tested Balcony Rigging"
+                    data-sub-href="/balcony-invisible-grills/"
+                  >
+                    <span>Balcony Invisible Grills</span>
+                    <ArrowRight size={12} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/staircase-invisible-grills/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/staircase-invisible-grills.webp"
+                    data-sub-title="Staircase Invisible Grills"
+                    data-sub-tag="Duplex Vertical Tension Wire Shield"
+                    data-sub-href="/staircase-invisible-grills/"
+                  >
+                    <span>Staircase Invisible Grills</span>
+                    <ArrowRight size={12} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/window-invisible-grills/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/window-invisible-grills.webp"
+                    data-sub-title="Windows Invisible Grills"
+                    data-sub-tag="Zero Iron Cage Clutter • Clear Window Sight"
+                    data-sub-href="/window-invisible-grills/"
+                  >
+                    <span>Windows Invisible Grills</span>
+                    <ArrowRight size={12} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/child-safety-invisible-grills/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/child-safety.webp"
+                    data-sub-title="Child Safety Invisible Grills"
+                    data-sub-tag="50mm Anti-Entrapment Spacing with Zero-Climb"
+                    data-sub-href="/child-safety-invisible-grills/"
+                  >
+                    <span>Child Safety Invisible Grills</span>
+                    <ArrowRight size={12} className="chip-arr" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                  <span style="font-size: 0.75rem; color: #64748B; display: block; text-transform: uppercase; font-weight: 600;">Starting Rate:</span>
+                  <span style="font-size: 1.6rem; font-weight: 900; color: #0284C7;">₹190 <span style="font-size: 0.88rem; color: #64748B; font-weight: 500;">/ sq.ft</span></span>
+                </div>
+                <div style="font-size: 0.82rem; color: #16A34A; font-weight: 700;">
+                  ✓ Tested 400+ kg Breaking Load
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
+                <a href="/invisible-grills/" class="btn btn-primary card-action-btn" style="padding: 0.85rem 1.6rem;">
+                  <span class="btn-text">Explore Invisible Grills & 4 Sub-Categories</span>
+                  <ArrowRight size={16} />
+                </a>
+                <a href="/invisible-grill-cost/" class="btn btn-outline" style="padding: 0.85rem 1.4rem;">
+                  <span>Instant Cost Estimator</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Masterpiece Showcase (Dynamic on Mouse Over) -->
+          <a
+            href="/invisible-grills/"
+            class="system-card-image-link"
+            style="position: relative; min-height: 340px; background: #0F172A; overflow: hidden; display: block; text-decoration: none;"
+            aria-label="View Invisible Grills Showcase"
+          >
+            <img
+              src="/images/hero-balcony.webp"
+              alt="SS316 Marine Invisible Grills"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0, 0, 1), opacity 0.35s ease;"
+              class="hover-zoom-img card-showcase-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.85) 100%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                AEROSPACE ARCHITECTURAL RIGGING
+              </div>
+              <div class="card-showcase-title" style="font-size: 1.25rem; font-weight: 800; transition: color 0.3s ease;">
+                Virgin Japanese SS316 Core Wire
+              </div>
+              <div class="card-showcase-desc" style="font-size: 0.82rem; color: #CBD5E1; margin-top: 0.25rem;">
+                2.0mm & 2.5mm Tensile Strands • DuPont UV Protective Membrane
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2X2 GRID: SYSTEMS 02, 03, 04, 05 -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        
+        <!-- SYSTEM 02: Core Safety Nets -->
+        <div
+          class="arch-card interactive-system-card"
+          id="system-card-2"
+          data-href="/safety-nets/"
+          data-default-img="/images/safety-net-balcony.webp"
+          data-default-tag="Apartment Standard Fall Protection"
+          data-default-href="/safety-nets/"
+          data-default-cta="Explore Core Safety Nets & Sub-Categories"
+          style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.04); cursor: pointer;"
+        >
+          <a href="/safety-nets/" class="system-card-image-link" style="position: relative; height: 210px; overflow: hidden; background: #F1F5F9; display: block;">
+            <img
+              src="/images/safety-net-balcony.webp"
+              alt="Core Safety Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0, 0, 1), opacity 0.35s ease;"
+              class="hover-zoom-img card-showcase-img"
+              loading="lazy"
+            />
+            <div class="card-badge-chip" style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #15803D; transition: all 0.3s ease;">
+              Apartment Standard
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.78rem; font-weight: 800;">
+              From ₹25 / sq.ft
+            </div>
+          </a>
+
+          <div style="padding: 1.75rem 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #15803D; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                SYSTEM 02 · RESIDENTIAL FALL PROTECTION
+              </div>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 0.65rem;">
+                <a href="/safety-nets/" class="card-title-link" style="text-decoration: none; color: inherit; transition: color 0.25s ease;">
+                  Core Safety Nets
+                </a>
+              </h3>
+              <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+                Certified high-density virgin Garware polymer netting engineered for whole-balcony anti-fall security, child safety, stairwells, and perimeter elevations.
+              </p>
+
+              <!-- Sub-Categories list with Mouseover Preview & Direct Routing -->
+              <div class="subcategories-interactive-box" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 0.85rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.68rem; font-weight: 800; color: #64748B; text-transform: uppercase;">
+                    INCLUDES 4 SUB-CATEGORIES (MOUSE OVER TO PREVIEW):
+                  </span>
+                  <span class="hover-helper-hint" style="font-size: 0.65rem; color: #15803D; font-weight: 600;">Hover & Click</span>
+                </div>
+                <div class="subcat-chips-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                  <a
+                    href="/balcony-safety/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/safety-net-balcony.webp"
+                    data-sub-title="Balcony Safety Nets"
+                    data-sub-tag="Whole-Balcony Fall Prevention"
+                    data-sub-href="/balcony-safety/"
+                  >
+                    <span>Balcony Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/child-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/child-safety.webp"
+                    data-sub-title="Children Safety Nets"
+                    data-sub-tag="Zero-Climb Anti-Fall Netting"
+                    data-sub-href="/child-safety-nets/"
+                  >
+                    <span>Children Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/staircase-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/balcony-safety.webp"
+                    data-sub-title="Staircase Safety Nets"
+                    data-sub-tag="Open Stairwell Void Defense"
+                    data-sub-href="/staircase-safety-nets/"
+                  >
+                    <span>Staircase Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/building-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/building-safety-net.jpg"
+                    data-sub-title="Building Perimeter Nets"
+                    data-sub-tag="Certified High-Rise Edge Netting"
+                    data-sub-href="/building-safety-nets/"
+                  >
+                    <span>Building Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.78rem; color: #15803D; font-weight: 700; margin-bottom: 0.85rem;">
+                ✓ 3-Year Certified Anti-Sag Warranty
+              </div>
+              <a href="/safety-nets/" class="btn btn-primary card-action-btn" style="width: 100%; justify-content: center; background: #15803D; border-color: #15803D;">
+                <span class="btn-text">Explore Core Safety Nets & Sub-Categories</span>
+                <ArrowRight size={15} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SYSTEM 03: Animal & Bird Protection -->
+        <div
+          class="arch-card interactive-system-card"
+          id="system-card-3"
+          data-href="/animals-birds-safety-nets/"
+          data-default-img="/images/pigeon-net.webp"
+          data-default-tag="100% Humane & Translucent"
+          data-default-href="/animals-birds-safety-nets/"
+          data-default-cta="Explore Animal & Bird Protection & Sub-Categories"
+          style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.04); cursor: pointer;"
+        >
+          <a href="/animals-birds-safety-nets/" class="system-card-image-link" style="position: relative; height: 210px; overflow: hidden; background: #F1F5F9; display: block;">
+            <img
+              src="/images/pigeon-net.webp"
+              alt="Animal & Bird Protection"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0, 0, 1), opacity 0.35s ease;"
+              class="hover-zoom-img card-showcase-img"
+              loading="lazy"
+            />
+            <div class="card-badge-chip" style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #16A34A; transition: all 0.3s ease;">
+              100% Humane & Translucent
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.78rem; font-weight: 800;">
+              From ₹28 / sq.ft
+            </div>
+          </a>
+
+          <div style="padding: 1.75rem 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #16A34A; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                SYSTEM 03 · 100% HUMANE HYGIENE & PET SHIELD
+              </div>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 0.65rem;">
+                <a href="/animals-birds-safety-nets/" class="card-title-link" style="text-decoration: none; color: inherit; transition: color 0.25s ease;">
+                  Animal & Bird Protection
+                </a>
+              </h3>
+              <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+                0.7mm translucent monofilament netting barring pigeons, mites, and acidic guano without daylight loss, plus heavy-gauge meshes protecting cats and dogs.
+              </p>
+
+              <!-- Sub-Categories list with Mouseover Preview & Direct Routing -->
+              <div class="subcategories-interactive-box" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 0.85rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.68rem; font-weight: 800; color: #64748B; text-transform: uppercase;">
+                    INCLUDES 4 SUB-CATEGORIES (MOUSE OVER TO PREVIEW):
+                  </span>
+                  <span class="hover-helper-hint" style="font-size: 0.65rem; color: #16A34A; font-weight: 600;">Hover & Click</span>
+                </div>
+                <div class="subcat-chips-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                  <a
+                    href="/pigeon-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/pigeon-net.webp"
+                    data-sub-title="Anti-Pigeon Nets"
+                    data-sub-tag="Zero Guano & Pigeon Defense"
+                    data-sub-href="/pigeon-nets/"
+                  >
+                    <span>Anti-Pigeon Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/bird-spikes/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/pigeon-net.webp"
+                    data-sub-title="Stainless Steel Bird Spikes"
+                    data-sub-tag="Humane Parapet & AC Ledge Defense"
+                    data-sub-href="/bird-spikes/"
+                  >
+                    <span>Bird Spikes</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/monkey-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/safety-net-balcony.webp"
+                    data-sub-title="Monkey Safety Nets"
+                    data-sub-tag="Heavy-Gauge Tear-Resistant Balcony Mesh"
+                    data-sub-href="/monkey-safety-nets/"
+                  >
+                    <span>Monkey Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/mosquito-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/window-invisible-grills.webp"
+                    data-sub-title="Mosquito Safety Nets"
+                    data-sub-tag="Precision-Woven Window Insect Screens"
+                    data-sub-href="/mosquito-safety-nets/"
+                  >
+                    <span>Mosquito Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.78rem; color: #16A34A; font-weight: 700; margin-bottom: 0.85rem;">
+                ✓ 2-Year Anti-Sag & Zero Shadow Guarantee
+              </div>
+              <a href="/animals-birds-safety-nets/" class="btn btn-primary card-action-btn" style="width: 100%; justify-content: center; background: #16A34A; border-color: #16A34A;">
+                <span class="btn-text">Explore Animal & Bird Protection & Sub-Categories</span>
+                <ArrowRight size={15} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SYSTEM 04: Construction & Industrial Nets -->
+        <div
+          class="arch-card interactive-system-card"
+          id="system-card-4"
+          data-href="/duct-safety-nets/"
+          data-default-img="/images/construction-safety-net.jpg"
+          data-default-tag="Heavy-Duty Site Grade"
+          data-default-href="/duct-safety-nets/"
+          data-default-cta="Explore Construction & Industrial & Sub-Categories"
+          style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.04); cursor: pointer;"
+        >
+          <a href="/duct-safety-nets/" class="system-card-image-link" style="position: relative; height: 210px; overflow: hidden; background: #F1F5F9; display: block;">
+            <img
+              src="/images/construction-safety-net.jpg"
+              alt="Construction & Industrial Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0, 0, 1), opacity 0.35s ease;"
+              class="hover-zoom-img card-showcase-img"
+              loading="lazy"
+            />
+            <div class="card-badge-chip" style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #D97706; transition: all 0.3s ease;">
+              Heavy-Duty Site Grade
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.78rem; font-weight: 800;">
+              From ₹22 / sq.ft
+            </div>
+          </a>
+
+          <div style="padding: 1.75rem 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #D97706; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                SYSTEM 04 · HEAVY DEBRIS & WORK SITE RIGGING
+              </div>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 0.65rem;">
+                <a href="/duct-safety-nets/" class="card-title-link" style="text-decoration: none; color: inherit; transition: color 0.25s ease;">
+                  Construction & Industrial
+                </a>
+              </h3>
+              <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+                Heavy-ply containment netting for high-rise scaffolding, plumbing shafts, warehouse storage grids, open terrace party decks, and car park canopies.
+              </p>
+
+              <!-- Sub-Categories list with Mouseover Preview & Direct Routing -->
+              <div class="subcategories-interactive-box" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 0.85rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.68rem; font-weight: 800; color: #64748B; text-transform: uppercase;">
+                    INCLUDES 4 SUB-CATEGORIES (MOUSE OVER TO PREVIEW):
+                  </span>
+                  <span class="hover-helper-hint" style="font-size: 0.65rem; color: #D97706; font-weight: 600;">Hover & Click</span>
+                </div>
+                <div class="subcat-chips-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                  <a
+                    href="/construction-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/construction-safety-net.jpg"
+                    data-sub-title="Construction Safety"
+                    data-sub-tag="Scaffolding Rigging Safety Mesh"
+                    data-sub-href="/construction-safety-nets/"
+                  >
+                    <span>Construction Safety</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/industrial-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/industrial-safety-net.jpg"
+                    data-sub-title="Industrial Safety Nets"
+                    data-sub-tag="Factory & Warehouse Debris Net"
+                    data-sub-href="/industrial-safety-nets/"
+                  >
+                    <span>Industrial Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/terrace-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/terrace-top-net.jpg"
+                    data-sub-title="Terrace Top Nets"
+                    data-sub-tag="Open Sky Terrace Perimeter"
+                    data-sub-href="/terrace-safety-nets/"
+                  >
+                    <span>Terrace Top Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/car-parking-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/car-parking-net.jpg"
+                    data-sub-title="Car Parking Safety Nets"
+                    data-sub-tag="Basement Ceiling Fall Grid"
+                    data-sub-href="/car-parking-safety-nets/"
+                  >
+                    <span>Car Parking Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.78rem; color: #D97706; font-weight: 700; margin-bottom: 0.85rem;">
+                ✓ 300+ kg Debris Catch & Industrial Certification
+              </div>
+              <a href="/duct-safety-nets/" class="btn btn-primary card-action-btn" style="width: 100%; justify-content: center; background: #D97706; border-color: #D97706;">
+                <span class="btn-text">Explore Construction & Industrial & Sub-Categories</span>
+                <ArrowRight size={15} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SYSTEM 05: Specialty Solutions (Matching User's Image 2) -->
+        <div
+          class="arch-card interactive-system-card"
+          id="system-card-5"
+          data-href="/sports-nets/"
+          data-default-img="/images/sports-nets.webp"
+          data-default-tag="Recreational & Utility"
+          data-default-href="/sports-nets/"
+          data-default-cta="Explore Specialty Solutions & Sub-Categories"
+          style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.04); cursor: pointer;"
+        >
+          <a href="/sports-nets/" class="system-card-image-link" style="position: relative; height: 210px; overflow: hidden; background: #F1F5F9; display: block;">
+            <img
+              src="/images/sports-nets.webp"
+              alt="Specialty Solutions"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.2, 0, 0, 1), opacity 0.35s ease;"
+              class="hover-zoom-img card-showcase-img"
+              loading="lazy"
+            />
+            <div class="card-badge-chip" style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7; transition: all 0.3s ease;">
+              Recreational & Utility
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.78rem; font-weight: 800;">
+              From ₹18 / sq.ft
+            </div>
+          </a>
+
+          <div style="padding: 1.75rem 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                SYSTEM 05 · RECREATIONAL & DOMESTIC UTILITIES
+              </div>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 0.65rem;">
+                <a href="/sports-nets/" class="card-title-link" style="text-decoration: none; color: inherit; transition: color 0.25s ease;">
+                  Specialty Solutions
+                </a>
+              </h3>
+              <p style="font-size: 0.88rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+                High-impact sports practice cages for rooftops, coconut tree defense, child safety swimming pool covers, and space-saving balcony cloth drying hangers.
+              </p>
+
+              <!-- Sub-Categories list with Mouseover Preview & Direct Routing -->
+              <div class="subcategories-interactive-box" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 0.85rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.68rem; font-weight: 800; color: #64748B; text-transform: uppercase;">
+                    INCLUDES 4 SUB-CATEGORIES (MOUSE OVER TO PREVIEW):
+                  </span>
+                  <span class="hover-helper-hint" style="font-size: 0.65rem; color: #0284C7; font-weight: 600;">Hover & Click</span>
+                </div>
+                <div class="subcat-chips-row" style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                  <a
+                    href="/sports-practice-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/sports-nets.webp"
+                    data-sub-title="Sports Practice Nets"
+                    data-sub-tag="180+ kg Ball Impact Rooftop Enclosure"
+                    data-sub-href="/sports-practice-nets/"
+                  >
+                    <span>Sports Practice Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/coconut-safety-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/coconut-safety-net.jpg"
+                    data-sub-title="Coconut Safety Nets"
+                    data-sub-tag="Heavy-Ply Palm Canopy Defense"
+                    data-sub-href="/coconut-safety-nets/"
+                  >
+                    <span>Coconut Safety Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/swimming-pool-nets/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/swimming-pool-net.jpg"
+                    data-sub-title="Swimming Pool Nets"
+                    data-sub-tag="Child & Pet Drowning Safety Mesh"
+                    data-sub-href="/swimming-pool-nets/"
+                  >
+                    <span>Swimming Pool Nets</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                  <a
+                    href="/cloth-drying-hangers/"
+                    class="subcat-link-chip"
+                    data-sub-img="/images/cloth-drying-hanger.jpg"
+                    data-sub-title="Balcony Cloth Drying Hangers"
+                    data-sub-tag="Ceiling Stainless Steel Pulley Systems"
+                    data-sub-href="/cloth-drying-hangers/"
+                  >
+                    <span>Balcony Cloth Drying Hangers</span>
+                    <ArrowRight size={11} className="chip-arr" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.78rem; color: #0284C7; font-weight: 700; margin-bottom: 0.85rem;">
+                ✓ 180+ kg Ball Impact Tested & Weatherproof
+              </div>
+              <a href="/sports-nets/" class="btn btn-primary card-action-btn" style="width: 100%; justify-content: center; background: #0284C7; border-color: #0284C7;">
+                <span class="btn-text">Explore Specialty Solutions & Sub-Categories</span>
+                <ArrowRight size={15} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. SOLUTIONS EXPLORER: Interactive Architectural Accordion -->
+  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);" id="solutions-explorer">
+    <div class="container" style="max-width: 1360px;">
+      <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem auto;">
+        <span class="badge-arch" style="background: rgba(2, 132, 199, 0.15); border-color: rgba(56, 189, 248, 0.3); color: #BAE6FD;">
+          INTERACTIVE ARCHITECTURAL SHOWCASE
+        </span>
+        <h2 style="color: #FFFFFF; font-size: clamp(2rem, 3.8vw, 2.85rem); font-weight: 900; letter-spacing: -0.025em; margin-bottom: 0.85rem;">
+          Solutions Explorer: Architectural Systems By Category
+        </h2>
+        <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+          Hover over any category to expand details, zoom into installations, and navigate directly to dedicated engineering solutions.
+        </p>
+      </div>
+
+      <!-- Interactive Accordion with Zoom & Expand Animations -->
+      <SolutionsAccordion />
+
+      <!-- Bottom Status & Quick Action Bar -->
+      <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.75rem; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: #94A3B8; font-size: 0.88rem;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981;"></span>
+          <span>All 5 architectural systems available with direct warranty across Telangana & Andhra Pradesh</span>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <a href="/solutions/" style="color: #38BDF8; font-size: 0.85rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.85rem; background: rgba(56, 189, 248, 0.1); border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.25);">
+            <span>Full-Screen Showcase</span>
+            <ArrowRight size={13} />
+          </a>
+          <a href="/invisible-grill-cost/" style="color: #FFFFFF; font-size: 0.85rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.85rem; background: #0284C7; border-radius: 8px;">
+            <span>Instant Estimator</span>
+            <ArrowRight size={13} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 & 15. HOW PRICING WORKS & PRICE CALCULATOR -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">TRANSPARENT PRICING BASIS</span>
+        <h2>How Pricing Works & Interactive Estimator</h2>
+        <p>
+          We charge strictly on verified square-foot area. Select your configuration and enter your balcony dimensions below for an instant price calculation.
+        </p>
+      </div>
+
+      <!-- 15. Interactive Cost Estimator React Island -->
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <!-- 18. QUALITY: Safety Is Not A Marketing Slogan -->
+  <TrustSection />
+
+
+
+  <!-- 20. WARRANTY TERMS: Comprehensive Official Coverage -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;" id="warranty-terms">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch" style="color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">OFFICIAL WARRANTY POLICY</span>
+        <h2>10-Year Direct Manufacturer Warranty Terms</h2>
+        <p>
+          Clear, documented, and transferable warranty protection on all SS316 marine cables and aerospace track mountings.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 960px; margin: 0 auto;">
+        <div class="arch-card" style="padding: 2rem; border-top: 4px solid #16A34A; background: #FFFFFF; border-inline: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <CheckCircle size={18} color="#16A34A" /> What Is Covered:
+          </h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.88rem; color: #334155; padding: 0;">
+            <li>✓ 10-Year Zero Rust Guarantee on virgin AISI 316 stainless steel wires.</li>
+            <li>✓ Structural integrity of 6063-T6 aerospace extruded aluminium tracks.</li>
+            <li>✓ Free mechanical re-tensioning checkup within first 12 months.</li>
+            <li>✓ Complete replacement of defective mounting hardware or anchor bolts.</li>
+          </ul>
+        </div>
+
+        <div class="arch-card" style="padding: 2rem; border-top: 4px solid #C2410C; background: #FFFFFF; border-inline: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <Shield size={18} color="#C2410C" /> Claim Process & Service:
+          </h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.88rem; color: #334155; padding: 0;">
+            <li>✓ Direct digital warranty card provided with unique project ID upon completion.</li>
+            <li>✓ 24-48 hour technician inspection response across Hyderabad, Vizag & Vijayawada.</li>
+            <li>✓ Zero labor fees for verified warranty repairs or cable tension adjustments.</li>
+            <li>✓ Simple photo submission via WhatsApp customer service desk.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- 23. REGIONAL OPERATIONS: Telangana & Andhra Pradesh -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;" id="regional-operations">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">SERVICE TERRITORY</span>
+        <h2>Regional Operations: Telangana & Andhra Pradesh</h2>
+        <p>
+          We operate localized rapid-response installation teams across primary urban and coastal corridors.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="arch-card" style="padding: 2rem; background: #F8FAFC; border: 1px solid #E2E8F0;">
+          <div style="font-size: 0.72rem; font-weight: 800; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+            HUB 01 · TELANGANA
+          </div>
+          <h4 style="font-size: 1.35rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem;">
+            Hyderabad & Secunderabad
+          </h4>
+          <p style="font-size: 0.88rem; color: #64748B; line-height: 1.6; margin-bottom: 1rem;">
+            Full service coverage in Gachibowli, HITEC City, Kondapur, Financial District, Tellapur, Jubilee Hills, Banjara Hills, and Kukatpally.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ Same-Day Laser Measurement Available
+          </div>
+        </div>
+
+        <div class="arch-card" style="padding: 2rem; background: #F8FAFC; border: 1px solid #E2E8F0;">
+          <div style="font-size: 0.72rem; font-weight: 800; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+            HUB 02 · ANDHRA PRADESH (COASTAL)
+          </div>
+          <h4 style="font-size: 1.35rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem;">
+            Visakhapatnam (Vizag)
+          </h4>
+          <p style="font-size: 0.88rem; color: #64748B; line-height: 1.6; margin-bottom: 1rem;">
+            Specialized coastal SS316 marine-alloy installations resisting heavy sea salt spray across Beach Road, Rushikonda, MVP Colony, Madhurawada, and Seethammadhara.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ 100% Anti-Salt Mist Marine Certification
+          </div>
+        </div>
+
+        <div class="arch-card" style="padding: 2rem; background: #F8FAFC; border: 1px solid #E2E8F0;">
+          <div style="font-size: 0.72rem; font-weight: 800; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">
+            HUB 03 · ANDHRA PRADESH (CAPITAL REGION)
+          </div>
+          <h4 style="font-size: 1.35rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem;">
+            Vijayawada & Guntur
+          </h4>
+          <p style="font-size: 0.88rem; color: #64748B; line-height: 1.6; margin-bottom: 1rem;">
+            High-rise residential tower coverage across Benz Circle, MG Road, Poranki, Kanuru, Tadepalli, and Amaravati highway apartments.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ Free Doorstep Measurement Scheduled
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24. SEE IT ON YOUR HOME: Dedicated Architectural Visualizer Studio -->
+  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);" id="see-it-on-your-home">
+    <div class="container" style="max-width: 1280px;">
+      <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem auto;">
+        <span class="badge-arch" style="background: rgba(2, 132, 199, 0.15); border-color: rgba(56, 189, 248, 0.3); color: #BAE6FD;">
+          <Sparkles size={14} /> AI-ASSISTED ARCHITECTURAL VISUALIZER
+        </span>
+        <h2 style="color: #FFFFFF; font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 900; letter-spacing: -0.025em; margin-bottom: 0.85rem;">
+          See It On Your Home: Live Interactive Studio
+        </h2>
+        <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+          Drag the split-slider to compare an unprotected balcony with precision-tensioned SS316 marine invisible grills. Upload your photo or test standard high-rise presets in real time.
+        </p>
+      </div>
+
+      <!-- Advanced React Visualizer Studio Island -->
+      <VisualizerIsland client:load />
+    </div>
+  </section>
+
+  <!-- 25. GET FREE QUOTE / CONTACT: Final High-Conversion Action -->
+  <section class="section-spacing" style="background: #FFFFFF;" id="contact-advisory">
+    <div class="container">
+      <div style="max-width: 780px; margin: 0 auto; text-align: center;">
+        <span class="badge-emerald">FREE DOORSTEP LASER MEASUREMENT</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; color: #0F172A; margin-top: 0.5rem; margin-bottom: 1rem; letter-spacing: -0.02em;">
+          Schedule Your Free Balcony Inspection
+        </h2>
+        <p style="font-size: 1.05rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
+          Our certified installation engineers will visit with physical SS316 wire sample kits, perform precision digital laser measurements, and give an exact fixed quotation on the spot.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a
+            href={`https://wa.me/${business.whatsapp}?text=Hello%20InvisProtect%2C%20I%20would%20like%20to%20book%20a%20free%20doorstep%20site%20visit%20and%20laser%20measurement.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp"
+            style="padding: 0.95rem 2rem; font-size: 1rem;"
+          >
+            <MessageCircle size={18} />
+            <span>Book Site Visit on WhatsApp</span>
+          </a>
+
+          <a
+            href={`tel:${business.phoneRaw}`}
+            class="btn btn-outline"
+            style="padding: 0.95rem 2rem; font-size: 1rem;"
+          >
+            <Phone size={18} color="#0284C7" />
+            <span>Call {business.phone}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .interactive-system-card {
+      transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+    .interactive-system-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.14) !important;
+    }
+    .interactive-system-card:hover .hover-zoom-img {
+      transform: scale(1.05) !important;
+    }
+    .interactive-system-card:hover .card-title-link {
+      color: #0284C7 !important;
+    }
+
+    /* Sub-categories Interactive Box */
+    .subcategories-interactive-box {
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .interactive-system-card:hover .subcategories-interactive-box {
+      background: #F1F5F9 !important;
+      border-color: #CBD5E1 !important;
+    }
+
+    /* Subcat Chips with Instant Mouseover Reactivity */
+    .subcat-link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      color: #1E293B;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .subcat-link-chip .chip-arr {
+      opacity: 0.4;
+      transform: translateX(0);
+      transition: all 0.2s ease;
+    }
+
+    .subcat-link-chip:hover,
+    .subcat-link-chip.active-subcat-chip {
+      background: #0F172A !important;
+      border-color: #0F172A !important;
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+    }
+
+    .subcat-link-chip:hover .chip-arr,
+    .subcat-link-chip.active-subcat-chip .chip-arr {
+      opacity: 1;
+      color: #38BDF8;
+      transform: translateX(2px);
+    }
+
+    /* Specific category hover accents */
+    #system-card-1 .subcat-link-chip:hover,
+    #system-card-1 .subcat-link-chip.active-subcat-chip {
+      background: #0369A1 !important;
+      border-color: #0369A1 !important;
+    }
+    #system-card-2 .subcat-link-chip:hover,
+    #system-card-2 .subcat-link-chip.active-subcat-chip {
+      background: #15803D !important;
+      border-color: #15803D !important;
+    }
+    #system-card-3 .subcat-link-chip:hover,
+    #system-card-3 .subcat-link-chip.active-subcat-chip {
+      background: #16A34A !important;
+      border-color: #16A34A !important;
+    }
+    #system-card-4 .subcat-link-chip:hover,
+    #system-card-4 .subcat-link-chip.active-subcat-chip {
+      background: #D97706 !important;
+      border-color: #D97706 !important;
+    }
+    #system-card-5 .subcat-link-chip:hover,
+    #system-card-5 .subcat-link-chip.active-subcat-chip {
+      background: #0284C7 !important;
+      border-color: #0284C7 !important;
+    }
+
+    .card-showcase-img {
+      transition: opacity 0.25s ease, transform 0.65s cubic-bezier(0.2, 0, 0, 1) !important;
+    }
+  </style>
+
+  <script>
+    function initDynamicSubcategoryCards() {
+      const cards = document.querySelectorAll<HTMLElement>('.interactive-system-card');
+
+      cards.forEach(card => {
+        const defaultHref = card.getAttribute('data-default-href') || card.getAttribute('data-href') || '/';
+        const defaultImg = card.getAttribute('data-default-img') || '';
+        const defaultTag = card.getAttribute('data-default-tag') || '';
+        const defaultCta = card.getAttribute('data-default-cta') || 'Explore System & Sub-Categories';
+
+        const imgEl = card.querySelector<HTMLImageElement>('.card-showcase-img');
+        const badgeEl = card.querySelector<HTMLElement>('.card-badge-chip');
+        const titleEl = card.querySelector<HTMLElement>('.card-showcase-title');
+        const actionBtn = card.querySelector<HTMLAnchorElement>('.card-action-btn');
+        const btnText = card.querySelector<HTMLElement>('.card-action-btn .btn-text');
+        const chips = card.querySelectorAll<HTMLAnchorElement>('.subcat-link-chip');
+
+        chips.forEach(chip => {
+          // Mouseover / Hover: Live Preview and target routing swap
+          chip.addEventListener('mouseenter', () => {
+            chips.forEach(c => c.classList.remove('active-subcat-chip'));
+            chip.classList.add('active-subcat-chip');
+
+            const subImg = chip.getAttribute('data-sub-img');
+            const subTitle = chip.getAttribute('data-sub-title');
+            const subTag = chip.getAttribute('data-sub-tag');
+            const subHref = chip.getAttribute('data-sub-href');
+
+            if (imgEl && subImg && imgEl.src !== subImg) {
+              imgEl.style.opacity = '0.6';
+              setTimeout(() => {
+                imgEl.src = subImg;
+                imgEl.style.opacity = '1';
+              }, 120);
+            }
+
+            if (badgeEl && subTag) {
+              badgeEl.textContent = subTag;
+            }
+
+            if (titleEl && subTitle) {
+              titleEl.textContent = subTitle;
+            }
+
+            if (btnText && subTitle) {
+              btnText.textContent = `Open ${subTitle} Page`;
+            }
+
+            if (subHref) {
+              card.setAttribute('data-href', subHref);
+              if (actionBtn) {
+                actionBtn.href = subHref;
+              }
+            }
+          });
+
+          // Click on chip: direct instant navigation
+          chip.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const subHref = chip.getAttribute('data-sub-href') || chip.getAttribute('href');
+            if (subHref) {
+              window.location.href = subHref;
+            }
+          });
+        });
+
+        // When mouse leaves the subcategory chips area, smoothly restore defaults
+        const chipsBox = card.querySelector('.subcategories-interactive-box');
+        if (chipsBox) {
+          chipsBox.addEventListener('mouseleave', () => {
+            chips.forEach(c => c.classList.remove('active-subcat-chip'));
+
+            if (imgEl && defaultImg && !imgEl.src.endsWith(defaultImg)) {
+              imgEl.style.opacity = '0.7';
+              setTimeout(() => {
+                imgEl.src = defaultImg;
+                imgEl.style.opacity = '1';
+              }, 150);
+            }
+
+            if (badgeEl && defaultTag) {
+              badgeEl.textContent = defaultTag;
+            }
+
+            if (titleEl && defaultTag) {
+              titleEl.textContent = defaultTag;
+            }
+
+            if (btnText && defaultCta) {
+              btnText.textContent = defaultCta;
+            }
+
+            card.setAttribute('data-href', defaultHref);
+            if (actionBtn) {
+              actionBtn.href = defaultHref;
+            }
+          });
+        }
+
+        // Clicking anywhere on the card navigates to currently active data-href
+        card.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target.closest('a') || target.closest('button')) {
+            return;
+          }
+          const activeHref = card.getAttribute('data-href') || defaultHref;
+          if (activeHref) {
+            window.location.href = activeHref;
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initDynamicSubcategoryCards);
+    document.addEventListener('astro:page-load', initDynamicSubcategoryCards);
+  </script>
+</BaseLayout>

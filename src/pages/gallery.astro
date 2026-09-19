@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryFilter from '../components/react/GalleryFilter';
+import TrustSection from '../components/TrustSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { Sparkles, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Project Gallery", url: "https://invisprotect.com/gallery/" }
+]);
+---
+
+<BaseLayout
+  title="Real Installation Gallery & Case Studies | InvisProtect"
+  description="Explore completed invisible grill and safety net installations across luxury apartments in Hyderabad, Visakhapatnam, and Vijayawada. Real photos, floor details, and verified reviews."
+  canonicalUrl="/gallery/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      <span class="badge-emerald" style="margin-bottom: 1.25rem;">
+        Genuine Field Craftsmanship
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Real Projects. Real Homes. <br />
+        <span style="color: #38BDF8;">Uncompromised Views.</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
+        Browse through verified installations completed in premier high-rises including My Home Bhooja, Aparna Serene Park, Prestige High Fields, and Sea Pearl Beach Road.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20saw%20your%20project%20gallery%20and%20want%20to%20know%20if%20you%20have%20installed%20in%20my%20community.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Ask About Your Society</span>
+        </a>
+        <a href="/invisible-grill-cost/" class="btn btn-primary">
+          <span>Calculate My Balcony</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Gallery Island -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <GalleryFilter client:load />
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>

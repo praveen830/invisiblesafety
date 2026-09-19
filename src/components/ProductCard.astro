@@ -1,0 +1,334 @@
+---
+import type { ProductItem } from '../data/products';
+import { Check, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+
+export interface Props {
+  product: ProductItem;
+  featured?: boolean;
+}
+
+const { product, featured = false } = Astro.props;
+---
+
+<div class={`arch-card product-card ${featured ? 'featured-card' : ''}`}>
+  {featured && (
+    <div class="flagship-badge">
+      <Sparkles size={12} />
+      <span>Flagship Choice</span>
+    </div>
+  )}
+
+  <!-- Product Image Banner -->
+  {product.heroImage && (
+    <div class="product-img-box">
+      <img
+        src={product.heroImage}
+        alt={product.name}
+        class="product-img"
+        loading="lazy"
+        width="380"
+        height="210"
+      />
+      <div class="product-category-tag">
+        <span class={product.category === 'invisible-grill' ? 'badge-arch' : 'badge-emerald'}>
+          {product.badge}
+        </span>
+      </div>
+    </div>
+  )}
+
+  <div class="product-body">
+    {!product.heroImage && (
+      <div class="product-top-row">
+        <span class={product.category === 'invisible-grill' ? 'badge-arch' : 'badge-emerald'}>
+          {product.badge}
+        </span>
+        <span class="warranty-text">
+          {product.warranty}
+        </span>
+      </div>
+    )}
+
+    {product.heroImage && (
+      <div class="warranty-strip">
+        <ShieldCheck size={14} color="#16A34A" />
+        <span>{product.warranty}</span>
+      </div>
+    )}
+
+    <h3 class="product-title">
+      {product.name}
+    </h3>
+
+    <p class="product-tagline">
+      {product.tagline}
+    </p>
+
+    <!-- Key Technical Specs Box -->
+    <div class="specs-box">
+      <div class="spec-row">
+        <span class="spec-name">Material:</span>
+        <span class="spec-val">{product.specs.material}</span>
+      </div>
+      {product.specs.breakingLoad && (
+        <div class="spec-row">
+          <span class="spec-name">Load Capacity:</span>
+          <span class="spec-val spec-highlight">{product.specs.breakingLoad}</span>
+        </div>
+      )}
+      {product.specs.spacings && (
+        <div class="spec-row">
+          <span class="spec-name">Spacing:</span>
+          <span class="spec-val">{product.specs.spacings}</span>
+        </div>
+      )}
+      {product.specs.meshSize && (
+        <div class="spec-row">
+          <span class="spec-name">Mesh Size:</span>
+          <span class="spec-val">{product.specs.meshSize}</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Feature Checklist -->
+    <ul class="benefit-list">
+      {product.keyBenefits.slice(0, 3).map(benefit => (
+        <li class="benefit-item">
+          <span class="check-icon-box"><Check size={14} color="#0284C7" strokeWidth={3} /></span>
+          <span>{benefit}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="product-footer">
+    <div class="price-row">
+      <div>
+        <span class="price-label">Starting from</span>
+        <div class="price-amount">
+          ₹{product.priceStarting} <span class="price-unit">/ {product.unit}</span>
+        </div>
+      </div>
+      <span class="installation-tag">Standard Fitting</span>
+    </div>
+
+    <div class="card-btn-grid">
+      <a href={`/${product.slug}/`} class="btn btn-outline btn-sm">
+        <span>Details</span>
+        <ArrowRight size={13} />
+      </a>
+      <a href="/invisible-grill-cost/" class="btn btn-primary btn-sm">
+        <span>Calculate Cost</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+
+  .flagship-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #0284C7;
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.28rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  }
+
+  .product-img-box {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background: #F1F5F9;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.03);
+  }
+
+  .product-category-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    z-index: 2;
+  }
+
+  .product-body {
+    padding: 1.5rem 1.6rem 0.5rem 1.6rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+  }
+
+  .warranty-text {
+    font-size: 0.8rem;
+    color: #16A34A;
+    font-weight: 700;
+  }
+
+  .warranty-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: #16A34A;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+  }
+
+  .product-title {
+    font-size: 1.32rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 0.45rem;
+    line-height: 1.25;
+  }
+
+  .product-tagline {
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .specs-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.82rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .spec-name {
+    color: #64748B;
+    font-weight: 500;
+  }
+
+  .spec-val {
+    color: #0F172A;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .spec-highlight {
+    color: #0284C7;
+  }
+
+  .benefit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #334155;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    line-height: 1.45;
+  }
+
+  .check-icon-box {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .product-footer {
+    padding: 1.25rem 1.6rem 1.6rem 1.6rem;
+    border-top: 1px solid #E2E8F0;
+    background: #FAFAFC;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .price-label {
+    display: block;
+    font-size: 0.72rem;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+
+  .price-amount {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .price-unit {
+    font-size: 0.82rem;
+    color: #64748B;
+    font-weight: 500;
+  }
+
+  .installation-tag {
+    font-size: 0.74rem;
+    color: #0284C7;
+    font-weight: 600;
+    background: #E0F2FE;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    border: 1px solid #BAE6FD;
+  }
+
+  .card-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0.65rem;
+  }
+</style>

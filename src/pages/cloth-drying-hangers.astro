@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Home, Layers } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Balcony Cloth Drying Hangers",
+  "Ceiling-mounted stainless steel pulley cloth drying systems for apartment balconies starting at ₹1,800 per unit.",
+  1800
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Specialty Solutions", url: "https://invisprotect.com/sports-nets/" },
+  { name: "Cloth Drying Hangers", url: "https://invisprotect.com/cloth-drying-hangers/" }
+]);
+---
+
+<BaseLayout
+  title="Balcony Cloth Drying Hangers | Ceiling Pulley Systems | InvisProtect"
+  description="Space-saving ceiling-mounted stainless steel pulley cloth drying hangers for apartment balconies. Rust-proof SS304 tubes with individual lowering mechanisms from ₹1,800."
+  canonicalUrl="/cloth-drying-hangers/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/sports-nets/" style="color: #64748B; text-decoration: none;">SPECIALTY SOLUTIONS</a>
+        <span>/</span>
+        <span style="color: #C2410C;">CLOTH DRYING HANGERS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/cloth-drying-hanger.jpg"
+              alt="Ceiling Mounted Balcony Cloth Drying Hangers"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <Home size={13} /> BALCONY SPACE SAVER
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                THE CEILING PULLEY SYSTEM
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                Ceiling Mounted Pulley Hangers
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                SS304 Rust-Proof Pipes • Individual Pulley Lowering
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #0284C7; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> ZERO FLOOR CLUTTER UTILITY
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            BALCONY CLOTH DRYING HANGERS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #0284C7; margin-bottom: 1.5rem; line-height: 1.4;">
+            Ceiling-mounted stainless steel individual pulley drying racks that free up 100% of your balcony floor area.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Installed Price:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #0284C7;">From ₹1,800 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ set</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Pipe Quality:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">100% SS304 Stainless</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            Portable floor-standing drying stands take up valuable balcony space, obstruct outdoor living areas, and blow over during heavy gusts. Our ceiling-mounted pulley hangers utilize unused vertical ceiling space. Each stainless steel rod operates independently via nylon ropes and brass dual-wheel pulleys—allowing you to pull down only the rod you need to hang clothes, and hoist it back up to ceiling level effortlessly.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Pipe Material</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Heavy-Gauge AISI 304 Seamless Stainless Steel</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Rod Configurations</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">4-Pipe, 5-Pipe, and 6-Pipe System Options (3ft to 8ft lengths)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Pulley Mechanism</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Dual Brass Wheel Heavy-Duty Ceiling Pulleys</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Rope Material</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Weatherproof High-Tension Braided Nylon (Anti-Fray)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Load per Rod</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">5 to 8 kg Wet Clothes Per Pipe (Easily handles heavy blankets)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20order%20Balcony%20Cloth%20Drying%20Hangers%20for%20my%20apartment.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>Order on WhatsApp for Fast Installation</span>
+            </a>
+            <a href="tel:+919876543210" class="btn btn-outline" style="padding: 0.95rem 1.6rem;">
+              <Phone size={17} />
+              <span>Call For Same-Day Booking</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Balcony Cloth Drying Hangers FAQ" />
+</BaseLayout>

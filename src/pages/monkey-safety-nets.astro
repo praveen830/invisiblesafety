@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Shield } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Monkey Safety Nets",
+  "High-gauge tear-resistant heavy-duty polymer safety nets engineered to prevent monkey intrusions starting at ₹35/sq.ft.",
+  35
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Animal & Bird Protection", url: "https://invisprotect.com/animals-birds-safety-nets/" },
+  { name: "Monkey Safety Nets", url: "https://invisprotect.com/monkey-safety-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Monkey Safety Nets | Heavy-Gauge Tear-Proof Balcony Mesh | InvisProtect"
+  description="High-tensile heavy-gauge monkey safety nets for balconies, apartments, and farmhouses starting at ₹35/sq.ft. Tear-resistant virgin polymer with 3-year warranty."
+  canonicalUrl="/monkey-safety-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/animals-birds-safety-nets/" style="color: #64748B; text-decoration: none;">ANIMAL & BIRD PROTECTION</a>
+        <span>/</span>
+        <span style="color: #C2410C;">MONKEY SAFETY NETS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/safety-net-balcony.webp"
+              alt="Monkey Safety Nets for Balcony Enclosure"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #D97706; display: flex; align-items: center; gap: 0.4rem;">
+              <Shield size={13} /> HEAVY-PLY ANTI-TEAR
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #FBBF24; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                PRIMATE INTRUSION DEFENSE
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                Monkey Defense Mesh
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                Bite-Resistant Braided Core • Steel Turnbuckle Perimeter
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #D97706; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> UNBREAKABLE PRIMATE DETERRENT
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            MONKEY SAFETY NETS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #D97706; margin-bottom: 1.5rem; line-height: 1.4;">
+            High-gauge, tear-resistant safety nets designed to prevent aggressive monkey troops from entering balconies and terraces.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Starting Rate:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #D97706;">₹35 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ sq.ft</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">3-Year Anti-Tear Guarantee</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            Residential areas adjacent to hills, forests, or parks frequently suffer aggressive monkey troops raiding balconies, destroying plants, and endangering family members. Standard pigeon nets can be easily shredded by monkey teeth and claws. InvisProtect Monkey Safety Nets utilize extra-thick 2.5mm+ braided virgin polymer ropes anchored with heavy stainless steel perimeter wire rope and turnbuckles that monkeys cannot chew or tear through.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Mesh Thickness</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">2.5 mm to 3.0 mm Extra-Heavy Braided HDPE Polymer</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Tensile Strength</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">200+ kgf Breaking Strength (Primate-proof)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Mesh Aperture</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">40 mm x 40 mm (Blocks limbs and head entry)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Perimeter Anchors</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">4.0 mm Galvanized Wire Rope with Heavy-Duty Turnbuckles</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Full Replacement Anti-Tear Warranty</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #D97706; border-color: #D97706;">
+              <span>Calculate Monkey Net Cost</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20have%20a%20monkey%20problem%20and%20need%20Monkey%20Safety%20Nets.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>Book Monkey Inspection on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
+        <span class="badge-arch">FAST ESTIMATION</span>
+        <h2>Calculate Monkey Net Price</h2>
+        <p>Instant online price calculation based on balcony dimensions.</p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Monkey Safety Nets FAQ" />
+</BaseLayout>

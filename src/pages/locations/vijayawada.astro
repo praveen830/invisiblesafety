@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CostEstimator from '../../components/react/CostEstimator';
+import TrustSection from '../../components/TrustSection.astro';
+import { locations } from '../../data/locations';
+import { business } from '../../data/business';
+import { getBreadcrumbSchema, getFAQSchema } from '../../utils/seo';
+import { MapPin, ShieldCheck, Check, Phone, MessageCircle, ArrowRight } from 'lucide-react';
+
+const loc = locations.vijayawada;
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Locations", url: "https://invisprotect.com/locations/" },
+  { name: "Vijayawada", url: "https://invisprotect.com/locations/vijayawada/" }
+]);
+const faqSchema = getFAQSchema(loc.faqs);
+---
+
+<BaseLayout
+  title="Invisible Grills & Safety Nets in Vijayawada | InvisProtect"
+  description="Architectural invisible safety grills and pigeon nets for apartments in Benz Circle, Kanuru, Poranki & Tadepalli. 100% natural ventilation, child safe, 10-year warranty."
+  canonicalUrl="/locations/vijayawada/"
+  schema={[breadcrumbs, faqSchema]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.22) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 880px;">
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; border-radius: 20px; background: rgba(56, 189, 248, 0.15); color: #38BDF8; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.25rem;">
+        <MapPin size={14} /> VIJAYAWADA & AMARAVATI CORRIDOR
+      </div>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Invisible Safety Grills <br />
+        <span style="color: #38BDF8;">in Vijayawada</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 740px; margin: 0 auto 2rem auto;">
+        {loc.localDescription}
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="#estimator" class="btn btn-primary">
+          <span>Calculate Price for Vijayawada Balcony</span>
+        </a>
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20live%20in%20Vijayawada%20and%20need%20a%20site%20measurement%20for%20my%20balcony.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          <MessageCircle size={17} />
+          <span>Book Free Vijayawada Site Visit</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localized Engineering Specifics -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Tropical Climate Standards</span>
+        <h2>{loc.localSpecifics.title}</h2>
+        <p>Preserves 100% natural cross-ventilation while providing impenetrable child fall safety.</p>
+      </div>
+
+      <div class="grid-2" style="max-width: 900px; margin: 0 auto 3rem auto;">
+        {loc.localSpecifics.points.map(pt => (
+          <div class="arch-card" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <span style="flex-shrink: 0; margin-top: 2px;"><Check size={20} color="#10B981" /></span>
+            <span style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">{pt}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Key Localities Grid -->
+      <div class="arch-card" style="max-width: 900px; margin: 0 auto; background: rgba(17, 24, 39, 0.8);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">
+          Popular Vijayawada Communities Served:
+        </h3>
+        <div class="grid-3" style="gap: 1rem;">
+          {loc.keyAreas.map(area => (
+            <div style="background: rgba(15, 23, 42, 0.6); padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <div style="font-weight: 600; color: #38BDF8; font-size: 0.9rem; margin-bottom: 0.2rem;">{area.name}</div>
+              <div style="font-size: 0.78rem; color: #94A3B8;">{area.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Cost Estimator -->
+  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);" id="estimator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Live Pricing</span>
+        <h2>Calculate Your Vijayawada Balcony Cost</h2>
+        <p>Free doorstep laser measurement across Benz Circle, Kanuru, and Tadepalli.</p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <!-- Local Vijayawada FAQs -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="max-width: 860px;">
+      <div class="section-header">
+        <span class="badge-arch">Local FAQs</span>
+        <h2>Vijayawada Questions & Answers</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        {loc.faqs.map(faq => (
+          <div class="arch-card" style="padding: 1.25rem;">
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.4rem;">{faq.question}</h4>
+            <p style="font-size: 0.88rem; color: #94A3B8; margin: 0; line-height: 1.5;">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>

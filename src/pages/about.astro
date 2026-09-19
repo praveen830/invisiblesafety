@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { Shield, Award, Users, HardHat, CheckCircle2, ArrowRight } from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "About Us", url: "https://invisprotect.com/about/" }
+]);
+---
+
+<BaseLayout
+  title="About InvisProtect | Architectural Safety Specialists in India"
+  description="Learn about InvisProtect's mission to eliminate high-rise fall hazards across India without sacrificing modern architectural aesthetics. In-house trained teams, zero shortcuts."
+  canonicalUrl="/about/"
+  schema={[breadcrumbs]}
+>
+  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      <span class="badge-arch" style="margin-bottom: 1.25rem;">
+        Our Mission & Values
+      </span>
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+        Pioneering Architectural <br />
+        <span style="color: #38BDF8;">Home Safety in India</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
+        Founded on the premise that child and pet protection should never turn your home into an iron cage. We engineer seamless, high-tensile invisible grills that celebrate light, ventilation, and skyline views.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="/invisible-grills/" class="btn btn-primary">
+          <span>Explore Safety Solutions</span>
+        </a>
+        <a href="/contact/" class="btn btn-outline">
+          <span>Contact Our Team</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Beliefs -->
+  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Core Principles</span>
+        <h2>The Three Tenets of InvisProtect</h2>
+        <p>How we approach every installation, from residential balconies to commercial duct shafts.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="arch-card">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(2, 132, 199, 0.15); display: flex; align-items: center; justify-content: center; color: #38BDF8; margin-bottom: 1.25rem;">
+            <Shield size={22} />
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Authentic Metallurgy</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6;">
+            We refuse to cut corners with cheap steel. Every meter of cable installed is guaranteed virgin SS316 marine alloy with verified breaking load ratings.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: #34D399; margin-bottom: 1.25rem;">
+            <HardHat size={22} />
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Worker Safety Dignity</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6;">
+            Safety starts with our own team. We never permit technicians to work at dangerous heights without full-body certified harnesses and dual lifelines.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); display: flex; align-items: center; justify-content: center; color: #FBBF24; margin-bottom: 1.25rem;">
+            <Award size={22} />
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Uncompromising Accountability</h3>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6;">
+            We offer direct 10-year written warranty documentation and complimentary 3-month re-tension checks. If your cables ever sag, we return to fix them free.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+</BaseLayout>

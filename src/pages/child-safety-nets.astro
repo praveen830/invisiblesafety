@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Heart, Check, ArrowRight, MessageCircle, Phone, Activity } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Child Safety Nets & High-Rise Fall Barriers",
+  "Dedicated child and pet safety solutions for windows, low sills, and high-rise balconies starting at ₹35/sq.ft.",
+  35
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Child Safety Nets", url: "https://invisprotect.com/child-safety-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Child Safety Nets & Invisible Grills for High-Rises | InvisProtect"
+  description="Certified child-safety fall protection for balconies and windows. 50mm narrow spacing, zero ladder climbing points, 400+ kg impact tested."
+  canonicalUrl="/child-safety-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <!-- Hero Section -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #DCFCE7; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #15803D; margin-bottom: 1.25rem;">
+            <Heart size={14} /> PARENT'S PEACE OF MIND
+          </div>
+          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+            Child & Pet Fall Safety <br />
+            <span style="color: #0284C7;">For High-Rise Living</span>
+          </h1>
+          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
+            Toddlers are naturally curious and fearless explorers. InvisProtect engineered invisible grills and heavy-gauge safety nets eliminate dangerous drops and climbing hazards so you can open windows with total confidence.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <a href="#estimator" class="btn btn-primary">
+              <span>Calculate Child Safety Solution</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20have%20young%20children%20and%20need%20child-safety%20grills%20for%20my%20balcony.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+            >
+              <MessageCircle size={17} />
+              <span>WhatsApp Safety Expert</span>
+            </a>
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Heavy Mesh:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #16A34A;">₹35 / sq.ft</span>
+            </div>
+            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">SS316 50mm Grills:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #0284C7;">₹190 / sq.ft</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Showcase -->
+        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
+            <img
+              src="/images/child-safety.webp"
+              alt="Child Safety Net Balcony Installation"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              width="640"
+              height="360"
+              loading="eager"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <Activity size={14} /> Zero Head-Entrapment Gaps
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
+              <span>No Horizontal Footholds</span>
+            </div>
+          </div>
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
+            <span>Reinforced Vertical Tension Anchorage</span>
+            <span style="color: #16A34A; font-weight: 700;">✓ 100% Toddler Safe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Child Protection Engineering -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">Engineered Specifically For Children</span>
+        <h2>4 Layers of Child Protection</h2>
+        <p>Eliminating every mechanism of accidental balcony and window injuries.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="arch-card">
+          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            50mm Anti-Entrapment Gap
+          </div>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+            A child's average head circumference exceeds 110mm. Our 50mm cable spacing makes it physically impossible for toddlers to push through.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            No Horizontal Ladder Steps
+          </div>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+            Traditional metal box grills feature horizontal bars that toddlers use like ladders to climb over balustrades. Invisible vertical grills offer zero footholds.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            Toy Drop Prevention
+          </div>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+            Stops heavy objects, toy cars, and sports equipment from tumbling 20 floors down into pedestrian pathways and parking lots.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            Smooth Nylon Membrane
+          </div>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+            The clear DuPont coating encases all steel cables in a soft, burr-free exterior that will never cut, pinch, or scrape delicate toddler hands.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Calculator -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Live Pricing</span>
+        <h2>Calculate Child Safety Quotation</h2>
+        <p>Choose between 50mm invisible grills or heavy-duty child safety mesh.</p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <FAQSection category="child-safety" title="Child Safety Questions & Answers" />
+</BaseLayout>

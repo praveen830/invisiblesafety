@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Eye, Wind } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Windows Invisible Grills",
+  "Frameless architectural SS316 invisible grills for sliding windows and French doors with 10-year warranty starting at ₹190/sq.ft.",
+  190
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Invisible Grills", url: "https://invisprotect.com/invisible-grills/" },
+  { name: "Windows Invisible Grills", url: "https://invisprotect.com/window-invisible-grills/" }
+]);
+---
+
+<BaseLayout
+  title="Windows Invisible Grills | Frameless Sliding Window Safety | InvisProtect"
+  description="High-tensile SS316 marine-grade invisible grills for windows, French doors, and low sills starting at ₹190/sq.ft. Maximum airflow with zero visual obstruction."
+  canonicalUrl="/window-invisible-grills/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/invisible-grills/" style="color: #64748B; text-decoration: none;">INVISIBLE GRILLS</a>
+        <span>/</span>
+        <span style="color: #C2410C;">WINDOWS INVISIBLE GRILLS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/window-invisible-grills.webp"
+              alt="Windows Invisible Grills Installation"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <Wind size={13} /> MAXIMUM AIRFLOW & DAYLIGHT
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                FRAMELESS FENESTRATION
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                Clear Panorama Window Barriers
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                Zero Rust • Fire Evacuation Quick-Cut Safe
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #0284C7; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> ZERO IRON-CAGE FEELING
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            WINDOWS INVISIBLE GRILLS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #0284C7; margin-bottom: 1.5rem; line-height: 1.4;">
+            Sleek architectural barriers for large sliding glass windows, French doors, and low-sill bedroom openings.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Factory Price:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #0284C7;">₹190 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ sq.ft</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Official Guarantee:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">10-Year Direct Warranty</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            Modern sliding UPVC and aluminium windows often have low sills that make parents anxious when children play nearby. Bulky external iron grills are expensive, rust under monsoon rain, and make bedrooms feel like prison cells. InvisProtect Windows Invisible Grills mount cleanly onto the internal or external frame reveal, providing complete fall safety while allowing 100% natural ventilation and zero view hindrance.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Wire Metallurgy</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Japanese Marine-Grade SS316 (AISI 316)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Spacing Grid</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">50 mm / 75 mm Spacing Options</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Window Compatibility</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">UPVC, Anodized Aluminium, and Teakwood Window Frames</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Emergency Safety</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Can be cut with rescue wire-cutters in emergency fire evacuation</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">10-Year Direct Manufacturer Replacement Guarantee</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem;">
+              <span>Calculate Window Price</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20a%20quote%20for%20Windows%20Invisible%20Grills.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>WhatsApp Free Window Survey</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
+        <span class="badge-arch">ONLINE ESTIMATOR</span>
+        <h2>Calculate Window Invisible Grill Cost</h2>
+        <p>Enter your window width and height to calculate instant quote.</p>
+      </div>
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="invisible-grills" title="Windows Invisible Grills FAQ" />
+</BaseLayout>

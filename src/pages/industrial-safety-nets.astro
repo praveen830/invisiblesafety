@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, HardHat, MessageCircle, Phone, ArrowRight, Shield } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Industrial Safety & Debris Nets",
+  "Heavy-ply warehouse and factory bay containment netting from ₹22/sq.ft.",
+  22
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Construction & Industrial", url: "https://invisprotect.com/duct-safety-nets/" },
+  { name: "Industrial Safety Nets", url: "https://invisprotect.com/industrial-safety-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Industrial Safety Nets | Warehouse Bay & Factory Containment | InvisProtect"
+  description="Heavy-duty factory and warehouse pallet rack containment safety nets from ₹22/sq.ft. Certified 300+ kg load capacity with steel cable rigging."
+  canonicalUrl="/industrial-safety-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
+    <div class="container">
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <a href="/duct-safety-nets/" style="color: #64748B; text-decoration: none;">CONSTRUCTION & INDUSTRIAL</a>
+        <span>/</span>
+        <span style="color: #C2410C;">INDUSTRIAL SAFETY NETS</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
+        <div style="position: sticky; top: 100px;">
+          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
+            <img
+              src="/images/industrial-safety-net.jpg"
+              alt="Industrial Warehouse Safety Nets"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
+            
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #FDE68A; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #D97706; display: flex; align-items: center; gap: 0.4rem;">
+              <HardHat size={13} /> WAREHOUSE CERTIFIED
+            </div>
+
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #FBBF24; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
+                FACTORY BAY CONTAINMENT
+              </div>
+              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
+                Industrial Racks & Mezzanines
+              </div>
+              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
+                Pallet Fall Restraint • Steel Boundary Suspension
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #D97706; margin-bottom: 1rem;">
+            <ShieldCheck size={14} /> HEAVY DEBRIS & PALLET CONTAINMENT
+          </div>
+
+          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+            INDUSTRIAL SAFETY NETS
+          </h1>
+          <p style="font-size: 1.2rem; font-weight: 600; color: #D97706; margin-bottom: 1.5rem; line-height: 1.4;">
+            Heavy-ply containment for warehouse storage bays, conveyor belts, and factory mezzanine elevations.
+          </p>
+
+          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Starting Rate:</span>
+              <span style="font-size: 2rem; font-weight: 900; color: #D97706;">₹22 <span style="font-size: 0.95rem; font-weight: 600; color: #64748B;">/ sq.ft</span></span>
+            </div>
+            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Certification:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">Heavy-Duty Industrial</span>
+            </div>
+          </div>
+
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+            Warehouses with high-bay pallet racking, distribution centers, and manufacturing plants require certified containment netting to prevent goods from tumbling into forklift aisles or onto assembly workers below. InvisProtect Industrial Safety Nets run flush against pallet uprights and overhead catwalks to ensure complete occupational safety compliance.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
+            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
+              TECHNICAL SPECIFICATION TABLE
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Yarn Polymer</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">High-Tenacity Virgin Multifilament Nylon (UV Stabilized)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Breaking Strength</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">300+ kg Pallet Spill Restraint Force</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Mesh Mesh Size</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">40 mm to 50 mm square configuration</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #F1F5F9;">
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Mounting Hardware</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Galvanized steel turnbuckles, eye bolts, and wire rope clamps</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
+                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Industrial Site Warranty</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #D97706; border-color: #D97706;">
+              <span>Calculate Industrial Net Cost</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20need%20Industrial%20Safety%20Nets%20for%20a%20warehouse%20or%20factory.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="padding: 0.95rem 1.85rem;"
+            >
+              <MessageCircle size={17} />
+              <span>WhatsApp Plant Survey</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Industrial Safety Nets FAQ" />
+</BaseLayout>

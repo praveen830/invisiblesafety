@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { getBreadcrumbSchema } from '../utils/seo';
+import { business } from '../data/business';
+import { 
+  ShieldCheck, 
+  Award, 
+  Check, 
+  FileCheck, 
+  RefreshCw, 
+  AlertTriangle, 
+  Phone, 
+  MessageCircle, 
+  Calendar, 
+  Clock, 
+  QrCode, 
+  BadgeCheck, 
+  ArrowRight,
+  Shield,
+  Layers,
+  Wrench
+} from 'lucide-react';
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Warranty & Care", url: "https://invisprotect.com/warranty/" }
+]);
+---
+
+<BaseLayout
+  title="10-Year Direct Warranty & Care Promise | SS316 Marine Invisible Grills | InvisProtect"
+  description="Official 10-year direct warranty terms for InvisProtect SS316 invisible grills and safety nets. Includes complimentary 90-day doorstep re-tensioning, anti-rust guarantee, and digital warranty certificate."
+  canonicalUrl="/warranty/"
+  schema={[breadcrumbs]}
+>
+  <!-- Architectural Clean Hero Section (High Contrast, Ultra-Clear UI) -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2.5rem; padding-bottom: 3.5rem;">
+    <div class="container" style="max-width: 980px; text-align: center;">
+      <!-- Breadcrumb Bar -->
+      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; background: #FFFFFF; padding: 0.35rem 1rem; border-radius: 20px; border: 1px solid #E2E8F0;">
+        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
+        <span>/</span>
+        <span style="color: #0284C7;">WARRANTY & CUSTOMER PROTECTION</span>
+      </nav>
+
+      <div style="display: flex; justify-content: center; margin-bottom: 1.25rem;">
+        <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: #E0F2FE; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.8rem; font-weight: 800; color: #0369A1; letter-spacing: 0.04em;">
+          <BadgeCheck size={16} /> DOCUMENTED CUSTOMER ASSURANCE
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #0F172A; line-height: 1.18; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+        10-Year Direct Comprehensive <br />
+        <span style="color: #0284C7;">Warranty & Care Promise</span>
+      </h1>
+
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; max-width: 760px; margin: 0 auto 2.25rem auto;">
+        We stand 100% behind our materials, Japanese SS316 marine alloy, and field craft. Every customer receives an official digital warranty certificate backed by complimentary doorstep re-tensioning inspections.
+      </p>
+
+      <!-- Key Metric Trust Indicators -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; max-width: 820px; margin: 0 auto 2.5rem auto;">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.25rem 1rem; box-shadow: var(--shadow-sm); text-align: center;">
+          <div style="font-size: 2rem; font-weight: 900; color: #0284C7; line-height: 1; margin-bottom: 0.35rem;">10 Years</div>
+          <div style="font-size: 0.82rem; font-weight: 700; color: #0F172A; text-transform: uppercase;">Direct Anti-Rust Guarantee</div>
+          <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">Virgin SS316 Marine Cable</div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.25rem 1rem; box-shadow: var(--shadow-sm); text-align: center;">
+          <div style="font-size: 2rem; font-weight: 900; color: #16A34A; line-height: 1; margin-bottom: 0.35rem;">90 Days</div>
+          <div style="font-size: 0.82rem; font-weight: 700; color: #0F172A; text-transform: uppercase;">Free Re-Tension Visit</div>
+          <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">Calibrated Doorstep Check</div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.25rem 1rem; box-shadow: var(--shadow-sm); text-align: center;">
+          <div style="font-size: 2rem; font-weight: 900; color: #C2410C; line-height: 1; margin-bottom: 0.35rem;">24 Hours</div>
+          <div style="font-size: 0.82rem; font-weight: 700; color: #0F172A; text-transform: uppercase;">WhatsApp Claim SLA</div>
+          <div style="font-size: 0.75rem; color: #64748B; margin-top: 0.25rem;">Immediate Technician Dispatch</div>
+        </div>
+      </div>
+
+      <!-- Hero Actions -->
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20verify%20or%20claim%20warranty%20coverage%20for%20my%20installation.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+          style="padding: 0.9rem 1.75rem; font-size: 0.95rem;"
+        >
+          <MessageCircle size={18} />
+          <span>Claim / Verify Warranty on WhatsApp</span>
+        </a>
+        <a href="#coverage-breakdown" class="btn btn-outline" style="padding: 0.9rem 1.75rem; font-size: 0.95rem; background: #FFFFFF;">
+          <span>Explore Coverage Terms</span>
+          <ArrowRight size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Certificate Showcase (Authentic Visual Proof) -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 1040px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
+        <div>
+          <div style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem;">
+            AUTHENTIC DOCUMENTATION
+          </div>
+          <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.5rem); font-weight: 900; color: #0F172A; line-height: 1.25; margin-bottom: 1.25rem; letter-spacing: -0.02em;">
+            Your Direct Digital Certificate of Warranty
+          </h2>
+          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 1.5rem;">
+            Unlike local contractors who provide verbal claims without proof, every InvisProtect project is serialized and issued a tamper-proof digital certificate within 24 hours of job completion.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: #DCFCE7; color: #15803D; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; font-weight: 800; margin-top: 2px;">✓</div>
+              <div style="font-size: 0.92rem; color: #334155;"><strong>Unique Serial Registry:</strong> Tracked on our central cloud database for 10 full years.</div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: #DCFCE7; color: #15803D; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; font-weight: 800; margin-top: 2px;">✓</div>
+              <div style="font-size: 0.92rem; color: #334155;"><strong>Transferable Value:</strong> Adds legal safety assurance when selling or renting your apartment.</div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 24px; height: 24px; border-radius: 50%; background: #DCFCE7; color: #15803D; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; font-weight: 800; margin-top: 2px;">✓</div>
+              <div style="font-size: 0.92rem; color: #334155;"><strong>Instant WhatsApp Dispatch:</strong> PDF certificate sent straight to your registered mobile number.</div>
+            </div>
+          </div>
+
+          <a
+            href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20have%20an%20existing%20installation%20and%20want%20to%20download%20my%20warranty%20certificate.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp btn-sm"
+          >
+            <FileCheck size={16} />
+            <span>Request Digital Certificate Copy</span>
+          </a>
+        </div>
+
+        <!-- Certificate Mockup Visual -->
+        <div>
+          <div style="position: relative; background: #FFFFFF; border: 2px solid #0284C7; border-radius: 18px; padding: 2rem; box-shadow: 0 15px 35px -5px rgba(2, 132, 199, 0.15); font-family: inherit;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #F1F5F9; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 900; color: #0F172A; letter-spacing: -0.02em;">INVISPROTECT ARCHITECTURAL</div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase;">OFFICIAL CERTIFICATE OF DIRECT WARRANTY</div>
+              </div>
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: #FEF3C7; border: 2px solid #F59E0B; display: flex; align-items: center; justify-content: center; color: #B45309;">
+                <Award size={26} />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; font-size: 0.82rem;">
+              <div style="background: #F8FAFC; padding: 0.75rem; border-radius: 8px; border: 1px solid #E2E8F0;">
+                <span style="display: block; font-size: 0.7rem; color: #64748B; font-weight: 700; text-transform: uppercase;">CERTIFICATE ID:</span>
+                <span style="font-weight: 800; color: #0F172A;">INVIS-HYD-2026-8942</span>
+              </div>
+              <div style="background: #F8FAFC; padding: 0.75rem; border-radius: 8px; border: 1px solid #E2E8F0;">
+                <span style="display: block; font-size: 0.7rem; color: #64748B; font-weight: 700; text-transform: uppercase;">WARRANTY PERIOD:</span>
+                <span style="font-weight: 800; color: #16A34A;">10 YEARS (DIRECT FACTORY)</span>
+              </div>
+            </div>
+
+            <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: #0369A1;">
+              <strong>Material Certified:</strong> Virgin Japanese AISI 316 Marine Stainless Steel (316 Alloy with 2.5% Molybdenum) Encased in DuPont High-Clarity UV Membrane. Breaking strength: 400+ kgf.
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px dashed #CBD5E1; font-size: 0.78rem; color: #64748B;">
+              <div>
+                <span style="display: block; font-weight: 700; color: #0F172A;">Quality Rigging Inspector</span>
+                <span>InvisProtect Technical Division</span>
+              </div>
+              <div style="text-align: right;">
+                <span style="display: inline-block; padding: 0.25rem 0.6rem; background: #DCFCE7; color: #15803D; font-weight: 800; border-radius: 6px;">
+                  VERIFIED ACTIVE
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clear, High-Contrast Coverage Scope Cards -->
+  <section id="coverage-breakdown" class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 1040px;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto;">
+        <span style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
+          COVERAGE SCOPE
+        </span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.7rem); font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+          What Is Covered Under Your Guarantee
+        </h2>
+        <p style="font-size: 1.05rem; color: #64748B; line-height: 1.6;">
+          Direct coverage on metallurgical cable integrity, architectural anchoring, and free doorstep service.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <!-- Card 1: Invisible Grills Coverage (High Contrast, Crisp White Card) -->
+        <div style="background: #FFFFFF; border: 2px solid #0284C7; border-radius: 20px; padding: 2.25rem; box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #E0F2FE; color: #0284C7; font-size: 0.78rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #BAE6FD;">
+              <ShieldCheck size={16} />
+              <span>FLAGSHIP INVISIBLE GRILLS COVERAGE</span>
+            </div>
+
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem; line-height: 1.25;">
+              10-Year SS316 Direct Warranty
+            </h3>
+            <p style="font-size: 0.92rem; color: #64748B; line-height: 1.6; margin-bottom: 1.5rem;">
+              Full metallurgical and structural protection for high-rise apartment balconies, staircases, and window installations.
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-direction: column; gap: 0.9rem;">
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>100% Anti-Rust Guarantee:</strong> Zero pitting corrosion on Japanese SS316 7x7 marine cables even in coastal monsoon weather.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>Track Anchoring & Torque Stability:</strong> Powder-coated heavy aluminum base profile guaranteed against frame detachment.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>DuPont Nylon UV Membrane:</strong> Guaranteed against peeling, cracking, or turning brittle from scorching sunlight.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>Complimentary 90-Day Inspection:</strong> Free doorstep visit to inspect and re-tension cables after initial concrete settlement.</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/invisible-grills/" class="btn btn-primary btn-sm" style="justify-content: center; font-weight: 800;">
+            <span>Explore Invisible Grills Products →</span>
+          </a>
+        </div>
+
+        <!-- Card 2: Core Safety Nets Coverage (High Contrast, Crisp White Card) -->
+        <div style="background: #FFFFFF; border: 2px solid #16A34A; border-radius: 20px; padding: 2.25rem; box-shadow: 0 10px 25px -5px rgba(22, 163, 74, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #DCFCE7; color: #16A34A; font-size: 0.78rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #BBF7D0;">
+              <Award size={16} />
+              <span>CORE SAFETY NETS COVERAGE</span>
+            </div>
+
+            <h3 style="font-size: 1.5rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem; line-height: 1.25;">
+              3-Year Anti-Sag Certified Warranty
+            </h3>
+            <p style="font-size: 0.92rem; color: #64748B; line-height: 1.6; margin-bottom: 1.5rem;">
+              Guaranteed whole-balcony mesh tension, anti-fall strength, and stainless steel hardware anchor integrity.
+            </p>
+
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-direction: column; gap: 0.9rem;">
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>UV-300 Sun-Block Assurance:</strong> Virgin Garware polymers resistant to ultraviolet decay and brittle snapping.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>SS304 Perimeter Fastener Anchors:</strong> Rust-free hooks and steel border cables guaranteed against loosening.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>Free Wind Re-Tying Service:</strong> In case of high-wind monsoon displacement, our technicians re-tie at zero cost.</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; margin-top: 2px;">✓</div>
+                <span style="font-size: 0.92rem; color: #1E293B; line-height: 1.5;"><strong>100% Virgin Polymer:</strong> Absolutely zero recycled scraps used, preserving 150+ kg/m² load bearing capacity.</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/safety-nets/" class="btn btn-outline btn-sm" style="justify-content: center; font-weight: 800; border-color: #16A34A; color: #15803D; background: #F0FDF4;">
+            <span>Explore Safety Nets Products →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Free Doorstep Re-Tensioning Voucher Highlight (High Contrast Box) -->
+      <div style="background: #FFFFFF; border: 1.5px solid #0284C7; border-radius: 18px; padding: 2rem; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div style="width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); display: flex; align-items: center; justify-content: center; color: #FFFFFF; flex-shrink: 0; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);">
+          <RefreshCw size={30} />
+        </div>
+        <div style="flex: 1; min-width: 280px;">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #0284C7; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem;">
+            COMPLIMENTARY ENGINEERING PROTOCOL
+          </div>
+          <h4 style="font-size: 1.3rem; font-weight: 900; color: #0F172A; margin-bottom: 0.5rem;">
+            Free 90-Day Re-Tensioning & Calibrated Check
+          </h4>
+          <p style="font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6;">
+            During the first 3 months, natural concrete micro-settlement and structural temperature swings can cause slight cable relaxation. An InvisProtect technician will visit your home free of charge to test wire deflection and tighten all tensioners back to factory spec.
+          </p>
+        </div>
+        <div>
+          <a
+            href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20want%20to%20schedule%20my%20free%2090-day%20re-tensioning%20service%20visit.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp btn-sm"
+          >
+            <span>Book 90-Day Check</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-Step Effortless Claim Process -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 980px;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto;">
+        <span style="font-size: 0.76rem; font-weight: 800; color: #16A34A; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; display: block;">
+          HASSLE-FREE SERVICE
+        </span>
+        <h2 style="font-size: clamp(2rem, 3.5vw, 2.7rem); font-weight: 900; color: #0F172A; letter-spacing: -0.02em; margin-bottom: 0.75rem;">
+          How To Claim Your Warranty in 3 Steps
+        </h2>
+        <p style="font-size: 1.05rem; color: #64748B; line-height: 1.6;">
+          No tedious paperwork or endless phone calls. Everything is handled directly on WhatsApp.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+        <!-- Step 1 -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 2rem 1.5rem; position: relative;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #0284C7; color: #FFFFFF; font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            1
+          </div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            WhatsApp Your Details
+          </h4>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">
+            Simply share your invoice photo, registered mobile number, or installation photo to <strong style="color: #0F172A;">+91 {business.phone}</strong>.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 2rem 1.5rem; position: relative;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #16A34A; color: #FFFFFF; font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            2
+          </div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            Instant Digital Verification
+          </h4>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">
+            Our technical support team pulls up your central warranty record within 30 minutes and assigns a certified technician ticket.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 2rem 1.5rem; position: relative;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #C2410C; color: #FFFFFF; font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            3
+          </div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
+            Doorstep Resolution
+          </h4>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0;">
+            A trained rigging crew visits your apartment within 24 to 48 hours to recalibrate tension or replace defective parts completely free.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standard Exclusions (Clear, Transparent High-Contrast Card) -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+    <div class="container" style="max-width: 980px;">
+      <div style="background: #FFFFFF; border: 1px solid #FED7AA; border-left: 6px solid #F97316; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; align-items: center; gap: 0.6rem; color: #C2410C; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.75rem;">
+          <AlertTriangle size={20} />
+          <span>TRANSPARENT ENGINEERING POLICY & STANDARD EXCLUSIONS</span>
+        </div>
+        <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 1rem;">
+          In alignment with international ISO/IS rigging standards, our warranty guarantees manufacturer craftsmanship, genuine Japanese SS316 raw materials, and on-site tension anchoring. It excludes:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0.75rem; font-size: 0.88rem; color: #475569;">
+          <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="color: #F97316; font-weight: 800;">•</span>
+            <span>Deliberate cutting with heavy bolt cutters, wire cutters, or power saws.</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="color: #F97316; font-weight: 800;">•</span>
+            <span>Direct flame exposure, fireworks, or chemical muriatic acid washes on balcony tiles.</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="color: #F97316; font-weight: 800;">•</span>
+            <span>Unauthorized modifications, re-drilling, or unhooking by third-party carpenters/painters.</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="color: #F97316; font-weight: 800;">•</span>
+            <span>Major structural building collapse, severe wall settlement cracks, or earthquake damage.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="warranty" title="Frequently Asked Warranty Questions" />
+</BaseLayout>

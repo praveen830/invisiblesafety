@@ -1,0 +1,398 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { pricing } from '../data/pricing';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Check, Sparkles, MessageCircle, Phone, ArrowRight, Target, Activity } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Sports & Cricket Practice Nets",
+  "High-impact UV-stabilized sports and cricket practice netting for rooftops, terraces, and clubhouses starting at ₹18/sq.ft.",
+  18
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisprotect.com/" },
+  { name: "Sports Nets", url: "https://invisprotect.com/sports-nets/" }
+]);
+---
+
+<BaseLayout
+  title="Sports & Cricket Practice Nets for Terraces & Rooftops | InvisProtect India"
+  description="High-impact ball containment sports netting for cricket pitches, society turfs, and residential rooftops. Heavy-duty UV-stabilized polymer starting at ₹18/sq.ft."
+  canonicalUrl="/sports-nets/"
+  schema={[serviceSchema, breadcrumbs]}
+>
+  <!-- Hero Section -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0FDF4 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #DCFCE7; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #15803D; margin-bottom: 1.25rem;">
+            <Target size={14} /> HIGH-VELOCITY BALL CONTAINMENT
+          </div>
+          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+            Rooftop & Terrace <br />
+            <span style="color: #16A34A;">Sports & Cricket Nets</span>
+          </h1>
+          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
+            Turn open terraces, school complexes, and residential rooftops into safe cricket practice pitches and multi-sport enclosures. Engineered with high-tenacity braided polymers tested to stop hard leather and tennis balls without tearing.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+            <a href="#estimator" class="btn btn-primary">
+              <span>Calculate Sports Net Cost</span>
+              <ArrowRight size={17} />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Sports%20%2F%20Cricket%20Nets%20for%20my%20terrace%20or%20society.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+            >
+              <MessageCircle size={17} />
+              <span>WhatsApp Us For Quote</span>
+            </a>
+          </div>
+
+          <!-- Live Pricing Callout -->
+          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Starting Rate:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #16A34A;">₹18 / sq.ft</span>
+            </div>
+            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
+            <div>
+              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Durability Warranty:</span>
+              <span style="font-size: 1.35rem; font-weight: 800; color: #0284C7;">3 to 5 Years</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Showcase -->
+        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
+            <img
+              src="/images/sports-nets.webp"
+              alt="Rooftop Cricket Practice Net Installation"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              width="640"
+              height="360"
+              loading="eager"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
+              <Activity size={14} /> 180+ kg Ball Impact Tested
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
+              <span>100% UV Stabilized Polymer</span>
+            </div>
+          </div>
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
+            <span>Galvanized Steel Boundary Frame & Turnbuckles</span>
+            <span style="color: #16A34A; font-weight: 700;">✓ Custom Box Enclosures</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Catalog: Available Specialty Solutions Configurations (Matching User Screenshot 3) -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid #F1F5F9;">
+        <div>
+          <div style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem;">
+            CURATED CATALOG
+          </div>
+          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; color: #0F172A; letter-spacing: -0.02em; margin: 0;">
+            AVAILABLE SPECIALTY SOLUTIONS CONFIGURATIONS
+          </h2>
+        </div>
+        <div style="font-size: 0.88rem; color: #64748B;">
+          Select a configuration for detailed engineering specifications
+        </div>
+      </div>
+
+      <!-- 4-Card Portrait Grid -->
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <!-- 1. Sports Practice Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/sports-practice-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/sports-nets.webp"
+              alt="Sports Practice Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #16A34A;">
+              High Impact
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹18 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE PRACTICE ENCLOSURE
+              </div>
+              <a href="/sports-practice-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  SPORTS PRACTICE NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                Custom sports enclosures engineered for cricket batting practice, golf drives, and athletic ball containment.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ 180+ kg Ball Impact Containment
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/sports-practice-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Sports%20Practice%20Nets%20(Starting%20₹18/sq.ft).%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Coconut Safety Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/coconut-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/coconut-safety-net.jpg"
+              alt="Coconut Safety Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #15803D;">
+              Impact Defense
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹26 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE CANOPY DEFENSE
+              </div>
+              <a href="/coconut-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  COCONUT SAFETY NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                Heavy-gauge canopy nets suspended beneath coconut palms to catch falling coconuts and protect pedestrians.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ Heavy-Ply Palm Canopy Defense
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/coconut-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Coconut%20Safety%20Nets%20(Starting%20₹26/sq.ft).%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Swimming Pool Nets -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/swimming-pool-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/swimming-pool-net.jpg"
+              alt="Swimming Pool Nets"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
+              Water Safety
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              ₹32 / sq.ft
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE WATER PERIMETER
+              </div>
+              <a href="/swimming-pool-nets/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  SWIMMING POOL NETS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                High-tension security nets enclosing residential swimming pools to protect toddlers and pets from accidental submersion.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ Reinforced Water-Safe Anchors
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/swimming-pool-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Swimming%20Pool%20Nets%20(Starting%20₹32/sq.ft).%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Balcony Cloth Drying Hangers -->
+        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
+          <a href="/cloth-drying-hangers/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
+            <img
+              src="/images/cloth-drying-hanger.jpg"
+              alt="Balcony Cloth Drying Hangers"
+              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+              class="hover-zoom-img"
+              loading="lazy"
+            />
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #D97706;">
+              Space Saver
+            </div>
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
+              From ₹1,800
+            </div>
+          </a>
+          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
+                THE CEILING PULLEY SYSTEM
+              </div>
+              <a href="/cloth-drying-hangers/" style="text-decoration: none; color: inherit; display: block;">
+                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
+                  BALCONY CLOTH DRYING HANGERS
+                </h3>
+              </a>
+              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
+                Ceiling-mounted pulley systems with independent stainless steel rods that lift laundry seamlessly into ceiling recesses.
+              </p>
+            </div>
+            <div>
+              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
+                ✓ SS304 Rust-Proof Dual Pulley
+              </div>
+              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
+                <a href="/cloth-drying-hangers/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
+                  <span>VIEW SPECS →</span>
+                </a>
+                <a
+                  href={`https://wa.me/${business.whatsapp}?text=Hi%20InvisProtect%2C%20I%20am%20interested%20in%20Balcony%20Cloth%20Drying%20Hangers.%20Please%20provide%20a%20quote.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-sm"
+                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
+                >
+                  <span>Get Quote</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Technical Advantages -->
+  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-emerald">Technical Engineering</span>
+        <h2>Why Gated Societies & Academies Choose InvisProtect</h2>
+        <p>Industrial-grade ball containment systems engineered for safety, durability, and non-stop play.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="arch-card">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #16A34A; margin-bottom: 0.5rem;">
+            High-Impact Tolerance
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+            Woven from 1.5mm to 3.0mm thick braided nylon and high-tenacity polyethylene. Easily absorbs full-power cricket shots and tennis hits without stretching out of shape.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ Stops Leather & Rubber Cricket Balls
+          </div>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #16A34A; margin-bottom: 0.5rem;">
+            Extreme Sun & Weather Proof
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+            Contains double UV stabilizers formulated specifically to withstand scorching summer heat and tropical monsoon storms without rotting or losing tensile strength.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ Zero Sun Rot / UV Degradation
+          </div>
+        </div>
+
+        <div class="arch-card">
+          <div style="font-size: 1.25rem; font-weight: 800; color: #16A34A; margin-bottom: 0.5rem;">
+            Custom Box Enclosures
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+            Fitted with perimeter galvanized steel wire cables, tension turnbuckles, and roof netting to create an impenetrable practice cage on rooftops or open plots.
+          </p>
+          <div style="font-size: 0.82rem; color: #15803D; font-weight: 700;">
+            ✓ Full 360° Perimeter & Ceiling Coverage
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Calculator -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-arch">Instant Estimation</span>
+        <h2>Calculate Your Sports Netting Budget</h2>
+        <p>Enter your terrace pitch or ground dimensions to receive instant cost figures.</p>
+      </div>
+
+      <CostEstimator client:load />
+    </div>
+  </section>
+
+  <FAQSection category="safety-nets" title="Sports Nets Frequently Asked Questions" />
+</BaseLayout>
