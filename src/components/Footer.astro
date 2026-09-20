@@ -1,155 +1,356 @@
 ---
 import { business } from '../data/business';
-import { Shield, Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Shield, Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from 'lucide-react';
 ---
 
-<footer style="background: #080B12; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 4.5rem; padding-bottom: 2.5rem; margin-top: auto;">
+<footer class="site-footer">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr; gap: 3rem; margin-bottom: 3.5rem;">
-      <!-- Column 1: Brand & NAP -->
-      <div>
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-          <div style="width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); display: flex; align-items: center; justify-content: center;">
-            <Shield size={20} color="#FFFFFF" />
+    <div class="footer-grid">
+      <!-- Column 1: Brand & About -->
+      <div class="footer-col-brand">
+        <div class="footer-brand">
+          <div class="footer-symbol">
+            <Shield size={18} color="#FFFFFF" />
           </div>
-          <span style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: #FFFFFF;">
-            Invis<span style="color: #38BDF8;">Protect</span>
+          <span class="footer-brand-name">
+            Invisible<span class="text-blue"> Safety</span>
           </span>
         </div>
-        <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6; margin-bottom: 1.5rem; max-width: 360px;">
-          {business.subtitle} Built with certified virgin SS316 marine-grade tensile cables and aircraft-grade aluminium track systems.
+        <p class="footer-tagline">
+          {business.subtitle}
+        </p>
+        <p class="footer-subtext">
+          Professional balcony and window safety solutions for residential apartments, villas, and commercial buildings.
         </p>
 
-        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 1rem; margin-bottom: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; color: #38BDF8; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem;">
-            <MapPin size={13} color="#38BDF8" />
-            <span>Official Registered Office Address</span>
+        <!-- Official Address -->
+        <div class="footer-address-box">
+          <div class="footer-address-header">
+            <MapPin size={14} className="text-blue" />
+            <span>Official Office</span>
           </div>
-          <div style="font-size: 0.88rem; color: #F8FAFC; line-height: 1.5; font-weight: 600;">
+          <div class="footer-address-text">
             {business.address.street}, {business.address.locality}
           </div>
-          <div style="font-size: 0.82rem; color: #94A3B8;">
+          <div class="footer-address-sub">
             {business.address.city}, {business.address.state} — {business.address.pincode}
           </div>
         </div>
+      </div>
 
-        <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.85rem; color: #CBD5E1;">
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <Phone size={15} color="#38BDF8" />
-            <a href={`tel:${business.phoneRaw}`} style="color: #F8FAFC; font-weight: 600;">{business.phone}</a>
+      <!-- Column 2: Products -->
+      <div>
+        <h4 class="footer-heading">Products</h4>
+        <ul class="footer-links">
+          <li><a href="/invisible-grills/">Invisible Grills</a></li>
+          <li><a href="/balcony-invisible-grills/">Balcony Invisible Grills</a></li>
+          <li><a href="/window-invisible-grills/">Window Invisible Grills</a></li>
+          <li><a href="/staircase-invisible-grills/">Staircase Grills</a></li>
+          <li><a href="/safety-nets/">Safety Nets</a></li>
+          <li><a href="/pigeon-nets/">Anti-Pigeon Nets</a></li>
+          <li><a href="/bird-spikes/">Bird Spikes</a></li>
+          <li><a href="/construction-safety-nets/">Construction Safety</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Applications -->
+      <div>
+        <h4 class="footer-heading">Applications</h4>
+        <ul class="footer-links">
+          <li><a href="/balcony-safety/">Balconies</a></li>
+          <li><a href="/window-invisible-grills/">Windows & French Doors</a></li>
+          <li><a href="/staircase-safety-nets/">Staircase Voids</a></li>
+          <li><a href="/child-safety-nets/">Children Safety</a></li>
+          <li><a href="/building-safety-nets/">High-Rise Buildings</a></li>
+          <li><a href="/duct-safety-nets/">Ducts & Utility Shafts</a></li>
+          <li><a href="/terrace-safety-nets/">Terrace Perimeters</a></li>
+          <li><a href="/sports-nets/">Sports Enclosures</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Company & Trust -->
+      <div>
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          <li><a href="/why-invisible-safety/">Why Invisible Safety</a></li>
+          <li><a href="/materials/">Materials & SS316</a></li>
+          <li><a href="/warranty/">Warranty Documentation</a></li>
+          <li><a href="/projects/">Real Installations</a></li>
+          <li><a href="/invisible-grill-cost/">Cost Calculator</a></li>
+          <li><a href="/visualizer/">Visual Comparison Tool</a></li>
+          <li><a href="/faq/">FAQs</a></li>
+          <li><a href="/about/">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Contact & Service Areas -->
+      <div>
+        <h4 class="footer-heading">Contact & Service</h4>
+        <div class="footer-contact-list">
+          <div class="contact-entry">
+            <Phone size={15} className="text-blue" />
+            <a href={`tel:${business.phoneRaw}`}>{business.phone}</a>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <div class="contact-entry">
             <MessageCircle size={15} color="#25D366" />
-            <a href={`https://wa.me/${business.whatsapp}`} style="color: #25D366; font-weight: 600;">WhatsApp Support</a>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <Mail size={15} color="#38BDF8" />
-            <a href={`mailto:${business.email}`} style="color: #CBD5E1;">{business.email}</a>
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <Clock size={15} color="#38BDF8" />
-            <span style="color: #94A3B8;">{business.hours}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Column 2: Safety Solutions -->
-      <div>
-        <h4 style="font-size: 1rem; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem;">
-          Solutions
-        </h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.88rem; color: #94A3B8;">
-          <li><a href="/invisible-grills/" class="footer-link">SS316 Invisible Grills</a></li>
-          <li><a href="/safety-nets/" class="footer-link">Balcony Safety Nets</a></li>
-          <li><a href="/balcony-safety/" class="footer-link">Balcony Fall Protection</a></li>
-          <li><a href="/pigeon-nets/" class="footer-link">Anti-Pigeon Nets</a></li>
-          <li><a href="/child-safety-nets/" class="footer-link">Child Safety Solutions</a></li>
-          <li><a href="/sports-nets/" class="footer-link">Sports & Cricket Nets</a></li>
-          <li><a href="/duct-safety-nets/" class="footer-link">Utility & Duct Nets</a></li>
-          <li><a href="/materials/" class="footer-link">SS316 Material Engineering</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Customer Tools & Trust -->
-      <div>
-        <h4 style="font-size: 1rem; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem;">
-          Tools & Trust
-        </h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.88rem; color: #94A3B8;">
-          <li><a href="/visualizer/" class="footer-link" style="color: #38BDF8;">See It On Your Home</a></li>
-          <li><a href="/invisible-grill-cost/" class="footer-link">Smart Cost Estimator</a></li>
-          <li><a href="/gallery/" class="footer-link">Completed Projects</a></li>
-          <li><a href="/warranty/" class="footer-link">10-Year Warranty Terms</a></li>
-          <li><a href="/why-invisprotect/" class="footer-link">Why InvisProtect</a></li>
-          <li><a href="/about/" class="footer-link">About Our Company</a></li>
-          <li><a href="/faq/" class="footer-link">FAQ & Knowledge Base</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Service Areas -->
-      <div>
-        <h4 style="font-size: 1rem; font-weight: 700; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem;">
-          Service Regions
-        </h4>
-        <div style="display: flex; flex-direction: column; gap: 0.9rem; font-size: 0.88rem;">
-          <div>
-            <a href="/locations/hyderabad/" style="color: #F8FAFC; font-weight: 600; text-decoration: none; display: block;">
-              Hyderabad & Cyberabad
+            <a href={`https://wa.me/${business.whatsapp}`} target="_blank" rel="noopener noreferrer" style="color: #25D366;">
+              WhatsApp Support
             </a>
-            <span style="font-size: 0.78rem; color: #64748B;">Gachibowli, Kondapur, Hitec City, Kokapet, Financial District</span>
           </div>
-          <div>
-            <a href="/locations/visakhapatnam/" style="color: #F8FAFC; font-weight: 600; text-decoration: none; display: block;">
-              Visakhapatnam (Vizag)
-            </a>
-            <span style="font-size: 0.78rem; color: #64748B;">Beach Road, MVP Colony, Madhurawada, Rushikonda</span>
+          <div class="contact-entry">
+            <Mail size={15} className="text-blue" />
+            <a href={`mailto:${business.email}`}>{business.email}</a>
           </div>
-          <div>
-            <a href="/locations/vijayawada/" style="color: #F8FAFC; font-weight: 600; text-decoration: none; display: block;">
-              Vijayawada & Amaravati
-            </a>
-            <span style="font-size: 0.78rem; color: #64748B;">Benz Circle, Kanuru, Poranki, Tadepalli</span>
+          <div class="contact-entry">
+            <Clock size={15} className="text-blue" />
+            <span>{business.hours}</span>
           </div>
         </div>
 
-        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px;">
-          <div style="font-size: 0.8rem; font-weight: 700; color: #10B981; margin-bottom: 0.2rem;">Free Same-Day Site Inspection</div>
-          <div style="font-size: 0.75rem; color: #94A3B8;">Laser measurement & physical wire sample demonstration at your doorstep.</div>
+        <div class="footer-service-regions">
+          <div class="service-regions-label">SERVICE REGIONS:</div>
+          <div class="service-regions-links">
+            <a href="/locations/hyderabad/">Hyderabad & Cyberabad</a>
+            <a href="/locations/visakhapatnam/">Visakhapatnam (Vizag)</a>
+            <a href="/locations/vijayawada/">Vijayawada & Amaravati</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Legal & Copyright -->
-    <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #64748B;">
-      <div>
-        © {new Date().getFullYear()} {business.legalName}. All rights reserved.
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        © {new Date().getFullYear()} {business.name}. All rights reserved. Professional home safety installations.
       </div>
-      <div style="display: flex; gap: 1.5rem;">
-        <a href="/warranty/" class="footer-link">Warranty Policy</a>
-        <a href="/contact/" class="footer-link">Contact Support</a>
-        <span style="color: #475569;">DPDP 2023 & 2025 Ready</span>
+      <div class="footer-bottom-links">
+        <a href="/warranty/">Warranty Terms</a>
+        <a href="/contact/">Contact Office</a>
+        <a href="/faq/">Knowledge Base</a>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer-link {
+  .site-footer {
+    background: #0F172A;
+    color: #94A3B8;
+    border-top: 1px solid #1E293B;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr 1.3fr;
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-symbol {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .text-blue {
+    color: #38BDF8;
+  }
+
+  .footer-tagline {
+    font-size: 0.88rem;
+    color: #E2E8F0;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .footer-subtext {
+    font-size: 0.82rem;
+    color: #94A3B8;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-address-box {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .footer-address-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-address-text {
+    color: #E2E8F0;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .footer-address-sub {
+    color: #94A3B8;
+  }
+
+  .footer-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .footer-links a {
     color: #94A3B8;
     text-decoration: none;
     transition: color 0.15s ease;
   }
-  .footer-link:hover {
+
+  .footer-links a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-entry {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-entry a {
+    color: #E2E8F0;
+    text-decoration: none;
+  }
+
+  .contact-entry a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-service-regions {
+    border-top: 1px solid #1E293B;
+    padding-top: 1rem;
+  }
+
+  .service-regions-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #64748B;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-regions-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+  }
+
+  .service-regions-links a {
+    color: #CBD5E1;
+    text-decoration: none;
+  }
+
+  .service-regions-links a:hover {
     color: #38BDF8;
   }
-  @media (max-width: 960px) {
-    footer div[style*="grid-template-columns"] {
-      grid-template-columns: 1fr 1fr !important;
+
+  .footer-bottom {
+    border-top: 1px solid #1E293B;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.82rem;
+  }
+
+  .footer-copyright {
+    color: #64748B;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-links a {
+    color: #64748B;
+    text-decoration: none;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #94A3B8;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-col-brand {
+      grid-column: 1 / -1;
     }
   }
-  @media (max-width: 600px) {
-    footer div[style*="grid-template-columns"] {
-      grid-template-columns: 1fr !important;
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>

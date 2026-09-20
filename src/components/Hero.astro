@@ -1,96 +1,67 @@
 ---
 import { business } from '../data/business';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Eye, CheckCircle2, Activity, Compass } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 ---
 
 <section class="hero-section">
-  <!-- Full Architectural Background Showcase -->
+  <!-- Realistic Indian Apartment Balcony Photograph Background -->
   <div class="hero-bg-container">
     <img
       src="/images/hero-balcony.webp"
-      alt="Luxury high-rise balcony secured with InvisProtect SS316 architectural invisible grills"
+      alt="Modern apartment balcony with professionally installed invisible safety grills"
       class="hero-bg-img"
       loading="eager"
       width="1920"
       height="1080"
     />
-    <div class="hero-backdrop-gradient"></div>
+    <!-- Clean, natural gradient overlay for optimal text legibility -->
+    <div class="hero-overlay"></div>
   </div>
 
-  <div class="container hero-content-wrapper">
-    <div class="hero-center-box">
-      <!-- Eyebrow Brand Identity -->
-      <div class="hero-eyebrow">
-        <span class="eyebrow-accent-dot"></span>
-        <span class="eyebrow-brand">INVISPROTECT</span>
-        <span class="eyebrow-separator">·</span>
-        <span class="eyebrow-category">ARCHITECTURAL SAFETY</span>
-      </div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- Small Eyebrow -->
+      <span class="hero-eyebrow">
+        ARCHITECTURAL SAFETY SOLUTIONS
+      </span>
 
-      <!-- Main Headline from Section 23 -->
-      <h1 class="hero-main-title">
-        INVISIBLE GRILLS <br />
-        <span class="hero-title-light">FOR MODERN LIVING</span>
+      <!-- Primary H1 -->
+      <h1 class="hero-title">
+        Invisible Grills & Safety Solutions for Modern Homes
       </h1>
 
-      <!-- Supporting Tagline -->
-      <p class="hero-subtext">
-        High-tensile architectural safety solutions designed to protect selected balconies, windows, staircases, and high-rise residences while preserving 98% panoramic visual openness.
+      <!-- Supporting Body Copy -->
+      <p class="hero-description">
+        Protect balconies, windows and open spaces with professionally installed invisible grills and safety net systems designed for modern residential spaces.
       </p>
 
-      <!-- Primary Action CTAs -->
-      <div class="hero-cta-row">
-        <a href="#invisible-grills" class="btn btn-primary hero-btn">
-          <span>EXPLORE INVISIBLE GRILLS</span>
-          <ArrowRight size={16} />
+      <!-- Primary Action Buttons -->
+      <div class="hero-actions">
+        <a href="/contact/#quote" class="btn btn-primary btn-lg">
+          <span>GET A FREE QUOTE</span>
+          <ArrowRight size={18} />
         </a>
 
-        <a href="#safety-nets" class="btn btn-outline hero-btn hero-btn-light">
-          <span>EXPLORE SAFETY NETS</span>
-        </a>
-
-        <a href="#calculator" class="btn hero-btn-accent">
-          <span>GET FREE QUOTE</span>
-        </a>
-
-        <a href="/visualizer/" class="hero-visualizer-link">
-          <Sparkles size={15} color="#C2410C" />
-          <span>SEE IT ON YOUR HOME</span>
+        <a href="#protect-journey" class="btn btn-secondary btn-lg">
+          <span>VIEW OUR PRODUCTS</span>
         </a>
       </div>
 
-      <!-- Engineering & Quality Pillars -->
-      <div class="hero-metrics-bar">
-        <div class="metric-pill">
-          <Activity size={16} color="#0284C7" />
-          <div>
-            <span class="metric-value">400+ kgf Load</span>
-            <span class="metric-label">High-Rise Fall Certification</span>
-          </div>
+      <!-- Verified Trust Strip -->
+      <div class="hero-trust-strip">
+        <div class="trust-item">
+          <CheckCircle2 size={16} className="text-blue" />
+          <span>SS316 options</span>
         </div>
-
-        <div class="metric-pill">
-          <CheckCircle2 size={16} color="#16A34A" />
-          <div>
-            <span class="metric-value">Virgin SS316 Alloy</span>
-            <span class="metric-label">Zero Rust • 10-Yr Guarantee</span>
-          </div>
+        <span class="trust-divider">•</span>
+        <div class="trust-item">
+          <CheckCircle2 size={16} className="text-blue" />
+          <span>Professional installation</span>
         </div>
-
-        <div class="metric-pill">
-          <Eye size={16} color="#0284C7" />
-          <div>
-            <span class="metric-value">98.4% Open Panorama</span>
-            <span class="metric-label">100% Gated Society Approved</span>
-          </div>
-        </div>
-
-        <div class="metric-pill">
-          <ShieldCheck size={16} color="#16A34A" />
-          <div>
-            <span class="metric-value">Free Laser Measurement</span>
-            <span class="metric-label">Doorstep Wire Sample Kits</span>
-          </div>
+        <span class="trust-divider">•</span>
+        <div class="trust-item">
+          <MapPin size={16} className="text-blue" />
+          <span>Service across Hyderabad, Vizag & Vijayawada</span>
         </div>
       </div>
     </div>
@@ -100,245 +71,127 @@ import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Eye, CheckCirc
 <style>
   .hero-section {
     position: relative;
-    overflow: hidden;
-    min-height: 85vh;
+    min-height: 580px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 5rem 1.5rem 4rem 1.5rem;
-    background: #0F172A;
+    padding: 72px 0 80px 0;
+    overflow: hidden;
+    background-color: var(--color-bg-warm);
   }
 
   .hero-bg-container {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     z-index: 1;
-    overflow: hidden;
   }
 
   .hero-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 35%;
-    transform: scale(1.02);
-    filter: brightness(0.92);
+    object-position: center right;
   }
 
-  .hero-backdrop-gradient {
+  .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.8) 100%),
-                linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.85) 100%);
+    /* Clean white gradient on left for high contrast text readability */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(255, 255, 255, 0.6) 75%, rgba(255, 255, 255, 0.2) 100%);
   }
 
-  .hero-content-wrapper {
+  .hero-container {
     position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: 1120px;
-    margin: 0 auto;
-    text-align: center;
   }
 
-  .hero-center-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .hero-content {
+    max-width: 650px;
   }
 
   .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 1.25rem;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    margin-bottom: 1.75rem;
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 0.85rem;
   }
 
-  .eyebrow-accent-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #38BDF8;
-    box-shadow: 0 0 8px #38BDF8;
+  .hero-title {
+    margin-bottom: 1.25rem;
+    color: var(--color-primary);
   }
 
-  .eyebrow-brand {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    color: #FFFFFF;
-  }
-
-  .eyebrow-separator {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
-  }
-
-  .eyebrow-category {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: #E2E8F0;
-  }
-
-  .hero-main-title {
-    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-    font-weight: 900;
-    color: #FFFFFF;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .hero-title-light {
-    font-weight: 400;
-    color: #E2E8F0;
-    letter-spacing: 0.04em;
-  }
-
-  .hero-subtext {
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    color: #CBD5E1;
+  .hero-description {
+    font-size: 1.15rem;
+    color: var(--color-secondary);
     line-height: 1.65;
-    max-width: 820px;
-    margin: 0 auto 2.5rem auto;
-    font-weight: 400;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
   }
 
-  .hero-cta-row {
+  .hero-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
+    margin-bottom: 2.25rem;
     flex-wrap: wrap;
-    margin-bottom: 3.5rem;
   }
 
-  .hero-btn {
-    font-size: 0.86rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 0.85rem 1.75rem;
-  }
-
-  .hero-btn-light {
-    background: rgba(255, 255, 255, 0.15);
-    color: #FFFFFF;
-    border-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(8px);
-  }
-
-  .hero-btn-light:hover {
-    background: #FFFFFF;
-    color: #0F172A;
-  }
-
-  .hero-btn-accent {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.86rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 0.85rem 1.75rem;
-    border-radius: 8px;
-    background: #C2410C;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .hero-btn-accent:hover {
-    background: #EA580C;
-    transform: translateY(-2px);
-  }
-
-  .hero-visualizer-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.85rem 1.4rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #0F172A;
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease;
-  }
-
-  .hero-visualizer-link:hover {
-    transform: translateY(-2px);
-  }
-
-  /* Metrics Bar */
-  .hero-metrics-bar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 16px;
-    padding: 1.5rem 1.75rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  }
-
-  .metric-pill {
+  .hero-trust-strip {
     display: flex;
     align-items: center;
     gap: 0.85rem;
-    text-align: left;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
   }
 
-  .metric-value {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #0F172A;
-    line-height: 1.2;
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
   }
 
-  .metric-label {
-    display: block;
-    font-size: 0.76rem;
-    color: #64748B;
-    font-weight: 500;
-    margin-top: 2px;
+  .trust-divider {
+    color: #CBD5E1;
   }
 
-  @media (max-width: 768px) {
+  .text-blue {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 100%);
+    }
+
     .hero-section {
       min-height: auto;
-      padding-top: 4rem;
-      padding-bottom: 3rem;
+      padding: 56px 0 64px 0;
     }
-    .hero-cta-row {
+  }
+
+  @media (max-width: 500px) {
+    .hero-actions {
       flex-direction: column;
-      width: 100%;
-      gap: 0.75rem;
+      align-items: stretch;
     }
-    .hero-btn, .hero-btn-accent, .hero-visualizer-link {
+
+    .hero-actions .btn {
       width: 100%;
     }
-    .hero-metrics-bar {
-      grid-template-columns: 1fr;
-      padding: 1.25rem;
-      gap: 1rem;
+
+    .hero-trust-strip {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .trust-divider {
+      display: none;
     }
   }
 </style>

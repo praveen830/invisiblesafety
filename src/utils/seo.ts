@@ -7,11 +7,11 @@ export function getLocalBusinessSchema() {
     "name": business.legalName,
     "alternateName": business.name,
     "description": business.subtitle,
-    "url": "https://invisprotect.com",
+    "url": "https://invisiblesafety.vercel.app",
     "telephone": business.phone,
     "email": business.email,
     "priceRange": "₹₹",
-    "image": "https://invisprotect.com/images/hero-balcony.webp",
+    "image": "https://invisiblesafety.vercel.app/images/hero-balcony.webp",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": business.address.street,

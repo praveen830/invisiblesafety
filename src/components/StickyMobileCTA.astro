@@ -3,30 +3,33 @@ import { business } from '../data/business';
 import { Phone, MessageCircle, Calculator } from 'lucide-react';
 ---
 
-<div class="mobile-sticky-cta" id="sticky-mobile-bar">
+<div class="mobile-bottom-bar" id="sticky-mobile-bar">
   <a
     href={`tel:${business.phoneRaw}`}
-    style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 0.55rem 0.25rem; color: #FFFFFF; font-size: 0.75rem; font-weight: 600; text-decoration: none;"
+    class="mobile-bottom-btn mobile-bottom-btn-call"
+    aria-label="Call Invisible Safety"
   >
-    <Phone size={17} color="#38BDF8" />
-    <span>Call Now</span>
+    <Phone size={18} />
+    <span>Call</span>
   </a>
 
   <a
-    href={`https://wa.me/${business.whatsapp}?text=Hello%20InvisProtect%2C%20I%20am%20interested%20in%20a%20free%20quote%20and%20site%20measurement%20for%20my%20balcony.`}
+    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20looking%20for%20a%20site%20measurement%20and%20quotation.`}
     target="_blank"
     rel="noopener noreferrer"
-    style="flex: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; background: #25D366; border-radius: 8px; padding: 0.55rem 0.25rem; color: #FFFFFF; font-size: 0.75rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);"
+    class="mobile-bottom-btn mobile-bottom-btn-whatsapp"
+    aria-label="Chat on WhatsApp"
   >
-    <MessageCircle size={17} color="#FFFFFF" />
+    <MessageCircle size={18} />
     <span>WhatsApp</span>
   </a>
 
   <a
-    href="/invisible-grill-cost/"
-    style="flex: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); border-radius: 8px; padding: 0.55rem 0.25rem; color: #FFFFFF; font-size: 0.75rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);"
+    href="/contact/#quote"
+    class="mobile-bottom-btn mobile-bottom-btn-quote"
+    aria-label="Get a Free Quote"
   >
-    <Calculator size={17} color="#FFFFFF" />
-    <span>Get Quote</span>
+    <Calculator size={18} />
+    <span>GET A QUOTE</span>
   </a>
 </div>

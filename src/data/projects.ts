@@ -35,7 +35,7 @@ export const projects: ProjectItem[] = [
       "Full perimeter anchoring into M40 reinforced concrete",
       "Laser aligned with zero cable deviation"
     ],
-    clientQuote: "Living on the 32nd floor with two energetic children was nerve-wracking. InvisProtect installed SS316 grills that feel like an invisible shield. We preserved our entire Durgam Cheruvu lake view!",
+    clientQuote: "Living on the 32nd floor with two energetic children was nerve-wracking. Invisible Safety installed SS316 grills that feel like an invisible shield. We preserved our entire Durgam Cheruvu lake view!",
     clientName: "Raghavendra S., Senior Architect"
   },
   {
@@ -77,7 +77,7 @@ export const projects: ProjectItem[] = [
       "Preserves unbroken panoramic view of the Bay of Bengal",
       "Marine-grade 316 stainless anchors with silicone sealant"
     ],
-    clientQuote: "Every metal fitting rusts in Vizag within months. Two monsoons later, InvisProtect cables are shining like day one. Truly marine grade.",
+    clientQuote: "Every metal fitting rusts in Vizag within months. Two monsoons later, Invisible Safety cables are shining like day one. Truly marine grade.",
     clientName: "Capt. K. Ramanathan (Retd.)"
   },
   {

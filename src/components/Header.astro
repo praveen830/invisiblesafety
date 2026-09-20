@@ -1,1156 +1,568 @@
 ---
 import { business } from '../data/business';
-import { Phone, Globe, X, ArrowRight, ShieldCheck, Sparkles, Bird, Heart, Layers, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Calculator, ArrowRight, Shield } from 'lucide-react';
 
-const mainNavigation = [
-  {
-    name: "Invisible Grills",
-    href: "/invisible-grills/",
-    badge: "Flagship SS316",
-    badgeColor: "#0284C7",
-    rate: "From ₹190/sq.ft",
-    warranty: "10-Year Direct Warranty",
-    subLinks: [
-      { name: "Balcony Invisible Grills", href: "/balcony-invisible-grills/", desc: "400+ kgf load tested SS316 marine wires" },
-      { name: "Staircase Invisible Grills", href: "/staircase-invisible-grills/", desc: "Floor-to-ceiling vertical tension for duplex stairs" },
-      { name: "Windows Invisible Grills", href: "/window-invisible-grills/", desc: "Clear aperture window protection without iron cages" },
-      { name: "Child Safety Invisible Grills", href: "/child-safety-invisible-grills/", desc: "50mm anti-head entrapment spacing with zero-climb" },
-      { name: "Balcony Cost Calculator", href: "/invisible-grill-cost/", desc: "Instant online square-foot price calculation" }
-    ]
-  },
-  {
-    name: "Core Safety Nets",
-    href: "/safety-nets/",
-    badge: "Apartment Standard",
-    badgeColor: "#15803D",
-    rate: "From ₹25/sq.ft",
-    warranty: "3-Year Certified Warranty",
-    subLinks: [
-      { name: "Balcony Safety Nets", href: "/balcony-safety/", desc: "High-density virgin polymer whole-balcony mesh" },
-      { name: "Child Safety Nets", href: "/child-safety-nets/", desc: "Zero-climb anti-fall netting for gated towers" },
-      { name: "Staircase Safety Nets", href: "/staircase-safety-nets/", desc: "Void protection for open multi-level stairwells" },
-      { name: "Building Perimeter Nets", href: "/building-safety-nets/", desc: "Certified fall perimeter netting for tall buildings" }
-    ]
-  },
-  {
-    name: "Construction & Industrial",
-    href: "/duct-safety-nets/",
-    badge: "Site Heavy Grade",
-    badgeColor: "#D97706",
-    rate: "From ₹22/sq.ft",
-    warranty: "Industrial Certified",
-    subLinks: [
-      { name: "Construction Safety Nets", href: "/construction-safety-nets/", desc: "High-rise scaffolding and debris containment netting" },
-      { name: "Industrial Debris Nets", href: "/industrial-safety-nets/", desc: "Heavy-ply containment for warehouse & factory bays" },
-      { name: "Terrace Top Nets", href: "/terrace-safety-nets/", desc: "Open sky terrace and rooftop event perimeter safety" },
-      { name: "Car Parking Safety Nets", href: "/car-parking-safety-nets/", desc: "Overhead ceiling fall protection for parking basements" }
-    ]
-  },
-  {
-    name: "Animal & Bird Protection",
-    href: "/animals-birds-safety-nets/",
-    badge: "100% Humane",
-    badgeColor: "#16A34A",
-    rate: "From ₹28/sq.ft",
-    warranty: "UV-Resistant",
-    subLinks: [
-      { name: "Anti-Pigeon Nets", href: "/pigeon-nets/", desc: "0.7mm translucent netting barring pigeons & acidic guano" },
-      { name: "Stainless Steel Bird Spikes", href: "/bird-spikes/", desc: "Discreet blunt-tip stainless steel spikes preventing bird landing" },
-      { name: "Monkey Safety Nets", href: "/monkey-safety-nets/", desc: "High-gauge, tear-resistant safety nets against monkey entry" },
-      { name: "Mosquito Safety Nets", href: "/mosquito-safety-nets/", desc: "Precision-woven fiberglass and stainless steel window mesh" }
-    ]
-  },
-  {
-    name: "Specialty Solutions",
-    href: "/sports-nets/",
-    badge: "Recreational & Utility",
-    badgeColor: "#0284C7",
-    rate: "From ₹18/sq.ft",
-    warranty: "High Impact Tested",
-    subLinks: [
-      { name: "Sports Practice Nets", href: "/sports-practice-nets/", desc: "High-velocity ball containment cages for rooftop cricket" },
-      { name: "Coconut Safety Nets", href: "/coconut-safety-nets/", desc: "Heavy-ply palm canopy nets protecting parked vehicles" },
-      { name: "Swimming Pool Nets", href: "/swimming-pool-nets/", desc: "Child-safe drowning prevention mesh covers for pools" },
-      { name: "Cloth Drying Hangers", href: "/cloth-drying-hangers/", desc: "Ceiling-mounted stainless steel pulley drying systems" }
-    ]
-  }
+const productsNav = [
+  { name: "Invisible Grills", href: "/invisible-grills/", desc: "SS316 marine-grade invisible balcony and window grills" },
+  { name: "Safety Nets", href: "/safety-nets/", desc: "High-density polymer balcony and child anti-fall nets" },
+  { name: "Bird Protection", href: "/pigeon-nets/", desc: "Humane anti-pigeon nets and stainless steel spikes" },
+  { name: "Construction Safety", href: "/construction-safety-nets/", desc: "Heavy-duty perimeter and debris containment nets" },
+  { name: "Specialty Solutions", href: "/solutions/", desc: "Sports nets, terrace tops, and duct safety enclosures" }
+];
+
+const applicationsNav = [
+  { name: "Balconies", href: "/balcony-invisible-grills/", desc: "Full balcony enclosures preserving open skyline views" },
+  { name: "Windows", href: "/window-invisible-grills/", desc: "Discreet window security without iron cages" },
+  { name: "Staircases", href: "/staircase-invisible-grills/", desc: "Vertical floor-to-ceiling anti-fall void protection" },
+  { name: "Children Safety", href: "/child-safety-invisible-grills/", desc: "50mm safe spacing preventing toddler falls & entrapment" },
+  { name: "High-Rise Buildings", href: "/balcony-safety/", desc: "Engineered wind-load rated systems for tall residential towers" },
+  { name: "Commercial Buildings", href: "/building-safety-nets/", desc: "Atrium voids, schools, and corporate building safety" }
+];
+
+const whyNav = [
+  { name: "Materials", href: "/materials/", desc: "Virgin SS316 marine cables & 6063-T6 extruded aluminium" },
+  { name: "Installation Process", href: "/why-invisible-safety/#process", desc: "6-step precision installation with harness safety" },
+  { name: "Warranty Information", href: "/warranty/", desc: "Clear warranty documentation with material guarantees" },
+  { name: "Why Invisible Safety", href: "/why-invisible-safety/", desc: "Our engineering standards, site measurements, and transparency" },
+  { name: "Frequently Asked Questions", href: "/faq/", desc: "Answers to common homeowner and society RWA questions" }
+];
+
+const projectsNav = [
+  { name: "Residential Installations", href: "/projects/", desc: "Completed projects in apartments and villas" },
+  { name: "Apartment Communities", href: "/gallery/", desc: "Installations across gated high-rise societies" },
+  { name: "Commercial & Schools", href: "/projects/#commercial", desc: "Institutional and commercial safety projects" }
+];
+
+const resourcesNav = [
+  { name: "Cost Calculator", href: "/invisible-grill-cost/", desc: "Calculate indicative square-foot pricing for your space" },
+  { name: "Visual Comparison Tool", href: "/visualizer/", desc: "Compare open balconies vs. invisible safety grills" },
+  { name: "Safety & Maintenance Guide", href: "/materials/#maintenance", desc: "Tips for cleaning, inspection, and maintenance" },
+  { name: "FAQs & Knowledge Base", href: "/faq/", desc: "Detailed technical and installation answers" }
 ];
 ---
 
-<!-- Architectural Top Header -->
-<header class="site-header">
-  <div class="header-inner">
-    <!-- Left: Menu Trigger -->
+<header class="site-header" id="site-header">
+  <div class="container header-container">
+    <!-- Left: Menu Trigger (Mobile) + Brand Logo -->
     <div class="header-left">
-      <button
-        id="arch-menu-toggle"
-        type="button"
-        class="menu-trigger-btn"
-        aria-label="Open Navigation Menu"
-        aria-expanded="false"
-      >
-        <span class="hamburger-icon">
-          <span></span>
-          <span></span>
-        </span>
-        <span class="menu-label">MENU</span>
+      <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+        <Menu size={24} />
       </button>
-    </div>
 
-    <!-- Center: Brand Logo -->
-    <div class="header-center">
-      <a href="/" class="brand-link">
-        <span class="brand-title">INVISPROTECT</span>
-        <span class="brand-sub">ARCHITECTURAL SAFETY</span>
+      <a href="/" class="brand-logo" aria-label="Invisible Safety Home">
+        <div class="brand-symbol">
+          <Shield size={20} className="text-white" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Invisible <span class="text-blue">Safety</span></span>
+          <span class="brand-tagline">ARCHITECTURAL SAFETY</span>
+        </div>
       </a>
     </div>
 
-    <!-- Right: Quick Category Navigation & Actions with Hover Dropdowns -->
-    <div class="header-right">
-      {mainNavigation.map((cat, i) => (
-        <div class="nav-dropdown-item">
-          <a href={cat.href} class={`desktop-quick-link ${i === 0 ? 'highlight-link-pill' : ''}`}>
-            <span>{cat.name}</span>
-            <ChevronDown size={12} className="nav-chevron" />
-          </a>
-
-          <!-- Mouseover Sub-Categories Dropdown Panel -->
-          <div class="nav-dropdown-menu">
-            <div class="nav-dropdown-inner">
-              <div class="nav-dropdown-header">
-                <div class="dropdown-header-left">
-                  <a href={cat.href} class="dropdown-cat-title">{cat.name}</a>
-                  <span class="dropdown-cat-badge" style={`color: ${cat.badgeColor}; border-color: ${cat.badgeColor}40; background: ${cat.badgeColor}12;`}>
-                    {cat.badge}
-                  </span>
-                </div>
-                <div class="dropdown-header-meta">
-                  <span class="meta-rate">{cat.rate}</span>
-                  <span class="meta-dot">•</span>
-                  <span class="meta-warranty">{cat.warranty}</span>
-                </div>
-              </div>
-
-              <div class="nav-dropdown-links-list">
-                {cat.subLinks.map(sub => (
-                  <a href={sub.href} class="dropdown-sub-link">
-                    <div class="sub-link-row">
-                      <span class="sub-link-title">{sub.name}</span>
-                      <ArrowRight size={13} className="sub-link-arrow" />
-                    </div>
-                    <p class="sub-link-desc">{sub.desc}</p>
-                  </a>
-                ))}
-              </div>
-
-              <div class="nav-dropdown-footer">
-                <a href={cat.href} class="dropdown-view-all">
-                  <span>Explore Entire {cat.name} Page</span>
-                  <ArrowRight size={13} />
-                </a>
-              </div>
-            </div>
-          </div>
+    <!-- Center: Desktop Navigation Bar with Scannable Dropdowns -->
+    <nav class="header-nav" aria-label="Main Navigation">
+      <!-- Products Dropdown -->
+      <div class="nav-item has-dropdown">
+        <a href="/invisible-grills/" class="nav-link">
+          Products <ChevronDown size={14} className="dropdown-chevron" />
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">SAFETY PRODUCTS</div>
+          {productsNav.map((item) => (
+            <a href={item.href} class="dropdown-item">
+              <span class="dropdown-item-title">{item.name}</span>
+              <span class="dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
         </div>
-      ))}
+      </div>
 
-      <!-- Cost Calculator (Kept by default as requested) -->
-      <a href="/invisible-grill-cost/" class="desktop-quick-link calc-quick-link">
+      <!-- Applications Dropdown -->
+      <div class="nav-item has-dropdown">
+        <a href="/solutions/" class="nav-link">
+          Applications <ChevronDown size={14} className="dropdown-chevron" />
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">RESIDENTIAL & BUILDING APPLICATIONS</div>
+          {applicationsNav.map((item) => (
+            <a href={item.href} class="dropdown-item">
+              <span class="dropdown-item-title">{item.name}</span>
+              <span class="dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Why Invisible Safety Dropdown -->
+      <div class="nav-item has-dropdown">
+        <a href="/why-invisible-safety/" class="nav-link">
+          Why Invisible Safety <ChevronDown size={14} className="dropdown-chevron" />
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-header">STANDARDS & TRANSPARENCY</div>
+          {whyNav.map((item) => (
+            <a href={item.href} class="dropdown-item">
+              <span class="dropdown-item-title">{item.name}</span>
+              <span class="dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Projects Dropdown -->
+      <div class="nav-item has-dropdown">
+        <a href="/projects/" class="nav-link">
+          Projects <ChevronDown size={14} className="dropdown-chevron" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-sm">
+          <div class="dropdown-header">REAL INSTALLATIONS</div>
+          {projectsNav.map((item) => (
+            <a href={item.href} class="dropdown-item">
+              <span class="dropdown-item-title">{item.name}</span>
+              <span class="dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Resources Dropdown -->
+      <div class="nav-item has-dropdown">
+        <a href="/faq/" class="nav-link">
+          Resources <ChevronDown size={14} className="dropdown-chevron" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-sm">
+          <div class="dropdown-header">HELP & ESTIMATION TOOLS</div>
+          {resourcesNav.map((item) => (
+            <a href={item.href} class="dropdown-item">
+              <span class="dropdown-item-title">{item.name}</span>
+              <span class="dropdown-item-desc">{item.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+    <!-- Right: Calculator Link, Contact, and "GET A QUOTE" Button -->
+    <div class="header-right">
+      <a href="/invisible-grill-cost/" class="header-link-secondary">
+        <Calculator size={16} />
         <span>Cost Calculator</span>
       </a>
 
-      <!-- Contact Us (Kept by default as requested) -->
-      <a href="/contact/" class="header-contact-btn">
-        <span>CONTACT US</span>
+      <a href="/contact/" class="header-link-secondary">
+        <span>Contact</span>
       </a>
 
-      <!-- Get A Quote (Kept by default as requested) -->
-      <a href="/invisible-grill-cost/" class="btn btn-primary btn-sm header-quote-btn">
+      <a href="/contact/#quote" class="btn btn-primary btn-sm header-quote-btn">
         <span>GET A QUOTE</span>
       </a>
     </div>
   </div>
-</header>
 
-<!-- Full-Screen Architectural Navigation Drawer (Matching User Reference) -->
-<div id="arch-drawer-overlay" class="drawer-overlay" aria-hidden="true">
-  <div class="drawer-panel">
-    <!-- Drawer Header -->
-    <div class="drawer-header">
-      <div class="drawer-brand">
-        <span class="drawer-logo">INVISPROTECT</span>
-        <span class="drawer-tagline">ARCHITECTURAL SAFETY</span>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">
+          <Shield size={18} className="text-white" />
+        </div>
+        <span class="brand-name">Invisible <span class="text-blue">Safety</span></span>
       </div>
-      <button id="arch-drawer-close" type="button" class="drawer-close-btn" aria-label="Close Menu">
+      <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
         <X size={22} />
       </button>
     </div>
 
-    <!-- Drawer Columns (Left Navigation List + Right Dynamic Image Preview) -->
-    <div class="drawer-content-grid">
-      <!-- Left: Navigation Links matching user's screenshot -->
-      <nav class="drawer-nav-column">
-        <!-- Group 1: Primary Product Ecosystem with Direct Page Routing -->
-        <div class="drawer-nav-group">
-          <div class="drawer-cat-block">
-            <a href="/invisible-grills/" class="drawer-nav-link primary-cat" data-preview="/images/hero-balcony.webp" data-title="SS316 Invisible Grills">
-              Invisible Grills
-            </a>
-            <!-- Sub-categories nested inside Invisible Grills -->
-            <div class="drawer-sublinks-nested">
-              <a href="/balcony-invisible-grills/" class="drawer-sub-link" data-preview="/images/hero-balcony.webp" data-title="Balcony Invisible Grills">
-                <span class="sub-dot"></span>
-                <span>Balcony Invisible Grills</span>
-              </a>
-              <a href="/staircase-invisible-grills/" class="drawer-sub-link" data-preview="/images/staircase-invisible-grills.webp" data-title="Staircase Invisible Grills">
-                <span class="sub-dot"></span>
-                <span>Staircase Invisible Grills</span>
-              </a>
-              <a href="/window-invisible-grills/" class="drawer-sub-link" data-preview="/images/window-invisible-grills.webp" data-title="Windows Invisible Grills">
-                <span class="sub-dot"></span>
-                <span>Windows Invisible Grills</span>
-              </a>
-              <a href="/child-safety-invisible-grills/" class="drawer-sub-link" data-preview="/images/child-safety.webp" data-title="Child Safety Invisible Grills">
-                <span class="sub-dot"></span>
-                <span>Child Safety Invisible Grills</span>
-              </a>
-            </div>
-          </div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-label">PRODUCTS</div>
+        {productsNav.map((item) => (
+          <a href={item.href} class="mobile-nav-link">{item.name}</a>
+        ))}
+      </div>
 
-          <div class="drawer-cat-block">
-            <a href="/safety-nets/" class="drawer-nav-link primary-cat" data-preview="/images/safety-net-balcony.webp" data-title="Core Safety Nets">
-              Core Safety Nets
-            </a>
-            <!-- Sub-categories nested inside Core Safety Nets -->
-            <div class="drawer-sublinks-nested">
-              <a href="/child-safety-nets/" class="drawer-sub-link" data-preview="/images/child-safety.webp" data-title="Child Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Child Safety Nets (Anti-Fall)</span>
-              </a>
-              <a href="/balcony-safety/" class="drawer-sub-link" data-preview="/images/safety-net-balcony.webp" data-title="Balcony Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Balcony Safety Nets</span>
-              </a>
-              <a href="/staircase-safety-nets/" class="drawer-sub-link" data-preview="/images/balcony-safety.webp" data-title="Staircase Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Staircase Safety Nets</span>
-              </a>
-              <a href="/building-safety-nets/" class="drawer-sub-link" data-preview="/images/building-safety-net.jpg" data-title="Building Perimeter Nets">
-                <span class="sub-dot"></span>
-                <span>Building Perimeter Nets</span>
-              </a>
-            </div>
-          </div>
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-label">APPLICATIONS</div>
+        {applicationsNav.map((item) => (
+          <a href={item.href} class="mobile-nav-link">{item.name}</a>
+        ))}
+      </div>
 
-          <div class="drawer-cat-block">
-            <a href="/duct-safety-nets/" class="drawer-nav-link primary-cat" data-preview="/images/construction-safety-net.jpg" data-title="Construction & Industrial Nets">
-              Construction & Industrial
-            </a>
-            <div class="drawer-sublinks-nested">
-              <a href="/construction-safety-nets/" class="drawer-sub-link" data-preview="/images/construction-safety-net.jpg" data-title="Construction Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Construction Safety Nets</span>
-              </a>
-              <a href="/industrial-safety-nets/" class="drawer-sub-link" data-preview="/images/industrial-safety-net.jpg" data-title="Industrial Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Industrial Debris Nets</span>
-              </a>
-              <a href="/terrace-safety-nets/" class="drawer-sub-link" data-preview="/images/terrace-top-net.jpg" data-title="Terrace Top Nets">
-                <span class="sub-dot"></span>
-                <span>Terrace Top Nets</span>
-              </a>
-              <a href="/car-parking-safety-nets/" class="drawer-sub-link" data-preview="/images/car-parking-net.jpg" data-title="Car Parking Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Car Parking Safety Nets</span>
-              </a>
-            </div>
-          </div>
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-label">COMPANY & TRUST</div>
+        {whyNav.map((item) => (
+          <a href={item.href} class="mobile-nav-link">{item.name}</a>
+        ))}
+      </div>
 
-          <div class="drawer-cat-block">
-            <a href="/animals-birds-safety-nets/" class="drawer-nav-link primary-cat" data-preview="/images/pigeon-net.webp" data-title="Animals & Birds Safety Nets">
-              Animal & Bird Protection
-            </a>
-            <div class="drawer-sublinks-nested">
-              <a href="/pigeon-nets/" class="drawer-sub-link" data-preview="/images/pigeon-net.webp" data-title="Anti-Pigeon Nets">
-                <span class="sub-dot"></span>
-                <span>Anti-Pigeon Nets</span>
-              </a>
-              <a href="/bird-spikes/" class="drawer-sub-link" data-preview="/images/pigeon-net.webp" data-title="Stainless Steel Bird Spikes">
-                <span class="sub-dot"></span>
-                <span>Stainless Steel Bird Spikes</span>
-              </a>
-              <a href="/monkey-safety-nets/" class="drawer-sub-link" data-preview="/images/safety-net-balcony.webp" data-title="Monkey Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Monkey Safety Nets</span>
-              </a>
-              <a href="/mosquito-safety-nets/" class="drawer-sub-link" data-preview="/images/window-invisible-grills.webp" data-title="Mosquito Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Mosquito Safety Nets</span>
-              </a>
-            </div>
-          </div>
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-label">PROJECTS & TOOLS</div>
+        <a href="/projects/" class="mobile-nav-link">Recent Installations</a>
+        <a href="/invisible-grill-cost/" class="mobile-nav-link">Cost Calculator</a>
+        <a href="/visualizer/" class="mobile-nav-link">Visual Comparison Tool</a>
+        <a href="/contact/" class="mobile-nav-link">Contact & Locations</a>
+      </div>
 
-          <div class="drawer-cat-block">
-            <a href="/sports-nets/" class="drawer-nav-link primary-cat" data-preview="/images/sports-nets.webp" data-title="Specialty Sports Solutions">
-              Specialty Solutions
-            </a>
-            <div class="drawer-sublinks-nested">
-              <a href="/sports-practice-nets/" class="drawer-sub-link" data-preview="/images/sports-nets.webp" data-title="Sports Practice Nets">
-                <span class="sub-dot"></span>
-                <span>Sports Practice Nets</span>
-              </a>
-              <a href="/coconut-safety-nets/" class="drawer-sub-link" data-preview="/images/coconut-safety-net.jpg" data-title="Coconut Safety Nets">
-                <span class="sub-dot"></span>
-                <span>Coconut Safety Nets</span>
-              </a>
-              <a href="/swimming-pool-nets/" class="drawer-sub-link" data-preview="/images/swimming-pool-net.jpg" data-title="Swimming Pool Nets">
-                <span class="sub-dot"></span>
-                <span>Swimming Pool Nets</span>
-              </a>
-              <a href="/cloth-drying-hangers/" class="drawer-sub-link" data-preview="/images/cloth-drying-hanger.jpg" data-title="Balcony Cloth Drying Hangers">
-                <span class="sub-dot"></span>
-                <span>Cloth Drying Hangers</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="drawer-nav-divider"></div>
-
-        <!-- Group 2: Philosophy, Craftsmanship & Exploration -->
-        <div class="drawer-nav-group">
-          <a href="/invisible-grill-cost/" class="drawer-nav-link highlight-accent" data-preview="/images/hero-balcony.webp" data-title="Cost Calculator">
-            Online Cost Calculator
-          </a>
-          <a href="/#solutions-explorer" class="drawer-nav-link" data-preview="/images/balcony-safety.webp" data-title="Solutions Explorer">
-            Solutions Explorer
-          </a>
-          <a href="/gallery/" class="drawer-nav-link" data-preview="/images/window-invisible-grills.webp" data-title="Real Installations">
-            Real Installations
-          </a>
-          <a href="/materials/" class="drawer-nav-link" data-preview="/images/staircase-invisible-grills.webp" data-title="Materials & SS316 Specs">
-            Materials & Specs
-          </a>
-          <a href="/about/" class="drawer-nav-link" data-preview="/images/invisible-grills-page.webp" data-title="Our Story">
-            Our Story
-          </a>
-          <a href="/warranty/" class="drawer-nav-link accent-warranty" data-preview="/images/hero-balcony.webp" data-title="10-Year Direct Warranty Terms">
-            Warranty Terms
-          </a>
-          <a href="/faq/" class="drawer-nav-link" data-preview="/images/safety-net-balcony.webp" data-title="Safety FAQ">
-            Safety FAQ
-          </a>
-        </div>
-
-        <div class="drawer-nav-divider"></div>
-
-        <!-- Group 3: Advisory & Regional Operations -->
-        <div class="drawer-nav-group footer-group">
-          <a href="/contact/" class="drawer-info-link">
-            <Phone size={16} color="#C2410C" />
-            <span>Client Service Advisory</span>
-          </a>
-
-          <a href="/locations/" class="drawer-info-link">
-            <Globe size={16} color="#64748B" />
-            <span>Regional Operations · Telangana & Andhra Pradesh</span>
-          </a>
-        </div>
-      </nav>
-
-      <!-- Right: Architectural Preview Panel (Visible on Desktop) -->
-      <div class="drawer-preview-column">
-        <div class="preview-card">
-          <div class="preview-img-box">
-            <img
-              id="drawer-preview-img"
-              src="/images/hero-balcony.webp"
-              alt="InvisProtect Architectural Safety System"
-              loading="lazy"
-            />
-            <div class="preview-overlay">
-              <span class="preview-badge">ARCHITECTURAL SPECIFICATION</span>
-              <h4 id="drawer-preview-title">SS316 Invisible Grills</h4>
-              <p id="drawer-preview-desc">Virgin Japanese SS316 marine alloy cables tested to 400+ kgf load with 98% open vista.</p>
-            </div>
-          </div>
-          <div class="preview-meta">
-            <div class="meta-item">
-              <span class="meta-label">Starting Price</span>
-              <span class="meta-val">₹190 / sq.ft</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Direct Warranty</span>
-              <span class="meta-val">10 Years</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Society Approval</span>
-              <span class="meta-val">100% RWA Approved</span>
-            </div>
-          </div>
-        </div>
+      <div class="mobile-drawer-footer">
+        <a href={`tel:${business.phoneRaw}`} class="mobile-phone-cta">
+          <Phone size={18} />
+          <span>Call: {business.phone}</span>
+        </a>
+        <a href="/contact/#quote" class="btn btn-primary btn-lg" style="width: 100%;">
+          GET A FREE QUOTE
+        </a>
       </div>
     </div>
   </div>
-</div>
+</header>
 
 <style>
-  /* Header Top Bar */
   .site-header {
     position: sticky;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
-    height: 74px;
-    display: flex;
-    align-items: center;
+    right: 0;
+    z-index: 900;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
-  .header-inner {
-    width: 100%;
-    max-width: 1680px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    height: 72px;
   }
 
-  /* Left Menu Trigger */
+  /* Left: Brand */
   .header-left {
     display: flex;
     align-items: center;
-    min-width: 110px;
+    gap: 1rem;
   }
 
-  .menu-trigger-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: transparent;
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
     border: none;
+    color: var(--color-primary);
     cursor: pointer;
-    padding: 0.5rem 0.6rem;
-    border-radius: 6px;
-    transition: opacity 0.2s ease;
+    padding: 0.35rem;
   }
 
-  .menu-trigger-btn:hover {
-    opacity: 0.7;
-  }
-
-  .hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 18px;
-  }
-
-  .hamburger-icon span {
-    display: block;
-    height: 2px;
-    width: 100%;
-    background: #0F172A;
-    border-radius: 2px;
-    transition: transform 0.2s ease;
-  }
-
-  .menu-label {
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: #0F172A;
-    text-transform: uppercase;
-  }
-
-  /* Center Brand Logo */
-  .header-center {
-    text-align: center;
-  }
-
-  .brand-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-  }
-
-  .brand-title {
-    font-size: 1.18rem;
-    font-weight: 900;
-    letter-spacing: 0.18em;
-    color: #0F172A;
-    text-transform: uppercase;
-    line-height: 1.1;
-  }
-
-  .brand-sub {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    color: #64748B;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  /* Right Quick Categories & Actions */
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-  }
-
-  /* Nav Dropdown on Hover */
-  .nav-dropdown-item {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .nav-dropdown-item .desktop-quick-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.28rem;
-    cursor: pointer;
-  }
-
-  .nav-chevron {
-    color: #64748B;
-    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
-  }
-
-  .nav-dropdown-item:hover .nav-chevron {
-    transform: rotate(180deg);
-    color: #0284C7;
-  }
-
-  .nav-dropdown-item:hover .desktop-quick-link {
-    color: #0284C7;
-    background: #F1F5F9;
-  }
-
-  /* Flyout Dropdown Panel */
-  .nav-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    padding-top: 10px; /* Invisible hover bridge */
-    z-index: 1050;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.22s;
-  }
-
-  /* Anchor dropdown to right for items near right boundary */
-  .nav-dropdown-item:nth-last-of-type(-n+2) .nav-dropdown-menu {
-    left: auto;
-    right: 0;
-    transform: translateY(8px);
-  }
-
-  .nav-dropdown-item:hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .nav-dropdown-item:nth-last-of-type(-n+2):hover .nav-dropdown-menu {
-    transform: translateY(0);
-  }
-
-  .nav-dropdown-inner {
-    width: 360px;
-    background: #FFFFFF;
-    border-radius: 16px;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
-    overflow: hidden;
-    text-align: left;
-  }
-
-  .nav-dropdown-header {
-    padding: 0.95rem 1.25rem 0.75rem 1.25rem;
-    border-bottom: 1px solid #F1F5F9;
-    background: #F8FAFC;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .dropdown-header-left {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .dropdown-cat-title {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #0F172A;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-
-  .dropdown-cat-title:hover {
-    color: #0284C7;
-  }
-
-  .dropdown-cat-badge {
-    font-size: 0.68rem;
-    font-weight: 700;
-    padding: 0.15rem 0.5rem;
-    border-radius: 20px;
-    border: 1px solid;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .dropdown-header-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.76rem;
-    color: #64748B;
-  }
-
-  .meta-rate {
-    font-weight: 800;
-    color: #0284C7;
-  }
-
-  .meta-dot {
-    opacity: 0.4;
-  }
-
-  .meta-warranty {
-    font-weight: 600;
-    color: #16A34A;
-  }
-
-  /* Sublinks list */
-  .nav-dropdown-links-list {
-    padding: 0.4rem 0;
-  }
-
-  .dropdown-sub-link {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    padding: 0.65rem 1.25rem;
-    text-decoration: none;
-    transition: background 0.15s ease, padding-left 0.15s ease;
-    border-left: 2px solid transparent;
-  }
-
-  .dropdown-sub-link:hover {
-    background: #F8FAFC;
-    border-left-color: #0284C7;
-    padding-left: 1.45rem;
-  }
-
-  .sub-link-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .sub-link-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #1E293B;
-    transition: color 0.15s ease;
-  }
-
-  .dropdown-sub-link:hover .sub-link-title {
-    color: #0284C7;
-  }
-
-  .sub-link-arrow {
-    color: #0284C7;
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.15s ease, transform 0.15s ease;
-  }
-
-  .dropdown-sub-link:hover .sub-link-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .sub-link-desc {
-    font-size: 0.73rem;
-    color: #64748B;
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  .nav-dropdown-footer {
-    padding: 0.65rem 1.25rem;
-    background: #F8FAFC;
-    border-top: 1px solid #F1F5F9;
-  }
-
-  .dropdown-view-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #0284C7;
-    text-decoration: none;
-    transition: gap 0.2s ease;
-  }
-
-  .dropdown-view-all:hover {
-    gap: 0.6rem;
-    color: #0369A1;
-  }
-
-  .desktop-quick-link {
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #334155;
-    padding: 0.35rem 0.5rem;
-    border-radius: 6px;
-    transition: all 0.15s ease;
-    white-space: nowrap;
-  }
-
-  .desktop-quick-link:hover {
-    color: #0284C7;
-    background: #F1F5F9;
-  }
-
-  .highlight-link-pill {
-    color: #0284C7;
-    font-weight: 700;
-    background: #F0F9FF;
-    border: 1px solid #BAE6FD;
-  }
-
-  .calc-quick-link {
-    font-weight: 700;
-    color: #0369A1;
-  }
-
-  .header-contact-btn {
-    text-decoration: none;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #0F172A;
-    text-transform: uppercase;
-    transition: color 0.15s ease;
-    white-space: nowrap;
-    padding: 0.35rem 0.45rem;
-  }
-
-  .header-contact-btn:hover {
-    color: #0284C7;
-  }
-
-  .header-quote-btn {
-    font-size: 0.76rem;
-    letter-spacing: 0.08em;
-    padding: 0.42rem 0.85rem;
-    white-space: nowrap;
-  }
-
-  /* Drawer Overlay & Sliding Panel */
-  .drawer-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .drawer-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .drawer-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 860px;
-    height: 100vh;
-    background: #FFFFFF;
-    box-shadow: 10px 0 45px rgba(0, 0, 0, 0.15);
-    overflow-y: auto;
-    padding: 2.5rem 3rem;
-    transform: translateX(-100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .drawer-overlay.active .drawer-panel {
-    transform: translateX(0);
-  }
-
-  /* Drawer Top Row */
-  .drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid #F1F5F9;
-  }
-
-  .drawer-logo {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    color: #0F172A;
-    text-transform: uppercase;
-  }
-
-  .drawer-tagline {
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    color: #64748B;
-    text-transform: uppercase;
-  }
-
-  .drawer-close-btn {
-    background: transparent;
-    border: none;
-    color: #64748B;
-    cursor: pointer;
-    padding: 0.4rem;
-    border-radius: 6px;
-    transition: color 0.15s ease;
-  }
-
-  .drawer-close-btn:hover {
-    color: #0F172A;
-  }
-
-  /* Drawer 2-Column Content */
-  .drawer-content-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 3rem;
-    flex-grow: 1;
-  }
-
-  .drawer-nav-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.15rem;
-  }
-
-  .drawer-nav-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .drawer-nav-link {
-    text-decoration: none;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #1E293B;
-    letter-spacing: 0.01em;
-    transition: color 0.15s ease, transform 0.15s ease;
-    display: inline-block;
-  }
-
-  .drawer-cat-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .drawer-sublinks-nested {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding-left: 1.15rem;
-    margin-top: 0.25rem;
-    border-left: 2px solid #E2E8F0;
-  }
-
-  .drawer-sub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: #64748B;
-    padding: 0.2rem 0;
-    transition: all 0.15s ease;
-  }
-
-  .drawer-sub-link .sub-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #CBD5E1;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-
-  .drawer-sub-link:hover {
-    color: #0284C7;
-    transform: translateX(3px);
-  }
-
-  .drawer-sub-link:hover .sub-dot {
-    background: #0284C7;
-    transform: scale(1.3);
-  }
-
-  .highlight-accent {
-    color: #0284C7 !important;
-    font-weight: 700;
-  }
-
-  .drawer-nav-divider {
-    height: 1px;
-    background: #E2E8F0;
-    width: 65px;
-    margin: 0.4rem 0;
-  }
-
-  .footer-group {
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-  }
-
-  .drawer-info-link {
+  .brand-logo {
     display: flex;
     align-items: center;
     gap: 0.65rem;
     text-decoration: none;
-    font-size: 0.86rem;
-    color: #475569;
-    font-weight: 500;
-    transition: color 0.15s ease;
   }
 
-  .drawer-info-link:hover {
-    color: #0F172A;
-  }
-
-  /* Right Architectural Preview */
-  .drawer-preview-column {
+  .brand-symbol {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
 
-  .preview-card {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .preview-img-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-  }
-
-  .preview-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
-  }
-
-  .preview-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.85) 100%);
-    padding: 1.25rem;
+  .brand-text {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    color: #FFFFFF;
+    line-height: 1.1;
   }
 
-  .preview-badge {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #38BDF8;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
-
-  .preview-overlay h4 {
-    font-size: 1.1rem;
+  .brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
     font-weight: 800;
-    color: #FFFFFF;
-    margin: 0 0 0.25rem 0;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
   }
 
-  .preview-overlay p {
-    font-size: 0.78rem;
-    color: #E2E8F0;
-    margin: 0;
-    line-height: 1.4;
+  .text-blue {
+    color: var(--color-accent);
   }
 
-  .preview-meta {
-    padding: 1rem 1.25rem;
-    background: #FFFFFF;
+  .brand-tagline {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+  }
+
+  /* Center: Nav */
+  .header-nav {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
   }
 
-  .meta-item {
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
     display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: color 0.15s ease, background-color 0.15s ease;
   }
 
-  .meta-label {
-    color: #64748B;
+  .nav-link:hover, .nav-item:hover .nav-link {
+    color: var(--color-accent);
+    background-color: var(--color-bg-warm);
   }
 
-  .meta-val {
-    color: #0F172A;
+  .dropdown-chevron {
+    transition: transform 0.2s ease;
+  }
+
+  .nav-item:hover .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 320px;
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 0.75rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 950;
+  }
+
+  .dropdown-menu-sm {
+    min-width: 280px;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-header {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    padding: 0.35rem 0.65rem;
+  }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: var(--color-bg-warm);
+  }
+
+  .dropdown-item-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .dropdown-item:hover .dropdown-item-title {
+    color: var(--color-accent);
+  }
+
+  .dropdown-item-desc {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    line-height: 1.4;
+    margin-top: 0.15rem;
+  }
+
+  /* Right: Actions */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .header-link-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .header-link-secondary:hover {
+    color: var(--color-accent);
+  }
+
+  .header-quote-btn {
+    font-size: 0.875rem;
     font-weight: 700;
   }
 
-  /* Responsive Rules */
-  @media (max-width: 1100px) {
-    .desktop-quick-link {
+  /* Mobile Drawer */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    background: #FFFFFF;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .mobile-drawer.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-close-btn {
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .mobile-drawer-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .mobile-nav-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: 0.4rem 0;
+    text-decoration: none;
+  }
+
+  .mobile-drawer-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mobile-phone-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.75rem;
+    background-color: var(--color-bg-warm);
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 1024px) {
+    .header-nav {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    .mobile-drawer {
+      display: flex;
+    }
+
+    .header-link-secondary {
       display: none;
     }
   }
 
-  @media (max-width: 900px) {
-    .drawer-preview-column {
+  @media (max-width: 480px) {
+    .brand-tagline {
       display: none;
     }
-    .drawer-content-grid {
-      grid-template-columns: 1fr;
-    }
-    .drawer-panel {
-      max-width: 100%;
-      padding: 2rem 1.5rem;
-    }
-  }
 
-  @media (max-width: 640px) {
-    .header-inner {
-      padding: 0 1rem;
-    }
     .header-quote-btn {
-      display: none;
-    }
-    .brand-title {
-      font-size: 1rem;
-      letter-spacing: 0.12em;
+      padding: 0 0.85rem;
+      font-size: 0.8rem;
     }
   }
 </style>
 
 <script>
-  const toggleBtn = document.getElementById('arch-menu-toggle');
-  const closeBtn = document.getElementById('arch-drawer-close');
-  const overlay = document.getElementById('arch-drawer-overlay');
-  const previewImg = document.getElementById('drawer-preview-img') as HTMLImageElement;
-  const previewTitle = document.getElementById('drawer-preview-title');
-  const previewDesc = document.getElementById('drawer-preview-desc');
-  const navLinks = document.querySelectorAll('.drawer-nav-link');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
 
-  const descriptions: Record<string, string> = {
-    "SS316 Invisible Grills": "Virgin Japanese SS316 marine alloy cables tested to 400+ kgf load with 98% open vista.",
-    "Animals & Birds Safety Nets": "0.7mm translucent monofilament bird exclusion & high-tensile pet balcony netting from ₹28/sq.ft.",
-    "Child Safety Nets": "50mm anti-head entrapment spacing and zero climbable footholds for toddlers from ₹35/sq.ft.",
-    "Core Safety Nets": "Certified high-density virgin polymer mesh offering reliable whole-balcony anti-fall security from ₹25/sq.ft.",
-    "Construction & Industrial Nets": "Industrial heavy-ply duct covers and building plumbing shaft safety nets from ₹22/sq.ft.",
-    "Specialty Sports Solutions": "Heavy-duty UV-stabilized cricket practice cages and ball containment enclosures from ₹18/sq.ft.",
-    "Solutions Explorer": "Find your exact safety system based on your space requirement.",
-    "The Lifestyle": "Safety designed around modern high-rise living and thoughtful home architecture.",
-    "The Craftsmanship": "8-step precision installation protocol by certified company technicians.",
-    "Our Story": "Architectural safety without compromising the view.",
-    "10-Year Direct Warranty Terms": "Official 10-year zero rust guarantee and structural warranty coverage.",
-    "Safety FAQ": "Answers to apartment permissions, wire gauge, and load safety questions."
-  };
-
-  function openDrawer() {
-    if (overlay) {
-      overlay.classList.add('active');
-      overlay.setAttribute('aria-hidden', 'false');
-      toggleBtn?.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
+  if (mobileMenuBtn && mobileDrawer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.add('is-open');
+    });
   }
 
-  function closeDrawer() {
-    if (overlay) {
-      overlay.classList.remove('active');
-      overlay.setAttribute('aria-hidden', 'true');
-      toggleBtn?.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
+  if (mobileCloseBtn && mobileDrawer) {
+    mobileCloseBtn.addEventListener('click', () => {
+      mobileDrawer.classList.remove('is-open');
+    });
   }
 
-  toggleBtn?.addEventListener('click', openDrawer);
-  closeBtn?.addEventListener('click', closeDrawer);
-
-  overlay?.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeDrawer();
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay?.classList.contains('active')) {
-      closeDrawer();
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.addEventListener('mouseenter', () => {
-      const preview = link.getAttribute('data-preview');
-      const title = link.getAttribute('data-title');
-      if (preview && previewImg) {
-        previewImg.src = preview;
+  // Close drawer on clicking outside
+  document.addEventListener('click', (e) => {
+    if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+      const target = e.target as HTMLElement;
+      if (!mobileDrawer.contains(target) && !mobileMenuBtn?.contains(target)) {
+        mobileDrawer.classList.remove('is-open');
       }
-      if (title && previewTitle) {
-        previewTitle.textContent = title;
-        if (previewDesc && descriptions[title]) {
-          previewDesc.textContent = descriptions[title];
-        }
-      }
-    });
-
-    link.addEventListener('click', () => {
-      closeDrawer();
-    });
+    }
   });
 </script>

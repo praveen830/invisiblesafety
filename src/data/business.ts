@@ -38,14 +38,14 @@ export interface BusinessConfig {
 }
 
 export const business: BusinessConfig = {
-  name: "InvisProtect",
-  legalName: "InvisProtect Architectural Home Safety Solutions",
+  name: "Invisible Safety",
+  legalName: "Invisible Safety Architectural Home Safety Solutions",
   tagline: "Invisible Safety. Uninterrupted Views.",
   subtitle: "India's premier architectural invisible grill and certified safety net specialist for modern high-rises and luxury residences.",
   phone: "+91 99896 45222",
   phoneRaw: "+919989645222",
   whatsapp: "919989645222",
-  email: "contact@invisprotect.com",
+  email: "contact@invisiblesafety.com",
   hours: "Monday to Sunday: 8:00 AM – 8:30 PM",
   address: {
     street: "Plot 42, Silicon Valley Hub, Hitec City",

@@ -1,21 +1,17 @@
 import React, { useState, useMemo } from 'react';
-import { pricing } from '../../data/pricing';
 import { business } from '../../data/business';
 import { calculateQuote, formatINR, type CalculationInput } from '../../utils/calculator';
 import { buildWhatsAppLink } from '../../utils/whatsapp';
-import { Calculator, MessageCircle, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Calculator, MessageCircle, CheckCircle2, Info, MapPin } from 'lucide-react';
 
 export default function CostEstimator() {
   const [productType, setProductType] = useState<"invisible-grill" | "safety-net">("invisible-grill");
   const [unit, setUnit] = useState<"feet" | "meters">("feet");
-  const [width, setWidth] = useState<number>(10);
-  const [height, setHeight] = useState<number>(5);
+  const [width, setWidth] = useState<number>(12);
+  const [height, setHeight] = useState<number>(6);
   const [wireGauge, setWireGauge] = useState<"2.0mm" | "2.5mm">("2.5mm");
   const [spacing, setSpacing] = useState<"50mm" | "75mm">("50mm");
-  const [safetyNetType, setSafetyNetType] = useState<"balconyStandard" | "childSafetyHeavy" | "pigeonProtection" | "ductShaftIndustrial" | "coconutTreeNet" | "sportsPracticeNet" | "mosquitoScreenNet">("balconyStandard");
-  const [includePigeonNet, setIncludePigeonNet] = useState<boolean>(false);
-  const [includeMosquitoMesh, setIncludeMosquitoMesh] = useState<boolean>(false);
-  const [includeClothHanger, setIncludeClothHanger] = useState<boolean>(false);
+  const [safetyNetType, setSafetyNetType] = useState<"balconyStandard" | "childSafetyHeavy" | "pigeonProtection" | "ductShaftIndustrial">("balconyStandard");
   const [selectedCity, setSelectedCity] = useState<string>("Hyderabad");
 
   const calcInput: CalculationInput = {
@@ -26,503 +22,390 @@ export default function CostEstimator() {
     wireGauge,
     spacing,
     safetyNetType,
-    includePigeonNet,
-    includeMosquitoMesh,
-    includeClothHanger,
+    includePigeonNet: false,
+    includeMosquitoMesh: false,
+    includeClothHanger: false,
   };
 
   const result = useMemo(() => calculateQuote(calcInput), [
-    productType, unit, width, height, wireGauge, spacing, safetyNetType, includePigeonNet, includeMosquitoMesh, includeClothHanger
+    productType, unit, width, height, wireGauge, spacing, safetyNetType
   ]);
 
-  const activeAddonsList = useMemo(() => {
-    const list: string[] = [];
-    if (includePigeonNet && productType === "invisible-grill") list.push("Pigeon Net");
-    if (includeMosquitoMesh) list.push("Mosquito Mesh");
-    if (includeClothHanger) list.push("Cloth Hanger");
-    return list;
-  }, [includePigeonNet, includeMosquitoMesh, includeClothHanger, productType]);
-
   const whatsappUrl = useMemo(() => {
-    const productName = productType === "invisible-grill" ? "Invisible Grill" : "Safety Net";
-    const netLabels: Record<string, string> = {
-      balconyStandard: "Balcony Standard Mesh (₹25/sqft)",
-      childSafetyHeavy: "Child Safety Heavy Mesh (₹35/sqft)",
-      pigeonProtection: "Anti-Pigeon 28mm Translucent Net (₹28/sqft)",
-      ductShaftIndustrial: "Utility Duct & Shaft Net (₹22/sqft)",
-      coconutTreeNet: "Coconut Palm Canopy Net (₹26/sqft)",
-      sportsPracticeNet: "Sports Cricket Practice Net (₹18/sqft)",
-      mosquitoScreenNet: "Mosquito Screen Mesh (₹45/sqft)"
-    };
+    const productName = productType === "invisible-grill" ? "Invisible Grills" : "Safety Nets";
     const configDetail = productType === "invisible-grill"
-      ? `Wire: ${wireGauge} SS316, Spacing: ${spacing}`
-      : `Type: ${netLabels[safetyNetType] || safetyNetType}`;
+      ? `${wireGauge} SS316, ${spacing} spacing`
+      : `${safetyNetType === 'balconyStandard' ? 'Balcony Standard' : safetyNetType === 'childSafetyHeavy' ? 'Child Safety Heavy' : 'Anti-Pigeon'}`;
 
     return buildWhatsAppLink({
       product: productName,
       width: width,
       height: height,
       unit: unit,
-      area: `${result.billableAreaSqFt} sq.ft (${result.actualAreaSqFt} actual sq.ft)`,
+      area: `${result.actualAreaSqFt} sq.ft`,
       configuration: configDetail,
-      addons: activeAddonsList,
+      addons: [],
       estimatedAmount: `${formatINR(result.estimatedMin)} – ${formatINR(result.estimatedMax)}`,
       city: selectedCity,
-      source: "Smart Cost Estimator"
+      source: "Online Cost Calculator"
     });
-  }, [productType, wireGauge, spacing, safetyNetType, width, height, unit, result, activeAddonsList, selectedCity]);
+  }, [productType, wireGauge, spacing, safetyNetType, width, height, unit, result, selectedCity]);
 
   return (
     <div style={{
       background: '#FFFFFF',
-      borderRadius: '16px',
       border: '1px solid #E2E8F0',
+      borderRadius: '16px',
       padding: '2rem',
-      boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-      maxWidth: '900px',
+      boxShadow: '0 4px 20px -4px rgba(15, 23, 42, 0.08)',
+      maxWidth: '960px',
       margin: '0 auto'
     }}>
-      {/* Estimator Header */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '1.25rem', marginBottom: '1.75rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ background: '#E0F2FE', padding: '0.6rem', borderRadius: '10px', color: '#0284C7' }}>
-            <Calculator size={24} />
+      {/* Header */}
+      <div style={{ marginBottom: '1.75rem', paddingBottom: '1.25rem', borderBottom: '1px solid #E2E8F0' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.35rem' }}>
+          <div style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '6px',
+            background: '#EFF6FF',
+            color: '#2563EB',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Calculator size={18} />
           </div>
-          <div>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>Smart Cost & Area Estimator</h3>
-            <p style={{ fontSize: '0.88rem', color: '#64748B', margin: 0 }}>Instant indicative price breakdown based on your balcony dimensions</p>
-          </div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
+            Estimate Your Installation Cost
+          </h3>
         </div>
-        <div style={{ display: 'inline-flex', background: '#F1F5F9', borderRadius: '8px', padding: '3px', border: '1px solid #E2E8F0' }}>
-          <button
-            type="button"
-            onClick={() => setUnit('feet')}
-            style={{
-              padding: '0.35rem 0.85rem',
-              borderRadius: '6px',
-              border: 'none',
-              fontSize: '0.82rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              background: unit === 'feet' ? '#0284C7' : 'transparent',
-              color: unit === 'feet' ? '#FFFFFF' : '#475569'
-            }}
-          >
-            Feet (ft)
-          </button>
-          <button
-            type="button"
-            onClick={() => setUnit('meters')}
-            style={{
-              padding: '0.35rem 0.85rem',
-              borderRadius: '6px',
-              border: 'none',
-              fontSize: '0.82rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              background: unit === 'meters' ? '#0284C7' : 'transparent',
-              color: unit === 'meters' ? '#FFFFFF' : '#475569'
-            }}
-          >
-            Meters (m)
-          </button>
-        </div>
+        <p style={{ fontSize: '0.92rem', color: '#64748B', margin: 0 }}>
+          Select your product type, approximate dimensions, and city for an instant indicative estimate.
+        </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-        {/* Left Inputs Column */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          {/* Step 1: Product Selection */}
-          <div>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.5rem' }}>
-              1. Select Solution
+      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '2.5rem' }}>
+        {/* Left Column: Inputs */}
+        <div>
+          {/* Product Type Toggle */}
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#334155', marginBottom: '0.5rem' }}>
+              1. Choose Product
             </label>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-              <button
-                type="button"
-                onClick={() => setProductType('invisible-grill')}
-                style={{
-                  padding: '0.75rem',
-                  borderRadius: '10px',
-                  border: productType === 'invisible-grill' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                  background: productType === 'invisible-grill' ? '#F0F9FF' : '#F8FAFC',
-                  color: '#0F172A',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Invisible Grills</div>
-                <div style={{ fontSize: '0.75rem', color: '#64748B' }}>SS316 Marine (70% Choice)</div>
-              </button>
-              <button
-                type="button"
-                onClick={() => setProductType('safety-net')}
-                style={{
-                  padding: '0.75rem',
-                  borderRadius: '10px',
-                  border: productType === 'safety-net' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                  background: productType === 'safety-net' ? '#F0F9FF' : '#F8FAFC',
-                  color: '#0F172A',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Safety Nets</div>
-                <div style={{ fontSize: '0.75rem', color: '#64748B' }}>UV Monofilament Mesh</div>
-              </button>
-            </div>
-          </div>
-
-          {/* Step 2: Dimensions */}
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-              <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155' }}>
-                2. Balcony / Window Dimensions ({unit})
-              </label>
-              <span style={{ fontSize: '0.8rem', color: '#0284C7', fontWeight: 600 }}>
-                {result.actualAreaSqFt} sq.ft
-              </span>
-            </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-              <div>
-                <label style={{ fontSize: '0.75rem', color: '#64748B', display: 'block', marginBottom: '0.25rem', fontWeight: 500 }}>Width ({unit})</label>
-                <input
-                  type="number"
-                  min="2"
-                  max="100"
-                  step="0.5"
-                  value={width}
-                  onChange={(e) => setWidth(parseFloat(e.target.value) || 0)}
-                  style={{
-                    width: '100%',
-                    padding: '0.65rem 0.8rem',
-                    borderRadius: '8px',
-                    background: '#FFFFFF',
-                    border: '1px solid #CBD5E1',
-                    color: '#0F172A',
-                    fontSize: '0.95rem',
-                    fontWeight: 600
-                  }}
-                />
-              </div>
-              <div>
-                <label style={{ fontSize: '0.75rem', color: '#64748B', display: 'block', marginBottom: '0.25rem', fontWeight: 500 }}>Height ({unit})</label>
-                <input
-                  type="number"
-                  min="2"
-                  max="50"
-                  step="0.5"
-                  value={height}
-                  onChange={(e) => setHeight(parseFloat(e.target.value) || 0)}
-                  style={{
-                    width: '100%',
-                    padding: '0.65rem 0.8rem',
-                    borderRadius: '8px',
-                    background: '#FFFFFF',
-                    border: '1px solid #CBD5E1',
-                    color: '#0F172A',
-                    fontSize: '0.95rem',
-                    fontWeight: 600
-                  }}
-                />
-              </div>
+              <button
+                type="button"
+                onClick={() => setProductType("invisible-grill")}
+                style={{
+                  padding: '0.75rem',
+                  borderRadius: '8px',
+                  border: productType === "invisible-grill" ? '2px solid #2563EB' : '1px solid #CBD5E1',
+                  background: productType === "invisible-grill" ? '#EFF6FF' : '#FFFFFF',
+                  color: productType === "invisible-grill" ? '#1E40AF' : '#334155',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  cursor: 'pointer',
+                  textAlign: 'center'
+                }}
+              >
+                Invisible Grills (SS316)
+              </button>
+              <button
+                type="button"
+                onClick={() => setProductType("safety-net")}
+                style={{
+                  padding: '0.75rem',
+                  borderRadius: '8px',
+                  border: productType === "safety-net" ? '2px solid #2563EB' : '1px solid #CBD5E1',
+                  background: productType === "safety-net" ? '#EFF6FF' : '#FFFFFF',
+                  color: productType === "safety-net" ? '#1E40AF' : '#334155',
+                  fontWeight: 600,
+                  fontSize: '0.9rem',
+                  cursor: 'pointer',
+                  textAlign: 'center'
+                }}
+              >
+                Safety Nets (HDPE)
+              </button>
             </div>
           </div>
 
-          {/* Step 3: Product Configuration */}
+          {/* Configuration Options */}
           {productType === "invisible-grill" ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
               <div>
-                <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', display: 'block', marginBottom: '0.4rem' }}>
-                  Wire Gauge Specification
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#475569', marginBottom: '0.35rem' }}>
+                  Cable Thickness
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                  <button
-                    type="button"
-                    onClick={() => setWireGauge('2.0mm')}
-                    style={{
-                      padding: '0.55rem',
-                      borderRadius: '8px',
-                      border: wireGauge === '2.0mm' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                      background: wireGauge === '2.0mm' ? '#E0F2FE' : '#F8FAFC',
-                      color: wireGauge === '2.0mm' ? '#0369A1' : '#475569',
-                      fontWeight: wireGauge === '2.0mm' ? 700 : 500,
-                      fontSize: '0.85rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    2.0 mm Standard (₹190/sqft)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setWireGauge('2.5mm')}
-                    style={{
-                      padding: '0.55rem',
-                      borderRadius: '8px',
-                      border: wireGauge === '2.5mm' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                      background: wireGauge === '2.5mm' ? '#E0F2FE' : '#F8FAFC',
-                      color: wireGauge === '2.5mm' ? '#0369A1' : '#475569',
-                      fontWeight: wireGauge === '2.5mm' ? 700 : 500,
-                      fontSize: '0.85rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    2.5 mm Heavy-Duty (₹225/sqft)
-                  </button>
-                </div>
+                <select
+                  value={wireGauge}
+                  onChange={(e) => setWireGauge(e.target.value as "2.0mm" | "2.5mm")}
+                  style={{
+                    width: '100%',
+                    padding: '0.6rem 0.75rem',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '0.88rem',
+                    color: '#0F172A',
+                    background: '#FFFFFF'
+                  }}
+                >
+                  <option value="2.5mm">2.5 mm (Standard High-Rise)</option>
+                  <option value="2.0mm">2.0 mm (Standard Residential)</option>
+                </select>
               </div>
-
               <div>
-                <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', display: 'block', marginBottom: '0.4rem' }}>
-                  Wire Spacing
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#475569', marginBottom: '0.35rem' }}>
+                  Cable Spacing
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                  <button
-                    type="button"
-                    onClick={() => setSpacing('50mm')}
-                    style={{
-                      padding: '0.55rem',
-                      borderRadius: '8px',
-                      border: spacing === '50mm' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                      background: spacing === '50mm' ? '#E0F2FE' : '#F8FAFC',
-                      color: spacing === '50mm' ? '#0369A1' : '#475569',
-                      fontWeight: spacing === '50mm' ? 700 : 500,
-                      fontSize: '0.85rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    50 mm (2" Child/Pet Safe)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSpacing('75mm')}
-                    style={{
-                      padding: '0.55rem',
-                      borderRadius: '8px',
-                      border: spacing === '75mm' ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                      background: spacing === '75mm' ? '#E0F2FE' : '#F8FAFC',
-                      color: spacing === '75mm' ? '#0369A1' : '#475569',
-                      fontWeight: spacing === '75mm' ? 700 : 500,
-                      fontSize: '0.85rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    75 mm (3" Panoramic View)
-                  </button>
-                </div>
+                <select
+                  value={spacing}
+                  onChange={(e) => setSpacing(e.target.value as "50mm" | "75mm")}
+                  style={{
+                    width: '100%',
+                    padding: '0.6rem 0.75rem',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '0.88rem',
+                    color: '#0F172A',
+                    background: '#FFFFFF'
+                  }}
+                >
+                  <option value="50mm">50 mm (Child & Pet Safe)</option>
+                  <option value="75mm">75 mm (Expansive View)</option>
+                </select>
               </div>
             </div>
           ) : (
-            <div>
-              <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', display: 'block', marginBottom: '0.4rem' }}>
-                Safety Net Purpose
+            <div style={{ marginBottom: '1.5rem' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#475569', marginBottom: '0.35rem' }}>
+                Safety Net Category
               </label>
               <select
                 value={safetyNetType}
-                onChange={(e: any) => setSafetyNetType(e.target.value)}
+                onChange={(e) => setSafetyNetType(e.target.value as any)}
                 style={{
                   width: '100%',
-                  padding: '0.65rem',
-                  borderRadius: '8px',
-                  background: '#FFFFFF',
+                  padding: '0.6rem 0.75rem',
+                  borderRadius: '6px',
                   border: '1px solid #CBD5E1',
+                  fontSize: '0.88rem',
                   color: '#0F172A',
-                  fontSize: '0.9rem',
-                  fontWeight: 500
+                  background: '#FFFFFF'
                 }}
               >
-                <option value="balconyStandard">Balcony Standard Fall Mesh (₹25/sqft)</option>
-                <option value="childSafetyHeavy">Child Safety Heavy Mesh (₹35/sqft)</option>
-                <option value="pigeonProtection">Anti-Pigeon 28mm Translucent Net (₹28/sqft)</option>
-                <option value="ductShaftIndustrial">Utility Duct & Shaft Netting (₹22/sqft)</option>
-                <option value="coconutTreeNet">Coconut Tree Canopy Defense Net (₹26/sqft)</option>
-                <option value="sportsPracticeNet">Sports & Cricket Rooftop Net (₹18/sqft)</option>
-                <option value="mosquitoScreenNet">Mosquito Fiberglass Screen Mesh (₹45/sqft)</option>
+                <option value="balconyStandard">Balcony Standard Mesh (₹25/sq.ft)</option>
+                <option value="childSafetyHeavy">Child Safety Heavy Mesh (₹35/sq.ft)</option>
+                <option value="pigeonProtection">Anti-Pigeon 28mm Net (₹28/sq.ft)</option>
+                <option value="ductShaftIndustrial">Utility Duct & Shaft Net (₹22/sq.ft)</option>
               </select>
             </div>
           )}
 
-          {/* Step 4: Optional Add-ons */}
-          <div>
-            <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', display: 'block', marginBottom: '0.4rem' }}>
-              Optional Value Add-ons
-            </label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {productType === 'invisible-grill' && (
-                <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: '#334155', cursor: 'pointer' }}>
-                  <input
-                    type="checkbox"
-                    checked={includePigeonNet}
-                    onChange={(e) => setIncludePigeonNet(e.target.checked)}
-                    style={{ accentColor: '#0284C7', width: '16px', height: '16px' }}
-                  />
-                  <span>Dual Protection: Add Pigeon Net Layer (+₹22/sqft)</span>
-                </label>
-              )}
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: '#334155', cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={includeMosquitoMesh}
-                  onChange={(e) => setIncludeMosquitoMesh(e.target.checked)}
-                  style={{ accentColor: '#0284C7', width: '16px', height: '16px' }}
-                />
-                <span>Add Mosquito Fiberglass Mesh (+₹38/sqft)</span>
+          {/* Dimensions Controls */}
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155', margin: 0 }}>
+                2. Approximate Dimensions
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.85rem', color: '#334155', cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={includeClothHanger}
-                  onChange={(e) => setIncludeClothHanger(e.target.checked)}
-                  style={{ accentColor: '#0284C7', width: '16px', height: '16px' }}
-                />
-                <span>Ceiling Cloth Drying Hanger 6-Pipe (+₹2,450)</span>
-              </label>
+              <div style={{ display: 'flex', gap: '4px', background: '#F1F5F9', padding: '2px', borderRadius: '6px' }}>
+                <button
+                  type="button"
+                  onClick={() => setUnit("feet")}
+                  style={{
+                    border: 'none',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    background: unit === "feet" ? '#FFFFFF' : 'transparent',
+                    color: unit === "feet" ? '#0F172A' : '#64748B',
+                    boxShadow: unit === "feet" ? '0 1px 2px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  Feet
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setUnit("meters")}
+                  style={{
+                    border: 'none',
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    background: unit === "meters" ? '#FFFFFF' : 'transparent',
+                    color: unit === "meters" ? '#0F172A' : '#64748B',
+                    boxShadow: unit === "meters" ? '0 1px 2px rgba(0,0,0,0.08)' : 'none'
+                  }}
+                >
+                  Meters
+                </button>
+              </div>
+            </div>
+
+            {/* Width Slider */}
+            <div style={{ marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '0.25rem' }}>
+                <span style={{ color: '#475569' }}>Width</span>
+                <span style={{ fontWeight: 700, color: '#0F172A' }}>{width} {unit}</span>
+              </div>
+              <input
+                type="range"
+                min={unit === 'feet' ? 4 : 1.2}
+                max={unit === 'feet' ? 50 : 15}
+                step={unit === 'feet' ? 1 : 0.2}
+                value={width}
+                onChange={(e) => setWidth(parseFloat(e.target.value))}
+                style={{ width: '100%', accentColor: '#2563EB', cursor: 'pointer' }}
+              />
+            </div>
+
+            {/* Height Slider */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '0.25rem' }}>
+                <span style={{ color: '#475569' }}>Height</span>
+                <span style={{ fontWeight: 700, color: '#0F172A' }}>{height} {unit}</span>
+              </div>
+              <input
+                type="range"
+                min={unit === 'feet' ? 3 : 0.9}
+                max={unit === 'feet' ? 14 : 4.5}
+                step={unit === 'feet' ? 0.5 : 0.1}
+                value={height}
+                onChange={(e) => setHeight(parseFloat(e.target.value))}
+                style={{ width: '100%', accentColor: '#2563EB', cursor: 'pointer' }}
+              />
             </div>
           </div>
 
-          {/* Location Picker */}
+          {/* City Selection */}
           <div>
-            <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', display: 'block', marginBottom: '0.3rem' }}>
-              Your City / Area
+            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#334155', marginBottom: '0.5rem' }}>
+              3. Service City
             </label>
-            <select
-              value={selectedCity}
-              onChange={(e) => setSelectedCity(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '0.65rem',
-                borderRadius: '8px',
-                background: '#FFFFFF',
-                border: '1px solid #CBD5E1',
-                color: '#0F172A',
-                fontSize: '0.9rem',
-                fontWeight: 500
-              }}
-            >
-              <option value="Hyderabad">Hyderabad (Gachibowli, Kondapur, Hitec City, etc.)</option>
-              <option value="Visakhapatnam">Visakhapatnam (Beach Road, MVP Colony, Madhurawada)</option>
-              <option value="Vijayawada">Vijayawada (Benz Circle, Kanuru, Tadepalli)</option>
-              <option value="Other Area">Other Region (Telangana / Andhra Pradesh)</option>
-            </select>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
+              {["Hyderabad", "Visakhapatnam", "Vijayawada"].map((city) => (
+                <button
+                  key={city}
+                  type="button"
+                  onClick={() => setSelectedCity(city)}
+                  style={{
+                    padding: '0.5rem',
+                    borderRadius: '6px',
+                    border: selectedCity === city ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
+                    background: selectedCity === city ? '#EFF6FF' : '#FFFFFF',
+                    color: selectedCity === city ? '#1E40AF' : '#475569',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    textAlign: 'center'
+                  }}
+                >
+                  {city}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Right Output & CTA Column */}
+        {/* Right Column: Indicative Estimate Output */}
         <div style={{
           background: '#F8FAFC',
-          borderRadius: '14px',
           border: '1px solid #E2E8F0',
-          padding: '1.75rem',
+          borderRadius: '12px',
+          padding: '1.5rem',
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between'
+          flexDirection: 'column'
         }}>
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#0284C7', fontWeight: 800 }}>
-                Quotation Summary
-              </span>
-              <span style={{ fontSize: '0.75rem', color: '#15803D', background: '#DCFCE7', border: '1px solid #BBF7D0', padding: '0.2rem 0.6rem', borderRadius: '20px', fontWeight: 700 }}>
-                Free Site Visit Included
-              </span>
-            </div>
+          {/* Indicative Estimate Label */}
+          <div style={{
+            display: 'inline-block',
+            alignSelf: 'flex-start',
+            background: '#EFF6FF',
+            color: '#1D4ED8',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            padding: '0.2rem 0.6rem',
+            borderRadius: '4px',
+            marginBottom: '0.85rem'
+          }}>
+            INDICATIVE ESTIMATE
+          </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.9rem', color: '#334155', borderBottom: '1px solid #E2E8F0', paddingBottom: '1rem', marginBottom: '1rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: '#64748B' }}>Product Selected:</span>
-                <span style={{ fontWeight: 700, color: '#0F172A' }}>{productType === 'invisible-grill' ? 'SS316 Invisible Grill' : 'HDPE Safety Net'}</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: '#64748B' }}>Opening Size:</span>
-                <span style={{ fontWeight: 600 }}>{width} × {height} {unit}</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: '#64748B' }}>Calculated Area:</span>
-                <span>{result.actualAreaSqFt} sq.ft</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: '#64748B' }}>Billable Area:</span>
-                <span style={{ fontWeight: 700, color: '#0F172A' }}>{result.billableAreaSqFt} sq.ft</span>
-              </div>
-              {result.isMinimumApplied && (
-                <div style={{ fontSize: '0.75rem', color: '#D97706', fontWeight: 600 }}>
-                  * Minimum billable opening area is {pricing.minimumBillableAreaSqFt} sq.ft
-                </div>
-              )}
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: '#64748B' }}>Effective Rate:</span>
-                <span style={{ fontWeight: 600 }}>₹{result.ratePerSqFt} / sq.ft</span>
-              </div>
-              {result.addOnsBreakdown.map((addon, idx) => (
-                <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', color: '#64748B' }}>
-                  <span>+ {addon.name}</span>
-                  <span style={{ fontWeight: 600, color: '#0F172A' }}>{formatINR(addon.cost)}</span>
-                </div>
-              ))}
+          {/* Area & Price */}
+          <div style={{ marginBottom: '1.25rem' }}>
+            <div style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '0.2rem' }}>
+              Calculated Area: <strong style={{ color: '#0F172A' }}>{result.actualAreaSqFt} sq. ft</strong>
             </div>
-
-            {/* Price Total Range */}
-            <div style={{ marginBottom: '1.25rem' }}>
-              <div style={{ fontSize: '0.8rem', color: '#64748B', fontWeight: 600, marginBottom: '0.2rem' }}>Estimated Planning Range:</div>
-              <div style={{ fontSize: '1.9rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.02em', display: 'flex', alignItems: 'baseline', gap: '0.4rem' }}>
-                <span>{formatINR(result.estimatedMin)}</span>
-                <span style={{ fontSize: '1.2rem', color: '#94A3B8', fontWeight: 400 }}>–</span>
-                <span>{formatINR(result.estimatedMax)}</span>
-              </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.25rem' }}>
-                {productType === 'invisible-grill'
-                  ? 'Inclusive of SS316 marine cables, aerospace aluminium tracks & standard installation.'
-                  : 'Inclusive of virgin UV-stabilized polymer mesh, SS304 anchor fasteners & professional installation.'}
-              </div>
+            <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
+              {formatINR(result.estimatedMin)} – {formatINR(result.estimatedMax)}
+            </div>
+            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <Info size={13} color="#94A3B8" />
+              <span>Final pricing is confirmed after on-site measurement.</span>
             </div>
           </div>
 
-          {/* Action CTAs */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.85rem',
-                borderRadius: '8px',
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                textDecoration: 'none'
-              }}
-            >
-              <MessageCircle size={18} />
-              <span>Get Exact Quote on WhatsApp</span>
-            </a>
-
-            <a
-              href={`tel:${business.phoneRaw}`}
-              className="btn btn-outline"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.65rem',
-                borderRadius: '8px',
-                fontSize: '0.85rem',
-                textDecoration: 'none'
-              }}
-            >
-              <span>Or Call Our Technical Lead: {business.phone}</span>
-            </a>
-
-            <p style={{ fontSize: '0.72rem', color: '#64748B', textAlign: 'center', margin: 0 }}>
-              {pricing.disclaimer}
-            </p>
+          {/* What is Included */}
+          <div style={{
+            background: '#FFFFFF',
+            border: '1px solid #E2E8F0',
+            borderRadius: '8px',
+            padding: '1rem',
+            marginBottom: '1.5rem',
+            flexGrow: 1
+          }}>
+            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.65rem' }}>
+              WHAT IS INCLUDED:
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <CheckCircle2 size={15} color="#16A34A" />
+                <span>{productType === 'invisible-grill' ? 'Virgin SS316 marine-grade tensile cables' : 'UV-stabilized virgin polymer netting'}</span>
+              </li>
+              <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <CheckCircle2 size={15} color="#16A34A" />
+                <span>{productType === 'invisible-grill' ? '6063-T6 powder-coated aluminium track frames' : 'Heavy-duty perimeter border anchors'}</span>
+              </li>
+              <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <CheckCircle2 size={15} color="#16A34A" />
+                <span>Professional installation by trained technicians</span>
+              </li>
+              <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <CheckCircle2 size={15} color="#16A34A" />
+                <span>Free on-site measurement & surface inspection</span>
+              </li>
+            </ul>
           </div>
+
+          {/* CTA Button */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              background: '#2563EB',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              fontSize: '0.92rem',
+              padding: '0.85rem 1rem',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              transition: 'background 0.15s ease'
+            }}
+          >
+            <MessageCircle size={18} />
+            <span>Request Exact Quote on WhatsApp</span>
+          </a>
         </div>
       </div>
     </div>

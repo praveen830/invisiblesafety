@@ -37,7 +37,7 @@ export const locations: Record<string, LocationData> = {
     phone: "+91 99896 45222",
     heroHeadline: "Invisible Grills & Balcony Safety in Hyderabad",
     heroSubheadline: "Architectural fall-protection engineered for modern high-rises in Gachibowli, Kondapur, Hitec City, Kokapet & Financial District.",
-    localDescription: "Hyderabad's rapid high-rise vertical boom across the IT corridor demands uncompromising safety for towers exceeding 20 to 50 floors. InvisProtect is trusted by residents of prominent gated communities for laser-calibrated installations that preserve panoramic skyline views while complying strictly with society elevation rules.",
+    localDescription: "Hyderabad's rapid high-rise vertical boom across the IT corridor demands uncompromising safety for towers exceeding 20 to 50 floors. Invisible Safety is trusted by residents of prominent gated communities for laser-calibrated installations that preserve panoramic skyline views while complying strictly with society elevation rules.",
     localSpecifics: {
       title: "Engineered for Hyderabad's High-Rise Towers",
       points: [
@@ -61,7 +61,7 @@ export const locations: Record<string, LocationData> = {
         product: "2.5mm SS316 Marine Invisible Grills (50mm spacing)",
         sqft: 240,
         rating: 5,
-        quote: "On the 28th floor, traditional grills would have ruined our view. InvisProtect installed SS316 grills in 4 hours. Super neat workmanship.",
+        quote: "On the 28th floor, traditional grills would have ruined our view. Invisible Safety installed SS316 grills in 4 hours. Super neat workmanship.",
         year: "2026"
       },
       {
@@ -85,8 +85,8 @@ export const locations: Record<string, LocationData> = {
     ],
     faqs: [
       {
-        question: "Do Hyderabad gated societies like My Home and Aparna permit InvisProtect grills?",
-        answer: "Yes. InvisProtect invisible grills are widely accepted across Hyderabad's premier gated communities because they do not alter the architectural elevation or façade of the building, unlike protruding iron box grills."
+        question: "Do Hyderabad gated societies like My Home and Aparna permit Invisible Safety grills?",
+        answer: "Yes. Invisible Safety invisible grills are widely accepted across Hyderabad's premier gated communities because they do not alter the architectural elevation or façade of the building, unlike protruding iron box grills."
       },
       {
         question: "How fast can you conduct site measurement in Hyderabad?",
@@ -105,7 +105,7 @@ export const locations: Record<string, LocationData> = {
     phone: "+91 99896 45222",
     heroHeadline: "Marine-Grade SS316 Invisible Grills in Visakhapatnam",
     heroSubheadline: "Salt-mist resistant, rust-proof architectural safety for coastal homes in Beach Road, MVP Colony, Madhurawada & Rushikonda.",
-    localDescription: "Visakhapatnam's intense maritime salinity rapidly corrodes ordinary mild steel and cheap 202/304 grade stainless steel within months. InvisProtect uses exclusively certified Japanese SS316 marine-grade cable with transparent nylon coating, guaranteed to withstand harsh Bay of Bengal sea breezes without a speck of rust.",
+    localDescription: "Visakhapatnam's intense maritime salinity rapidly corrodes ordinary mild steel and cheap 202/304 grade stainless steel within months. Invisible Safety uses exclusively certified Japanese SS316 marine-grade cable with transparent nylon coating, guaranteed to withstand harsh Bay of Bengal sea breezes without a speck of rust.",
     localSpecifics: {
       title: "Engineered for Coastal Maritime Durability",
       points: [
@@ -148,7 +148,7 @@ export const locations: Record<string, LocationData> = {
         answer: "Coastal air carries high chloride content from sea mist. Standard SS304 or mild steel develops pitting corrosion and rust within 6 to 12 months. SS316 contains 2-3% Molybdenum, providing superior defense against chloride corrosion."
       },
       {
-        question: "Can InvisProtect nets withstand high coastal wind storms in Vizag?",
+        question: "Can Invisible Safety nets withstand high coastal wind storms in Vizag?",
         answer: "Yes. The tensile cables have an aerodynamic profile that allows 99% of wind to pass through with zero drag, unlike solid glass panels or heavy blinds that catch wind loads."
       }
     ]
@@ -160,7 +160,7 @@ export const locations: Record<string, LocationData> = {
     phone: "+91 99896 45222",
     heroHeadline: "Modern Invisible Grills & Pigeon Nets in Vijayawada",
     heroSubheadline: "Premium child fall protection & bird prevention for apartments in Benz Circle, Kanuru, Poranki & Tadepalli.",
-    localDescription: "Vijayawada's expanding skyline across Benz Circle and the Amaravati capital region features modern residential communities designed with expansive balconies. InvisProtect delivers architecturally harmonious invisible grills and anti-bird mesh designed for maximum airflow in tropical climates.",
+    localDescription: "Vijayawada's expanding skyline across Benz Circle and the Amaravati capital region features modern residential communities designed with expansive balconies. Invisible Safety delivers architecturally harmonious invisible grills and anti-bird mesh designed for maximum airflow in tropical climates.",
     localSpecifics: {
       title: "Engineered for Tropical Climates & Maximum Airflow",
       points: [
@@ -183,7 +183,7 @@ export const locations: Record<string, LocationData> = {
         product: "2.5mm SS316 Invisible Grills",
         sqft: 220,
         rating: 5,
-        quote: "Our balcony faces the river breeze. We wanted safety for our children without feeling boxed in. InvisProtect was the perfect choice.",
+        quote: "Our balcony faces the river breeze. We wanted safety for our children without feeling boxed in. Invisible Safety was the perfect choice.",
         year: "2026"
       },
       {
@@ -199,7 +199,7 @@ export const locations: Record<string, LocationData> = {
     faqs: [
       {
         question: "How do invisible grills compare to traditional iron grills in Vijayawada?",
-        answer: "Traditional iron grills require recurring scraping and repainting due to rust, trap dust, and give a cage-like feel. InvisProtect invisible grills are zero-maintenance, allow full cross-breeze, and are virtually invisible from outside."
+        answer: "Traditional iron grills require recurring scraping and repainting due to rust, trap dust, and give a cage-like feel. Invisible Safety invisible grills are zero-maintenance, allow full cross-breeze, and are virtually invisible from outside."
       },
       {
         question: "How do I schedule a measurement in Vijayawada or Guntur?",

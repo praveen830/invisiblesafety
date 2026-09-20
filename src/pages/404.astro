@@ -5,22 +5,22 @@ import { ShieldAlert, ArrowRight, Home, Phone, MessageCircle } from 'lucide-reac
 ---
 
 <BaseLayout
-  title="404 - Page Not Found | InvisProtect"
+  title="404 - Page Not Found | Invisible Safety"
   description="The page you are looking for does not exist. Explore our invisible grills, safety nets, or calculate your balcony cost."
   noindex={true}
 >
-  <section class="section-spacing" style="text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+  <section class="section-spacing bg-warm" style="text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
     <div class="container" style="max-width: 600px;">
-      <div style="width: 70px; height: 70px; border-radius: 16px; background: rgba(239, 68, 68, 0.15); display: flex; align-items: center; justify-content: center; color: #EF4444; margin: 0 auto 1.5rem auto;">
+      <div style="width: 70px; height: 70px; border-radius: 16px; background: #FEE2E2; display: flex; align-items: center; justify-content: center; color: #DC2626; margin: 0 auto 1.5rem auto;">
         <ShieldAlert size={36} />
       </div>
-      <h1 style="font-size: 3.5rem; font-weight: 800; color: #FFFFFF; line-height: 1; margin-bottom: 1rem;">
+      <h1 style="font-size: 3.5rem; font-weight: 800; color: #0F172A; line-height: 1; margin-bottom: 1rem;">
         404
       </h1>
-      <h2 style="font-size: 1.5rem; font-weight: 700; color: #F8FAFC; margin-bottom: 1rem;">
-        Opening Not Found
+      <h2 style="font-size: 1.5rem; font-weight: 700; color: #1E293B; margin-bottom: 1rem;">
+        Page Not Found
       </h2>
-      <p style="color: #94A3B8; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">
+      <p style="color: #64748B; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">
         The page or resource you requested has moved or no longer exists. Explore our core services or calculate your balcony quotation below.
       </p>
 
@@ -34,8 +34,8 @@ import { ShieldAlert, ArrowRight, Home, Phone, MessageCircle } from 'lucide-reac
         </a>
       </div>
 
-      <div style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 1.25rem; font-size: 0.88rem; color: #94A3B8;">
-        Need quick assistance? Call our technical desk at <a href={`tel:${business.phoneRaw}`} style="color: #38BDF8; font-weight: 600;">{business.phone}</a> or <a href={`https://wa.me/${business.whatsapp}`} style="color: #25D366; font-weight: 600;">chat on WhatsApp</a>.
+      <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; font-size: 0.88rem; color: #475569;">
+        Need quick assistance? Call our technical desk at <a href={`tel:${business.phoneRaw}`} style="color: #2563EB; font-weight: 600;">{business.phone}</a> or <a href={`https://wa.me/${business.whatsapp}`} style="color: #16A34A; font-weight: 600;">chat on WhatsApp</a>.
       </div>
     </div>
   </section>

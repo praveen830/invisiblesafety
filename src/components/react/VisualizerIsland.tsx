@@ -1,635 +1,778 @@
 import React, { useState, useRef } from 'react';
-import {
-  Upload,
-  Sparkles,
-  ShieldCheck,
-  CheckCircle,
-  RefreshCw,
-  MessageCircle,
-  ArrowRight,
-  Sliders,
-  Eye,
-  Check
-} from 'lucide-react';
 import { business } from '../../data/business';
-import { buildWhatsAppLink } from '../../utils/whatsapp';
+import {
+  Eye,
+  Sun,
+  Sunset,
+  Moon,
+  Shield,
+  MessageCircle,
+  Upload,
+  RotateCcw,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  MoveHorizontal
+} from 'lucide-react';
 
 interface PresetSpace {
   id: string;
   name: string;
   type: string;
-  description: string;
   image: string;
+  // Opening aperture percentage relative to image [top, left, width, height]
+  aperture: {
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  };
 }
 
 const PRESET_SPACES: PresetSpace[] = [
   {
-    id: "panoramic-balcony",
-    name: "Skyline High-Rise Balcony",
-    type: "Residential Balcony (15th - 40th Floor)",
-    description: "Wide panoramic opening overlooking cityscape, requiring fall protection without blocking sunset view.",
-    image: "/images/hero-balcony.webp"
+    id: "balcony",
+    name: "Apartment Balcony",
+    type: "High-Rise Living Room Balcony",
+    image: "/images/hero-balcony.webp",
+    aperture: { top: 12, left: 18, width: 80, height: 76 }
   },
   {
-    id: "french-window",
-    name: "Master Bedroom French Windows",
-    type: "Floor-to-Ceiling Aperture",
-    description: "Expansive glass facade requiring child and pet protection while allowing full breeze and daylight.",
-    image: "/images/window-invisible-grills.webp"
+    id: "window",
+    name: "French Windows",
+    type: "Floor-to-Ceiling Bedroom Window",
+    image: "/images/window-invisible-grills.webp",
+    aperture: { top: 14, left: 16, width: 72, height: 80 }
   },
   {
-    id: "terrace-deck",
-    name: "Open Terrace & Sky Lounge",
-    type: "Open Skydeck Perimeter",
-    description: "High-wind exposed terrace deck requiring 400+ kg structural integrity.",
-    image: "/images/safety-net-balcony.webp"
-  }
-];
-
-interface ProductOption {
-  id: string;
-  name: string;
-  tag: string;
-  rate: string;
-  warranty: string;
-  spec: string;
-}
-
-const PRODUCT_OPTIONS: ProductOption[] = [
-  {
-    id: "invisible-grill-vertical",
-    name: "SS316 Invisible Grills (Vertical)",
-    tag: "Flagship Architectural Standard",
-    rate: "₹190/sq.ft",
-    warranty: "10-Year Direct Warranty",
-    spec: "50mm Child-Safe Spacing • 400+ kgf Tensile Force"
-  },
-  {
-    id: "invisible-grill-horizontal",
-    name: "SS316 Invisible Grills (Horizontal)",
-    tag: "Ultra-Wide Panoramic Vista",
-    rate: "₹195/sq.ft",
-    warranty: "10-Year Direct Warranty",
-    spec: "Aesthetic Horizontal Lines • Zero Horizon Clutter"
-  },
-  {
-    id: "pigeon-net",
-    name: "Translucent Anti-Pigeon Shield",
-    tag: "100% Humane Bird Exclusion",
-    rate: "₹28/sq.ft",
-    warranty: "3-Year UV Anti-Sag",
-    spec: "0.7mm Monofilament Mesh • Zero Daylight Loss"
-  },
-  {
-    id: "child-safety",
-    name: "Child Safety Reinforced Mesh",
-    tag: "Zero-Climb Fall Barrier",
-    rate: "₹26/sq.ft",
-    warranty: "3-Year Certified Protection",
-    spec: "Tested 250+ kg Load • Virgin Garware Polymer"
+    id: "staircase",
+    name: "Duplex Staircase",
+    type: "Interior Staircase Void",
+    image: "/images/staircase-invisible-grills.webp",
+    aperture: { top: 8, left: 22, width: 60, height: 86 }
   }
 ];
 
 export default function VisualizerIsland() {
-  const [selectedSpaceId, setSelectedSpaceId] = useState<string>("panoramic-balcony");
-  const [selectedProduct, setSelectedProduct] = useState<string>("invisible-grill-vertical");
+  const [selectedSpace, setSelectedSpace] = useState<PresetSpace>(PRESET_SPACES[0]);
   const [customImage, setCustomImage] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [solutionType, setSolutionType] = useState<"vertical" | "horizontal" | "net">("vertical");
+  const [spacing, setSpacing] = useState<"50mm" | "75mm">("50mm");
+  const [wireGauge, setWireGauge] = useState<"2.0mm" | "2.5mm">("2.5mm");
+  const [ambientLight, setAmbientLight] = useState<"day" | "dusk" | "night">("day");
+  const [viewMode, setViewMode] = useState<"installed" | "split" | "before">("installed");
   const [sliderPosition, setSliderPosition] = useState<number>(50);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<'presets' | 'upload'>('presets');
+  const [customAperture, setCustomAperture] = useState<{ top: number; left: number; width: number; height: number }>({
+    top: 10,
+    left: 10,
+    width: 80,
+    height: 80
+  });
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isDraggingSlider = useRef(false);
 
-  const currentPreset = PRESET_SPACES.find(p => p.id === selectedSpaceId) || PRESET_SPACES[0];
-  const currentProduct = PRODUCT_OPTIONS.find(p => p.id === selectedProduct) || PRODUCT_OPTIONS[0];
-  const activeImage = customImage || currentPreset.image;
-
+  // Handle custom image upload
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setIsProcessing(true);
       const reader = new FileReader();
       reader.onload = (event) => {
-        setCustomImage(event.target?.result as string);
-        setActiveTab('upload');
-        setTimeout(() => {
-          setIsProcessing(false);
-        }, 500);
+        if (event.target?.result) {
+          setCustomImage(event.target.result as string);
+        }
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Split slider drag handling
   const handleSliderMove = (clientX: number) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
-    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    const percentage = Math.max(5, Math.min(95, (x / rect.width) * 100));
     setSliderPosition(percentage);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (e.touches.length > 0) {
-      handleSliderMove(e.touches[0].clientX);
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) {
-      handleSliderMove(e.clientX);
-    }
-  };
-
-  const whatsappVisualizerUrl = buildWhatsAppLink({
-    product: currentProduct.name,
-    configuration: `Visualized on ${customImage ? 'Customer Balcony Photo' : currentPreset.name}`,
-    leadSource: "See It On Your Home Studio",
-    estimatedAmount: `${currentProduct.rate} (Approx.)`
-  });
+  const activeAperture = customImage ? customAperture : selectedSpace.aperture;
+  const currentImageSrc = customImage || selectedSpace.image;
 
   return (
     <div style={{
-      background: 'linear-gradient(180deg, #0F172A 0%, #090D16 100%)',
-      borderRadius: '24px',
-      border: '1px solid rgba(56, 189, 248, 0.25)',
-      boxShadow: '0 25px 65px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06)',
+      background: '#FFFFFF',
+      border: '1px solid #E2E8F0',
+      borderRadius: '16px',
       overflow: 'hidden',
-      color: '#FFFFFF'
+      boxShadow: '0 4px 24px -4px rgba(15, 23, 42, 0.08)',
+      maxWidth: '1140px',
+      margin: '0 auto'
     }}>
-      {/* Studio Top Control Header */}
+      {/* Top Header & Actions */}
       <div style={{
+        padding: '1.25rem 2rem',
+        borderBottom: '1px solid #E2E8F0',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '1rem',
-        padding: '1.25rem 1.75rem',
-        background: 'rgba(15, 23, 42, 0.85)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        background: '#F8FAFC'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '8px',
-            background: 'rgba(2, 132, 199, 0.2)',
-            border: '1px solid rgba(56, 189, 248, 0.4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#38BDF8'
-          }}>
-            <Sparkles size={17} />
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#2563EB', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              PRACTICAL HOME VISUALIZER
+            </span>
+            <span style={{ fontSize: '0.75rem', background: '#DCFCE7', color: '#16A34A', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>
+              Live Architectural Preview
+            </span>
           </div>
-          <div>
-            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.02em' }}>
-              ARCHITECTURAL SIMULATION STUDIO
-            </div>
-            <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>
-              Drag split-slider to compare Unprotected Void vs InvisProtect SS316
-            </div>
-          </div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
+            Visualize Invisible Grills On Your Balcony
+          </h3>
         </div>
 
-        {/* Space Source Tabs: Presets vs Upload */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(30, 41, 59, 0.7)', padding: '0.25rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        {/* View Mode Toggle: Installed vs Split vs Before */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#FFFFFF', padding: '3px', borderRadius: '8px', border: '1px solid #CBD5E1' }}>
           <button
             type="button"
-            onClick={() => { setActiveTab('presets'); setCustomImage(null); }}
+            onClick={() => setViewMode('installed')}
             style={{
               padding: '0.4rem 0.85rem',
-              borderRadius: '7px',
+              borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'presets' ? '#0284C7' : 'transparent',
-              color: activeTab === 'presets' ? '#FFFFFF' : '#94A3B8',
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
+              background: viewMode === 'installed' ? '#2563EB' : 'transparent',
+              color: viewMode === 'installed' ? '#FFFFFF' : '#475569',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer'
             }}
           >
-            Sample Balconies
+            Grills Installed
           </button>
           <button
             type="button"
-            onClick={() => fileInputRef.current?.click()}
+            onClick={() => setViewMode('split')}
             style={{
               padding: '0.4rem 0.85rem',
-              borderRadius: '7px',
+              borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'upload' ? '#10B981' : 'transparent',
-              color: activeTab === 'upload' ? '#FFFFFF' : '#94A3B8',
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              transition: 'all 0.2s ease'
+              background: viewMode === 'split' ? '#2563EB' : 'transparent',
+              color: viewMode === 'split' ? '#FFFFFF' : '#475569',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer'
             }}
           >
-            <Upload size={13} />
-            <span>Upload Your Balcony</span>
+            Before / After Slider
           </button>
-          <input
-            type="file"
-            ref={fileInputRef}
-            accept="image/jpeg,image/png,image/webp"
-            onChange={handleFileUpload}
-            style={{ display: 'none' }}
-          />
+          <button
+            type="button"
+            onClick={() => setViewMode('before')}
+            style={{
+              padding: '0.4rem 0.85rem',
+              borderRadius: '6px',
+              border: 'none',
+              background: viewMode === 'before' ? '#2563EB' : 'transparent',
+              color: viewMode === 'before' ? '#FFFFFF' : '#475569',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer'
+            }}
+          >
+            Original Open View
+          </button>
         </div>
       </div>
 
-      {/* Main Studio Interactive Workspace */}
-      <div style={{ padding: '1.75rem' }}>
-        {/* Preset Spaces Picker (Visible in presets tab) */}
-        {activeTab === 'presets' && (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '0.75rem',
-            marginBottom: '1.25rem'
-          }}>
-            {PRESET_SPACES.map(preset => (
+      {/* Main Studio Body: Left Controls + Right Architectural Preview */}
+      <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr' }}>
+        {/* Left Column: Interactive Controls */}
+        <div style={{
+          padding: '1.5rem',
+          borderRight: '1px solid #E2E8F0',
+          background: '#FFFFFF',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.25rem'
+        }}>
+          {/* Upload Custom Balcony Photo Option */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
+                1. APARTMENT PHOTO
+              </label>
+              {customImage && (
+                <button
+                  type="button"
+                  onClick={() => setCustomImage(null)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    color: '#DC2626',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '2px'
+                  }}
+                >
+                  <RotateCcw size={12} /> Reset to Presets
+                </button>
+              )}
+            </div>
+
+            {/* Upload Button */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+              accept="image/*"
+              style={{ display: 'none' }}
+            />
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              style={{
+                width: '100%',
+                padding: '0.65rem 0.85rem',
+                borderRadius: '8px',
+                border: '1.5px dashed #2563EB',
+                background: '#EFF6FF',
+                color: '#1D4ED8',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                marginBottom: '0.75rem',
+                transition: 'background 0.15s ease'
+              }}
+            >
+              <Upload size={16} />
+              <span>{customImage ? 'Upload Different Photo' : 'Upload Your Balcony / Window'}</span>
+            </button>
+
+            {/* Presets Grid */}
+            {!customImage && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                {PRESET_SPACES.map((space) => (
+                  <button
+                    key={space.id}
+                    type="button"
+                    onClick={() => setSelectedSpace(space)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.65rem',
+                      padding: '0.5rem 0.65rem',
+                      borderRadius: '8px',
+                      border: selectedSpace.id === space.id ? '1.5px solid #2563EB' : '1px solid #E2E8F0',
+                      background: selectedSpace.id === space.id ? '#F0F7FF' : '#FFFFFF',
+                      cursor: 'pointer',
+                      textAlign: 'left'
+                    }}
+                  >
+                    <img
+                      src={space.image}
+                      alt={space.name}
+                      style={{ width: '42px', height: '32px', borderRadius: '4px', objectFit: 'cover' }}
+                    />
+                    <div>
+                      <div style={{ fontSize: '0.82rem', fontWeight: 700, color: selectedSpace.id === space.id ? '#1E40AF' : '#0F172A' }}>
+                        {space.name}
+                      </div>
+                      <div style={{ fontSize: '0.7rem', color: '#64748B' }}>
+                        {space.type}
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Solution Selection */}
+          <div>
+            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.45rem' }}>
+              2. SAFETY SYSTEM
+            </label>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+              {[
+                { id: 'vertical', name: 'SS316 Vertical Invisible Grills', tag: 'Flagship standard' },
+                { id: 'horizontal', name: 'SS316 Horizontal Invisible Grills', tag: 'Panoramic lines' },
+                { id: 'net', name: 'Translucent Balcony Safety Net', tag: 'High-density polymer' }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setSolutionType(item.id as any)}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: '0.5rem 0.75rem',
+                    borderRadius: '6px',
+                    border: solutionType === item.id ? '1.5px solid #2563EB' : '1px solid #E2E8F0',
+                    background: solutionType === item.id ? '#EFF6FF' : '#FFFFFF',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
+                >
+                  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: solutionType === item.id ? '#1E40AF' : '#334155' }}>
+                    {item.name}
+                  </span>
+                  <span style={{ fontSize: '0.7rem', color: '#64748B' }}>
+                    {item.tag}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Wire Spacing & Gauge if Invisible Grills */}
+          {solutionType !== 'net' && (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '0.35rem' }}>
+                  WIRE SPACING
+                </label>
+                <select
+                  value={spacing}
+                  onChange={(e) => setSpacing(e.target.value as "50mm" | "75mm")}
+                  style={{
+                    width: '100%',
+                    padding: '0.45rem 0.5rem',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    color: '#0F172A',
+                    background: '#FFFFFF'
+                  }}
+                >
+                  <option value="50mm">50 mm (Child Safe)</option>
+                  <option value="75mm">75 mm (Open Vista)</option>
+                </select>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '0.35rem' }}>
+                  CABLE GAUGE
+                </label>
+                <select
+                  value={wireGauge}
+                  onChange={(e) => setWireGauge(e.target.value as "2.0mm" | "2.5mm")}
+                  style={{
+                    width: '100%',
+                    padding: '0.45rem 0.5rem',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    color: '#0F172A',
+                    background: '#FFFFFF'
+                  }}
+                >
+                  <option value="2.5mm">2.5 mm High-Rise</option>
+                  <option value="2.0mm">2.0 mm Standard</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {/* Time of Day Lighting Toggle */}
+          <div>
+            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '0.35rem' }}>
+              NATURAL LIGHTING
+            </label>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.4rem' }}>
               <button
-                key={preset.id}
                 type="button"
-                onClick={() => setSelectedSpaceId(preset.id)}
+                onClick={() => setAmbientLight('day')}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '0.65rem 0.85rem',
-                  borderRadius: '12px',
-                  border: selectedSpaceId === preset.id ? '1px solid #38BDF8' : '1px solid rgba(255, 255, 255, 0.08)',
-                  background: selectedSpaceId === preset.id ? 'rgba(56, 189, 248, 0.12)' : 'rgba(30, 41, 59, 0.5)',
-                  color: '#FFFFFF',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  transition: 'all 0.25s ease'
+                  justifyContent: 'center',
+                  gap: '4px',
+                  padding: '0.4rem',
+                  borderRadius: '6px',
+                  border: ambientLight === 'day' ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
+                  background: ambientLight === 'day' ? '#EFF6FF' : '#FFFFFF',
+                  color: ambientLight === 'day' ? '#1E40AF' : '#475569',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  cursor: 'pointer'
                 }}
               >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  flexShrink: 0,
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}>
-                  <img src={preset.image} alt={preset.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>{preset.name}</div>
-                  <div style={{ fontSize: '0.7rem', color: '#94A3B8' }}>{preset.type}</div>
-                </div>
+                <Sun size={13} /> Day
               </button>
-            ))}
+              <button
+                type="button"
+                onClick={() => setAmbientLight('dusk')}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '4px',
+                  padding: '0.4rem',
+                  borderRadius: '6px',
+                  border: ambientLight === 'dusk' ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
+                  background: ambientLight === 'dusk' ? '#EFF6FF' : '#FFFFFF',
+                  color: ambientLight === 'dusk' ? '#1E40AF' : '#475569',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                <Sunset size={13} /> Sunset
+              </button>
+              <button
+                type="button"
+                onClick={() => setAmbientLight('night')}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '4px',
+                  padding: '0.4rem',
+                  borderRadius: '6px',
+                  border: ambientLight === 'night' ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
+                  background: ambientLight === 'night' ? '#EFF6FF' : '#FFFFFF',
+                  color: ambientLight === 'night' ? '#1E40AF' : '#475569',
+                  fontSize: '0.76rem',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                <Moon size={13} /> Evening
+              </button>
+            </div>
           </div>
-        )}
 
-        {/* Product Selection Bar */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-          gap: '0.65rem',
-          marginBottom: '1.5rem'
-        }}>
-          {PRODUCT_OPTIONS.map(prod => (
-            <button
-              key={prod.id}
-              type="button"
-              onClick={() => setSelectedProduct(prod.id)}
+          {/* Quick Quote Action */}
+          <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid #F1F5F9' }}>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20tested%20the%20Visualizer%20for%20${solutionType === 'vertical' ? 'Vertical%20SS316%20Grills' : solutionType === 'horizontal' ? 'Horizontal%20SS316%20Grills' : 'Balcony%20Safety%20Nets'}%20(${spacing})%20and%20would%20like%20a%20site%20measurement%20quote.`}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
-                padding: '0.75rem 1rem',
-                borderRadius: '12px',
-                border: selectedProduct === prod.id ? '2px solid #0284C7' : '1px solid rgba(255, 255, 255, 0.08)',
-                background: selectedProduct === prod.id ? 'rgba(2, 132, 199, 0.2)' : 'rgba(15, 23, 42, 0.6)',
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                background: '#16A34A',
                 color: '#FFFFFF',
-                textAlign: 'left',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                position: 'relative'
+                fontWeight: 700,
+                fontSize: '0.85rem',
+                padding: '0.75rem',
+                borderRadius: '8px',
+                textDecoration: 'none'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.2rem' }}>
-                <span style={{ fontSize: '0.84rem', fontWeight: 800, color: selectedProduct === prod.id ? '#38BDF8' : '#F1F5F9' }}>
-                  {prod.name}
-                </span>
-                {selectedProduct === prod.id && (
-                  <span style={{ width: '16px', height: '16px', borderRadius: '50%', background: '#0284C7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Check size={11} color="#FFFFFF" />
-                  </span>
-                )}
-              </div>
-              <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginBottom: '0.35rem' }}>{prod.tag}</div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontSize: '0.75rem' }}>
-                <span style={{ color: '#38BDF8', fontWeight: 800 }}>{prod.rate}</span>
-                <span style={{ color: '#10B981', fontWeight: 600 }}>{prod.warranty}</span>
-              </div>
-            </button>
-          ))}
+              <MessageCircle size={17} />
+              <span>Get Quote for This Setup</span>
+            </a>
+          </div>
         </div>
 
-        {/* Live Interactive Before / After Split Slider */}
+        {/* Right Column: Realistic Architectural Stage */}
         <div
           ref={containerRef}
-          onMouseDown={() => setIsDragging(true)}
-          onMouseUp={() => setIsDragging(false)}
-          onMouseLeave={() => setIsDragging(false)}
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleTouchMove}
+          onMouseMove={(e) => isDraggingSlider.current && handleSliderMove(e.clientX)}
+          onTouchMove={(e) => handleSliderMove(e.touches[0].clientX)}
+          onMouseUp={() => { isDraggingSlider.current = false; }}
+          onMouseLeave={() => { isDraggingSlider.current = false; }}
           style={{
             position: 'relative',
-            height: '460px',
-            borderRadius: '18px',
+            minHeight: '520px',
+            background: '#0F172A',
             overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            boxShadow: 'inset 0 0 20px rgba(0, 0, 0, 0.5)',
-            cursor: 'ew-resize',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: viewMode === 'split' ? 'ew-resize' : 'default',
             userSelect: 'none'
           }}
         >
-          {/* Layer 1: BEFORE (Unprotected Balcony without wires) */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            backgroundImage: `url(${activeImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}>
-            {/* Before Tag */}
-            <div style={{
-              position: 'absolute',
-              top: '16px',
-              left: '16px',
-              background: 'rgba(239, 68, 68, 0.85)',
-              backdropFilter: 'blur(8px)',
-              padding: '0.4rem 0.85rem',
-              borderRadius: '8px',
-              fontSize: '0.75rem',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-            }}>
-              <span>⚠️ BEFORE: UNPROTECTED VOID</span>
-            </div>
-          </div>
+          {/* Base Apartment Image */}
+          <img
+            src={currentImageSrc}
+            alt={selectedSpace.name}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: ambientLight === 'dusk'
+                ? 'brightness(0.88) sepia(0.2) hue-rotate(-15deg)'
+                : ambientLight === 'night'
+                ? 'brightness(0.6) contrast(1.1) saturate(0.8)'
+                : 'none',
+              transition: 'filter 0.3s ease'
+            }}
+          />
 
-          {/* Layer 2: AFTER (With InvisProtect Installed) - Clipped by Slider */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            clipPath: `inset(0 0 0 ${sliderPosition}%)`,
-            backgroundImage: `url(${activeImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}>
-            {/* Subtly refined architectural clarity filter */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'rgba(2, 132, 199, 0.05)',
-              pointerEvents: 'none'
-            }}></div>
-
-            {/* Vertical Wire Simulation */}
-            {selectedProduct === "invisible-grill-vertical" && (
-              <div style={{
+          {/* Grills / Mesh Realistic Architectural Overlay */}
+          {viewMode !== 'before' && (
+            <div
+              style={{
                 position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                justifyContent: 'space-around',
-                padding: '0 1rem',
-                pointerEvents: 'none'
-              }}>
-                {Array.from({ length: 28 }).map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: '2px',
-                      height: '100%',
-                      background: 'linear-gradient(180deg, rgba(226, 232, 240, 0.4) 0%, rgba(255, 255, 255, 0.95) 45%, rgba(226, 232, 240, 0.4) 100%)',
-                      boxShadow: '0 0 4px rgba(255, 255, 255, 0.6), 0 0 1px rgba(2, 132, 199, 0.8)'
-                    }}
-                  />
-                ))}
-                {/* Aerospace Extruded Aluminium Mounting Tracks */}
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '16px', background: '#334155', borderBottom: '2px solid #64748B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '0.62rem', color: '#94A3B8', letterSpacing: '0.1em', textTransform: 'uppercase' }}>6063-T6 Top Track Anchor</span>
+                top: `${activeAperture.top}%`,
+                left: `${activeAperture.left}%`,
+                width: `${activeAperture.width}%`,
+                height: `${activeAperture.height}%`,
+                pointerEvents: 'none',
+                overflow: 'hidden',
+                // If split mode, clip to slider percentage
+                clipPath: viewMode === 'split' ? `inset(0 0 0 ${sliderPosition}%)` : 'none',
+                transition: viewMode === 'split' ? 'none' : 'all 0.25s ease'
+              }}
+            >
+              {/* Top Structural Mounting Track Bar */}
+              {solutionType !== 'net' && (
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '14px',
+                  background: 'linear-gradient(180deg, #64748B 0%, #1E293B 70%, #0F172A 100%)',
+                  borderRadius: '2px',
+                  boxShadow: '0 3px 8px rgba(0,0,0,0.6)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  zIndex: 2
+                }}>
+                  {/* Screws / Anchors representation */}
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i} style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#CBD5E1', boxShadow: 'inset 0 1px 1px rgba(0,0,0,0.6)' }} />
+                  ))}
                 </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '16px', background: '#334155', borderTop: '2px solid #64748B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '0.62rem', color: '#94A3B8', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Precision Tension Base Track</span>
+              )}
+
+              {/* Bottom Structural Mounting Track Bar */}
+              {solutionType !== 'net' && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: '14px',
+                  background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 70%, #334155 100%)',
+                  borderRadius: '2px',
+                  boxShadow: '0 -3px 8px rgba(0,0,0,0.6)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  zIndex: 2
+                }}>
+                  {/* Screws / Anchors representation */}
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i} style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#CBD5E1', boxShadow: 'inset 0 1px 1px rgba(0,0,0,0.6)' }} />
+                  ))}
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Horizontal Wire Simulation */}
-            {selectedProduct === "invisible-grill-horizontal" && (
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-around',
-                padding: '1rem 0',
-                pointerEvents: 'none'
-              }}>
-                {Array.from({ length: 18 }).map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      height: '2px',
-                      width: '100%',
-                      background: 'linear-gradient(90deg, rgba(226, 232, 240, 0.4) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(226, 232, 240, 0.4) 100%)',
-                      boxShadow: '0 0 4px rgba(255, 255, 255, 0.6)'
-                    }}
-                  />
-                ))}
-                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '16px', background: '#334155', borderRight: '2px solid #64748B' }} />
-                <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '16px', background: '#334155', borderLeft: '2px solid #64748B' }} />
-              </div>
-            )}
+              {/* Realistic Vertical Cables */}
+              {solutionType === 'vertical' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '14px',
+                  bottom: '14px',
+                  left: '10px',
+                  right: '10px',
+                  display: 'flex',
+                  justifyContent: 'space-between'
+                }}>
+                  {Array.from({ length: spacing === '50mm' ? 26 : 18 }).map((_, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        position: 'relative',
+                        width: wireGauge === '2.5mm' ? '2px' : '1.5px',
+                        height: '100%',
+                        // Realistic SS316 metallic specular core with DuPont nylon reflection
+                        background: ambientLight === 'dusk'
+                          ? 'linear-gradient(180deg, rgba(254, 215, 170, 0.4) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(251, 146, 60, 0.4) 100%)'
+                          : ambientLight === 'night'
+                          ? 'linear-gradient(180deg, rgba(148, 163, 184, 0.3) 0%, rgba(226, 232, 240, 0.8) 50%, rgba(100, 116, 139, 0.3) 100%)'
+                          : 'linear-gradient(180deg, rgba(226, 232, 240, 0.5) 0%, rgba(255, 255, 255, 0.95) 48%, rgba(203, 213, 225, 0.5) 100%)',
+                        boxShadow: '0 0 2px rgba(255, 255, 255, 0.7), 1px 0 2px rgba(0, 0, 0, 0.3)'
+                      }}
+                    >
+                      {/* Realistic cross stiffener clamp at mid-height */}
+                      {idx % 7 === 3 && (
+                        <div style={{
+                          position: 'absolute',
+                          top: '50%',
+                          left: '-2px',
+                          width: '6px',
+                          height: '6px',
+                          borderRadius: '50%',
+                          background: '#E2E8F0',
+                          border: '1px solid #475569'
+                        }} />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
-            {/* Pigeon Net Simulation */}
-            {selectedProduct === "pigeon-net" && (
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.45) 1.2px, transparent 1.2px)',
-                backgroundSize: '22px 22px',
-                pointerEvents: 'none'
-              }}>
-                <div style={{ position: 'absolute', inset: 0, border: '3px solid rgba(22, 163, 74, 0.6)' }} />
-              </div>
-            )}
+              {/* Realistic Horizontal Cables */}
+              {solutionType === 'horizontal' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '14px',
+                  bottom: '14px',
+                  left: '10px',
+                  right: '10px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}>
+                  {Array.from({ length: spacing === '50mm' ? 20 : 14 }).map((_, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        height: wireGauge === '2.5mm' ? '2px' : '1.5px',
+                        width: '100%',
+                        background: ambientLight === 'dusk'
+                          ? 'linear-gradient(90deg, rgba(254, 215, 170, 0.4) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(251, 146, 60, 0.4) 100%)'
+                          : 'linear-gradient(90deg, rgba(226, 232, 240, 0.5) 0%, rgba(255, 255, 255, 0.95) 48%, rgba(203, 213, 225, 0.5) 100%)',
+                        boxShadow: '0 0 2px rgba(255, 255, 255, 0.7), 0 1px 2px rgba(0, 0, 0, 0.3)'
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
 
-            {/* Child Safety Reinforced Simulation */}
-            {selectedProduct === "child-safety" && (
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundImage: 'linear-gradient(0deg, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-                pointerEvents: 'none'
-              }}>
-                <div style={{ position: 'absolute', inset: 0, border: '3px solid rgba(2, 132, 199, 0.7)' }} />
-              </div>
-            )}
-
-            {/* After Tag */}
-            <div style={{
-              position: 'absolute',
-              top: '16px',
-              right: '16px',
-              background: 'rgba(2, 132, 199, 0.9)',
-              backdropFilter: 'blur(8px)',
-              padding: '0.4rem 0.85rem',
-              borderRadius: '8px',
-              fontSize: '0.75rem',
-              fontWeight: 800,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-            }}>
-              <ShieldCheck size={14} color="#FFFFFF" />
-              <span>AFTER: {currentProduct.name}</span>
+              {/* Realistic Safety Netting with Border Rope */}
+              {solutionType === 'net' && (
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  border: '3px solid rgba(255, 255, 255, 0.6)',
+                  borderRadius: '4px',
+                  backgroundImage: `
+                    linear-gradient(45deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+                    linear-gradient(-45deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '18px 18px',
+                  boxShadow: 'inset 0 0 8px rgba(0,0,0,0.4)'
+                }}>
+                  {/* Anchor ties along perimeter */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: '-4px',
+                    border: '1px dashed rgba(255, 255, 255, 0.8)',
+                    pointerEvents: 'none'
+                  }} />
+                </div>
+              )}
             </div>
+          )}
 
-            {/* Live Technical Specs HUD on After Side */}
-            <div style={{
-              position: 'absolute',
-              bottom: '24px',
-              right: '24px',
-              background: 'rgba(15, 23, 42, 0.92)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(56, 189, 248, 0.35)',
-              borderRadius: '12px',
-              padding: '0.75rem 1rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.35rem',
-              fontSize: '0.75rem',
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#38BDF8', fontWeight: 800 }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', boxShadow: '0 0 8px #10B981' }}></span>
-                <span>ARCHITECTURAL HUD METRICS</span>
+          {/* Draggable Divider for Before / After Split Mode */}
+          {viewMode === 'split' && (
+            <>
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  left: `${sliderPosition}%`,
+                  width: '3px',
+                  background: '#2563EB',
+                  boxShadow: '0 0 8px rgba(37, 99, 235, 0.8)',
+                  zIndex: 10,
+                  pointerEvents: 'none'
+                }}
+              />
+              <div
+                onMouseDown={() => { isDraggingSlider.current = true; }}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: `${sliderPosition}%`,
+                  transform: 'translate(-50%, -50%)',
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '50%',
+                  background: '#2563EB',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'ew-resize',
+                  zIndex: 11,
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.4)',
+                  border: '2px solid #FFFFFF'
+                }}
+              >
+                <MoveHorizontal size={16} />
               </div>
-              <div style={{ color: '#E2E8F0', fontWeight: 600 }}>{currentProduct.spec}</div>
-              <div style={{ color: '#94A3B8', fontSize: '0.7rem' }}>Preserves 98% Natural Skyline Light & Ventilation</div>
-            </div>
-          </div>
 
-          {/* Draggable Divider Line & Controller Handle */}
+              {/* Labels on Split View */}
+              <div style={{
+                position: 'absolute',
+                top: '16px',
+                left: '16px',
+                background: 'rgba(15, 23, 42, 0.85)',
+                color: '#FFFFFF',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                zIndex: 8
+              }}>
+                BEFORE (Unenclosed)
+              </div>
+              <div style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                background: 'rgba(15, 23, 42, 0.85)',
+                color: '#FFFFFF',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                zIndex: 8
+              }}>
+                AFTER (Installed)
+              </div>
+            </>
+          )}
+
+          {/* Architectural Overlay Status Pill at bottom */}
           <div style={{
             position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: `${sliderPosition}%`,
-            width: '3px',
-            background: '#FFFFFF',
-            boxShadow: '0 0 10px rgba(0, 0, 0, 0.7), 0 0 15px rgba(56, 189, 248, 0.8)',
-            transform: 'translateX(-50%)',
-            pointerEvents: 'none'
+            bottom: '16px',
+            right: '16px',
+            background: 'rgba(15, 23, 42, 0.9)',
+            backdropFilter: 'blur(6px)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            padding: '6px 14px',
+            borderRadius: '8px',
+            color: '#FFFFFF',
+            fontSize: '0.8rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            zIndex: 8
           }}>
-            {/* Center Slider Knob */}
-            <div style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '46px',
-              height: '46px',
-              borderRadius: '50%',
-              background: '#0284C7',
-              border: '3px solid #FFFFFF',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.8)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#FFFFFF'
-            }}>
-              <Sliders size={20} />
-            </div>
+            <Shield size={15} color="#38BDF8" />
+            <span>
+              {viewMode === 'before'
+                ? 'Original Open Opening (No Fall Protection)'
+                : `${solutionType === 'vertical' ? 'Vertical SS316 Grills' : solutionType === 'horizontal' ? 'Horizontal SS316 Grills' : 'Balcony Safety Net'} (${spacing} • ${wireGauge})`}
+            </span>
           </div>
-        </div>
-
-        {/* Slider Instructions Bar */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '0.75rem',
-          marginTop: '1rem',
-          fontSize: '0.76rem',
-          color: '#94A3B8'
-        }}>
-          <div>
-            <span>👈 Drag handle or move cursor across image to reveal installation</span>
-          </div>
-          <div style={{ display: 'flex', gap: '1.25rem' }}>
-            <span>✓ 400+ kg Breaking Load</span>
-            <span>✓ Japanese AISI 316 Stainless Steel</span>
-            <span>✓ Non-Combustible Fire Egress</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Conversion Action Footer */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '1.25rem',
-        padding: '1.5rem 1.75rem',
-        background: 'rgba(15, 23, 42, 0.95)',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)'
-      }}>
-        <div>
-          <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#FFFFFF', margin: '0 0 0.2rem 0' }}>
-            Ready to inspect real physical SS316 wire samples?
-          </h4>
-          <p style={{ fontSize: '0.82rem', color: '#94A3B8', margin: 0 }}>
-            Our structural engineer will visit your home with actual mounting tracks and perform precision laser measurement.
-          </p>
-        </div>
-
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <a
-            href={whatsappVisualizerUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-whatsapp"
-            style={{ padding: '0.75rem 1.4rem', fontSize: '0.88rem' }}
-          >
-            <MessageCircle size={16} />
-            <span>Send Photo on WhatsApp</span>
-          </a>
-          <a
-            href="/invisible-grill-cost/"
-            className="btn btn-primary"
-            style={{ padding: '0.75rem 1.4rem', fontSize: '0.88rem' }}
-          >
-            <span>Instant Price Estimator</span>
-            <ArrowRight size={15} />
-          </a>
         </div>
       </div>
     </div>

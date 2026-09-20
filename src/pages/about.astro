@@ -6,47 +6,48 @@ import { business } from '../data/business';
 import { Shield, Award, Users, HardHat, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const breadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://invisprotect.com/" },
-  { name: "About Us", url: "https://invisprotect.com/about/" }
+  { name: "Home", url: "https://invisiblesafety.vercel.app/" },
+  { name: "About Us", url: "https://invisiblesafety.vercel.app/about/" }
 ]);
 ---
 
 <BaseLayout
-  title="About InvisProtect | Architectural Safety Specialists in India"
-  description="Learn about InvisProtect's mission to eliminate high-rise fall hazards across India without sacrificing modern architectural aesthetics. In-house trained teams, zero shortcuts."
+  title="About Invisible Safety | Architectural Safety Specialists in India"
+  description="Learn about Invisible Safety's mission to eliminate high-rise fall hazards across India without sacrificing modern architectural aesthetics. In-house trained teams, zero shortcuts."
   canonicalUrl="/about/"
   schema={[breadcrumbs]}
 >
-  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
     <div class="container" style="text-align: center; max-width: 860px;">
-      <span class="badge-arch" style="margin-bottom: 1.25rem;">
+      <span class="eyebrow" style="margin-bottom: 1rem;">
         Our Mission & Values
       </span>
-      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem;">
         Pioneering Architectural <br />
-        <span style="color: #38BDF8;">Home Safety in India</span>
+        <span style="color: #2563EB;">Home Safety in India</span>
       </h1>
-      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.6; max-width: 700px; margin: 0 auto 2rem auto;">
         Founded on the premise that child and pet protection should never turn your home into an iron cage. We engineer seamless, high-tensile invisible grills that celebrate light, ventilation, and skyline views.
       </p>
 
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
         <a href="/invisible-grills/" class="btn btn-primary">
           <span>Explore Safety Solutions</span>
+          <ArrowRight size={17} />
         </a>
-        <a href="/contact/" class="btn btn-outline">
-          <span>Contact Our Team</span>
+        <a href="/contact/" class="btn btn-secondary">
+          <span>Contact Our Office</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Core Beliefs -->
-  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- Core Values -->
+  <section class="section-spacing bg-white" style="border-bottom: 1px solid var(--color-border);">
     <div class="container">
       <div class="section-header">
-        <span class="badge-emerald">Core Principles</span>
-        <h2>The Three Tenets of InvisProtect</h2>
+        <span class="eyebrow">Core Principles</span>
+        <h2>The Three Tenets of Invisible Safety</h2>
         <p>How we approach every installation, from residential balconies to commercial duct shafts.</p>
       </div>
 

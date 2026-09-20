@@ -12,7 +12,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Are invisible grills strong enough to prevent a child or adult from falling?",
-    answer: "Yes. Each individual InvisProtect SS316 wire is engineered and laboratory-tested to withstand up to 400 kgf (kilogram-force) of tensile breaking load. When properly tensioned and anchored into reinforced concrete with stainless steel expansion bolts, the system cannot be prised apart by hand and easily withstands high-impact accidental falls.",
+    answer: "Yes. Each individual Invisible Safety SS316 wire is engineered and laboratory-tested to withstand up to 400 kgf (kilogram-force) of tensile breaking load. When properly tensioned and anchored into reinforced concrete with stainless steel expansion bolts, the system cannot be prised apart by hand and easily withstands high-impact accidental falls.",
     category: "invisible-grill"
   },
   {
@@ -32,7 +32,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Will the wires rust or discolour over time?",
-    answer: "No. InvisProtect uses virgin SS316 marine-grade steel containing molybdenum, which prevents corrosion even in humid coastal areas like Visakhapatnam. The outer transparent nylon coating additionally shields against dust, UV rays, and moisture.",
+    answer: "No. Invisible Safety uses virgin SS316 marine-grade steel containing molybdenum, which prevents corrosion even in humid coastal areas like Visakhapatnam. The outer transparent nylon coating additionally shields against dust, UV rays, and moisture.",
     category: "warranty"
   },
   {

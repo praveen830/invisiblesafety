@@ -61,7 +61,7 @@ export const products: ProductItem[] = [
       "Luxury villas with cantilevered decks"
     ],
     idealFor: "Modern homeowners and luxury high-rise residents seeking clean aesthetics without prison-like iron bars.",
-    description: "InvisProtect invisible grills redefine residential safety. Constructed with 316-grade marine stainless steel cables enclosed in a transparent protective sheath, they offer maximum protection with 98% visual openness."
+    description: "Invisible Safety invisible grills redefine residential safety. Constructed with 316-grade marine stainless steel cables enclosed in a transparent protective sheath, they offer maximum protection with 98% visual openness."
   },
   {
     id: "safety-nets-balcony",
@@ -126,7 +126,7 @@ export const products: ProductItem[] = [
       "Double-height sky deck openings"
     ],
     idealFor: "Residents living on the 4th floor and above in high-rise towers.",
-    description: "Balcony heights present severe fall hazards. InvisProtect engineered balcony systems provide impenetrable safety for loved ones while keeping the skyline views pure and unhindered."
+    description: "Balcony heights present severe fall hazards. Invisible Safety engineered balcony systems provide impenetrable safety for loved ones while keeping the skyline views pure and unhindered."
   },
   {
     id: "pigeon-nets",

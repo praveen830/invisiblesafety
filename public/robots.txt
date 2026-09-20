@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://invisprotect.com/sitemap.xml
+Sitemap: https://invisiblesafety.vercel.app/sitemap-index.xml
