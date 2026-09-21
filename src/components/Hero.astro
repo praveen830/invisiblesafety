@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
 ---
 
 <section class="hero-section">
-  <!-- Attractive Vibrant Balcony Photograph Background (Bright Daylight) -->
+  <!-- Attractive Vibrant Balcony Photograph Background -->
   <div class="hero-bg-container">
     <img
       src="/images/hero-balcony.webp"
@@ -14,27 +14,27 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
       width="1920"
       height="1080"
     />
-    <!-- Soft Light Fade on Left Edge Only - Center & Right are 100% Bright, Sunny & Attractive -->
+    <!-- Delicate Soft Vignette strictly on Far-Left Edge - Center & Right 75% are 100% Open & Visible -->
     <div class="hero-overlay"></div>
   </div>
 
-  <div class="container hero-container">
-    <!-- Pinned to Left Side: Clean, Compact, Not Center -->
+  <div class="hero-container">
+    <!-- Pinned strictly to the FAR LEFT SIDE - Clearing the whole Center and Skyline -->
     <div class="hero-content">
-      <!-- Refined Eyebrow Pill -->
+      <!-- Glowing Eyebrow Pill -->
       <div class="hero-eyebrow-pill">
         <Sparkles size={14} className="eyebrow-sparkle" />
         <span>ARCHITECTURAL SAFETY SOLUTIONS</span>
       </div>
 
-      <!-- Main Heading with Elegant Light-Theme Typography -->
+      <!-- Main Heading with Luminous Cyan Accent -->
       <h1 class="hero-title">
         Invisible Grills & <br />
         <span class="hero-title-accent">Safety Solutions</span> <br />
         for Modern Homes
       </h1>
 
-      <!-- Supporting Body Copy in Crisp Slate -->
+      <!-- Supporting Body Copy with Crisp Text Shadow -->
       <p class="hero-description">
         Protect your high-rise balconies, French windows, and open staircases without losing your skyline view. Engineered with marine-grade SS316 cables and high-tenacity safety systems.
       </p>
@@ -46,7 +46,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
           <ArrowRight size={18} />
         </a>
 
-        <a href="/visualizer/" class="btn btn-secondary btn-lg hero-btn-visualizer">
+        <a href="/visualizer/" class="btn btn-frosted btn-lg hero-btn-visualizer">
           <Eye size={18} />
           <span>TRY VISUALIZER</span>
         </a>
@@ -58,7 +58,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
         <span>Free doorstep site measurement across <strong>Hyderabad, Vizag & Vijayawada</strong></span>
       </div>
 
-      <!-- Sleek Feature Chips (Clean Light Glass Style) -->
+      <!-- Sleek Feature Chips Along Bottom Left -->
       <div class="hero-chips-strip">
         <div class="hero-chip">
           <ShieldCheck size={15} className="chip-icon" />
@@ -84,12 +84,12 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
 <style>
   .hero-section {
     position: relative;
-    min-height: clamp(580px, 82vh, 760px);
+    min-height: clamp(600px, 86vh, 820px);
     display: flex;
     align-items: center;
     padding: clamp(40px, 5vw, 70px) 0;
     overflow: hidden;
-    background-color: #F8FAFC;
+    background-color: #0A0F1D;
   }
 
   .hero-bg-container {
@@ -102,8 +102,8 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right center;
-    filter: brightness(1.04) contrast(1.05) saturate(1.12);
+    object-position: center right;
+    filter: brightness(1.05) contrast(1.06) saturate(1.14);
     transform: scale(1.01);
     transition: transform 1.5s cubic-bezier(0.25, 1, 0.35, 1);
   }
@@ -113,86 +113,94 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
   }
 
   /* 
-   * SOFT LIGHT LEFT SCENE FADE:
-   * Keeps the center and right 65%+ of the image 100% natural, sunny, and attractive.
-   * Provides clean, soft light tone strictly behind the left-side text.
+   * DELICATE SCENIC VIGNETTE:
+   * Localized strictly to the far-left edge behind the text (at 16% horizontal position).
+   * From 35% across the screen to 100%, the image is completely free, bright, and vibrant.
    */
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.96) 0%,
-      rgba(255, 255, 255, 0.90) 24%,
-      rgba(255, 255, 255, 0.55) 40%,
-      rgba(255, 255, 255, 0.12) 56%,
-      transparent 72%
+    background: radial-gradient(
+      ellipse 55% 90% at 15% 50%,
+      rgba(10, 16, 32, 0.78) 0%,
+      rgba(10, 16, 32, 0.52) 42%,
+      rgba(10, 16, 32, 0.12) 72%,
+      transparent 92%
     );
     pointer-events: none;
   }
 
+  /* Pushed all the way to the far-left side margin */
   .hero-container {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1400px;
-    padding: 0 clamp(1rem, 3.5vw, 3.5rem);
+    max-width: 100%;
+    padding-left: clamp(1.5rem, 5vw, 5rem);
+    padding-right: 1.5rem;
+    box-sizing: border-box;
   }
 
-  /* Text Pinned to Left Side - NOT in the Center */
+  /* Content Block strictly on the far-left side (NOT center) */
   .hero-content {
-    max-width: 490px;
-    margin-right: auto;
+    max-width: 480px;
     margin-left: 0;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     text-align: left;
   }
 
-  /* Refined Light Eyebrow Badge */
+  /* Glowing Eyebrow Badge */
   .hero-eyebrow-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    padding: 0.35rem 0.9rem;
-    background: #EFF6FF;
-    border: 1px solid #BFDBFE;
+    gap: 0.5rem;
+    padding: 0.35rem 0.95rem;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 189, 248, 0.45);
     border-radius: 30px;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #1D4ED8;
+    color: #38BDF8;
     margin-bottom: 1.15rem;
     width: fit-content;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   }
 
   .eyebrow-sparkle {
-    color: #2563EB;
+    color: #38BDF8;
   }
 
-  /* Main Headline with Refined Light Theme Colors */
+  /* Main Headline with Clean Architectural Contrast */
   .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 3.6vw, 3.25rem);
+    font-size: clamp(2.3rem, 4.2vw, 3.65rem);
     font-weight: 800;
-    line-height: 1.16;
+    line-height: 1.15;
     letter-spacing: -0.025em;
-    color: #0F172A;
+    color: #FFFFFF;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5);
     margin-bottom: 1.15rem;
   }
 
   .hero-title-accent {
-    color: #0284C7;
+    color: #38BDF8;
+    text-shadow: 0 0 25px rgba(56, 189, 248, 0.55), 0 2px 12px rgba(0, 0, 0, 0.6);
     display: inline-block;
   }
 
   /* Value Description */
   .hero-description {
-    font-size: clamp(0.98rem, 1.1vw, 1.08rem);
-    color: #475569;
-    line-height: 1.65;
+    font-size: clamp(1rem, 1.15vw, 1.12rem);
+    color: #F1F5F9;
+    line-height: 1.68;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.75);
     margin-bottom: 1.65rem;
+    max-width: 460px;
   }
 
   /* Action Buttons */
@@ -205,41 +213,40 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
   }
 
   .hero-btn-quote {
-    background: #2563EB;
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
     color: #FFFFFF;
-    box-shadow: 0 6px 18px -3px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.55), 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     font-weight: 700;
-    padding: 0.8rem 1.5rem;
+    padding: 0.82rem 1.55rem;
     border-radius: 8px;
-    border: none;
   }
 
   .hero-btn-quote:hover {
-    background: #1D4ED8;
-    box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.55);
+    box-shadow: 0 12px 30px -4px rgba(37, 99, 235, 0.75);
     transform: translateY(-2px);
   }
 
-  .hero-btn-visualizer {
+  .btn-frosted {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.8rem 1.35rem;
+    padding: 0.82rem 1.35rem;
     border-radius: 8px;
     background: #FFFFFF;
-    border: 1.5px solid #CBD5E1;
+    border: 1.5px solid #FFFFFF;
     color: #0F172A;
     font-weight: 700;
     font-size: 0.92rem;
     text-decoration: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease;
   }
 
-  .hero-btn-visualizer:hover {
-    border-color: #2563EB;
-    color: #2563EB;
+  .btn-frosted:hover {
     background: #F8FAFC;
+    color: #2563EB;
+    border-color: #38BDF8;
     transform: translateY(-2px);
   }
 
@@ -248,21 +255,22 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
     display: flex;
     align-items: center;
     gap: 0.45rem;
-    font-size: 0.82rem;
-    color: #64748B;
-    margin-bottom: 1.5rem;
+    font-size: 0.84rem;
+    color: #E2E8F0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.35rem;
   }
 
   .location-icon {
-    color: #0284C7;
+    color: #38BDF8;
     flex-shrink: 0;
   }
 
   .hero-location-strip strong {
-    color: #1E293B;
+    color: #FFFFFF;
   }
 
-  /* Sleek Feature Chips (Clean Light Glass Style) */
+  /* Sleek Feature Chips Along Bottom Left */
   .hero-chips-strip {
     display: flex;
     align-items: center;
@@ -274,27 +282,28 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid #E2E8F0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    padding: 0.35rem 0.8rem;
-    color: #334155;
+    padding: 0.38rem 0.85rem;
+    color: #F8FAFC;
     font-size: 0.76rem;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
 
   .hero-chip:hover {
-    border-color: #38BDF8;
-    color: #0F172A;
+    background: rgba(15, 23, 42, 0.85);
+    border-color: rgba(56, 189, 248, 0.5);
     transform: translateY(-1px);
   }
 
   .chip-icon {
-    color: #0284C7;
+    color: #38BDF8;
     flex-shrink: 0;
   }
 
@@ -302,11 +311,16 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award } f
   @media (max-width: 768px) {
     .hero-section {
       min-height: auto;
-      padding: 40px 0;
+      padding: 44px 0;
+    }
+
+    .hero-container {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
     }
 
     .hero-overlay {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(10, 16, 32, 0.75);
     }
 
     .hero-content {
