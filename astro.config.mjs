@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://invisiblesafety.vercel.app',
+  site: 'https://invisiblesafety.in',
   integrations: [react()],
   vite: {
     server: {
