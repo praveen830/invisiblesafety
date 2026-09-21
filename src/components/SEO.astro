@@ -1,5 +1,6 @@
 ---
 import { business } from '../data/business';
+import { getWebSiteSchema, getOrganizationSchema } from '../utils/seo';
 
 export interface Props {
   title?: string;
@@ -13,50 +14,86 @@ export interface Props {
 const {
   title = `${business.name} | ${business.tagline}`,
   description = business.subtitle,
-  canonicalUrl = Astro.url.href,
+  canonicalUrl,
   ogImage = '/images/hero-balcony.webp',
   schema,
   noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://invisiblesafety.in';
-const fullCanonical = canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`;
+
+// Format strict absolute canonical URL
+const rawPath = canonicalUrl || Astro.url.pathname;
+const cleanPath = rawPath.startsWith('http') 
+  ? rawPath 
+  : `${siteUrl}${rawPath.startsWith('/') ? '' : '/'}${rawPath}${rawPath.endsWith('/') || rawPath.includes('.') ? '' : '/'}`;
+
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+
+// Core global schemas injected across all pages
+const baseSchemas = [
+  getWebSiteSchema(),
+  getOrganizationSchema()
+];
+
+const pageSchemas = schema 
+  ? (Array.isArray(schema) ? schema : [schema])
+  : [];
+
+const finalSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [...baseSchemas, ...pageSchemas]
+};
 ---
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<link rel="canonical" href={fullCanonical} />
+<link rel="canonical" href={cleanPath} />
 
+<!-- Advanced Search Engine Crawler Directives -->
 {noindex ? (
   <meta name="robots" content="noindex, nofollow" />
 ) : (
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  </>
 )}
 
 <!-- Open Graph / Facebook -->
+<meta property="og:locale" content="en_IN" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content={fullCanonical} />
+<meta property="og:url" content={cleanPath} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:image:secure_url" content={fullOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content={business.name} />
 
-<!-- Twitter / X -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={fullCanonical} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
+<!-- Twitter / X Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={cleanPath} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+<meta name="twitter:image:alt" content={title} />
 
-<!-- Geographic / Local SEO Meta Tags -->
-<meta name="geo.region" content="IN-TG" />
-<meta name="geo.placename" content="Hyderabad" />
+<!-- Multi-Region Local SEO Geo Coordinates (Telangana & Andhra Pradesh) -->
+<meta name="geo.region" content="IN-TG;IN-AP" />
+<meta name="geo.placename" content="Hyderabad, Visakhapatnam, Vijayawada, Amaravati" />
 <meta name="geo.position" content="17.4435;78.3772" />
 <meta name="ICBM" content="17.4435, 78.3772" />
 
-<!-- Structured Data (JSON-LD) -->
-{schema && (
-  <script type="application/ld+json" set:html={JSON.stringify(Array.isArray(schema) ? schema : [schema])} />
-)}
+<!-- Mobile UX & Web App Meta -->
+<meta name="application-name" content={business.name} />
+<meta name="apple-mobile-web-app-title" content={business.name} />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- Advanced Structured Data (JSON-LD Schema Graph) -->
+<script type="application/ld+json" set:html={JSON.stringify(finalSchemaGraph)} />
