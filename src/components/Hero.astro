@@ -1,6 +1,6 @@
 ---
 import { business } from '../data/business';
-import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles, Eye, Award, Check } from 'lucide-react';
 ---
 
 <section class="hero-section">
@@ -14,66 +14,121 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles } from 'lucide-
       width="1920"
       height="1080"
     />
-    <!-- Subtle, light gradient that preserves 100% of photo vibrance & clarity -->
+    <!-- Cinematic Architectural Gradient Scrim - No Clunky Box, 100% Panoramic Vibrancy -->
     <div class="hero-overlay"></div>
   </div>
 
-  <!-- Floating Installation Feature Badge Over The Balcony Image -->
-  <div class="hero-image-badge">
-    <div class="badge-icon-wrap">
-      <ShieldCheck size={20} />
-    </div>
-    <div class="badge-info">
-      <span class="badge-title">SS316 Marine Grade Cables</span>
-      <span class="badge-desc">400+ kgf Breaking Load • 98% Panoramic View</span>
-    </div>
-  </div>
-
   <div class="container hero-container">
-    <div class="hero-content">
-      <!-- Architectural Eyebrow Pill -->
-      <div class="hero-eyebrow-pill">
-        <ShieldCheck size={14} />
-        <span>ARCHITECTURAL SAFETY SOLUTIONS</span>
+    <div class="hero-layout">
+      <!-- Left Column: Open Architectural Typography & Core Actions (No Artificial Box) -->
+      <div class="hero-content">
+        <!-- Glowing Eyebrow Pill -->
+        <div class="hero-eyebrow-pill">
+          <Sparkles size={14} className="eyebrow-sparkle" />
+          <span>ARCHITECTURAL SAFETY SOLUTIONS</span>
+        </div>
+
+        <!-- Primary Heading -->
+        <h1 class="hero-title">
+          Invisible Grills & <br />
+          <span class="hero-title-gradient">Safety Solutions</span> <br />
+          for Modern Homes
+        </h1>
+
+        <!-- Supporting Value Description -->
+        <p class="hero-description">
+          Protect your high-rise balconies, French windows, and open staircases without losing your skyline view. Engineered with marine-grade SS316 cables and high-tenacity safety systems.
+        </p>
+
+        <!-- Primary Action Buttons -->
+        <div class="hero-actions">
+          <a href="/contact/#quote" class="btn btn-primary btn-lg hero-btn-quote">
+            <span>GET A FREE QUOTE</span>
+            <ArrowRight size={18} />
+          </a>
+
+          <a href="/visualizer/" class="btn btn-frosted btn-lg hero-btn-visualizer">
+            <Eye size={18} />
+            <span>TRY BALCONY VISUALIZER</span>
+          </a>
+        </div>
+
+        <!-- City Service Coverage Strip -->
+        <div class="hero-location-strip">
+          <MapPin size={15} className="location-icon" />
+          <span>Complimentary doorstep site measurement across <strong>Hyderabad, Visakhapatnam & Vijayawada</strong></span>
+        </div>
+
+        <!-- Attractive Architectural Feature Highlights (Integrated Sleek Cards) -->
+        <div class="hero-features-grid">
+          <div class="hero-feature-card">
+            <div class="feature-icon-box">
+              <ShieldCheck size={18} />
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">SS316 Marine Grade</span>
+              <span class="feature-sub">Rust-proof virgin steel with DuPont nylon sheath</span>
+            </div>
+          </div>
+
+          <div class="hero-feature-card">
+            <div class="feature-icon-box">
+              <Award size={18} />
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">400+ kgf Breaking Load</span>
+              <span class="feature-sub">Toddler & pet safe with calibrated 50mm spacing</span>
+            </div>
+          </div>
+
+          <div class="hero-feature-card">
+            <div class="feature-icon-box">
+              <Eye size={18} />
+            </div>
+            <div class="feature-text">
+              <span class="feature-title">98% Panoramic Clarity</span>
+              <span class="feature-sub">Nearly invisible from 5m; zero view obstruction</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Primary H1 -->
-      <h1 class="hero-title">
-        Invisible Grills & Safety Solutions for Modern Homes
-      </h1>
+      <!-- Right Column: Interactive Floating Live Installation Callout (Over The Balcony View) -->
+      <div class="hero-showcase-column">
+        <div class="floating-spec-badge">
+          <div class="spec-badge-header">
+            <div class="pulse-indicator">
+              <span class="pulse-dot"></span>
+            </div>
+            <span class="spec-badge-tag">LIVE INSTALLATION STANDARD</span>
+          </div>
 
-      <!-- Supporting Body Copy -->
-      <p class="hero-description">
-        Protect balconies, windows and open spaces with professionally installed invisible grills and safety net systems designed for modern residential spaces.
-      </p>
+          <h3 class="spec-badge-title">Balcony Invisible Grills</h3>
 
-      <!-- Primary Action Buttons -->
-      <div class="hero-actions">
-        <a href="/contact/#quote" class="btn btn-primary btn-lg">
-          <span>GET A FREE QUOTE</span>
-          <ArrowRight size={18} />
-        </a>
+          <div class="spec-items">
+            <div class="spec-row">
+              <Check size={14} className="spec-check" />
+              <span>Marine SS316 2.5mm High-Tension Cables</span>
+            </div>
+            <div class="spec-row">
+              <Check size={14} className="spec-check" />
+              <span>Structural Concrete Expansion Anchors</span>
+            </div>
+            <div class="spec-row">
+              <Check size={14} className="spec-check" />
+              <span>Child-Safe 50mm Spacing (Non-Climbable)</span>
+            </div>
+            <div class="spec-row">
+              <Check size={14} className="spec-check" />
+              <span>10-Year Comprehensive Replacement Warranty</span>
+            </div>
+          </div>
 
-        <a href="#protect-journey" class="btn btn-secondary btn-lg">
-          <span>VIEW OUR PRODUCTS</span>
-        </a>
-      </div>
-
-      <!-- Verified Trust Strip -->
-      <div class="hero-trust-strip">
-        <div class="trust-item">
-          <CheckCircle2 size={16} className="text-blue" />
-          <span>SS316 options</span>
-        </div>
-        <span class="trust-divider">•</span>
-        <div class="trust-item">
-          <CheckCircle2 size={16} className="text-blue" />
-          <span>Professional installation</span>
-        </div>
-        <span class="trust-divider">•</span>
-        <div class="trust-item">
-          <MapPin size={16} className="text-blue" />
-          <span>Service across Hyderabad, Vizag & Vijayawada</span>
+          <div class="spec-badge-footer">
+            <span class="spec-highlight">ZERO MAINTENANCE</span>
+            <span class="spec-divider">•</span>
+            <span>RUST &amp; UV RESISTANT</span>
+          </div>
         </div>
       </div>
     </div>
@@ -83,12 +138,12 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles } from 'lucide-
 <style>
   .hero-section {
     position: relative;
-    min-height: clamp(580px, 78vh, 720px);
+    min-height: clamp(620px, 86vh, 860px);
     display: flex;
     align-items: center;
-    padding: 64px 0;
+    padding: clamp(48px, 6vw, 84px) 0;
     overflow: hidden;
-    background-color: #0F172A;
+    background-color: #0B1120;
   }
 
   .hero-bg-container {
@@ -102,188 +157,368 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles } from 'lucide-
     height: 100%;
     object-fit: cover;
     object-position: center right;
-    filter: brightness(1.02) contrast(1.04) saturate(1.08);
+    filter: brightness(1.04) contrast(1.05) saturate(1.1);
     transform: scale(1.01);
-    transition: transform 1.2s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.35, 1);
   }
 
   .hero-section:hover .hero-bg-img {
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 
+  /* Seamless Cinematic Vignette Overlay - Blends text perfectly without any artificial box */
   .hero-overlay {
     position: absolute;
     inset: 0;
-    /* Ultra-subtle light vignette so background image is fully highlighted and attractive */
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.52) 0%,
-      rgba(255, 255, 255, 0.22) 38%,
-      rgba(0, 0, 0, 0) 65%
+      rgba(11, 17, 32, 0.96) 0%,
+      rgba(11, 17, 32, 0.90) 36%,
+      rgba(11, 17, 32, 0.62) 60%,
+      rgba(11, 17, 32, 0.22) 85%,
+      rgba(11, 17, 32, 0.08) 100%
     );
     pointer-events: none;
-  }
-
-  /* Floating badge on the right over the balcony photo */
-  .hero-image-badge {
-    position: absolute;
-    right: 2.5rem;
-    bottom: 2.5rem;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    background: rgba(15, 23, 42, 0.84);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 50px;
-    padding: 0.65rem 1.35rem 0.65rem 0.85rem;
-    color: #FFFFFF;
-    box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.38);
-    pointer-events: none;
-    transition: transform 0.3s ease;
-  }
-
-  .badge-icon-wrap {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #0284C7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    flex-shrink: 0;
-  }
-
-  .badge-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .badge-title {
-    font-size: 0.86rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.25;
-  }
-
-  .badge-desc {
-    font-size: 0.72rem;
-    color: #BAE6FD;
-    line-height: 1.25;
-    font-weight: 500;
   }
 
   .hero-container {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1360px;
+    padding: 0 clamp(1rem, 3vw, 2.5rem);
   }
 
-  /* Frosted Glass Architectural Card for crisp readability without blocking image view */
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  /* Open Architectural Content Flow (NO Box, NO Heavy White Card) */
   .hero-content {
-    max-width: 610px;
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 2.75rem 2.5rem;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    max-width: 720px;
   }
 
+  /* Glowing Eyebrow Badge */
   .hero-eyebrow-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    padding: 0.35rem 0.85rem;
-    background: #E0F2FE;
-    border: 1px solid #BAE6FD;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.35rem 0.95rem;
+    background: rgba(37, 99, 235, 0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 30px;
+    font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #0369A1;
-    margin-bottom: 1.15rem;
+    color: #38BDF8;
+    margin-bottom: 1.25rem;
     width: fit-content;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
   }
 
+  .eyebrow-sparkle {
+    color: #38BDF8;
+  }
+
+  /* Main Dynamic Typography */
   .hero-title {
-    font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 4.2vw, 3.75rem);
     font-weight: 800;
-    line-height: 1.18;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.15rem;
-    color: #0F172A;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title-gradient {
+    background: linear-gradient(135deg, #38BDF8 0%, #60A5FA 60%, #93C5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
 
   .hero-description {
-    font-size: 1.08rem;
-    color: #475569;
-    line-height: 1.65;
-    margin-bottom: 1.85rem;
+    font-size: clamp(1.02rem, 1.2vw, 1.16rem);
+    color: #CBD5E1;
+    line-height: 1.68;
+    margin-bottom: 1.75rem;
+    max-width: 620px;
   }
 
+  /* Buttons */
   .hero-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
   }
 
-  .hero-trust-strip {
+  .hero-btn-quote {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    padding: 0.85rem 1.65rem;
+  }
+
+  .hero-btn-quote:hover {
+    box-shadow: 0 12px 30px -4px rgba(37, 99, 235, 0.7);
+    transform: translateY(-2px);
+  }
+
+  .btn-frosted {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.45rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-frosted:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    color: #FFFFFF;
+  }
+
+  /* Location Strip */
+  .hero-location-strip {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    flex-wrap: wrap;
+    gap: 0.5rem;
     font-size: 0.86rem;
-    font-weight: 600;
-    color: #475569;
-    padding-top: 1rem;
-    border-top: 1px solid #E2E8F0;
+    color: #94A3B8;
+    margin-bottom: 2rem;
   }
 
-  .trust-item {
+  .location-icon {
+    color: #38BDF8;
+    flex-shrink: 0;
+  }
+
+  .hero-location-strip strong {
+    color: #E2E8F0;
+  }
+
+  /* Attractive Feature Cards Grid */
+  .hero-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .hero-feature-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .hero-feature-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(2, 132, 199, 0.25);
+    border: 1px solid rgba(56, 189, 248, 0.35);
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    justify-content: center;
+    color: #38BDF8;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  .trust-divider {
-    color: #CBD5E1;
+  .feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .text-blue {
-    color: var(--color-accent);
+  .feature-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    line-height: 1.25;
   }
 
-  @media (max-width: 1024px) {
-    .hero-image-badge {
-      display: none;
+  .feature-sub {
+    font-size: 0.71rem;
+    color: #94A3B8;
+    line-height: 1.35;
+  }
+
+  /* Right Showcase Column: Floating Architectural Badge */
+  .hero-showcase-column {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .floating-spec-badge {
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 1.5rem;
+    max-width: 380px;
+    width: 100%;
+    color: #FFFFFF;
+    box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    animation: floatBadge 4s ease-in-out infinite;
+  }
+
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .spec-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .pulse-indicator {
+    width: 8px;
+    height: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+  }
+
+  .spec-badge-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #34D399;
+  }
+
+  .spec-badge-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  .spec-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .spec-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #E2E8F0;
+  }
+
+  .spec-check {
+    color: #38BDF8;
+    flex-shrink: 0;
+  }
+
+  .spec-badge-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+
+  .spec-highlight {
+    color: #38BDF8;
+  }
+
+  .spec-divider {
+    color: #475569;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1080px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero-showcase-column {
+      justify-content: flex-start;
+    }
+
+    .floating-spec-badge {
+      max-width: 480px;
+      animation: none;
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .hero-section {
       min-height: auto;
-      padding: 40px 0 48px 0;
+      padding: 48px 0;
     }
 
     .hero-overlay {
-      background: rgba(255, 255, 255, 0.4);
+      background: linear-gradient(
+        180deg,
+        rgba(11, 17, 32, 0.94) 0%,
+        rgba(11, 17, 32, 0.88) 60%,
+        rgba(11, 17, 32, 0.96) 100%
+      );
     }
 
-    .hero-content {
+    .hero-features-grid {
+      grid-template-columns: 1fr;
       max-width: 100%;
-      padding: 2rem 1.5rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.94);
     }
-  }
 
-  @media (max-width: 500px) {
     .hero-actions {
       flex-direction: column;
       align-items: stretch;
@@ -292,16 +527,6 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Sparkles } from 'lucide-
     .hero-actions .btn {
       width: 100%;
       justify-content: center;
-    }
-
-    .hero-trust-strip {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .trust-divider {
-      display: none;
     }
   }
 </style>
