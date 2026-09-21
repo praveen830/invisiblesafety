@@ -3,144 +3,158 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
-import { pricing } from '../data/pricing';
 import { business } from '../data/business';
 import { getBreadcrumbSchema } from '../utils/seo';
-import { Calculator, CheckCircle2, ShieldCheck, FileCheck, ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { Ruler, ShieldCheck, CheckCircle2, ArrowRight, MessageCircle, Building2, Layers, Compass } from 'lucide-react';
 
 const breadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://Invisible Safety.com/" },
-  { name: "Invisible Grill Cost", url: "https://Invisible Safety.com/invisible-grill-cost/" }
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Free Site Quote", url: "https://invisiblesafety.in/invisible-grill-cost/" }
 ]);
 ---
 
 <BaseLayout
-  title="Invisible Grill Price Per Sq Ft & Cost Estimator | Invisible Safety"
-  description="Transparent invisible grill pricing guide in India. SS316 marine cables starting at ₹190/sq.ft. Calculate opening cost instantly with our live calculator."
+  title="Custom Quotation & Free Site Measurement | Invisible Safety"
+  description="Request a complimentary on-site laser measurement and custom transparent quotation for invisible safety grills and safety nets based on your balcony structure, height, and area."
   canonicalUrl="/invisible-grill-cost/"
   schema={[breadcrumbs]}
 >
+  <!-- Hero Section -->
   <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
     <div class="container" style="text-align: center; max-width: 900px;">
-      <span class="badge-emerald" style="margin-bottom: 1.25rem;">
-        100% Transparent Unit Economics
-      </span>
-      <h1 style="font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
-        Invisible Grill Pricing & <br />
-        <span style="color: #0284C7;">Smart Cost Estimator</span>
+      <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.9rem; background: #E0F2FE; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #0369A1; margin-bottom: 1.25rem; letter-spacing: 0.05em;">
+        <Ruler size={15} />
+        <span>COMPLIMENTARY ON-SITE EVALUATION</span>
+      </div>
+      <h1 style="font-size: clamp(2.3rem, 4.8vw, 3.5rem); font-weight: 800; color: #0F172A; line-height: 1.18; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
+        Site-Specific Custom Quotes & <br />
+        <span style="color: #2563EB;">Free Laser Measurement</span>
       </h1>
-      <p style="font-size: 1.15rem; color: #475569; line-height: 1.6; margin-bottom: 2rem; max-width: 740px; margin-left: auto; margin-right: auto;">
-        No hidden charges, no surprise upcharges on installation day. Understand our per-square-foot rates, wire gauge tiers, and calculate your exact balcony budget in seconds.
+      <p style="font-size: 1.12rem; color: #475569; line-height: 1.65; margin-bottom: 2rem; max-width: 760px; margin-left: auto; margin-right: auto;">
+        Every residential tower and villa balcony has distinct structural requirements — including floor elevation, wind-load exposure, and mounting concrete. We provide 100% free on-site laser measurement to give you an exact, highly competitive quote with zero hidden charges.
       </p>
 
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="#calculator" class="btn btn-primary">
-          <span>Go to Interactive Calculator</span>
+        <a href="#quote-tool" class="btn btn-primary">
+          <span>Plan Site Measurement</span>
           <ArrowRight size={17} />
         </a>
         <a
-          href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20want%20to%20know%20the%20exact%20price%20per%20sq.ft%20for%20my%20balcony%20area.`}
+          href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20would%20like%20to%20book%20a%20free%20site%20laser%20measurement%20and%20quote%20for%20my%20balcony.`}
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-whatsapp"
         >
           <MessageCircle size={17} />
-          <span>Ask Rates on WhatsApp</span>
+          <span>Book Free Site Visit on WhatsApp</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Breakdown Table -->
+  <!-- Key Factors Explaining Custom Site-Based Pricing -->
   <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
     <div class="container">
       <div class="section-header">
-        <span class="badge-arch">Standard Price Sheet</span>
-        <h2>2026 Reference Price Guide</h2>
-        <p>All rates include virgin SS316 cables, aerospace aluminium tracks, anchor studs, and certified installation.</p>
+        <span class="eyebrow">ENGINEERING INTEGRITY</span>
+        <h2>How We Calculate Your Exact Site Quote</h2>
+        <p>Instead of generic one-size-fits-all estimates, our senior structural engineers evaluate your exact space to guarantee uncompromised safety and fair pricing.</p>
       </div>
 
-      <div style="max-width: 860px; margin: 0 auto; background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E2E8F0; box-shadow: var(--shadow-card);">
-        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-          <thead>
-            <tr style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
-              <th style="padding: 1.25rem 1.5rem; color: #475569; font-weight: 700; font-size: 0.92rem;">Specification / Solution</th>
-              <th style="padding: 1.25rem 1.5rem; color: #475569; font-weight: 700; font-size: 0.92rem;">Spacing Profile</th>
-              <th style="padding: 1.25rem 1.5rem; color: #0284C7; font-weight: 700; font-size: 0.92rem;">Rate Per Sq.Ft</th>
-            </tr>
-          </thead>
-          <tbody style="font-size: 0.92rem; color: #334155;">
-            <tr style="border-bottom: 1px solid #F1F5F9;">
-              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">2.0 mm SS316 Marine Invisible Grill</td>
-              <td style="padding: 1.1rem 1.5rem;">50 mm (2" Child/Pet Safe)</td>
-              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹190 / sq.ft</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #F1F5F9; background: #F0F9FF;">
-              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">
-                2.5 mm SS316 Heavy-Duty Marine Grill
-                <span style="font-size: 0.75rem; color: #0284C7; display: block; font-weight: 600;">Most recommended for high-rise towers</span>
-              </td>
-              <td style="padding: 1.1rem 1.5rem;">50 mm (2" Standard)</td>
-              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹225 / sq.ft</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #F1F5F9;">
-              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">2.5 mm SS316 Panoramic Open Grill</td>
-              <td style="padding: 1.1rem 1.5rem;">75 mm (3" Wide View)</td>
-              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹207 / sq.ft</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #F1F5F9;">
-              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">Anti-Pigeon Monofilament Netting</td>
-              <td style="padding: 1.1rem 1.5rem;">28 mm Diamond Aperture</td>
-              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹28 / sq.ft</td>
-            </tr>
-            <tr>
-              <td style="padding: 1.1rem 1.5rem; font-weight: 600; color: #0F172A;">Child Fall-Safe Heavy HDPE Netting</td>
-              <td style="padding: 1.1rem 1.5rem;">30 mm High-Impact Mesh</td>
-              <td style="padding: 1.1rem 1.5rem; color: #16A34A; font-weight: 700;">₹35 / sq.ft</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+        <div class="card" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 1.8rem; border-radius: 14px;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #E0F2FE; color: #0284C7; display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;">
+            <Building2 size={22} />
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;">1. Floor Elevation & Wind Load</h3>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin: 0;">
+            High-rise installations (10th floor and above) require reinforced stainless steel expansion anchors and tension dampeners to withstand severe monsoon winds and high-altitude vortexes.
+          </p>
+        </div>
 
-      <div style="max-width: 860px; margin: 1.5rem auto 0 auto; display: flex; justify-content: space-between; font-size: 0.82rem; color: #64748B; flex-wrap: wrap; gap: 0.5rem;">
-        <span>* Minimum billable opening area is 30 sq.ft</span>
-        <span>* Special 8-12% discounts apply for gated society bulk bookings (5+ flats)</span>
+        <div class="card" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 1.8rem; border-radius: 14px;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #DCFCE7; color: #16A34A; display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;">
+            <Compass size={22} />
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;">2. Balcony Curvature & Brackets</h3>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin: 0;">
+            L-shaped, curved, or multi-angle balconies require custom extruded aluminium mitre cuts and reinforced structural corner brackets to maintain continuous tension and zero sag.
+          </p>
+        </div>
+
+        <div class="card" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 1.8rem; border-radius: 14px;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #FEF3C7; color: #D97706; display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;">
+            <Layers size={22} />
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;">3. Material & Wire Gauge</h3>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin: 0;">
+            We engineer solutions using virgin Japanese SS316 marine-grade cables (2.0mm or 2.5mm) with transparent UV-nylon coating and 50mm or 75mm spacing matched to your child and pet protection requirements.
+          </p>
+        </div>
+
+        <div class="card" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 1.8rem; border-radius: 14px;">
+          <div style="width: 44px; height: 44px; border-radius: 10px; background: #F3E8FF; color: #9333EA; display: flex; align-items: center; justify-content: center; margin-bottom: 1.15rem;">
+            <ShieldCheck size={22} />
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;">4. Certified Safety Installation</h3>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin: 0;">
+            Every quote includes certified work-at-height technicians equipped with IS 3521 full-body harnesses, laser-aligned cable anchoring, digital tension calibration, and written 10-year guarantee.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Smart Cost Estimator -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="calculator">
+  <!-- Interactive Measurement Planning Tool -->
+  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="quote-tool">
     <div class="container">
       <div class="section-header">
-        <span class="badge-arch">Self-Service Calculator</span>
-        <h2>Estimate Your Total Balcony Investment</h2>
-        <p>Adjust dimensions and view the live quote with optional pigeon net and cloth hanger add-ons.</p>
+        <span class="eyebrow">CUSTOM QUOTATION</span>
+        <h2>Plan Your Free Site Measurement</h2>
+        <p>Select your product and approximate dimensions below to request a complimentary on-site evaluation and custom quote.</p>
       </div>
 
       <CostEstimator client:load />
     </div>
   </section>
 
-  <!-- Unit Economics Transparency Note -->
+  <!-- 4-Step Process -->
   <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container" style="max-width: 860px;">
-      <div class="arch-card">
-        <h3 style="font-size: 1.3rem; font-weight: 700; color: #0F172A; margin-bottom: 0.75rem;">
-          How We Calculate Fair Business Pricing
-        </h3>
-        <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
-          In accordance with strict unit economics, our pricing incorporates:
-        </p>
-        <div style="background: #F1F5F9; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 10px; font-family: monospace; font-size: 0.88rem; color: #0369A1; line-height: 1.6; margin-bottom: 1rem;">
-          Material (SS316 / HDPE) + 12% Cutting Wastage + Stainless Hooks & Anchors + Certified Technician Labour + Work-at-Height Safety Harnesses + 10-Year Direct Guarantee = Final Transparent Price
+    <div class="container" style="max-width: 960px;">
+      <div class="section-header">
+        <span class="eyebrow">EFFORTLESS WORKFLOW</span>
+        <h2>How Our Site Quotation Works</h2>
+        <p>From initial measurement to final installation, we keep the process completely transparent and hassle-free.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div style="text-align: center; padding: 1.5rem 1rem;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">1</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">Free Site Visit</h4>
+          <p style="font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;">Our technician visits your home with actual physical cable and net samples.</p>
         </div>
-        <p style="font-size: 0.82rem; color: #64748B; margin: 0;">
-          {pricing.disclaimer}
-        </p>
+
+        <div style="text-align: center; padding: 1.5rem 1rem;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">2</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">Laser Measurement</h4>
+          <p style="font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;">Accurate millimeter laser measuring of balconies, windows, and duct voids.</p>
+        </div>
+
+        <div style="text-align: center; padding: 1.5rem 1rem;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">3</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">Exact Written Quote</h4>
+          <p style="font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;">Clear, transparent pricing sheet tailored to your building floor and layout.</p>
+        </div>
+
+        <div style="text-align: center; padding: 1.5rem 1rem;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: #2563EB; color: #FFFFFF; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">4</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;">Precision Setup</h4>
+          <p style="font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;">Installation by harness-certified technicians with written 10-year guarantee.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <FAQSection category="pricing" title="Pricing & Quotation Questions" />
+  <FAQSection category="pricing" title="Frequently Asked Questions About Quotes & Visits" />
+  <TrustSection />
 </BaseLayout>

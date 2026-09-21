@@ -45,9 +45,8 @@ export default function CostEstimator() {
       area: `${result.actualAreaSqFt} sq.ft`,
       configuration: configDetail,
       addons: [],
-      estimatedAmount: `${formatINR(result.estimatedMin)} – ${formatINR(result.estimatedMax)}`,
-      city: selectedCity,
-      source: "Online Cost Calculator"
+      location: selectedCity,
+      leadSource: "Free Site Measurement Tool"
     });
   }, [productType, wireGauge, spacing, safetyNetType, width, height, unit, result, selectedCity]);
 
@@ -77,11 +76,11 @@ export default function CostEstimator() {
             <Calculator size={18} />
           </div>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
-            Estimate Your Installation Cost
+            Plan Your Free Site Measurement
           </h3>
         </div>
         <p style={{ fontSize: '0.92rem', color: '#64748B', margin: 0 }}>
-          Select your product type, approximate dimensions, and city for an instant indicative estimate.
+          Select your product type, approximate dimensions, and city to request a complimentary laser measurement & custom quote.
         </p>
       </div>
 
@@ -195,10 +194,10 @@ export default function CostEstimator() {
                   background: '#FFFFFF'
                 }}
               >
-                <option value="balconyStandard">Balcony Standard Mesh (₹25/sq.ft)</option>
-                <option value="childSafetyHeavy">Child Safety Heavy Mesh (₹35/sq.ft)</option>
-                <option value="pigeonProtection">Anti-Pigeon 28mm Net (₹28/sq.ft)</option>
-                <option value="ductShaftIndustrial">Utility Duct & Shaft Net (₹22/sq.ft)</option>
+                <option value="balconyStandard">Balcony Standard Anti-Fall Mesh</option>
+                <option value="childSafetyHeavy">Child Safety Heavy High-Density Mesh</option>
+                <option value="pigeonProtection">Anti-Pigeon 28mm Translucent Net</option>
+                <option value="ductShaftIndustrial">Utility Duct & Shaft Heavy-Duty Net</option>
               </select>
             </div>
           )}
@@ -334,20 +333,34 @@ export default function CostEstimator() {
             borderRadius: '4px',
             marginBottom: '0.85rem'
           }}>
-            INDICATIVE ESTIMATE
+            SITE-BASED QUOTATION
           </div>
 
           {/* Area & Price */}
           <div style={{ marginBottom: '1.25rem' }}>
             <div style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '0.2rem' }}>
-              Calculated Area: <strong style={{ color: '#0F172A' }}>{result.actualAreaSqFt} sq. ft</strong>
+              Approximate Opening Area: <strong style={{ color: '#0F172A' }}>{result.actualAreaSqFt} sq. ft</strong>
             </div>
-            <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
-              {formatINR(result.estimatedMin)} – {formatINR(result.estimatedMax)}
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.25 }}>
+              Custom Site-Based Quote
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.35rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Info size={13} color="#94A3B8" />
-              <span>Final pricing is confirmed after on-site measurement.</span>
+            <div style={{
+              fontSize: '0.82rem',
+              color: '#334155',
+              marginTop: '0.65rem',
+              lineHeight: 1.5,
+              background: '#FEF3C7',
+              border: '1px solid #FDE68A',
+              borderRadius: '6px',
+              padding: '0.65rem 0.8rem',
+              display: 'flex',
+              gap: '6px',
+              alignItems: 'flex-start'
+            }}>
+              <Info size={16} color="#D97706" style={{ flexShrink: 0, marginTop: '2px' }} />
+              <span>
+                <strong>Accurate Pricing:</strong> Costs depend on building floor height, concrete anchoring points, and curvature. We provide a <strong>100% Free On-Site Laser Measurement</strong> to give you the exact best quote.
+              </span>
             </div>
           </div>
 
@@ -357,11 +370,11 @@ export default function CostEstimator() {
             border: '1px solid #E2E8F0',
             borderRadius: '8px',
             padding: '1rem',
-            marginBottom: '1.5rem',
+            marginBottom: '1.25rem',
             flexGrow: 1
           }}>
             <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.65rem' }}>
-              WHAT IS INCLUDED:
+              WHAT IS INCLUDED IN EVERY INSTALLATION:
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -374,38 +387,59 @@ export default function CostEstimator() {
               </li>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
-                <span>Professional installation by trained technicians</span>
+                <span>Certified technicians with IS 3521 safety harness gear</span>
               </li>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
-                <span>Free on-site measurement & surface inspection</span>
+                <span>Free on-site laser measurement & material demonstration</span>
               </li>
             </ul>
           </div>
 
-          {/* CTA Button */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              background: '#2563EB',
-              color: '#FFFFFF',
-              fontWeight: 600,
-              fontSize: '0.92rem',
-              padding: '0.85rem 1rem',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              transition: 'background 0.15s ease'
-            }}
-          >
-            <MessageCircle size={18} />
-            <span>Request Exact Quote on WhatsApp</span>
-          </a>
+          {/* CTA Buttons */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                background: '#16A34A',
+                color: '#FFFFFF',
+                fontWeight: 700,
+                fontSize: '0.92rem',
+                padding: '0.85rem 1rem',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                transition: 'background 0.15s ease'
+              }}
+            >
+              <MessageCircle size={18} />
+              <span>Book Free Site Visit on WhatsApp</span>
+            </a>
+            <a
+              href="/contact/#quote"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                background: '#2563EB',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                fontSize: '0.88rem',
+                padding: '0.75rem 1rem',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                transition: 'background 0.15s ease'
+              }}
+            >
+              <span>Schedule Inspection Online</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -104,12 +104,12 @@ const { product, featured = false } = Astro.props;
   <div class="product-footer">
     <div class="price-row">
       <div>
-        <span class="price-label">Starting from</span>
-        <div class="price-amount">
-          ₹{product.priceStarting} <span class="price-unit">/ {product.unit}</span>
+        <span class="price-label">Pricing</span>
+        <div class="price-amount" style="font-size: 1.05rem;">
+          Custom Site Quote
         </div>
       </div>
-      <span class="installation-tag">Standard Fitting</span>
+      <span class="installation-tag">Free Site Visit</span>
     </div>
 
     <div class="card-btn-grid">
@@ -118,7 +118,7 @@ const { product, featured = false } = Astro.props;
         <ArrowRight size={13} />
       </a>
       <a href="/invisible-grill-cost/" class="btn btn-primary btn-sm">
-        <span>Calculate Cost</span>
+        <span>Free Quote</span>
       </a>
     </div>
   </div>

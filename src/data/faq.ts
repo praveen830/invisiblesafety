@@ -52,7 +52,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "How is the price calculated for invisible grills and safety nets?",
-    answer: "Pricing is calculated based on total billable square footage (Width in ft × Height in ft) multiplied by the selected product specification rate (e.g., ₹190–₹225/sq ft for invisible grills, ₹25–₹35/sq ft for safety nets). A minimum billable area of 30 sq ft applies for single openings. Bulk society orders (5+ flats) receive attractive volume discounts.",
+    answer: "Every apartment and villa is unique in floor elevation, wind exposure, concrete anchoring conditions, and balcony curvature. Rather than fixed generic rates that may compromise installation safety, our senior structural engineers conduct a 100% free on-site laser measurement and provide a transparent, customized written quote with zero obligation. Bulk society bookings (5+ flats) also receive attractive volume concessions.",
     category: "pricing"
   },
   {
