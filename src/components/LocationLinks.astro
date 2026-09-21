@@ -1,56 +1,257 @@
 ---
-import { locations } from '../data/locations';
-import { MapPin, ArrowRight, Phone } from 'lucide-react';
+import { business } from '../data/business';
+import { MapPin, ArrowRight, ShieldCheck, Check } from 'lucide-react';
+
+interface HubConfig {
+  number: string;
+  regionTag: string;
+  title: string;
+  slug: string;
+  description: string;
+  localities: string[];
+  climateNote: string;
+}
+
+const hubs: HubConfig[] = [
+  {
+    number: "HUB 01",
+    regionTag: "ANDHRA PRADESH COASTAL HUB",
+    title: "VISAKHAPATNAM (VIZAG)",
+    slug: "visakhapatnam",
+    description: "Marine-grade AISI 316 invisible grills and pigeon deterrence systems engineered specifically for coastal salt-spray corridors and sea-facing high-rises.",
+    localities: ["Madhurawada", "Yendada", "Rushikonda", "MVP Colony", "Seethammadhara", "Siripuram", "Beach Road", "Pedda Waltair", "Lawsons Bay Colony", "Kommadi"],
+    climateNote: "Wind-calibrated anchor tracks and strict AISI 316 austenitic stainless steel core specified to eliminate pitting from coastal sea breeze and tropical humidity."
+  },
+  {
+    number: "HUB 02",
+    regionTag: "TELANGANA CENTRAL HUB (HEAD OFFICE)",
+    title: "HYDERABAD & SECUNDERABAD",
+    slug: "hyderabad",
+    description: "High-rise gated communities, premium duplexes, and luxury villa perimeters engineered with marine-grade invisible grills and fall-containment safety nets.",
+    localities: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
+    climateNote: "Calibrated for high thermal variation and intense summer sun with UV-stabilized Nylon-12 coating and heavy-duty RCC slab anchor tracks."
+  },
+  {
+    number: "HUB 03",
+    regionTag: "ANDHRA PRADESH CENTRAL URBAN HUB",
+    title: "VIJAYAWADA",
+    slug: "vijayawada",
+    description: "Dense urban residential corridors, commercial balconies, and premium apartments fitted with laser-measured safety netting and stainless steel bird spikes.",
+    localities: ["Benz Circle", "Patamata", "Labbipet", "Moghalrajpuram", "Kanuru", "Poranki", "Tadigadapa", "Currency Nagar", "Ramavarappadu", "Gunadala"],
+    climateNote: "High-temperature resistant polymer netting and anodized aluminum profiles designed for tropical heat and long-term tensile durability."
+  },
+  {
+    number: "HUB 04",
+    regionTag: "ANDHRA PRADESH CAPITAL REGION HUB",
+    title: "AMARAVATI",
+    slug: "amaravati",
+    description: "Contemporary residential projects, government employee quarters, and luxury villas throughout the expanding capital development geography.",
+    localities: ["Tadepalli", "Mangalagiri", "Undavalli", "Penumaka", "Neerukonda", "Kuragallu", "Mandadam", "Velagapudi", "Rayapudi", "Thullur"],
+    climateNote: "Engineered for open-plain wind dynamics and high-elevation residential balconies with reinforced expansion anchoring."
+  }
+];
 ---
 
 <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
-  <div class="container">
+  <div class="container" style="max-width: 1200px;">
     <div class="section-header">
-      <span class="eyebrow">DEDICATED SERVICE HUBS</span>
+      <span class="eyebrow">DEDICATED REGIONAL HUBS</span>
       <h2>Locally Certified Installation Teams</h2>
       <p>
-        Invisible Safety operates dedicated on-ground field crews with laser measurement tools and full work-at-height safety gear in each service city.
+        Invisible Safety operates dedicated on-ground field crews with laser measurement tools and full work-at-height safety gear in each service hub across Andhra Pradesh &amp; Telangana.
       </p>
     </div>
 
-    <div class="grid-3">
-      {Object.values(locations).map(loc => (
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; background: #FFFFFF;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; color: #2563EB; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem;">
-              <MapPin size={16} />
-              <span>{loc.state.toUpperCase()}</span>
-            </div>
-
-            <h3 style="font-size: 1.35rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;">
-              {loc.name}
-            </h3>
-
-            <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin-bottom: 1.25rem;">
-              {loc.heroSubheadline}
-            </p>
-
-            <div style="font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em;">
-              Popular Localities Served:
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;">
-              {loc.keyAreas.slice(0, 4).map(area => (
-                <span style="font-size: 0.78rem; background: #F1F5F9; border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; color: #475569; font-weight: 500;">
-                  {area.name.split('&')[0].trim()}
-                </span>
-              ))}
-            </div>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      {hubs.map((hub) => (
+        <div class="hub-card">
+          <!-- Top Row: Hub Number & Region Tag -->
+          <div class="hub-header">
+            <span class="hub-number">{hub.number}</span>
+            <span class="hub-region">{hub.regionTag}</span>
           </div>
 
-          <div style="border-top: 1px solid #F1F5F9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-            <a href={`/locations/${loc.slug}/`} class="btn btn-secondary btn-sm" style="font-size: 0.84rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-              <span>View City Hub</span>
-              <ArrowRight size={14} />
-            </a>
-            <span style="font-size: 0.78rem; color: #16A34A; font-weight: 700;">Same-Day Site Visit</span>
+          <!-- Hub Name -->
+          <h3 class="hub-title">{hub.title}</h3>
+
+          <!-- Description -->
+          <p class="hub-desc">{hub.description}</p>
+
+          <!-- Split Body: Left Localities + Right Climate Note -->
+          <div class="hub-body-grid">
+            <!-- Left: Key Service Localities -->
+            <div>
+              <div class="hub-section-label">KEY SERVICE LOCALITIES</div>
+              <div class="localities-wrap">
+                {hub.localities.map((loc) => (
+                  <span class="locality-chip">{loc}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Right: Regional Climate & Material Note Box -->
+            <div class="climate-note-box">
+              <div class="climate-label">REGIONAL CLIMATE &amp; MATERIAL NOTE</div>
+              <p class="climate-text">{hub.climateNote}</p>
+              <div class="climate-cta-wrap">
+                <a href={`/locations/${hub.slug}/`} class="climate-link">
+                  <span>SCHEDULE SURVEY IN {hub.title.split(' ')[0]}</span>
+                  <ArrowRight size={13} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .hub-card {
+    background: #FFFFFF;
+    border: 1.5px solid #F97316;
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    position: relative;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .hub-card:hover {
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .hub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hub-number {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #EA580C;
+    text-transform: uppercase;
+  }
+
+  .hub-region {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #475569;
+    text-transform: uppercase;
+  }
+
+  .hub-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .hub-desc {
+    font-size: 1.02rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    max-width: 900px;
+  }
+
+  .hub-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .hub-section-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #0F172A;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+  }
+
+  .localities-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .locality-chip {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #334155;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .climate-note-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 1.35rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .climate-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #0F172A;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+  }
+
+  .climate-text {
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .climate-cta-wrap {
+    border-top: 1px solid #E2E8F0;
+    padding-top: 0.85rem;
+  }
+
+  .climate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #EA580C;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+  }
+
+  .climate-link:hover {
+    color: #C2410C;
+    gap: 0.65rem;
+  }
+
+  @media (max-width: 900px) {
+    .hub-body-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

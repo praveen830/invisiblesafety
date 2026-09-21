@@ -42,11 +42,11 @@ export const business: BusinessConfig = {
   legalName: "Invisible Safety Architectural Home Safety Solutions",
   tagline: "Invisible Safety. Uninterrupted Views.",
   subtitle: "India's premier architectural invisible grill and certified safety net specialist for modern high-rises and luxury residences.",
-  phone: "+91 99896 45222",
-  phoneRaw: "+919989645222",
-  whatsapp: "919989645222",
-  email: "contact@invisiblesafety.in",
-  hours: "Monday to Sunday: 8:00 AM – 8:30 PM",
+  phone: "+91 83097 55398",
+  phoneRaw: "+918309755398",
+  whatsapp: "918309755398",
+  email: "pravvenkoda4@gmail.com",
+  hours: "Monday to Sunday (All Days): 8:00 AM – 9:00 PM",
   address: {
     street: "Plot 42, Silicon Valley Hub, Hitec City",
     locality: "Madhapur",
@@ -57,28 +57,36 @@ export const business: BusinessConfig = {
   },
   cities: [
     {
-      slug: "hyderabad",
-      name: "Hyderabad",
-      state: "Telangana",
-      phone: "+91 99896 45222",
-      popularAreas: ["Gachibowli", "Kondapur", "Hitec City", "Kokapet", "Financial District", "Madhapur", "Jubilee Hills", "Banjara Hills", "Nallagandla", "Manikonda"],
-      tagline: "High-rise balcony safety grills & pigeon solutions for premium gated communities across Hyderabad."
+      slug: "visakhapatnam",
+      name: "Visakhapatnam (Vizag)",
+      state: "Andhra Pradesh",
+      phone: "+91 83097 55398",
+      popularAreas: ["Madhurawada", "Yendada", "Rushikonda", "MVP Colony", "Seethammadhara", "Siripuram", "Beach Road", "Pedda Waltair", "Lawsons Bay Colony", "Kommadi"],
+      tagline: "Marine-grade AISI 316 invisible grills & pigeon deterrence engineered for coastal sea-breeze durability."
     },
     {
-      slug: "visakhapatnam",
-      name: "Visakhapatnam",
-      state: "Andhra Pradesh",
-      phone: "+91 99896 45222",
-      popularAreas: ["Beach Road", "MVP Colony", "Madhurawada", "Yendada", "Rushikonda", "Seethammadhara", "Gajuwaka", "Waltair Uplands"],
-      tagline: "Coastal corrosion-proof SS316 marine-grade invisible grills tested for sea-breeze durability in Vizag."
+      slug: "hyderabad",
+      name: "Hyderabad & Secunderabad",
+      state: "Telangana",
+      phone: "+91 83097 55398",
+      popularAreas: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
+      tagline: "High-rise balcony safety grills & fall-containment safety nets for premium gated communities."
     },
     {
       slug: "vijayawada",
       name: "Vijayawada",
       state: "Andhra Pradesh",
-      phone: "+91 99896 45222",
-      popularAreas: ["Benz Circle", "Kanuru", "Poranki", "Moghalrajpuram", "Governorpet", "Gannavaram", "Tadepalli"],
-      tagline: "Unobtrusive architectural safety nets and high-tensile invisible grills for apartments in Vijayawada."
+      phone: "+91 83097 55398",
+      popularAreas: ["Benz Circle", "Patamata", "Labbipet", "Moghalrajpuram", "Kanuru", "Poranki", "Tadigadapa", "Currency Nagar", "Ramavarappadu", "Gunadala"],
+      tagline: "Laser-measured safety netting and stainless steel bird spikes for urban apartments and balconies."
+    },
+    {
+      slug: "amaravati",
+      name: "Amaravati",
+      state: "Andhra Pradesh",
+      phone: "+91 83097 55398",
+      popularAreas: ["Tadepalli", "Mangalagiri", "Undavalli", "Penumaka", "Neerukonda", "Kuragallu", "Mandadam", "Velagapudi", "Rayapudi", "Thullur"],
+      tagline: "Reinforced expansion anchoring invisible grills for villas, high-rises and government quarters in the capital region."
     }
   ],
   stats: {
