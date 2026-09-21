@@ -45,7 +45,7 @@ export const business: BusinessConfig = {
   phone: "+91 83097 55398",
   phoneRaw: "+918309755398",
   whatsapp: "918309755398",
-  email: "pravvenkoda4@gmail.com",
+  email: "invisiblesafety4@gmail.com",
   hours: "Monday to Sunday (All Days): 8:00 AM – 9:00 PM",
   address: {
     street: "Plot 42, Silicon Valley Hub, Hitec City",
