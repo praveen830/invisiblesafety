@@ -350,6 +350,83 @@ img {
   gap: 0.35rem;
 }
 
+/* Interactive Full-Card Clickable Product Cards */
+.interactive-product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.interactive-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #CBD5E1;
+}
+
+.interactive-product-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.interactive-product-card .card-img-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.interactive-product-card .card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.interactive-product-card:hover .card-img-wrap img {
+  transform: scale(1.035);
+}
+
+.interactive-product-card .card-action-btn {
+  pointer-events: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-product-card:hover .card-action-btn {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #FFFFFF !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.interactive-product-card .card-text-link {
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.interactive-product-card:hover .card-text-link {
+  color: var(--color-accent-hover);
+}
+
+.interactive-product-card .card-text-link svg {
+  transition: transform 0.2s ease;
+}
+
+.interactive-product-card:hover .card-text-link svg {
+  transform: translateX(3px);
+}
+
 /* Badges & Trust Pills */
 .badge {
   display: inline-flex;
@@ -447,13 +524,71 @@ img {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .section-spacing {
-    padding: var(--section-padding-mobile);
+    padding: 44px 0;
+  }
+
+  .section-spacing-sm {
+    padding: 32px 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .section-header p {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
   }
 
   .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.15rem;
+  }
+
+  .step-number {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .btn {
+    height: 44px;
+    padding: 0 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    height: 48px;
+    padding: 0 1.5rem;
+    font-size: 0.95rem;
   }
 
   .floating-whatsapp {
@@ -479,7 +614,7 @@ img {
     background: #FFFFFF;
     border-top: 1px solid var(--color-border);
     z-index: 995;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .mobile-bottom-btn {
@@ -509,6 +644,6 @@ img {
   }
 
   body {
-    padding-bottom: 60px;
+    padding-bottom: 68px;
   }
 }

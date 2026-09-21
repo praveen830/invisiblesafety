@@ -43,7 +43,7 @@ export default function BeforeAfterSlider({
         onTouchMove={handleTouchMove}
         style={{
           position: 'relative',
-          height: '460px',
+          height: 'clamp(280px, 50vw, 460px)',
           borderRadius: '12px',
           overflow: 'hidden',
           border: '1px solid #CBD5E1',

@@ -22,22 +22,24 @@ const faqSchema = getFAQSchema(loc.faqs);
   canonicalUrl="/locations/visakhapatnam/"
   schema={[breadcrumbs, faqSchema]}
 >
-  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.22) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- Light Architectural Hero Section -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
     <div class="container" style="text-align: center; max-width: 880px;">
-      <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; border-radius: 20px; background: rgba(56, 189, 248, 0.15); color: #38BDF8; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.25rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.9rem; border-radius: 20px; background: #E0F2FE; border: 1px solid #BAE6FD; color: #0369A1; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.25rem;">
         <MapPin size={14} /> VIZAG COASTAL RUST-PROOF SPECIALIST
       </div>
-      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+      <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800; color: #0F172A; line-height: 1.2; margin-bottom: 1.25rem;">
         Marine-Grade Invisible Grills <br />
-        <span style="color: #38BDF8;">in Visakhapatnam</span>
+        <span style="color: #2563EB;">in Visakhapatnam</span>
       </h1>
-      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 740px; margin: 0 auto 2rem auto;">
+      <p style="font-size: 1.12rem; color: #475569; line-height: 1.65; max-width: 740px; margin: 0 auto 2rem auto;">
         {loc.localDescription}
       </p>
 
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
         <a href="#estimator" class="btn btn-primary">
           <span>Calculate Price for Vizag Balcony</span>
+          <ArrowRight size={16} />
         </a>
         <a
           href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20live%20in%20Vizag%20and%20need%20rust-proof%20SS316%20marine%20grills.`}
@@ -53,33 +55,33 @@ const faqSchema = getFAQSchema(loc.faqs);
   </section>
 
   <!-- Localized Engineering Specifics -->
-  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
     <div class="container">
       <div class="section-header">
-        <span class="badge-emerald">Maritime Metallurgy</span>
+        <span class="eyebrow">MARITIME METALLURGY</span>
         <h2>{loc.localSpecifics.title}</h2>
         <p>Specifically engineered with 2.5% Molybdenum to prevent coastal salt-air pitting.</p>
       </div>
 
-      <div class="grid-2" style="max-width: 900px; margin: 0 auto 3rem auto;">
+      <div class="grid-2" style="max-width: 900px; margin: 0 auto 3rem auto; gap: 1.25rem;">
         {loc.localSpecifics.points.map(pt => (
-          <div class="arch-card" style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <span style="flex-shrink: 0; margin-top: 2px;"><Check size={20} color="#10B981" /></span>
-            <span style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">{pt}</span>
+          <div class="card" style="display: flex; align-items: flex-start; gap: 0.75rem; background: #FFFFFF; padding: 1.25rem;">
+            <span style="flex-shrink: 0; margin-top: 2px;"><Check size={20} color="#16A34A" /></span>
+            <span style="font-size: 0.95rem; color: #334155; line-height: 1.5;">{pt}</span>
           </div>
         ))}
       </div>
 
       <!-- Key Localities Grid -->
-      <div class="arch-card" style="max-width: 900px; margin: 0 auto; background: rgba(17, 24, 39, 0.8);">
-        <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">
+      <div class="card" style="max-width: 900px; margin: 0 auto; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 2rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: #0F172A; margin-bottom: 1.25rem;">
           Popular Visakhapatnam Coastal Neighborhoods Served:
         </h3>
         <div class="grid-3" style="gap: 1rem;">
           {loc.keyAreas.map(area => (
-            <div style="background: rgba(15, 23, 42, 0.6); padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
-              <div style="font-weight: 600; color: #38BDF8; font-size: 0.9rem; margin-bottom: 0.2rem;">{area.name}</div>
-              <div style="font-size: 0.78rem; color: #94A3B8;">{area.description}</div>
+            <div style="background: #F8FAFC; padding: 1rem; border-radius: 8px; border: 1px solid #E2E8F0;">
+              <div style="font-weight: 700; color: #2563EB; font-size: 0.92rem; margin-bottom: 0.25rem;">{area.name}</div>
+              <div style="font-size: 0.82rem; color: #64748B;">{area.description}</div>
             </div>
           ))}
         </div>
@@ -88,29 +90,31 @@ const faqSchema = getFAQSchema(loc.faqs);
   </section>
 
   <!-- Recent Vizag Projects -->
-  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-white" style="border-bottom: 1px solid var(--color-border);">
     <div class="container">
       <div class="section-header">
-        <span class="badge-arch">Local Coastal Proof</span>
+        <span class="eyebrow">LOCAL COASTAL PROOF</span>
         <h2>Seafront Installations in Vizag</h2>
         <p>Verified durability in direct sea mist environments.</p>
       </div>
 
-      <div class="grid-2" style="max-width: 860px; margin: 0 auto;">
+      <div class="grid-2" style="max-width: 860px; margin: 0 auto; gap: 1.5rem;">
         {loc.recentInstallations.map(inst => (
-          <div class="arch-card">
-            <div style="font-size: 0.78rem; font-weight: 700; color: #38BDF8; margin-bottom: 0.3rem;">
-              {inst.locality.toUpperCase()}
+          <div class="card" style="background: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: #2563EB; margin-bottom: 0.35rem;">
+                {inst.locality.toUpperCase()}
+              </div>
+              <h4 style="font-size: 1.2rem; font-weight: 700; color: #0F172A; margin-bottom: 0.35rem;">
+                {inst.community}
+              </h4>
+              <div style="font-size: 0.84rem; color: #16A34A; font-weight: 700; margin-bottom: 0.85rem;">
+                {inst.product} • {inst.sqft} sq.ft
+              </div>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; font-style: italic;">
+                "{inst.quote}"
+              </p>
             </div>
-            <h4 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.3rem;">
-              {inst.community}
-            </h4>
-            <div style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.75rem;">
-              {inst.product} • {inst.sqft} sq.ft
-            </div>
-            <p style="font-size: 0.85rem; color: #CBD5E1; line-height: 1.5; font-style: italic;">
-              "{inst.quote}"
-            </p>
           </div>
         ))}
       </div>
@@ -118,10 +122,10 @@ const faqSchema = getFAQSchema(loc.faqs);
   </section>
 
   <!-- Live Cost Estimator -->
-  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);" id="estimator">
+  <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);" id="estimator">
     <div class="container">
       <div class="section-header">
-        <span class="badge-emerald">Live Pricing</span>
+        <span class="eyebrow">LIVE PRICING</span>
         <h2>Calculate Your Vizag Balcony Cost</h2>
         <p>Same-day doorstep measurement across Beach Road, MVP Colony, and Madhurawada.</p>
       </div>
@@ -130,18 +134,18 @@ const faqSchema = getFAQSchema(loc.faqs);
   </section>
 
   <!-- Local Vizag FAQs -->
-  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-white" style="border-bottom: 1px solid var(--color-border);">
     <div class="container" style="max-width: 860px;">
       <div class="section-header">
-        <span class="badge-arch">Local FAQs</span>
+        <span class="eyebrow">LOCAL FAQS</span>
         <h2>Visakhapatnam Coastal Questions</h2>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         {loc.faqs.map(faq => (
-          <div class="arch-card" style="padding: 1.25rem;">
-            <h4 style="font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.4rem;">{faq.question}</h4>
-            <p style="font-size: 0.88rem; color: #94A3B8; margin: 0; line-height: 1.5;">{faq.answer}</p>
+          <div class="card" style="padding: 1.35rem 1.5rem; background: #FFFFFF;">
+            <h4 style="font-size: 1.08rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">{faq.question}</h4>
+            <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.6;">{faq.answer}</p>
           </div>
         ))}
       </div>

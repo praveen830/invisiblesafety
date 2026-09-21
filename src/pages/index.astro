@@ -209,8 +209,12 @@ const safetyNetProducts = [
 
       <div class="grid-2">
         {invisibleGrillProducts.map((prod) => (
-          <div class="card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
-            <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #E2E8F0;">
+          <a
+            href={prod.link}
+            class="card interactive-product-card"
+            aria-label={`View details for ${prod.title}`}
+          >
+            <div class="card-img-wrap" style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #E2E8F0;">
               <img src={prod.image} alt={prod.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
             </div>
             <div style="padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1;">
@@ -233,13 +237,13 @@ const safetyNetProducts = [
                   <span style="font-size: 0.78rem; color: #64748B; display: block;">Indicative Price</span>
                   <span style="font-size: 1rem; font-weight: 700; color: #0F172A;">From ₹190 / sq. ft</span>
                 </div>
-                <a href={prod.link} class="btn btn-secondary btn-sm">
+                <div class="btn btn-secondary btn-sm card-action-btn">
                   <span>VIEW DETAILS</span>
                   <ArrowRight size={14} />
-                </a>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
@@ -263,8 +267,12 @@ const safetyNetProducts = [
 
       <div class="grid-4">
         {safetyNetProducts.map((net) => (
-          <div class="card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
-            <div style="position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #E2E8F0;">
+          <a
+            href={net.link}
+            class="card interactive-product-card"
+            aria-label={`View details for ${net.title}`}
+          >
+            <div class="card-img-wrap" style="position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #E2E8F0;">
               <img src={net.image} alt={net.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
             </div>
             <div style="padding: 1.25rem 1.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
@@ -275,12 +283,12 @@ const safetyNetProducts = [
               <div style="font-size: 0.78rem; font-weight: 600; color: #64748B; background: #F1F5F9; padding: 0.35rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">
                 {net.spec}
               </div>
-              <a href={net.link} style="font-size: 0.88rem; font-weight: 600; color: #2563EB; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <div class="card-text-link" style="font-size: 0.88rem; font-weight: 600; color: #2563EB; display: inline-flex; align-items: center; gap: 0.35rem;">
                 <span>VIEW DETAILS</span>
                 <ArrowRight size={14} />
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
@@ -556,4 +564,20 @@ const safetyNetProducts = [
       </div>
     </div>
   </section>
+
+  <script>
+    function setupProductCardKeyboard() {
+      document.querySelectorAll<HTMLAnchorElement>('a.interactive-product-card').forEach((card) => {
+        card.addEventListener('keydown', (e) => {
+          if (e.key === ' ' || e.code === 'Space') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupProductCardKeyboard);
+    document.addEventListener('astro:page-load', setupProductCardKeyboard);
+  </script>
 </BaseLayout>

@@ -56,9 +56,9 @@ export default function CostEstimator() {
       background: '#FFFFFF',
       border: '1px solid #E2E8F0',
       borderRadius: '16px',
-      padding: '2rem',
+      padding: 'clamp(1rem, 3vw, 2rem)',
       boxShadow: '0 4px 20px -4px rgba(15, 23, 42, 0.08)',
-      maxWidth: '960px',
+      maxWidth: '860px',
       margin: '0 auto'
     }}>
       {/* Header */}

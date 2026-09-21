@@ -9,9 +9,14 @@ import { Shield, Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from 'l
       <!-- Column 1: Brand & About -->
       <div class="footer-col-brand">
         <div class="footer-brand">
-          <div class="footer-symbol">
-            <Shield size={18} color="#FFFFFF" />
-          </div>
+          <img
+            src="/images/logo.png"
+            alt="Invisible Safety Logo"
+            class="footer-logo-img"
+            width="44"
+            height="44"
+            loading="lazy"
+          />
           <span class="footer-brand-name">
             Invisible<span class="text-blue"> Safety</span>
           </span>
@@ -156,14 +161,11 @@ import { Shield, Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from 'l
     margin-bottom: 1rem;
   }
 
-  .footer-symbol {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-sm);
-    background-color: var(--color-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .footer-logo-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
   }
 
   .footer-brand-name {

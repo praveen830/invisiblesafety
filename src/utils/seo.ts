@@ -12,6 +12,7 @@ export function getLocalBusinessSchema() {
     "email": business.email,
     "priceRange": "₹₹",
     "image": "https://invisiblesafety.vercel.app/images/hero-balcony.webp",
+    "logo": "https://invisiblesafety.vercel.app/images/logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": business.address.street,

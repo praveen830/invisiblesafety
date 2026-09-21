@@ -19,16 +19,18 @@ const breadcrumbs = getBreadcrumbSchema([
   canonicalUrl="/materials/"
   schema={[breadcrumbs]}
 >
-  <section class="section-spacing" style="background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.2) 0%, rgba(9, 13, 22, 1) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- Light Architectural Hero Section -->
+  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
     <div class="container" style="text-align: center; max-width: 880px;">
-      <span class="badge-arch" style="margin-bottom: 1.25rem;">
-        Metallurgical Certification & Standards
-      </span>
-      <h1 style="font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #FFFFFF; line-height: 1.15; margin-bottom: 1.25rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.9rem; background: #E0F2FE; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #0369A1; margin-bottom: 1.25rem;">
+        <ShieldCheck size={14} />
+        <span>METALLURGICAL CERTIFICATION & STANDARDS</span>
+      </div>
+      <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800; color: #0F172A; line-height: 1.2; margin-bottom: 1.25rem;">
         The Science of SS316 <br />
-        <span style="color: #38BDF8;">Marine-Grade Architecture</span>
+        <span style="color: #2563EB;">Marine-Grade Architecture</span>
       </h1>
-      <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.6; max-width: 740px; margin: 0 auto 2rem auto;">
+      <p style="font-size: 1.12rem; color: #475569; line-height: 1.65; max-width: 740px; margin: 0 auto 2rem auto;">
         Not all stainless steel is created equal. Cheap local fabricators often install interior-grade SS202 or SS304 that rusts in monsoons. Discover why Invisible Safety strictly mandates virgin SS316 marine alloy.
       </p>
 
@@ -44,50 +46,51 @@ const breadcrumbs = getBreadcrumbSchema([
         </a>
         <a href="/invisible-grill-cost/" class="btn btn-primary">
           <span>Calculate Balcony Cost</span>
+          <ArrowRight size={16} />
         </a>
       </div>
     </div>
   </section>
 
   <!-- Steel Grade Chemical Composition Comparison -->
-  <section class="section-spacing" style="background: #0B0F19; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
     <div class="container">
       <div class="section-header">
-        <span class="badge-emerald">Chemical Composition</span>
+        <span class="eyebrow">CHEMICAL COMPOSITION</span>
         <h2>Why Molybdenum Makes All The Difference</h2>
         <p>Understanding the chemistry behind true coastal and high-humidity corrosion resistance.</p>
       </div>
 
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left; background: rgba(17, 24, 39, 0.7); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+      <div style="overflow-x: auto; background: #FFFFFF; border-radius: 14px; box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.06); border: 1px solid #E2E8F0;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
           <thead>
-            <tr style="background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
-              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Alloy Grade</th>
-              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Molybdenum (Mo) Content</th>
-              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Resistance to Salt & Acid Rain</th>
-              <th style="padding: 1.25rem 1.5rem; color: #94A3B8; font-weight: 600;">Suitability for Balconies</th>
+            <tr style="background: #F8FAFC; border-bottom: 2px solid #E2E8F0;">
+              <th style="padding: 1.25rem 1.5rem; color: #0F172A; font-weight: 700; font-size: 0.92rem;">Alloy Grade</th>
+              <th style="padding: 1.25rem 1.5rem; color: #0F172A; font-weight: 700; font-size: 0.92rem;">Molybdenum (Mo) Content</th>
+              <th style="padding: 1.25rem 1.5rem; color: #0F172A; font-weight: 700; font-size: 0.92rem;">Resistance to Salt & Acid Rain</th>
+              <th style="padding: 1.25rem 1.5rem; color: #0F172A; font-weight: 700; font-size: 0.92rem;">Suitability for Balconies</th>
             </tr>
           </thead>
-          <tbody style="font-size: 0.92rem; color: #CBD5E1;">
-            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(2, 132, 199, 0.08);">
-              <td style="padding: 1.2rem 1.5rem; font-weight: 700; color: #38BDF8;">
+          <tbody style="font-size: 0.92rem; color: #334155;">
+            <tr style="border-bottom: 1px solid #E2E8F0; background: #EFF6FF;">
+              <td style="padding: 1.2rem 1.5rem; font-weight: 700; color: #1D4ED8;">
                 Invisible Safety SS316 (Marine Grade)
               </td>
-              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 700;">2.0% – 2.5% Mo</td>
-              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 600;">Immune to chloride & pitting corrosion</td>
-              <td style="padding: 1.2rem 1.5rem; color: #10B981; font-weight: 600;">Optimal (10-Year Rust-Free Life)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #16A34A; font-weight: 700;">2.0% – 2.5% Mo</td>
+              <td style="padding: 1.2rem 1.5rem; color: #16A34A; font-weight: 600;">Immune to chloride & pitting corrosion</td>
+              <td style="padding: 1.2rem 1.5rem; color: #16A34A; font-weight: 600;">Optimal (10-Year Rust-Free Life)</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #FFFFFF;">SS304 (Food / Indoor Grade)</td>
-              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">0% (No Molybdenum)</td>
-              <td style="padding: 1.2rem 1.5rem; color: #F59E0B;">Develops brown tea-staining & pits in 1-2 years</td>
-              <td style="padding: 1.2rem 1.5rem; color: #F59E0B;">Indoor only; unsuitable for coastal balcony air</td>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #0F172A;">SS304 (Food / Indoor Grade)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #DC2626; font-weight: 600;">0% (No Molybdenum)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #D97706;">Develops brown tea-staining & pits in 1-2 years</td>
+              <td style="padding: 1.2rem 1.5rem; color: #D97706;">Indoor only; unsuitable for coastal balcony air</td>
             </tr>
             <tr>
-              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #FFFFFF;">SS202 (Low-Cost Commercial)</td>
-              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">0% (High Manganese substitute)</td>
-              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">Rapidly oxidizes and rusts in first monsoon</td>
-              <td style="padding: 1.2rem 1.5rem; color: #EF4444;">Severe Hazard: Cable snapping risk</td>
+              <td style="padding: 1.2rem 1.5rem; font-weight: 600; color: #0F172A;">SS202 (Low-Cost Commercial)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #DC2626; font-weight: 600;">0% (High Manganese substitute)</td>
+              <td style="padding: 1.2rem 1.5rem; color: #DC2626; font-weight: 600;">Rapidly oxidizes and rusts in first monsoon</td>
+              <td style="padding: 1.2rem 1.5rem; color: #DC2626; font-weight: 600;">Severe Hazard: Cable snapping risk</td>
             </tr>
           </tbody>
         </table>
@@ -99,32 +102,32 @@ const breadcrumbs = getBreadcrumbSchema([
   <EngineeringSection />
 
   <!-- Track & Hardware Anatomy -->
-  <section class="section-spacing" style="background: #090D16; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+  <section class="section-spacing bg-white" style="border-bottom: 1px solid var(--color-border);">
     <div class="container">
       <div class="section-header">
-        <span class="badge-arch">Hardware Anatomy</span>
+        <span class="eyebrow">HARDWARE ANATOMY</span>
         <h2>Precision Track & Anchorage System</h2>
         <p>A cable is only as dependable as the anchoring tracks holding it under tension.</p>
       </div>
 
       <div class="grid-3">
-        <div class="arch-card">
-          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">6063-T6 Structural Aluminium</h3>
-          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+        <div class="card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">6063-T6 Structural Aluminium</h3>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.6;">
             Extruded from architectural grade aluminum-magnesium-silicon alloy, heat treated to T6 temper for high tensile yield strength and zero warping under continuous cable tension.
           </p>
         </div>
 
-        <div class="arch-card">
-          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Hard Anodized Protective Finish</h3>
-          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+        <div class="card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">Hard Anodized Protective Finish</h3>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.6;">
             25-micron electrochemical oxide coat prevents aluminum oxidation, matching the subtle architectural hues of modern balcony frames.
           </p>
         </div>
 
-        <div class="arch-card">
-          <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Concealed Locking Track Cover</h3>
-          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+        <div class="card">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">Concealed Locking Track Cover</h3>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.6;">
             A snap-fit aesthetic cover completely conceals anchor screw heads and tension barrels, shielding internal components from rainwater and dust accumulation.
           </p>
         </div>

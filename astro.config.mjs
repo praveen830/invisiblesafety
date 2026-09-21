@@ -5,4 +5,11 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://invisiblesafety.vercel.app',
   integrations: [react()],
+  vite: {
+    server: {
+      watch: {
+        usePolling: false,
+      },
+    },
+  },
 });

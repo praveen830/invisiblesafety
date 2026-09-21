@@ -20,182 +20,242 @@ export default function GalleryFilter() {
 
   return (
     <div>
-      {/* Category Pills */}
+      {/* Category Filter Pills */}
       <div style={{
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        gap: '0.6rem',
-        marginBottom: '2.5rem'
+        gap: '0.65rem',
+        marginBottom: '2.75rem'
       }}>
-        {categories.map(cat => (
-          <button
-            key={cat.id}
-            type="button"
-            onClick={() => setActiveCategory(cat.id)}
-            style={{
-              padding: '0.6rem 1.25rem',
-              borderRadius: '30px',
-              border: activeCategory === cat.id ? '1px solid #0284C7' : '1px solid rgba(255, 255, 255, 0.1)',
-              background: activeCategory === cat.id ? 'rgba(2, 132, 199, 0.2)' : 'rgba(15, 23, 42, 0.6)',
-              color: activeCategory === cat.id ? '#38BDF8' : '#94A3B8',
-              fontSize: '0.88rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-          >
-            {cat.label}
-          </button>
-        ))}
+        {categories.map(cat => {
+          const isActive = activeCategory === cat.id;
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setActiveCategory(cat.id)}
+              style={{
+                padding: '0.65rem 1.4rem',
+                borderRadius: '30px',
+                border: isActive ? '1px solid #2563EB' : '1px solid #E2E8F0',
+                background: isActive ? '#2563EB' : '#FFFFFF',
+                color: isActive ? '#FFFFFF' : '#475569',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                boxShadow: isActive ? '0 4px 12px rgba(37, 99, 235, 0.25)' : '0 1px 2px rgba(0,0,0,0.04)',
+                transition: 'all 0.2s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = '#CBD5E1';
+                  e.currentTarget.style.color = '#0F172A';
+                  e.currentTarget.style.background = '#F8FAFC';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.color = '#475569';
+                  e.currentTarget.style.background = '#FFFFFF';
+                }
+              }}
+            >
+              {cat.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Grid of Projects */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
         gap: '2rem'
       }}>
         {filteredProjects.map(proj => (
           <div
             key={proj.id}
-            className="arch-card"
             style={{
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              padding: '1.5rem',
-              background: 'rgba(17, 24, 39, 0.85)'
+              background: '#FFFFFF',
+              border: '1px solid #E2E8F0',
+              borderRadius: '14px',
+              overflow: 'hidden',
+              boxShadow: '0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 4px -1px rgba(15, 23, 42, 0.04)',
+              transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 16px 30px -6px rgba(15, 23, 42, 0.12), 0 8px 14px -4px rgba(15, 23, 42, 0.06)';
+              e.currentTarget.style.borderColor = '#CBD5E1';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 4px -1px rgba(15, 23, 42, 0.04)';
+              e.currentTarget.style.borderColor = '#E2E8F0';
             }}
           >
-            <div>
-              {/* Image simulation container */}
+            {/* Real Project Image Header */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              aspectRatio: '16 / 10',
+              overflow: 'hidden',
+              background: '#F1F5F9'
+            }}>
+              <img
+                src={proj.imageAfter}
+                alt={proj.title}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  transition: 'transform 0.35s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.04)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+              />
+
+              {/* Location Badge */}
               <div style={{
-                position: 'relative',
-                height: '210px',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                marginBottom: '1.25rem',
-                background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)',
-                border: '1px solid rgba(255, 255, 255, 0.08)'
+                position: 'absolute',
+                top: '12px',
+                left: '12px',
+                background: 'rgba(15, 23, 42, 0.82)',
+                backdropFilter: 'blur(6px)',
+                padding: '0.35rem 0.75rem',
+                borderRadius: '6px',
+                fontSize: '0.78rem',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
               }}>
-                {/* Visual architectural simulation overlay */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  backgroundImage: 'radial-gradient(circle at top right, rgba(56, 189, 248, 0.2), transparent 70%)'
-                }} />
-
-                {/* Wire lines simulation */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  padding: '0 1rem',
-                  pointerEvents: 'none'
-                }}>
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        width: '1px',
-                        height: '100%',
-                        background: 'rgba(203, 213, 225, 0.4)',
-                        boxShadow: '0 0 2px rgba(255, 255, 255, 0.4)'
-                      }}
-                    />
-                  ))}
-                </div>
-
-                <div style={{
-                  position: 'absolute',
-                  top: '12px',
-                  left: '12px',
-                  background: 'rgba(15, 23, 42, 0.85)',
-                  padding: '0.3rem 0.65rem',
-                  borderRadius: '6px',
-                  fontSize: '0.75rem',
-                  color: '#38BDF8',
-                  fontWeight: 600,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.3rem'
-                }}>
-                  <MapPin size={13} /> {proj.locality}, {proj.city}
-                </div>
-
-                <div style={{
-                  position: 'absolute',
-                  bottom: '12px',
-                  right: '12px',
-                  background: 'rgba(16, 185, 129, 0.2)',
-                  border: '1px solid rgba(16, 185, 129, 0.4)',
-                  padding: '0.25rem 0.6rem',
-                  borderRadius: '6px',
-                  fontSize: '0.72rem',
-                  color: '#34D399',
-                  fontWeight: 600
-                }}>
-                  {proj.floor} • {proj.sqft} sq.ft
-                </div>
+                <MapPin size={13} color="#38BDF8" />
+                <span>{proj.locality}, {proj.city}</span>
               </div>
 
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#FFFFFF', marginBottom: '0.4rem' }}>
-                {proj.title}
-              </h4>
-              <div style={{ fontSize: '0.8rem', color: '#38BDF8', fontWeight: 600, marginBottom: '0.75rem' }}>
-                {proj.apartmentName}
-              </div>
-
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', marginBottom: '1rem', lineHeight: 1.4 }}>
-                <span style={{ color: '#CBD5E1', fontWeight: 600 }}>Spec: </span>
-                {proj.configuration}
-              </div>
-
-              {/* Client Quote Box */}
+              {/* Floor & Dimension Badge */}
               <div style={{
-                background: 'rgba(15, 23, 42, 0.6)',
-                borderLeft: '3px solid #0284C7',
-                padding: '0.75rem 1rem',
-                borderRadius: '0 8px 8px 0',
-                fontSize: '0.82rem',
-                color: '#CBD5E1',
-                fontStyle: 'italic',
-                marginBottom: '1rem'
+                position: 'absolute',
+                bottom: '12px',
+                right: '12px',
+                background: '#16A34A',
+                padding: '0.35rem 0.75rem',
+                borderRadius: '6px',
+                fontSize: '0.76rem',
+                color: '#FFFFFF',
+                fontWeight: 700,
+                boxShadow: '0 2px 8px rgba(22, 163, 74, 0.4)'
               }}>
-                "{proj.clientQuote}"
-                <div style={{ marginTop: '0.35rem', fontStyle: 'normal', fontSize: '0.75rem', color: '#64748B', fontWeight: 600 }}>
-                  — {proj.clientName}
-                </div>
+                {proj.floor} • {proj.sqft} sq.ft
               </div>
             </div>
 
-            {/* Inquire for Similar Balcony Button */}
-            <a
-              href={buildWhatsAppLink({
-                product: proj.title,
-                configuration: proj.configuration,
-                location: `${proj.locality}, ${proj.city}`,
-                leadSource: `Gallery Project: ${proj.slug}`
-              })}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline btn-sm"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.4rem',
-                width: '100%',
+            {/* Card Content */}
+            <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+              <h3 style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: '#0F172A',
+                marginBottom: '0.35rem',
+                lineHeight: 1.35
+              }}>
+                {proj.title}
+              </h3>
+
+              <div style={{
+                fontSize: '0.86rem',
+                color: '#2563EB',
+                fontWeight: 700,
+                marginBottom: '0.85rem'
+              }}>
+                {proj.apartmentName}
+              </div>
+
+              {/* Specification pill */}
+              <div style={{
                 fontSize: '0.82rem',
-                color: '#38BDF8',
-                borderColor: 'rgba(56, 189, 248, 0.3)'
-              }}
-            >
-              <MessageCircle size={14} />
-              <span>Inquire for Similar Space</span>
-            </a>
+                color: '#475569',
+                background: '#F8FAFC',
+                border: '1px solid #E2E8F0',
+                borderRadius: '6px',
+                padding: '0.5rem 0.75rem',
+                marginBottom: '1rem',
+                lineHeight: 1.45
+              }}>
+                <strong style={{ color: '#0F172A' }}>Spec: </strong>
+                {proj.configuration}
+              </div>
+
+              {/* Verified Client Feedback */}
+              <div style={{
+                background: '#F0F9FF',
+                borderLeft: '3px solid #0284C7',
+                padding: '0.85rem 1rem',
+                borderRadius: '0 8px 8px 0',
+                fontSize: '0.86rem',
+                color: '#1E293B',
+                fontStyle: 'italic',
+                marginBottom: '1.25rem',
+                lineHeight: 1.55,
+                flexGrow: 1
+              }}>
+                "{proj.clientQuote}"
+                <div style={{
+                  marginTop: '0.45rem',
+                  fontStyle: 'normal',
+                  fontSize: '0.78rem',
+                  color: '#64748B',
+                  fontWeight: 700
+                }}>
+                  — {proj.clientName}
+                </div>
+              </div>
+
+              {/* Inquire on WhatsApp Button */}
+              <a
+                href={buildWhatsAppLink({
+                  product: proj.title,
+                  configuration: proj.configuration,
+                  location: `${proj.locality}, ${proj.city}`,
+                  leadSource: `Gallery Project: ${proj.slug}`
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  width: '100%',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  height: '44px',
+                  borderRadius: '8px',
+                  textDecoration: 'none'
+                }}
+              >
+                <MessageCircle size={17} />
+                <span>Inquire for Similar Space</span>
+              </a>
+            </div>
           </div>
         ))}
       </div>

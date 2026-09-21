@@ -110,7 +110,7 @@ export default function VisualizerIsland() {
     }}>
       {/* Top Header & Actions */}
       <div style={{
-        padding: '1.25rem 2rem',
+        padding: '1rem clamp(1rem, 2.5vw, 2rem)',
         borderBottom: '1px solid #E2E8F0',
         display: 'flex',
         alignItems: 'center',
