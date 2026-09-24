@@ -1,30 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import SolutionsAccordion from '../components/SolutionsAccordion.astro';
 import FAQSection from '../components/FAQSection.astro';
-import CostEstimator from '../components/react/CostEstimator';
 import VisualizerIsland from '../components/react/VisualizerIsland';
 import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
+import CostEstimator from '../components/react/CostEstimator';
 import { business } from '../data/business';
-import { projects } from '../data/projects';
 import { getLocalBusinessSchema, getFAQSchema } from '../utils/seo';
 import {
-  Shield,
   ShieldCheck,
-  CheckCircle2,
-  ArrowRight,
-  MapPin,
-  Phone,
-  MessageCircle,
-  Clock,
   Wrench,
   Ruler,
-  FileText,
   Award,
-  Layers,
-  Sparkles,
-  Building2,
-  Home
+  ArrowRight,
+  Phone,
+  Sparkles
 } from 'lucide-react';
 
 const localBusinessSchema = getLocalBusinessSchema();
@@ -43,542 +34,344 @@ const faqSchema = getFAQSchema([
   }
 ]);
 
-// 1. Primary Customer Journey Categories (What are you looking to protect?)
-const protectionCategories = [
+const craftsmanshipPillars = [
   {
-    title: "Balconies",
-    desc: "Discreet anti-fall protection preserving panoramic skyline views and natural cross-ventilation.",
-    image: "/images/balcony-safety.webp",
-    link: "/balcony-invisible-grills/",
-    badge: "Most Popular"
+    icon: ShieldCheck,
+    title: "SS316 Marine Grade",
+    desc: "Genuine AISI 316 austenitic stainless steel with molybdenum to resist corrosion in coastal and monsoon conditions."
   },
   {
-    title: "Windows",
-    desc: "Modern window protection for French doors and sliding glass windows without heavy iron bars.",
-    image: "/images/window-invisible-grills.webp",
-    link: "/window-invisible-grills/",
-    badge: "Residential"
+    icon: Award,
+    title: "400+ kgf Tensile Strength",
+    desc: "High-breaking load capacity engineered to prevent accidental falls while preserving 98% visual clarity."
   },
   {
-    title: "Staircases",
-    desc: "Floor-to-ceiling vertical tension systems securing open internal stairwells in duplex homes.",
-    image: "/images/staircase-invisible-grills.webp",
-    link: "/staircase-invisible-grills/",
-    badge: "Duplex & Villas"
+    icon: Ruler,
+    title: "Laser Precision Survey",
+    desc: "Complimentary doorstep site measurement with physical wire samples and structural surface alignment."
   },
   {
-    title: "Children Safety",
-    desc: "Calibrated 50mm spacing preventing toddler climb, head entrapment, or toy drops.",
-    image: "/images/child-safety.webp",
-    link: "/child-safety-invisible-grills/",
-    badge: "High-Priority"
-  },
-  {
-    title: "Pigeon & Bird Protection",
-    desc: "Translucent anti-pigeon netting and stainless steel spikes keeping balconies clean and hygienic.",
-    image: "/images/pigeon-net.webp",
-    link: "/pigeon-nets/",
-    badge: "Bird Control"
-  },
-  {
-    title: "Construction & Industrial",
-    desc: "Industrial-grade perimeter containment, duct shaft safety nets, and debris protection.",
-    image: "/images/construction-safety-net.jpg",
-    link: "/construction-safety-nets/",
-    badge: "Commercial"
-  }
-];
-
-// 2. Invisible Grills Product Subcategories
-const invisibleGrillProducts = [
-  {
-    title: "Balcony Invisible Grills",
-    desc: "Engineered for high-rise apartment balconies. Marine-grade SS316 cables anchored into structural concrete.",
-    material: "SS316 Marine Grade (2.5mm / 2.0mm)",
-    spacing: "50mm Child-Safe or 75mm Open View",
-    image: "/images/hero-balcony.webp",
-    link: "/balcony-invisible-grills/"
-  },
-  {
-    title: "Window Invisible Grills",
-    desc: "Clean architectural window protection for master bedrooms, French windows, and sliding glass facades.",
-    material: "Virgin SS316 with DuPont nylon sheath",
-    spacing: "50mm vertical / horizontal tension",
-    image: "/images/window-invisible-grills.webp",
-    link: "/window-invisible-grills/"
-  },
-  {
-    title: "Staircase Invisible Grills",
-    desc: "Floor-to-ceiling vertical wire systems for multi-level villas, duplex stairs, and open internal voids.",
-    material: "High-tensile SS316 stainless steel",
-    spacing: "Calibrated 50mm uniform pitch",
-    image: "/images/staircase-invisible-grills.webp",
-    link: "/staircase-invisible-grills/"
-  },
-  {
-    title: "Child Safety Invisible Grills",
-    desc: "Engineered with anti-spread horizontal stiffeners and child-proof 50mm spacing for total peace of mind.",
-    material: "SS316 core + anti-climb alignment",
-    spacing: "50mm non-entrapment pitch",
-    image: "/images/child-safety.webp",
-    link: "/child-safety-invisible-grills/"
-  }
-];
-
-// 3. Core Safety Nets Subcategories
-const safetyNetProducts = [
-  {
-    title: "Balcony Safety Nets",
-    desc: "High-density virgin polymer netting providing dependable, cost-effective anti-fall protection.",
-    spec: "UV-treated virgin nylon / HDPE",
-    image: "/images/safety-net-balcony.webp",
-    link: "/balcony-safety/"
-  },
-  {
-    title: "Children Safety Nets",
-    desc: "Tight-mesh perimeter safety netting designed specifically to safeguard toddlers and pets on balconies.",
-    spec: "Reinforced border cord & anchor hooks",
-    image: "/images/child-safety.webp",
-    link: "/child-safety-nets/"
-  },
-  {
-    title: "Anti-Pigeon Nets",
-    desc: "Discreet 0.7mm translucent netting barring pigeons and birds from nesting without blocking light.",
-    spec: "Non-toxic, humane bird deterrent",
-    image: "/images/pigeon-net.webp",
-    link: "/pigeon-nets/"
-  },
-  {
-    title: "Building & Duct Nets",
-    desc: "Heavy-ply containment netting for central building ducts, open utility shafts, and terrace tops.",
-    spec: "Industrial weather-resistant grade",
-    image: "/images/building-safety-net.jpg",
-    link: "/duct-safety-nets/"
+    icon: Wrench,
+    title: "10-Year Direct Guarantee",
+    desc: "Written warranty documentation covering cable tension, track finish, and structural anchor integrity."
   }
 ];
 ---
 
 <BaseLayout
-  title="Invisible Safety | Invisible Grills & Safety Solutions for Modern Homes"
-  description="Professional invisible grills and safety net systems for apartment balconies, windows, and staircases. SS316 marine-grade cables, expert installation in Vizag, Hyderabad, Vijayawada & Amaravati."
+  title="Invisible Safety | Ultra-Luxury Invisible Grills & Safety Solutions"
+  description="Editorial-grade architectural invisible grills and certified safety net systems for luxury residences, high-rise penthouses, and modern apartments."
   canonicalUrl="/"
   schema={[localBusinessSchema, faqSchema]}
 >
-  <!-- 2. Hero Section -->
+  <!-- 1. Full-Bleed Editorial Hero (100dvh) -->
   <Hero />
 
-  <!-- 3. Primary Customer Journey: What are you looking to protect? -->
-  <section class="section-spacing bg-white" id="protect-journey">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">APPLICATIONS</span>
-        <h2>What are you looking to protect?</h2>
-        <p>Select your space to explore tailored safety grill and net solutions designed for Indian residential architecture.</p>
+  <!-- 2. Viewport-Driven Full-Bleed Collections Feed (100dvh Per Space) -->
+  <SolutionsAccordion />
+
+  <!-- 3. Interactive Visualizer: Open vs Protected Balcony -->
+  <section class="editorial-visualizer-section">
+    <div class="editorial-section-container">
+      <div class="editorial-section-header">
+        <span class="editorial-eyebrow">THE ARCHITECTURAL DIFFERENCE</span>
+        <h2 class="editorial-title">Before &amp; After Installation</h2>
+        <p class="editorial-subtitle">
+          Experience how invisible tensile cables secure open balconies without obstructing skyline panoramas.
+        </p>
       </div>
 
-      <div class="grid-3">
-        {protectionCategories.map((cat) => (
-          <a href={cat.link} class="photo-card">
-            <div class="photo-card-img-wrapper">
-              <img src={cat.image} alt={`${cat.title} safety installation`} loading="lazy" />
-            </div>
-            <div class="photo-card-body">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
-                <h3 class="photo-card-title">{cat.title}</h3>
-                <span class="badge badge-neutral">{cat.badge}</span>
-              </div>
-              <p class="photo-card-desc">{cat.desc}</p>
-              <div class="photo-card-link">
-                <span>VIEW SOLUTION</span>
-                <ArrowRight size={14} />
-              </div>
-            </div>
-          </a>
-        ))}
+      <div class="visualizer-wrapper">
+        <BeforeAfterSlider client:visible />
       </div>
     </div>
   </section>
 
-  <!-- 4. Featured Product: Invisible Grills -->
-  <section class="section-spacing bg-warm" id="featured-products">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">FLAGSHIP SOLUTION</span>
-        <h2>Invisible Grills</h2>
-        <p>Minimal visual obstruction. Practical protection for modern balconies, windows, and open architectural spaces.</p>
+  <!-- 4. Interactive Space Visualizer -->
+  <section class="editorial-planner-section" id="visualize">
+    <div class="editorial-section-container">
+      <div class="editorial-section-header">
+        <span class="editorial-eyebrow">INTERACTIVE PLANNING</span>
+        <h2 class="editorial-title">Visualize Your Space</h2>
+        <p class="editorial-subtitle">
+          Preview cable pitch and aesthetic integration across various residential layouts.
+        </p>
       </div>
 
-      <div class="grid-2">
-        {invisibleGrillProducts.map((prod) => (
-          <a
-            href={prod.link}
-            class="card interactive-product-card"
-            aria-label={`View details for ${prod.title}`}
-          >
-            <div class="card-img-wrap" style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #E2E8F0;">
-              <img src={prod.image} alt={prod.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
-            </div>
-            <div style="padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #0F172A;">{prod.title}</h3>
-              <p style="font-size: 0.95rem; color: #475569; margin-bottom: 1.25rem; line-height: 1.6;">
-                {prod.desc}
-              </p>
-
-              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
-                <div style="margin-bottom: 0.35rem;">
-                  <strong style="color: #334155;">Material:</strong> <span style="color: #64748B;">{prod.material}</span>
-                </div>
-                <div>
-                  <strong style="color: #334155;">Spacing Options:</strong> <span style="color: #64748B;">{prod.spacing}</span>
-                </div>
-              </div>
-
-              <div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #F1F5F9; padding-top: 1rem;">
-                <div>
-                  <span style="font-size: 0.78rem; color: #64748B; display: block;">Indicative Price</span>
-                  <span style="font-size: 1rem; font-weight: 700; color: #0F172A;">with custom site quote / sq. ft</span>
-                </div>
-                <div class="btn btn-secondary btn-sm card-action-btn">
-                  <span>VIEW DETAILS</span>
-                  <ArrowRight size={14} />
-                </div>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="/invisible-grills/" class="btn btn-primary">
-          <span>Explore All Invisible Grill Options</span>
-          <ArrowRight size={16} />
-        </a>
+      <div class="visualizer-island-wrapper">
+        <VisualizerIsland client:visible />
       </div>
     </div>
   </section>
 
-  <!-- 5. Safety Nets Section -->
-  <section class="section-spacing bg-white">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">DEPENDABLE PROTECTION</span>
-        <h2>Safety Nets</h2>
-        <p>Reliable anti-fall and bird protection mesh for residential towers, apartment balconies, and open building voids.</p>
+  <!-- 5. Interactive Cost & Area Estimator -->
+  <section class="editorial-calculator-section" id="estimate">
+    <div class="editorial-section-container">
+      <div class="editorial-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Your Balcony Quote</h2>
+        <p class="editorial-subtitle">
+          Select your product type, approximate dimensions, and city for an instant custom measurement quote.
+        </p>
       </div>
 
-      <div class="grid-4">
-        {safetyNetProducts.map((net) => (
-          <a
-            href={net.link}
-            class="card interactive-product-card"
-            aria-label={`View details for ${net.title}`}
-          >
-            <div class="card-img-wrap" style="position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #E2E8F0;">
-              <img src={net.image} alt={net.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
-            </div>
-            <div style="padding: 1.25rem 1.5rem 1.5rem 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
-              <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; color: #0F172A;">{net.title}</h3>
-              <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1rem; flex-grow: 1; line-height: 1.5;">
-                {net.desc}
-              </p>
-              <div style="font-size: 0.78rem; font-weight: 600; color: #64748B; background: #F1F5F9; padding: 0.35rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;">
-                {net.spec}
-              </div>
-              <div class="card-text-link" style="font-size: 0.88rem; font-weight: 600; color: #2563EB; display: inline-flex; align-items: center; gap: 0.35rem;">
-                <span>VIEW DETAILS</span>
-                <ArrowRight size={14} />
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="/safety-nets/" class="btn btn-secondary">
-          <span>View All Safety Net Solutions</span>
-        </a>
+      <div class="cost-estimator-wrapper">
+        <CostEstimator client:visible />
       </div>
     </div>
   </section>
 
-  <!-- 6. Why Invisible Safety (Trust Section) -->
-  <section class="section-spacing bg-warm">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">STANDARDS & CREDIBILITY</span>
-        <h2>Why Customers Choose Invisible Safety</h2>
-        <p>Transparent materials, trained full-time technicians, and clear documentation for your peace of mind.</p>
+  <!-- 6. Minimalist Craftsmanship & Engineering Standards -->
+  <section class="editorial-standards-section">
+    <div class="editorial-section-container">
+      <div class="editorial-section-header">
+        <span class="editorial-eyebrow">UNCOMPROMISING METALLURGY</span>
+        <h2 class="editorial-title">Craftsmanship &amp; Engineering</h2>
+        <p class="editorial-subtitle">
+          Engineered for architectural harmony, safety integrity, and lifetime durability.
+        </p>
       </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <ShieldCheck size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Material Transparency</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            We specify genuine SS316 marine-grade stainless steel cables with molybdenum composition to prevent rusting, even in humid coastal areas.
-          </p>
-        </div>
-
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <Wrench size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Professional Installation</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            Installed by trained technicians using certified safety harnesses and heavy-duty structural aluminium tracks anchored into reinforced concrete.
-          </p>
-        </div>
-
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <Ruler size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">On-Site Measurement</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            Our engineer visits your apartment with physical wire samples and precision measuring tools to inspect structural surfaces before quoting.
-          </p>
-        </div>
-
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <FileText size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Clear Quotations</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            No hidden fees. Every quote clearly specifies the exact billable square footage, track specifications, wire gauge, and installation scope.
-          </p>
-        </div>
-
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <Award size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Warranty Documentation</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            Receive written warranty certificates covering material integrity, track durability, and cable tension for your records.
-          </p>
-        </div>
-
-        <div class="card">
-          <div style="width: 42px; height: 42px; border-radius: 8px; background: #EFF6FF; color: #2563EB; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            <MapPin size={22} />
-          </div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Local Service Availability</h3>
-          <p style="font-size: 0.92rem; color: #475569; margin: 0; line-height: 1.5;">
-            Dedicated local installation and service teams stationed in Hyderabad, Visakhapatnam, and Vijayawada for prompt post-install support.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. How It Works -->
-  <section class="section-spacing bg-white" id="how-it-works">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">SIMPLE 4-STEP PROCESS</span>
-        <h2>How It Works</h2>
-        <p>A straightforward and transparent workflow from your initial inquiry to final safety sign-off.</p>
-      </div>
-
-      <div class="grid-4">
-        <!-- Step 1 -->
-        <div style="display: flex; flex-direction: column;">
-          <div class="step-number">01</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Tell us what you need</h3>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-            Contact us via phone, WhatsApp, or website form. Share your apartment location and approximate balcony or window dimensions.
-          </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div style="display: flex; flex-direction: column;">
-          <div class="step-number">02</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Schedule measurement</h3>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-            Our technician visits your home at a convenient time to measure the space and show physical material and wire samples.
-          </p>
-        </div>
-
-        <!-- Step 3 -->
-        <div style="display: flex; flex-direction: column;">
-          <div class="step-number">03</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Choose your solution</h3>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-            Select between 2.0mm or 2.5mm cable gauges, 50mm or 75mm spacing, and receive a formal, transparent price quotation.
-          </p>
-        </div>
-
-        <!-- Step 4 -->
-        <div style="display: flex; flex-direction: column;">
-          <div class="step-number">04</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #0F172A;">Professional installation</h3>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.5;">
-            Our trained technicians install track frames, tension the cables uniformly, and clean up the work area before final handover.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Real Installations Section -->
-  <section class="section-spacing bg-warm" id="installations">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">PORTFOLIO</span>
-        <h2>Real Installations</h2>
-        <p>Photographs from completed residential invisible grill and safety net installations in gated communities.</p>
-      </div>
-
-      <div class="grid-2">
-        {projects.slice(0, 4).map((proj) => (
-          <div class="card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
-            <div style="position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #E2E8F0;">
-              <img src={proj.imageAfter} alt={`${proj.apartmentName} - ${proj.title}`} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
-              <div style="position: absolute; bottom: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); color: #FFFFFF; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 4px;">
-                {proj.apartmentName}, {proj.city}
-              </div>
+      <div class="editorial-pillars-grid">
+        {craftsmanshipPillars.map((pillar) => (
+          <div class="editorial-pillar-card">
+            <div class="pillar-icon-box">
+              <pillar.icon size={20} strokeWidth={1.75} />
             </div>
-            <div style="padding: 1.5rem;">
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: #0F172A;">{proj.title}</h3>
-              <p style="font-size: 0.85rem; color: #64748B; margin-bottom: 0.75rem;">
-                {proj.configuration} • {proj.floor}
-              </p>
-              <p style="font-size: 0.9rem; color: #475569; font-style: italic; line-height: 1.5; margin: 0;">
-                "{proj.clientQuote}"
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="/projects/" class="btn btn-secondary">
-          <span>View More Project Photos</span>
-          <ArrowRight size={16} />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. Before / After Comparison -->
-  <section class="section-spacing bg-white">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">VISUAL COMPARISON</span>
-        <h2>Before & After Installation</h2>
-        <p>Compare an open or traditionally barred balcony against a professionally installed invisible grill system.</p>
-      </div>
-
-      <BeforeAfterSlider client:visible />
-    </div>
-  </section>
-
-  <!-- 10. Visualize Your Space -->
-  <section class="section-spacing bg-warm" id="visualize">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">INTERACTIVE PLANNING</span>
-        <h2>Visualize Your Space</h2>
-        <p>See how different safety solutions and cable spacing look across various residential apartment openings.</p>
-      </div>
-
-      <VisualizerIsland client:visible />
-    </div>
-  </section>
-
-  <!-- 11. Free Site Quote & Measurement Tool -->
-  <section class="section-spacing bg-white" id="calculator">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">CUSTOM QUOTATION</span>
-        <h2>Plan Your Free Site Measurement</h2>
-        <p>Select your product type and dimensions to request a 100% free on-site laser measurement and custom quote.</p>
-      </div>
-
-      <CostEstimator client:load />
-    </div>
-  </section>
-
-  <!-- 12. Service Areas -->
-  <section class="section-spacing bg-warm">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">COVERAGE</span>
-        <h2>Service Areas</h2>
-        <p>We provide full site measurement, installation, and after-sales support across major urban regions.</p>
-      </div>
-
-      <div class="grid-3">
-        {business.cities.map((city) => (
-          <div class="card">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-              <MapPin size={20} className="text-blue" />
-              <h3 style="font-size: 1.25rem; color: #0F172A; margin: 0;">{city.name}</h3>
-            </div>
-            <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1rem; line-height: 1.5;">
-              {city.tagline}
-            </p>
-            <div style="font-size: 0.78rem; font-weight: 700; color: #64748B; margin-bottom: 0.4rem;">
-              POPULAR LOCALITIES:
-            </div>
-            <div style="font-size: 0.82rem; color: #475569; line-height: 1.6; margin-bottom: 1.25rem;">
-              {city.popularAreas.slice(0, 6).join(", ")} and nearby areas.
-            </div>
-            <a href={`/locations/${city.slug}/`} style="font-size: 0.88rem; font-weight: 600; color: #2563EB; display: inline-flex; align-items: center; gap: 0.35rem;">
-              <span>View {city.name} Details</span>
-              <ArrowRight size={14} />
-            </a>
+            <h3 class="pillar-title">{pillar.title}</h3>
+            <p class="pillar-desc">{pillar.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 13. FAQs -->
+  <!-- 6. Essential Residential FAQ -->
   <FAQSection />
 
-  <!-- 14. Final Call To Action -->
-  <section class="section-spacing-sm bg-white" style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-    <div class="container">
-      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 860px; margin: 0 auto;">
-        <h2 style="font-size: clamp(1.6rem, 3vw, 2.25rem); color: #0F172A; margin-bottom: 0.75rem;">
-          Need a Site Measurement for Your Home?
-        </h2>
-        <p style="font-size: 1.05rem; color: #475569; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;">
-          Our technical engineer will visit your apartment with physical SS316 wire and track samples, measure your space accurately, and provide a clear quotation.
+  <!-- 7. Minimalist Concierge Survey Invitation -->
+  <section class="editorial-concierge-strip">
+    <div class="editorial-section-container">
+      <div class="concierge-editorial-box">
+        <span class="concierge-eyebrow">COMPLIMENTARY CONSULTATION</span>
+        <h2 class="concierge-title">Schedule Doorstep Laser Measurement</h2>
+        <p class="concierge-desc">
+          Our structural engineer will visit your residence with physical SS316 wire samples, inspect anchoring surfaces, and provide a clear quotation.
         </p>
-
-        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="/contact/#quote" class="btn btn-primary btn-lg">
-            <span>GET A FREE QUOTE</span>
-            <ArrowRight size={18} />
+        <div class="concierge-actions">
+          <a href="/contact/#quote" class="btn-editorial-solid">
+            <span>REQUEST SITE SURVEY</span>
           </a>
-
-          <a href={`tel:${business.phoneRaw}`} class="btn btn-secondary btn-lg">
-            <Phone size={18} />
+          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-outline">
+            <Phone size={14} />
             <span>Call: {business.phone}</span>
           </a>
         </div>
       </div>
     </div>
   </section>
+</BaseLayout>
 
-  <script>
-    function setupProductCardKeyboard() {
-      document.querySelectorAll<HTMLAnchorElement>('a.interactive-product-card').forEach((card) => {
-        card.addEventListener('keydown', (e) => {
-          if (e.key === ' ' || e.code === 'Space') {
-            e.preventDefault();
-            card.click();
-          }
-        });
-      });
+<style>
+  /* =========================================================================
+     EDITORIAL SECTIONS STYLING
+     ========================================================================= */
+  .editorial-visualizer-section,
+  .editorial-planner-section,
+  .editorial-calculator-section,
+  .editorial-standards-section,
+  .editorial-concierge-strip {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .editorial-section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    box-sizing: border-box;
+  }
+
+  .editorial-section-header {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto clamp(2rem, 4vw, 3.5rem) auto;
+  }
+
+  .editorial-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem 0;
+    line-height: 1.2;
+  }
+
+  .editorial-subtitle {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .visualizer-wrapper,
+  .visualizer-island-wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .cost-estimator-wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Pillars Grid */
+  .editorial-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .editorial-pillars-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .editorial-pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .editorial-pillar-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+  }
+
+  .editorial-pillar-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .pillar-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold, #C5A880);
+    margin-bottom: 1.25rem;
+  }
+
+  .pillar-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .pillar-desc {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Concierge Box */
+  .concierge-editorial-box {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .concierge-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+
+  .concierge-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.5rem, 3vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
+  }
+
+  .concierge-desc {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: #CBD5E1;
+    line-height: 1.6;
+    margin: 0 auto 2rem auto;
+    max-width: 620px;
+  }
+
+  .concierge-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 580px) {
+    .concierge-actions {
+      flex-direction: column;
+      width: 100%;
     }
 
-    document.addEventListener('DOMContentLoaded', setupProductCardKeyboard);
-    document.addEventListener('astro:page-load', setupProductCardKeyboard);
-  </script>
-</BaseLayout>
+    .concierge-actions a {
+      width: 100%;
+    }
+  }
+</style>

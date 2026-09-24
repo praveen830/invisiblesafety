@@ -1,224 +1,112 @@
 ---
 import { business } from '../data/business';
-import { Menu, X, ChevronDown, Phone, Calculator, ArrowRight, Shield } from 'lucide-react';
+import { Menu, X, Phone, User, ArrowRight } from 'lucide-react';
 
 const productsNav = [
-  { name: "Invisible Grills", href: "/invisible-grills/", desc: "SS316 marine-grade invisible balcony and window grills" },
-  { name: "Safety Nets", href: "/safety-nets/", desc: "High-density polymer balcony and child anti-fall nets" },
-  { name: "Bird Protection", href: "/pigeon-nets/", desc: "Humane anti-pigeon nets and stainless steel spikes" },
-  { name: "Construction Safety", href: "/construction-safety-nets/", desc: "Heavy-duty perimeter and debris containment nets" },
-  { name: "Specialty Solutions", href: "/solutions/", desc: "Sports nets, terrace tops, and duct safety enclosures" }
+  { name: "Balcony SS316 Invisible Grills", href: "/invisible-grills/", desc: "SS316 marine-grade tensile cable architecture" },
+  { name: "High-Rise Safety Nets", href: "/safety-nets/", desc: "High-density polymer balcony and child protection" },
+  { name: "Pigeon Exclusion & Spikes", href: "/pigeon-nets/", desc: "Humane anti-pigeon netting & stainless steel spikes" },
+  { name: "Window & French Door Grills", href: "/window-invisible-grills/", desc: "Unobstructed ventilation and child safety" },
+  { name: "Staircase Void Protection", href: "/staircase-invisible-grills/", desc: "Sleek vertical safety cables for duplex voids" },
+  { name: "Construction & Industrial Nets", href: "/construction-safety-nets/", desc: "Heavy-duty perimeter and void containment" },
+  { name: "Sports Practice & Turf Nets", href: "/sports-nets/", desc: "Cricket practice cages and multi-sport turf netting" }
 ];
 
-const applicationsNav = [
-  { name: "Balconies", href: "/balcony-invisible-grills/", desc: "Full balcony enclosures preserving open skyline views" },
-  { name: "Windows", href: "/window-invisible-grills/", desc: "Discreet window security without iron cages" },
-  { name: "Staircases", href: "/staircase-invisible-grills/", desc: "Vertical floor-to-ceiling anti-fall void protection" },
-  { name: "Children Safety", href: "/child-safety-invisible-grills/", desc: "50mm safe spacing preventing toddler falls & entrapment" },
-  { name: "High-Rise Buildings", href: "/balcony-safety/", desc: "Engineered wind-load rated systems for tall residential towers" },
-  { name: "Commercial Buildings", href: "/building-safety-nets/", desc: "Atrium voids, schools, and corporate building safety" }
-];
-
-const whyNav = [
-  { name: "Materials", href: "/materials/", desc: "Virgin SS316 marine cables & 6063-T6 extruded aluminium" },
-  { name: "Installation Process", href: "/why-invisible-safety/#process", desc: "6-step precision installation with harness safety" },
-  { name: "Warranty Information", href: "/warranty/", desc: "Clear warranty documentation with material guarantees" },
-  { name: "Why Invisible Safety", href: "/why-invisible-safety/", desc: "Our engineering standards, site measurements, and transparency" },
-  { name: "Frequently Asked Questions", href: "/faq/", desc: "Answers to common homeowner and society RWA questions" }
-];
-
-const projectsNav = [
-  { name: "Residential Installations", href: "/projects/", desc: "Completed projects in apartments and villas" },
-  { name: "Apartment Communities", href: "/gallery/", desc: "Installations across gated high-rise societies" },
-  { name: "Commercial & Schools", href: "/projects/#commercial", desc: "Institutional and commercial safety projects" }
-];
-
-const resourcesNav = [
-  { name: "Free Site Quote", href: "/invisible-grill-cost/", desc: "Request custom site measurement and quotation for your space" },
-  { name: "Visual Comparison Tool", href: "/visualizer/", desc: "Compare open balconies vs. invisible safety grills" },
-  { name: "Safety & Maintenance Guide", href: "/materials/#maintenance", desc: "Tips for cleaning, inspection, and maintenance" },
-  { name: "FAQs & Knowledge Base", href: "/faq/", desc: "Detailed technical and installation answers" }
+const navigationLinks = [
+  { name: "Invisible Grills", href: "/invisible-grills/" },
+  { name: "Safety Nets", href: "/safety-nets/" },
+  { name: "Visualizer", href: "/visualizer/" },
+  { name: "Cost Estimator", href: "/invisible-grill-cost/" },
+  { name: "Gallery", href: "/gallery/" },
+  { name: "Locations", href: "/locations/" }
 ];
 ---
 
-<header class="site-header" id="site-header">
-  <div class="container header-container">
-    <!-- Left: Menu Trigger (Mobile) + Brand Logo -->
+<header class="editorial-header" id="editorial-header">
+  <div class="header-inner">
+    <!-- Left: Minimalist Hamburger Menu Trigger -->
     <div class="header-left">
-      <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
-        <Menu size={24} />
+      <button class="editorial-menu-trigger" id="editorial-menu-btn" aria-label="Open Navigation Menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
       </button>
 
-      <a href="/" class="brand-logo" aria-label="Invisible Safety Home">
-        <img
-          src="/images/logo.png"
-          alt="Invisible Safety Logo"
-          class="brand-logo-img"
-          width="46"
-          height="46"
-        />
-        <div class="brand-text">
-          <span class="brand-name">Invisible <span class="text-blue">Safety</span></span>
-          <span class="brand-tagline">ARCHITECTURAL SAFETY</span>
-        </div>
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-editorial-nav" aria-label="Main Navigation">
+        {navigationLinks.slice(0, 3).map((link) => (
+          <a href={link.href} class="nav-editorial-link">{link.name}</a>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Center: Bold Spaced Architectural Brand Logo -->
+    <div class="header-center">
+      <a href="/" class="brand-editorial-link" aria-label="Invisible Safety - Architectural Home Safety">
+        <span class="brand-primary-text">INVISIBLE SAFETY</span>
       </a>
     </div>
 
-    <!-- Center: Desktop Navigation Bar with Scannable Dropdowns -->
-    <nav class="header-nav" aria-label="Main Navigation">
-      <!-- Products Dropdown -->
-      <div class="nav-item has-dropdown">
-        <a href="/invisible-grills/" class="nav-link">
-          Products <ChevronDown size={14} className="dropdown-chevron" />
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">SAFETY PRODUCTS</div>
-          {productsNav.map((item) => (
-            <a href={item.href} class="dropdown-item">
-              <span class="dropdown-item-title">{item.name}</span>
-              <span class="dropdown-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Applications Dropdown -->
-      <div class="nav-item has-dropdown">
-        <a href="/solutions/" class="nav-link">
-          Applications <ChevronDown size={14} className="dropdown-chevron" />
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">RESIDENTIAL & BUILDING APPLICATIONS</div>
-          {applicationsNav.map((item) => (
-            <a href={item.href} class="dropdown-item">
-              <span class="dropdown-item-title">{item.name}</span>
-              <span class="dropdown-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Why Invisible Safety Dropdown -->
-      <div class="nav-item has-dropdown">
-        <a href="/why-invisible-safety/" class="nav-link">
-          Why Invisible Safety <ChevronDown size={14} className="dropdown-chevron" />
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-header">STANDARDS & TRANSPARENCY</div>
-          {whyNav.map((item) => (
-            <a href={item.href} class="dropdown-item">
-              <span class="dropdown-item-title">{item.name}</span>
-              <span class="dropdown-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Projects Dropdown -->
-      <div class="nav-item has-dropdown">
-        <a href="/projects/" class="nav-link">
-          Projects <ChevronDown size={14} className="dropdown-chevron" />
-        </a>
-        <div class="dropdown-menu dropdown-menu-sm">
-          <div class="dropdown-header">REAL INSTALLATIONS</div>
-          {projectsNav.map((item) => (
-            <a href={item.href} class="dropdown-item">
-              <span class="dropdown-item-title">{item.name}</span>
-              <span class="dropdown-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Resources Dropdown -->
-      <div class="nav-item has-dropdown">
-        <a href="/faq/" class="nav-link">
-          Resources <ChevronDown size={14} className="dropdown-chevron" />
-        </a>
-        <div class="dropdown-menu dropdown-menu-sm">
-          <div class="dropdown-header">HELP & ESTIMATION TOOLS</div>
-          {resourcesNav.map((item) => (
-            <a href={item.href} class="dropdown-item">
-              <span class="dropdown-item-title">{item.name}</span>
-              <span class="dropdown-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
-
-    <!-- Right: Quote Link, Contact, and "GET A QUOTE" Button -->
+    <!-- Right: Minimal Inquiry / Contact Action -->
     <div class="header-right">
-      <a href="/invisible-grill-cost/" class="header-link-secondary">
-        <Calculator size={16} />
-        <span>Free Quote</span>
-      </a>
+      <nav class="desktop-editorial-nav" aria-label="Secondary Navigation">
+        {navigationLinks.slice(3).map((link) => (
+          <a href={link.href} class="nav-editorial-link">{link.name}</a>
+        ))}
+      </nav>
 
-      <a href="/contact/" class="header-link-secondary">
-        <span>Contact</span>
-      </a>
-
-      <a href="/contact/#quote" class="btn btn-primary btn-sm header-quote-btn">
-        <span>GET A QUOTE</span>
+      <a
+        href="/contact/"
+        class="editorial-icon-btn"
+        aria-label="Direct Inquiry & Contact"
+        title="Schedule Site Consultation"
+      >
+        <User size={18} strokeWidth={1.8} />
       </a>
     </div>
   </div>
 
-  <!-- Mobile Navigation Drawer -->
-  <div class="mobile-drawer" id="mobile-drawer">
-    <div class="mobile-drawer-header">
-      <div class="brand-logo">
-        <img
-          src="/images/logo.png"
-          alt="Invisible Safety Logo"
-          class="brand-logo-img brand-logo-img-mobile"
-          width="38"
-          height="38"
-        />
-        <span class="brand-name">Invisible <span class="text-blue">Safety</span></span>
-      </div>
-      <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
-        <X size={22} />
+  <!-- Minimalist Full-Screen / Slide-Out Luxury Drawer -->
+  <div class="editorial-drawer" id="editorial-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="/" class="brand-editorial-link" aria-label="Invisible Safety">
+        <span class="brand-primary-text">INVISIBLE SAFETY</span>
+      </a>
+      <button class="drawer-close-btn" id="editorial-close-btn" aria-label="Close Menu">
+        <X size={22} strokeWidth={1.5} />
       </button>
     </div>
 
-    <div class="mobile-drawer-content">
-      <div class="mobile-nav-group">
-        <div class="mobile-nav-label">PRODUCTS</div>
-        {productsNav.map((item) => (
-          <a href={item.href} class="mobile-nav-link">{item.name}</a>
+    <div class="drawer-body">
+      <div class="drawer-group">
+        <span class="drawer-group-label">CURATED SAFETY COLLECTIONS</span>
+        {productsNav.map((prod) => (
+          <a href={prod.href} class="drawer-nav-item">
+            <span class="drawer-item-title">{prod.name}</span>
+            <span class="drawer-item-desc">{prod.desc}</span>
+          </a>
         ))}
       </div>
 
-      <div class="mobile-nav-group">
-        <div class="mobile-nav-label">APPLICATIONS</div>
-        {applicationsNav.map((item) => (
-          <a href={item.href} class="mobile-nav-link">{item.name}</a>
-        ))}
+      <div class="drawer-group">
+        <span class="drawer-group-label">INTERACTIVE TOOLS &amp; ARCHITECTURE</span>
+        <a href="/visualizer/" class="drawer-link-simple">Interactive Balcony 3D Visualizer</a>
+        <a href="/invisible-grill-cost/" class="drawer-link-simple">Instant Cost Estimator &amp; Quote</a>
+        <a href="/materials/" class="drawer-link-simple">Marine Grade SS316 Metallurgy</a>
+        <a href="/gallery/" class="drawer-link-simple">Real Completed Projects Gallery</a>
+        <a href="/locations/" class="drawer-link-simple">Regional Service Hubs (4 Cities)</a>
+        <a href="/warranty/" class="drawer-link-simple">10-Year Written Warranty Terms</a>
+        <a href="/why-invisible-safety/" class="drawer-link-simple">Brand Heritage &amp; Ethos</a>
+        <a href="/faq/" class="drawer-link-simple">Frequently Asked Questions</a>
+        <a href="/contact/" class="drawer-link-simple">Complimentary Doorstep Laser Survey</a>
       </div>
 
-      <div class="mobile-nav-group">
-        <div class="mobile-nav-label">COMPANY & TRUST</div>
-        {whyNav.map((item) => (
-          <a href={item.href} class="mobile-nav-link">{item.name}</a>
-        ))}
-      </div>
-
-      <div class="mobile-nav-group">
-        <div class="mobile-nav-label">PROJECTS & TOOLS</div>
-        <a href="/projects/" class="mobile-nav-link">Recent Installations</a>
-        <a href="/invisible-grill-cost/" class="mobile-nav-link">Free Site Quote</a>
-        <a href="/visualizer/" class="mobile-nav-link">Visual Comparison Tool</a>
-        <a href="/contact/" class="mobile-nav-link">Contact & Locations</a>
-      </div>
-
-      <div class="mobile-drawer-footer">
-        <a href={`tel:${business.phoneRaw}`} class="mobile-phone-cta">
-          <Phone size={18} />
+      <div class="drawer-footer">
+        <p class="drawer-ethos-quote">
+          "The art of architectural protection — securing your sanctuary with quiet elegance."
+        </p>
+        <a href={`tel:${business.phoneRaw}`} class="drawer-phone-btn">
+          <Phone size={15} />
           <span>Call: {business.phone}</span>
-        </a>
-        <a href="/contact/#quote" class="btn btn-primary btn-lg" style="width: 100%;">
-          GET A FREE QUOTE
         </a>
       </div>
     </div>
@@ -226,359 +114,363 @@ const resourcesNav = [
 </header>
 
 <style>
-  .site-header {
+  /* =========================================================================
+     MINIMALIST TRANSLUCENT EDITORIAL HEADER
+     ========================================================================= */
+  .editorial-header {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 900;
-    background: #FFFFFF;
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    height: 64px;
+    background: rgba(249, 248, 246, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
-  .header-container {
+  .header-inner {
+    max-width: 1360px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3.5vw, 2.5rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    box-sizing: border-box;
   }
 
-  /* Left: Brand */
+  /* Left: Hamburger + Left Nav */
   .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.75rem;
+    flex: 1;
   }
 
-  .mobile-menu-toggle {
-    display: none;
-    background: none;
+  .editorial-menu-trigger {
+    background: transparent;
     border: none;
-    color: var(--color-primary);
     cursor: pointer;
-    padding: 0.35rem;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 26px;
+    outline: none;
   }
 
-  .brand-logo {
+  .menu-bar {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: #0D0D0D;
+    transition: transform 0.25s ease, width 0.25s ease;
+  }
+
+  .editorial-menu-trigger:hover .menu-bar:first-child {
+    width: 26px;
+  }
+
+  .editorial-menu-trigger:hover .menu-bar:last-child {
+    width: 18px;
+  }
+
+  /* Center: Brand Identity */
+  .header-center {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    text-decoration: none;
-  }
-
-  .brand-logo-img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
+    justify-content: center;
+    text-align: center;
     flex-shrink: 0;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.12));
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .brand-logo:hover .brand-logo-img {
-    transform: scale(1.06);
-  }
-
-  .brand-logo-img-mobile {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-text {
+  .brand-editorial-link {
+    text-decoration: none;
+    color: #0D0D0D;
     display: flex;
     flex-direction: column;
-    line-height: 1.1;
+    align-items: center;
   }
 
-  .brand-name {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
+  .brand-primary-text {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(0.85rem, 1.3vw, 1.12rem);
     font-weight: 800;
-    color: var(--color-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0D0D0D;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
   }
 
-  .text-blue {
-    color: var(--color-accent);
+  .brand-editorial-link:hover .brand-primary-text {
+    opacity: 0.8;
   }
 
-  .brand-tagline {
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-muted);
+  @media (max-width: 640px) {
+    .header-left, .header-right {
+      flex: 0 0 auto;
+    }
+    .brand-primary-text {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+    }
   }
 
-  /* Center: Nav */
-  .header-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .nav-item {
-    position: relative;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--color-secondary);
-    padding: 0.6rem 0.85rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: color 0.15s ease, background-color 0.15s ease;
-  }
-
-  .nav-link:hover, .nav-item:hover .nav-link {
-    color: var(--color-accent);
-    background-color: var(--color-bg-warm);
-  }
-
-  .dropdown-chevron {
-    transition: transform 0.2s ease;
-  }
-
-  .nav-item:hover .dropdown-chevron {
-    transform: rotate(180deg);
-  }
-
-  /* Dropdown Menu */
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 320px;
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    padding: 0.75rem;
-    display: none;
-    flex-direction: column;
-    gap: 0.25rem;
-    z-index: 950;
-  }
-
-  .dropdown-menu-sm {
-    min-width: 280px;
-  }
-
-  .nav-item:hover .dropdown-menu {
-    display: flex;
-  }
-
-  .dropdown-header {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-muted);
-    padding: 0.35rem 0.65rem;
-  }
-
-  .dropdown-item {
-    display: flex;
-    flex-direction: column;
-    padding: 0.6rem 0.75rem;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: background-color 0.15s ease;
-  }
-
-  .dropdown-item:hover {
-    background-color: var(--color-bg-warm);
-  }
-
-  .dropdown-item-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
-  .dropdown-item:hover .dropdown-item-title {
-    color: var(--color-accent);
-  }
-
-  .dropdown-item-desc {
-    font-size: 0.78rem;
-    color: var(--color-muted);
-    line-height: 1.4;
-    margin-top: 0.15rem;
-  }
-
-  /* Right: Actions */
+  /* Right: Right Nav + Icon */
   .header-right {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    justify-content: flex-end;
+    gap: 1.75rem;
+    flex: 1;
   }
 
-  .header-link-secondary {
+  .desktop-editorial-nav {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.9rem;
+    gap: 1.5rem;
+  }
+
+  .nav-editorial-link {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
     font-weight: 600;
-    color: var(--color-secondary);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #334155;
     text-decoration: none;
+    transition: color 0.2s ease;
   }
 
-  .header-link-secondary:hover {
-    color: var(--color-accent);
+  .nav-editorial-link:hover {
+    color: #0D0D0D;
   }
 
-  .header-quote-btn {
-    font-size: 0.875rem;
-    font-weight: 700;
+  .editorial-icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0D0D0D;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.25s ease;
   }
 
-  /* Mobile Drawer */
-  .mobile-drawer {
-    display: none;
+  .editorial-icon-btn:hover {
+    background: #0D0D0D;
+    color: #FFFFFF;
+    border-color: #0D0D0D;
+  }
+
+  /* =========================================================================
+     SLIDE-OVER LUXURY DRAWER
+     ========================================================================= */
+  .editorial-drawer {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 320px;
-    max-width: 85vw;
-    background: #FFFFFF;
+    width: 100%;
+    max-width: 440px;
+    background: #0D0D0D;
+    color: #FFFFFF;
     z-index: 1000;
-    box-shadow: var(--shadow-lg);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.35, 1);
+    box-shadow: 20px 0 60px rgba(0, 0, 0, 0.6);
+    display: flex;
     flex-direction: column;
     overflow-y: auto;
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    padding: 1.5rem clamp(1.25rem, 3vw, 2rem);
+    box-sizing: border-box;
   }
 
-  .mobile-drawer.is-open {
+  .editorial-drawer.is-open {
     transform: translateX(0);
   }
 
-  .mobile-drawer-header {
+  .drawer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem;
-    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.75rem;
   }
 
-  .mobile-close-btn {
-    background: none;
-    border: none;
-    color: var(--color-secondary);
-    cursor: pointer;
-    padding: 0.25rem;
-  }
-
-  .mobile-drawer-content {
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .mobile-nav-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .mobile-nav-label {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-muted);
-    margin-bottom: 0.25rem;
-  }
-
-  .mobile-nav-link {
+  .drawer-header .brand-primary-text {
+    color: #FFFFFF;
     font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    padding: 0.4rem 0;
-    text-decoration: none;
   }
 
-  .mobile-drawer-footer {
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
+  .drawer-close-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .drawer-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .drawer-group {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
   }
 
-  .mobile-phone-cta {
+  .drawer-group-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .drawer-nav-item {
     display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease;
+  }
+
+  .drawer-nav-item:hover {
+    transform: translateX(4px);
+  }
+
+  .drawer-item-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin-bottom: 0.2rem;
+  }
+
+  .drawer-item-desc {
+    font-size: 0.78rem;
+    color: #94A3B8;
+  }
+
+  .drawer-link-simple {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #E2E8F0;
+    text-decoration: none;
+    padding: 0.4rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .drawer-link-simple:hover {
+    color: var(--color-gold, #C5A880);
+  }
+
+  .drawer-footer {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .drawer-ethos-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #CBD5E1;
+    margin: 0;
+  }
+
+  .drawer-phone-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-primary);
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    color: #FFFFFF;
     text-decoration: none;
-    padding: 0.75rem;
-    background-color: var(--color-bg-warm);
-    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-phone-btn:hover {
+    background: #FFFFFF;
+    color: #0D0D0D;
   }
 
   @media (max-width: 1024px) {
-    .header-nav {
+    .desktop-editorial-nav {
       display: none;
-    }
-
-    .mobile-menu-toggle {
-      display: block;
-    }
-
-    .mobile-drawer {
-      display: flex;
-    }
-
-    .header-link-secondary {
-      display: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .brand-tagline {
-      display: none;
-    }
-
-    .header-quote-btn {
-      padding: 0 0.85rem;
-      font-size: 0.8rem;
     }
   }
 </style>
 
 <script>
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileCloseBtn = document.getElementById('mobile-close-btn');
-  const mobileDrawer = document.getElementById('mobile-drawer');
+  function setupEditorialDrawer() {
+    const menuBtn = document.getElementById('editorial-menu-btn');
+    const closeBtn = document.getElementById('editorial-close-btn');
+    const drawer = document.getElementById('editorial-drawer');
 
-  if (mobileMenuBtn && mobileDrawer) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileDrawer.classList.add('is-open');
+    if (!drawer) return;
+
+    menuBtn?.addEventListener('click', () => {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     });
-  }
 
-  if (mobileCloseBtn && mobileDrawer) {
-    mobileCloseBtn.addEventListener('click', () => {
-      mobileDrawer.classList.remove('is-open');
-    });
-  }
+    const closeDrawer = () => {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
 
-  // Close drawer on clicking outside
-  document.addEventListener('click', (e) => {
-    if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
-      const target = e.target as HTMLElement;
-      if (!mobileDrawer.contains(target) && !mobileMenuBtn?.contains(target)) {
-        mobileDrawer.classList.remove('is-open');
+    closeBtn?.addEventListener('click', closeDrawer);
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
       }
-    }
-  });
+    });
+
+    // Close when clicking links inside drawer
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeDrawer);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupEditorialDrawer);
+  document.addEventListener('astro:page-load', setupEditorialDrawer);
 </script>

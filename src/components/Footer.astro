@@ -1,137 +1,106 @@
 ---
 import { business } from '../data/business';
-import { Shield, Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
 ---
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Column 1: Brand & About -->
-      <div class="footer-col-brand">
-        <div class="footer-brand">
-          <img
-            src="/images/logo.png"
-            alt="Invisible Safety Logo"
-            class="footer-logo-img"
-            width="44"
-            height="44"
-            loading="lazy"
-          />
-          <span class="footer-brand-name">
-            Invisible<span class="text-blue"> Safety</span>
-          </span>
-        </div>
-        <p class="footer-tagline">
-          {business.subtitle}
-        </p>
-        <p class="footer-subtext">
-          Professional balcony and window safety solutions for residential apartments, villas, and commercial buildings.
+<footer class="editorial-footer">
+  <div class="footer-container">
+    <!-- Brand Statement / Ethos Quote -->
+    <div class="footer-quote-section">
+      <blockquote class="editorial-quote">
+        “The art of architectural protection — securing your sanctuary with quiet elegance.”
+      </blockquote>
+      <div class="quote-divider"></div>
+    </div>
+
+    <!-- Editorial Columns Grid -->
+    <div class="footer-editorial-grid">
+      <!-- Col 1: Brand & Contact Concierge -->
+      <div class="footer-col-main">
+        <span class="footer-brand-title">INVISIBLE SAFETY</span>
+        <p class="footer-brand-desc">
+          India's premier architectural invisible grill and safety net specialist for modern luxury high-rises and private residences.
         </p>
 
-        <!-- Official Address -->
-        <div class="footer-address-box">
-          <div class="footer-address-header">
-            <MapPin size={14} className="text-blue" />
-            <span>Official Office</span>
-          </div>
-          <div class="footer-address-text">
-            {business.address.street}, {business.address.locality}
-          </div>
-          <div class="footer-address-sub">
-            {business.address.city}, {business.address.state} — {business.address.pincode}
-          </div>
+        <div class="footer-concierge-box">
+          <span class="concierge-label">DIRECT CONCIERGE &amp; SURVEY</span>
+          <a href={`tel:${business.phoneRaw}`} class="concierge-link">
+            <Phone size={14} className="concierge-icon" />
+            <span>Call: {business.phone}</span>
+          </a>
+          <a
+            href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20site%20measurement%20and%20consultation.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="concierge-link concierge-whatsapp"
+          >
+            <MessageCircle size={14} className="concierge-icon-green" />
+            <span>WhatsApp: +91 {business.whatsapp.slice(2)}</span>
+          </a>
+          <a href={`mailto:${business.email}`} class="concierge-link">
+            <Mail size={14} className="concierge-icon" />
+            <span>{business.email}</span>
+          </a>
         </div>
       </div>
 
-      <!-- Column 2: Products -->
+      <!-- Col 2: Curated Collections -->
       <div>
-        <h4 class="footer-heading">Products</h4>
-        <ul class="footer-links">
-          <li><a href="/invisible-grills/">Invisible Grills</a></li>
-          <li><a href="/balcony-invisible-grills/">Balcony Invisible Grills</a></li>
-          <li><a href="/window-invisible-grills/">Window Invisible Grills</a></li>
-          <li><a href="/staircase-invisible-grills/">Staircase Grills</a></li>
-          <li><a href="/safety-nets/">Safety Nets</a></li>
-          <li><a href="/pigeon-nets/">Anti-Pigeon Nets</a></li>
-          <li><a href="/bird-spikes/">Bird Spikes</a></li>
-          <li><a href="/construction-safety-nets/">Construction Safety</a></li>
+        <h4 class="editorial-col-heading">COLLECTIONS</h4>
+        <ul class="editorial-footer-links">
+          <li><a href="/invisible-grills/">Balcony SS316 Grills</a></li>
+          <li><a href="/safety-nets/">Balcony Safety Nets</a></li>
+          <li><a href="/window-invisible-grills/">Window Safety Grills</a></li>
+          <li><a href="/staircase-invisible-grills/">Staircase Safety Grills</a></li>
+          <li><a href="/child-safety-nets/">Children Anti-Fall Nets</a></li>
+          <li><a href="/pigeon-nets/">Anti-Pigeon Nets &amp; Spikes</a></li>
+          <li><a href="/sports-nets/">Sports &amp; Cricket Nets</a></li>
+          <li><a href="/construction-safety-nets/">Construction &amp; Duct Nets</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Applications -->
+      <!-- Col 3: Craftsmanship & Tools -->
       <div>
-        <h4 class="footer-heading">Applications</h4>
-        <ul class="footer-links">
-          <li><a href="/balcony-safety/">Balconies</a></li>
-          <li><a href="/window-invisible-grills/">Windows & French Doors</a></li>
-          <li><a href="/staircase-safety-nets/">Staircase Voids</a></li>
-          <li><a href="/child-safety-nets/">Children Safety</a></li>
-          <li><a href="/building-safety-nets/">High-Rise Buildings</a></li>
-          <li><a href="/duct-safety-nets/">Ducts & Utility Shafts</a></li>
-          <li><a href="/terrace-safety-nets/">Terrace Perimeters</a></li>
-          <li><a href="/sports-nets/">Sports Enclosures</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Company & Trust -->
-      <div>
-        <h4 class="footer-heading">Company</h4>
-        <ul class="footer-links">
+        <h4 class="editorial-col-heading">TOOLS &amp; STANDARDS</h4>
+        <ul class="editorial-footer-links">
+          <li><a href="/visualizer/">Interactive 3D Visualizer</a></li>
+          <li><a href="/invisible-grill-cost/">Instant Cost Estimator</a></li>
+          <li><a href="/materials/">Virgin SS316 Metallurgy</a></li>
+          <li><a href="/gallery/">Real Installation Gallery</a></li>
+          <li><a href="/projects/">Residential Portfolio</a></li>
+          <li><a href="/warranty/">10-Year Warranty Terms</a></li>
           <li><a href="/why-invisible-safety/">Why Invisible Safety</a></li>
-          <li><a href="/materials/">Materials & SS316</a></li>
-          <li><a href="/warranty/">Warranty Documentation</a></li>
-          <li><a href="/projects/">Real Installations</a></li>
-          <li><a href="/invisible-grill-cost/">Free Site Quote</a></li>
-          <li><a href="/visualizer/">Visual Comparison Tool</a></li>
-          <li><a href="/faq/">FAQs</a></li>
-          <li><a href="/about/">About Us</a></li>
+          <li><a href="/faq/">Frequently Asked Questions</a></li>
         </ul>
       </div>
 
-      <!-- Column 5: Contact & Service Areas -->
+      <!-- Col 4: Regional Service Hubs -->
       <div>
-        <h4 class="footer-heading">Contact & Service</h4>
-        <div class="footer-contact-list">
-          <div class="contact-entry">
-            <Phone size={15} className="text-blue" />
-            <a href={`tel:${business.phoneRaw}`}>{business.phone}</a>
-          </div>
-          <div class="contact-entry">
-            <MessageCircle size={15} color="#25D366" />
-            <a href={`https://wa.me/${business.whatsapp}`} target="_blank" rel="noopener noreferrer" style="color: #25D366;">
-              WhatsApp Support
-            </a>
-          </div>
-          <div class="contact-entry">
-            <Mail size={15} className="text-blue" />
-            <a href={`mailto:${business.email}`}>{business.email}</a>
-          </div>
-          <div class="contact-entry">
-            <Clock size={15} className="text-blue" />
-            <span>{business.hours}</span>
-          </div>
-        </div>
+        <h4 class="editorial-col-heading">SERVICE REGIONS</h4>
+        <ul class="editorial-footer-links">
+          <li><a href="/locations/hyderabad/">Hyderabad &amp; Secunderabad</a></li>
+          <li><a href="/locations/visakhapatnam/">Visakhapatnam (Vizag)</a></li>
+          <li><a href="/locations/vijayawada/">Vijayawada</a></li>
+          <li><a href="/locations/amaravati/">Amaravati Capital Region</a></li>
+          <li><a href="/locations/">All Regional Hubs</a></li>
+        </ul>
 
-        <div class="footer-service-regions">
-          <div class="service-regions-label">SERVICE REGIONS:</div>
-          <div class="service-regions-links">
-            <a href="/locations/visakhapatnam/">Visakhapatnam (Vizag)</a>
-            <a href="/locations/hyderabad/">Hyderabad &amp; Secunderabad</a>
-            <a href="/locations/vijayawada/">Vijayawada</a>
-            <a href="/locations/amaravati/">Amaravati Capital Region</a>
-          </div>
+        <div class="hub-note">
+          <span>Doorstep laser measurement across all gated societies and high-rise apartments.</span>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-      <div class="footer-copyright">
-        © {new Date().getFullYear()} {business.name}. All rights reserved. Professional home safety installations.
+    <!-- Editorial Bottom Bar -->
+    <div class="footer-bottom-editorial">
+      <div class="copyright-text">
+        &copy; {new Date().getFullYear()} Invisible Safety Architectural Home Safety Solutions. All rights reserved.
       </div>
-      <div class="footer-bottom-links">
-        <a href="/warranty/">Warranty Terms</a>
-        <a href="/contact/">Contact Office</a>
+      <div class="footer-legal-links">
+        <a href="/warranty/">Warranty Guarantee</a>
+        <span>·</span>
+        <a href="/contact/">Concierge</a>
+        <span>·</span>
         <a href="/faq/">Knowledge Base</a>
       </div>
     </div>
@@ -139,221 +108,208 @@ import { Shield, Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from 'l
 </footer>
 
 <style>
-  .site-footer {
-    background: #0F172A;
-    color: #94A3B8;
-    border-top: 1px solid #1E293B;
-    padding-top: 4.5rem;
-    padding-bottom: 2.5rem;
-    margin-top: auto;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1fr 1.3fr;
-    gap: 2.5rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin-bottom: 1rem;
-  }
-
-  .footer-logo-img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
-  }
-
-  .footer-brand-name {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 800;
+  /* =========================================================================
+     EDITORIAL LUXURY FOOTER
+     ========================================================================= */
+  .editorial-footer {
+    background-color: #0D0D0D;
     color: #FFFFFF;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: clamp(3rem, 6vw, 5rem) 0 2.5rem 0;
+    position: relative;
+    z-index: 10;
   }
 
-  .text-blue {
-    color: #38BDF8;
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    box-sizing: border-box;
   }
 
-  .footer-tagline {
-    font-size: 0.88rem;
-    color: #E2E8F0;
+  /* Ethos Quote Section */
+  .footer-quote-section {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem) auto;
+  }
+
+  .editorial-quote {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.2vw, 1.75rem);
     line-height: 1.5;
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-  }
-
-  .footer-subtext {
-    font-size: 0.82rem;
-    color: #94A3B8;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-  }
-
-  .footer-address-box {
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid #334155;
-    border-radius: 8px;
-    padding: 0.85rem 1rem;
-    font-size: 0.82rem;
-  }
-
-  .footer-address-header {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 0.35rem;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-  }
-
-  .footer-address-text {
-    color: #E2E8F0;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .footer-address-sub {
-    color: #94A3B8;
-  }
-
-  .footer-heading {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: 1.25rem;
+    color: #F8FAFC;
+    margin: 0 0 1.5rem 0;
     letter-spacing: -0.01em;
   }
 
-  .footer-links {
+  .quote-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--color-gold, #C5A880);
+    margin: 0 auto;
+  }
+
+  /* Grid Layout */
+  .footer-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 960px) {
+    .footer-editorial-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .footer-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Main Column */
+  .footer-col-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-brand-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  .footer-brand-desc {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 320px;
+  }
+
+  .footer-concierge-box {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .concierge-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+  }
+
+  .concierge-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .concierge-link:hover {
+    color: #FFFFFF;
+  }
+
+  .concierge-icon {
+    color: var(--color-gold, #C5A880);
+    flex-shrink: 0;
+  }
+
+  .concierge-icon-green {
+    color: #4ADE80;
+    flex-shrink: 0;
+  }
+
+  /* Headings & Links */
+  .editorial-col-heading {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .editorial-footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
-    font-size: 0.88rem;
   }
 
-  .footer-links a {
+  .editorial-footer-links a {
     color: #94A3B8;
     text-decoration: none;
-    transition: color 0.15s ease;
-  }
-
-  .footer-links a:hover {
-    color: #FFFFFF;
-  }
-
-  .footer-contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
     font-size: 0.85rem;
-    margin-bottom: 1.5rem;
+    font-weight: 400;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
   }
 
-  .contact-entry {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .contact-entry a {
-    color: #E2E8F0;
-    text-decoration: none;
-  }
-
-  .contact-entry a:hover {
+  .editorial-footer-links a:hover {
     color: #FFFFFF;
+    transform: translateX(2px);
   }
 
-  .footer-service-regions {
-    border-top: 1px solid #1E293B;
-    padding-top: 1rem;
-  }
-
-  .service-regions-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+  .hub-note {
+    margin-top: 1.25rem;
+    font-size: 0.76rem;
     color: #64748B;
-    margin-bottom: 0.5rem;
+    line-height: 1.5;
   }
 
-  .service-regions-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    font-size: 0.82rem;
-  }
-
-  .service-regions-links a {
-    color: #CBD5E1;
-    text-decoration: none;
-  }
-
-  .service-regions-links a:hover {
-    color: #38BDF8;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid #1E293B;
+  /* Bottom Bar */
+  .footer-bottom-editorial {
     padding-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
-    font-size: 0.82rem;
-  }
-
-  .footer-copyright {
+    font-size: 0.78rem;
     color: #64748B;
   }
 
-  .footer-bottom-links {
+  .footer-legal-links {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .footer-bottom-links a {
-    color: #64748B;
-    text-decoration: none;
-  }
-
-  .footer-bottom-links a:hover {
+  .footer-legal-links a {
     color: #94A3B8;
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
 
-  @media (max-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .footer-col-brand {
-      grid-column: 1 / -1;
-    }
+  .footer-legal-links a:hover {
+    color: #FFFFFF;
   }
 
   @media (max-width: 640px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .footer-bottom {
+    .footer-bottom-editorial {
       flex-direction: column;
-      align-items: flex-start;
+      text-align: center;
     }
   }
 </style>

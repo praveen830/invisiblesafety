@@ -4,8 +4,15 @@
    ========================================================================== */
 
 :root {
+  /* Editorial Luxury Palette */
+  --color-cream: #F9F8F6;
+  --color-cream-soft: #F4F3EF;
+  --color-dark-luxe: #0D0D0D;
+  --color-dark-card: #141414;
+  --color-gold: #C5A880;
+
   /* Colors */
-  --color-primary: #0F172A;       /* Deep Navy / Charcoal */
+  --color-primary: #0D0D0D;       /* Deep Luxury Charcoal / Black */
   --color-primary-light: #1E293B; /* Slate Navy */
   --color-secondary: #334155;     /* Slate */
   --color-body: #475569;          /* Neutral Body Text */
@@ -14,27 +21,29 @@
   --color-border-light: #F1F5F9;  /* Soft divider */
   
   --color-bg: #FFFFFF;            /* Main Page Background */
-  --color-bg-warm: #F8FAFC;       /* Warm Neutral Section Background */
+  --color-bg-warm: #F9F8F6;       /* Editorial Light Cream Background */
   --color-bg-card: #FFFFFF;       /* Card Background */
   
-  --color-accent: #2563EB;        /* Professional Brand Blue */
+  --color-accent: #2563EB;        /* Brand Blue */
   --color-accent-hover: #1D4ED8;  /* Blue Hover */
   --color-accent-light: #EFF6FF;  /* Light Blue Tint */
   
-  --color-success: #16A34A;       /* Verified / Safe Muted Green */
+  --color-success: #16A34A;       /* Green */
   --color-success-light: #F0FDF4; /* Light Green Tint */
-  --color-warning: #D97706;       /* Amber / Attention */
+  --color-warning: #D97706;       /* Amber */
   
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-brand: 'Cinzel', 'Playfair Display', serif;
   
   /* Layout & Spacing */
   --container-max-width: 1240px;
   --section-padding-desktop: 88px 0;
   --section-padding-mobile: 56px 0;
-  --radius-sm: 6px;
-  --radius-md: 10px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
   --radius-lg: 14px;
   --radius-xl: 18px;
   
@@ -567,6 +576,11 @@ img {
     gap: 1.15rem;
   }
 
+  .cost-estimator-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
   .step-number {
     width: 38px;
     height: 38px;
@@ -592,58 +606,157 @@ img {
   }
 
   .floating-whatsapp {
-    bottom: 74px; /* Above mobile sticky bar */
-    padding: 10px;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    justify-content: center;
-  }
-
-  .floating-whatsapp span {
-    display: none;
-  }
-
-  .mobile-bottom-bar {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: #FFFFFF;
-    border-top: 1px solid var(--color-border);
-    z-index: 995;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .mobile-bottom-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .mobile-bottom-btn-call {
-    color: var(--color-primary);
-    border-right: 1px solid var(--color-border);
-  }
-
-  .mobile-bottom-btn-whatsapp {
-    color: #16A34A;
-    border-right: 1px solid var(--color-border);
-  }
-
-  .mobile-bottom-btn-quote {
-    background-color: var(--color-accent);
-    color: #FFFFFF !important;
+    display: none !important;
   }
 
   body {
-    padding-bottom: 68px;
+    padding-bottom: 0;
   }
+}
+
+/* ==========================================================================
+   ULTRA-LUXURY ARCHITECTURAL EDITORIAL DESIGN SYSTEM
+   Inspired by high-end interior magazines, Apple, and luxury real estate
+   ========================================================================== */
+
+/* Editorial Body */
+.editorial-body {
+  background-color: var(--color-dark-luxe);
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Frosted Glass Outline & Solid Buttons */
+.btn-editorial-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 10px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.35, 1);
+  cursor: pointer;
+}
+
+.btn-editorial-outline:hover {
+  background: #FFFFFF;
+  color: #0D0D0D;
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.btn-editorial-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 10px 28px;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  color: #0D0D0D;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.35, 1);
+  cursor: pointer;
+}
+
+.btn-editorial-solid:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Minimal Frosted Circular Floating Action Buttons (Pinned to bottom corners) */
+.editorial-floating-actions {
+  position: fixed;
+  bottom: clamp(18px, 3vh, 28px);
+  left: 0;
+  right: 0;
+  padding: 0 clamp(16px, 3.5vw, 32px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 990;
+}
+
+.editorial-floating-btn {
+  pointer-events: auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+.editorial-floating-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  background: rgba(28, 28, 28, 0.85);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.editorial-floating-btn.btn-whatsapp {
+  color: #4ADE80;
+  border-color: rgba(74, 222, 128, 0.35);
+}
+
+.editorial-floating-btn.btn-call {
+  color: #FFFFFF;
+}
+
+/* Cinematic Full-Bleed Card & Scrim Overlay */
+.editorial-fullbleed-card {
+  position: relative;
+  width: 100%;
+  min-height: clamp(580px, 88vh, 100dvh);
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.editorial-scrim-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.5) 65%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.text-contrast-highlight {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(0, 0, 0, 0.6);
 }

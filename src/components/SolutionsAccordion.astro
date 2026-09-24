@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, ChevronDown, Sparkles, ShieldCheck } from 'lucide-react';
+import { ArrowRight, X, ShieldCheck, Check, Sparkles } from 'lucide-react';
 
 interface Props {
   className?: string;
@@ -8,943 +8,610 @@ interface Props {
 
 const { className = "", isStandalone = false } = Astro.props;
 
-const solutionCategories = [
+const collections = [
   {
-    id: "invisible-grills",
-    categoryLabel: "CATEGORY",
-    title: "INVISIBLE GRILLS",
-    titleLines: ["INVISIBLE", "GRILLS"],
-    badge: "Flagship SS316 · 400+ kgf",
-    pricing: "with custom site quote",
-    warranty: "10-Year Direct Warranty",
-    bgImage: "/images/hero-balcony.webp",
-    mainLink: "/invisible-grills/",
-    ctaLabel: "EXPLORE ALL INVISIBLE GRILLS",
-    subLinks: [
+    id: "invisible-threshold",
+    eyebrow: "THE ATELIER",
+    title: "THE INVISIBLE THRESHOLD",
+    subtitle: "Balcony & Window Invisible Grills",
+    image: "/images/hero-balcony.webp",
+    link: "/invisible-grills/",
+    specs: {
+      material: "Virgin SS316 Marine-Grade Stainless Steel",
+      tensileLoad: "400+ kgf Breaking Strength per Cable",
+      spacing: "50mm Child-Safe or 75mm Expansive View",
+      warranty: "10-Year Direct Structural Warranty"
+    },
+    solutions: [
       { name: "Balcony Invisible Grills", href: "/balcony-invisible-grills/" },
-      { name: "Staircase Invisible Grills", href: "/staircase-invisible-grills/" },
-      { name: "Windows Invisible Grills", href: "/window-invisible-grills/" },
-      { name: "Child Safety Invisible Grills", href: "/child-safety-invisible-grills/" },
-      { name: "Balcony Cost Estimator", href: "/invisible-grill-cost/" }
+      { name: "French Window Invisible Grills", href: "/window-invisible-grills/" },
+      { name: "Duplex Staircase Tension Grills", href: "/staircase-invisible-grills/" },
+      { name: "Child-Safe Calibrated Spacing", href: "/child-safety-invisible-grills/" }
     ]
   },
   {
-    id: "core-safety-nets",
-    categoryLabel: "CATEGORY",
-    title: "CORE SAFETY NETS",
-    titleLines: ["CORE SAFETY", "NETS"],
-    badge: "Apartment Standard",
-    pricing: "with custom site quote",
-    warranty: "3-Year Certified Warranty",
-    bgImage: "/images/safety-net-balcony.webp",
-    mainLink: "/safety-nets/",
-    ctaLabel: "EXPLORE ALL SAFETY NETS",
-    subLinks: [
-      { name: "Balcony Safety Nets", href: "/balcony-safety/" },
-      { name: "Children Safety Nets", href: "/child-safety-nets/" },
-      { name: "Staircase Safety Nets", href: "/staircase-safety-nets/" },
-      { name: "Building Fall Perimeter", href: "/building-safety-nets/" }
+    id: "boundless-horizons",
+    eyebrow: "CORE SAFETY NETS",
+    title: "BOUNDLESS HORIZONS",
+    subtitle: "Living Spaces & Children Safety Nets",
+    image: "/images/safety-net-balcony.webp",
+    link: "/safety-nets/",
+    specs: {
+      material: "High-Density Virgin UV-Treated Polymer",
+      tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
+      durability: "Weatherproof Monofilament (IS Standard)",
+      warranty: "3 to 5-Year Certified Replacement Guarantee"
+    },
+    solutions: [
+      { name: "Apartment Balcony Safety Nets", href: "/balcony-safety/" },
+      { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
+      { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
+      { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
     ]
   },
   {
-    id: "construction-industrial",
-    categoryLabel: "CATEGORY",
-    title: "CONSTRUCTION & INDUSTRIAL",
-    titleLines: ["CONSTRUCTION", "& INDUSTRIAL"],
-    badge: "Heavy-Duty Site Grade",
-    pricing: "with custom site quote",
-    warranty: "3 to 5-Year Grade",
-    bgImage: "/images/construction-safety-net.jpg",
-    mainLink: "/duct-safety-nets/",
-    ctaLabel: "EXPLORE INDUSTRIAL NETS",
-    subLinks: [
-      { name: "Construction Safety Nets", href: "/construction-safety-nets/" },
-      { name: "Industrial Debris Nets", href: "/industrial-safety-nets/" },
-      { name: "Terrace Top Nets", href: "/terrace-safety-nets/" },
-      { name: "Car Parking Safety Nets", href: "/car-parking-safety-nets/" }
+    id: "structural-architecture",
+    eyebrow: "STRUCTURAL ARCHITECTURE",
+    title: "DEBRIS & FALL CONTAINMENT",
+    subtitle: "Heavy-Duty Construction & Void Nets",
+    image: "/images/construction-safety-net.jpg",
+    link: "/construction-safety-nets/",
+    specs: {
+      material: "Heavy-Ply Braided Nylon / HDPE Industrial Grade",
+      tensileLoad: "Industrial Fall Arrest & Debris Containment",
+      compliance: "IS 3521 / Industrial Safety Harness Anchoring",
+      warranty: "Commercial Site-Grade Certification"
+    },
+    solutions: [
+      { name: "Construction Site Fall Nets", href: "/construction-safety-nets/" },
+      { name: "Building Duct Shaft Enclosures", href: "/duct-safety-nets/" },
+      { name: "Industrial Debris Containment", href: "/industrial-safety-nets/" },
+      { name: "Car Parking Perimeter Nets", href: "/car-parking-safety-nets/" }
     ]
   },
   {
-    id: "animal-bird-protection",
-    categoryLabel: "CATEGORY",
-    title: "ANIMAL & BIRD PROTECTION",
-    titleLines: ["ANIMAL & BIRD", "PROTECTION"],
-    badge: "100% Humane Exclusion",
-    pricing: "with custom site quote",
-    warranty: "UV-Resistant Shield",
-    bgImage: "/images/pigeon-net.webp",
-    mainLink: "/animals-birds-safety-nets/",
-    ctaLabel: "EXPLORE BIRD & ANIMAL NETS",
-    subLinks: [
-      { name: "Anti-Pigeon Nets", href: "/pigeon-nets/" },
-      { name: "Stainless Steel Bird Spikes", href: "/bird-spikes/" },
-      { name: "Monkey Safety Nets", href: "/monkey-safety-nets/" },
-      { name: "Mosquito Safety Nets", href: "/mosquito-safety-nets/" }
+    id: "winged-sanctuary",
+    eyebrow: "ANIMAL & BIRD PROTECTION",
+    title: "THE WINGED SANCTUARY",
+    subtitle: "Pigeon Nets & Stainless Steel Bird Spikes",
+    image: "/images/pigeon-net.webp",
+    link: "/pigeon-nets/",
+    specs: {
+      material: "0.7mm Translucent UV-Stabilized Monofilament",
+      features: "100% Humane Exclusion, Zero Silhouette Blockage",
+      durability: "Sun-Resistant Anti-Rot Polymer Spikes",
+      warranty: "3-Year Clean Living Warranty"
+    },
+    solutions: [
+      { name: "Translucent Anti-Pigeon Netting", href: "/pigeon-nets/" },
+      { name: "SS304 Polycarbonate Bird Spikes", href: "/bird-spikes/" },
+      { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/" },
+      { name: "Fine-Mesh Insect & Mosquito Nets", href: "/mosquito-safety-nets/" }
     ]
   },
   {
-    id: "specialty-solutions",
-    categoryLabel: "CATEGORY",
-    title: "SPECIALTY SOLUTIONS",
-    titleLines: ["SPECIALTY", "SOLUTIONS"],
-    badge: "Recreation & Utilities",
-    pricing: "with custom site quote",
-    warranty: "High-Impact Tested",
-    bgImage: "/images/swimming-pool-net.jpg",
-    mainLink: "/sports-nets/",
-    ctaLabel: "EXPLORE SPECIALTY SOLUTIONS",
-    subLinks: [
-      { name: "Sports Practice Nets", href: "/sports-practice-nets/" },
-      { name: "Coconut Palm Nets", href: "/coconut-safety-nets/" },
-      { name: "Swimming Pool Nets", href: "/swimming-pool-nets/" },
-      { name: "Balcony Cloth Drying Hangers", href: "/cloth-drying-hangers/" }
+    id: "aperture-collection",
+    eyebrow: "SPECIALTY SOLUTIONS",
+    title: "THE APERTURE COLLECTION",
+    subtitle: "Sports Practice Nets & Utilities",
+    image: "/images/sports-nets.webp",
+    link: "/sports-nets/",
+    specs: {
+      material: "Impact-Absorbing Multi-Strand Polyethylene",
+      testing: "Cricket Ball & High-Velocity Impact Tested",
+      installation: "Ceiling Pulley & Tension-Cable Mounted",
+      warranty: "Long-Life High-Tension Guarantee"
+    },
+    solutions: [
+      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
+      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
+      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
+      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
     ]
   }
 ];
 ---
 
-<div
-  class={`solutions-showcase-container ${className} ${isStandalone ? 'is-standalone' : ''}`}
-  id="solutions-interactive-showcase"
-  data-active-index="0"
->
-  <!-- =========================================================================
-       DESKTOP HORIZONTAL ACCORDION (>= 900px)
-       ========================================================================= -->
-  <div class="desktop-accordion" role="tablist" aria-label="Architectural Safety Systems Interactive Explorer">
-    {solutionCategories.map((item, index) => (
-      <div
-        class={`desktop-panel ${index === 0 ? 'is-active' : ''}`}
-        data-index={index}
-        role="tab"
-        aria-selected={index === 0 ? "true" : "false"}
-        tabindex="0"
-      >
-        <!-- Background Image with Zoom -->
-        <div
-          class="panel-bg"
-          style={`background-image: url('${item.bgImage}');`}
-          aria-hidden="true"
-        ></div>
+<div class={`editorial-collections-feed ${className}`} id="collections-showcase">
+  {collections.map((item, index) => (
+    <article
+      class="editorial-snap-card"
+      id={`collection-${item.id}`}
+      data-id={item.id}
+    >
+      <!-- Edge-to-Edge Full-Bleed Photograph -->
+      <div class="card-bg-wrap">
+        <img
+          src={item.image}
+          alt={`${item.title} - ${item.subtitle}`}
+          class="card-bg-image"
+          loading="lazy"
+          width="1920"
+          height="1080"
+        />
+        <!-- Ambient Cinematic Bottom Scrim Overlay -->
+        <div class="editorial-scrim-overlay"></div>
+      </div>
 
-        <!-- Vignette & Tint Overlays -->
-        <div class="panel-overlay"></div>
-        <div class="panel-hover-overlay"></div>
+      <!-- Center-Bottom Content Box -->
+      <div class="card-content-anchor">
+        <div class="card-text-stack">
+          <!-- Overline Eyebrow -->
+          <span class="card-eyebrow">
+            {item.eyebrow}
+          </span>
 
-        <!-- Content Area -->
-        <div class="panel-content">
-          <!-- Header Area: Category Eyebrow & Title -->
-          <div class="panel-header">
-            <span class="panel-eyebrow">{item.categoryLabel}</span>
-            <h3 class="panel-title">
-              {item.titleLines.map((line, i) => (
-                <span class="title-line">{line}{i < item.titleLines.length - 1 ? ' ' : ''}</span>
-              ))}
-            </h3>
-            <span class="collapsed-pricing-badge">{item.pricing}</span>
-          </div>
+          <!-- High-End Luxury Title -->
+          <h2 class="card-title">
+            {item.title}
+          </h2>
 
-          <!-- Middle Area: Sub-Categories & Specs (Active state) -->
-          <div class="panel-sublinks-wrapper">
-            <div class="panel-specs-badge">
-              <span class="spec-rate">{item.pricing}</span>
-              <span class="spec-dot">•</span>
-              <span class="spec-warranty">{item.warranty}</span>
-            </div>
+          <!-- 1-Line Micro-Copy Subtitle -->
+          <p class="card-subtitle">
+            {item.subtitle}
+          </p>
 
-            <ul class="panel-sublinks" aria-label={`${item.title} Sub-categories`}>
-              {item.subLinks.map((sub) => (
-                <li>
-                  <a href={sub.href} class="sublink-item">
-                    <span>{sub.name}</span>
-                    <ArrowRight size={13} className="sublink-arrow" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <!-- Bottom Area: View Category CTA Button -->
-          <div class="panel-footer">
-            <a href={item.mainLink} class="panel-cta-btn" aria-label={`Explore all ${item.title}`}>
-              <span class="cta-label">VIEW CATEGORY</span>
-              <ArrowRight size={14} className="cta-icon" />
+          <!-- Minimal Outline CTA Buttons -->
+          <div class="card-action-row">
+            <a href={item.link} class="btn-editorial-solid">
+              <span>EXPLORE</span>
             </a>
+
+            <button
+              type="button"
+              class="btn-editorial-outline trigger-specs-modal"
+              data-collection-id={item.id}
+              aria-label={`View craftsmanship details for ${item.title}`}
+            >
+              <span>SPECIFICATIONS</span>
+            </button>
           </div>
         </div>
       </div>
-    ))}
-  </div>
+    </article>
+  ))}
 
   <!-- =========================================================================
-       MOBILE & TABLET TOUCH ACCORDION (< 900px)
+       EDITORIAL CRAFTSMANSHIP & SPECIFICATIONS BOTTOM-SHEET MODAL
+       Keeps main photography clean while providing instant technical depth on demand
        ========================================================================= -->
-  <div class="mobile-accordion" role="region" aria-label="Architectural Safety Systems Mobile List">
-    {solutionCategories.map((item, index) => (
-      <div
-        class={`mobile-card ${index === 0 ? 'is-active' : ''}`}
-        data-index={index}
-        id={`mobile-card-${item.id}`}
-      >
-        <!-- Background Image with Gradient -->
-        <div
-          class="mobile-card-bg"
-          style={`background-image: url('${item.bgImage}');`}
-          aria-hidden="true"
-        ></div>
-        <div class="mobile-card-overlay"></div>
-
-        <!-- Mobile Header (Touch Target Button) -->
-        <button
-          type="button"
-          class="mobile-card-trigger"
-          aria-expanded={index === 0 ? "true" : "false"}
-          aria-controls={`mobile-content-${item.id}`}
-        >
-          <div class="trigger-left">
-            <span class="mobile-eyebrow">{item.categoryLabel}</span>
-            <h3 class="mobile-title">{item.title}</h3>
-            <div class="mobile-badge-row">
-              <span class="mobile-pill-price">{item.pricing}</span>
-              <span class="mobile-pill-count">{item.subLinks.length} Solutions</span>
-            </div>
-          </div>
-          <div class="trigger-right">
-            <div class="chevron-circle">
-              <ChevronDown size={18} className="mobile-chevron" />
-            </div>
-          </div>
+  <div class="specs-modal-backdrop" id="specs-modal-backdrop" aria-hidden="true">
+    <div class="specs-sheet" id="specs-sheet">
+      <div class="sheet-header">
+        <div>
+          <span class="sheet-eyebrow" id="modal-eyebrow">CRAFTSMANSHIP &amp; METALLURGY</span>
+          <h3 class="sheet-title" id="modal-title">THE INVISIBLE THRESHOLD</h3>
+        </div>
+        <button type="button" class="sheet-close-btn" id="modal-close-btn" aria-label="Close specifications">
+          <X size={20} />
         </button>
+      </div>
 
-        <!-- Collapsible Content Drawer -->
-        <div
-          class="mobile-card-drawer"
-          id={`mobile-content-${item.id}`}
-        >
-          <div class="mobile-card-drawer-inner">
-            <!-- Warranty & Quality Pill -->
-            <div class="mobile-drawer-spec">
-              <ShieldCheck size={14} color="#38BDF8" />
-              <span>{item.warranty} · {item.badge}</span>
-            </div>
+      <div class="sheet-body">
+        <div class="specs-grid" id="modal-specs-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
 
-            <!-- Sublinks Touch Target Tiles -->
-            <div class="mobile-sublinks-list">
-              {item.subLinks.map((sub) => (
-                <a href={sub.href} class="mobile-sublink-btn">
-                  <span class="sublink-text">{sub.name}</span>
-                  <ArrowRight size={15} className="mobile-sublink-arrow" />
-                </a>
-              ))}
-            </div>
-
-            <!-- Main Category CTA -->
-            <a href={item.mainLink} class="mobile-main-cta">
-              <span>{item.ctaLabel}</span>
-              <ArrowRight size={16} />
-            </a>
+        <div class="sheet-solutions-block">
+          <span class="sheet-solutions-title">AVAILABLE CONFIGURATIONS</span>
+          <div class="sheet-solutions-list" id="modal-solutions-list">
+            <!-- Populated dynamically via JS -->
           </div>
         </div>
+
+        <div class="sheet-footer">
+          <a href="/contact/#quote" class="btn-editorial-solid" style="width: 100%; text-align: center;">
+            <span>SCHEDULE COMPLIMENTARY SITE SURVEY</span>
+          </a>
+        </div>
       </div>
-    ))}
+    </div>
   </div>
 </div>
 
 <style>
   /* =========================================================================
-     ROOT & WRAPPER STYLING
+     EDITORIAL COLLECTIONS FEED (SNAP STREAM)
      ========================================================================= */
-  .solutions-showcase-container {
+  .editorial-collections-feed {
     width: 100%;
-    margin: 0 auto;
     position: relative;
-    user-select: none;
+    background: #0D0D0D;
+    scroll-snap-type: y proximity;
   }
 
-  /* =========================================================================
-     DESKTOP LAYOUT (>= 900px)
-     ========================================================================= */
-  .desktop-accordion {
-    display: none;
+  .editorial-snap-card {
+    position: relative;
+    width: 100%;
+    min-height: clamp(560px, 86vh, 100dvh);
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .mobile-accordion {
+  .card-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .card-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1);
+  }
+
+  .editorial-snap-card:hover .card-bg-image {
+    transform: scale(1.04);
+  }
+
+  /* Scrim Overlay: Gradient keeps bottom 40% deep & legible */
+  .editorial-scrim-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.02) 30%,
+      rgba(0, 0, 0, 0.3) 55%,
+      rgba(0, 0, 0, 0.72) 80%,
+      rgba(0, 0, 0, 0.92) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Content Anchor */
+  .card-content-anchor {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card-text-stack {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    align-items: center;
+    max-width: 780px;
     width: 100%;
   }
 
-  @media (min-width: 900px) {
-    .desktop-accordion {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 630px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0B1120;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.1);
-      position: relative;
+  .card-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #E2E8F0;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+  }
+
+  .card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.6rem, 3.8vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 4px 28px rgba(0, 0, 0, 0.75);
+    margin: 0 0 0.65rem 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .card-subtitle {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin: 0 0 1.85rem 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+  }
+
+  .card-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .card-title {
+      font-size: clamp(1.35rem, 5.8vw, 1.95rem);
+      letter-spacing: 0.05em;
     }
 
-    .mobile-accordion {
-      display: none;
-    }
-
-    /* Individual Panel */
-    .desktop-panel {
-      position: relative;
-      flex: 0.85;
-      min-width: 120px;
-      height: 100%;
-      overflow: hidden;
-      cursor: pointer;
-      border-right: 1px solid rgba(255, 255, 255, 0.12);
-      transition: flex 0.65s cubic-bezier(0.25, 1, 0.35, 1), filter 0.4s ease;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .desktop-panel:last-child {
-      border-right: none;
-    }
-
-    /* ACTIVE PANEL */
-    .desktop-panel.is-active {
-      flex: 3.5 !important;
-      cursor: default;
-    }
-
-    /* Background Image & Zoom */
-    .panel-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transform: scale(1.02);
-      transition: transform 0.85s cubic-bezier(0.25, 1, 0.35, 1);
-      will-change: transform;
-      z-index: 1;
-    }
-
-    .desktop-panel.is-active .panel-bg {
-      transform: scale(1.08);
-    }
-
-    /* Vignette Overlays */
-    .panel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(15, 23, 42, 0.88) 0%,
-        rgba(15, 23, 42, 0.45) 40%,
-        rgba(15, 23, 42, 0.94) 100%
-      );
-      z-index: 2;
-      transition: background 0.5s ease;
-    }
-
-    .desktop-panel.is-active .panel-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(15, 23, 42, 0.82) 0%,
-        rgba(15, 23, 42, 0.25) 45%,
-        rgba(15, 23, 42, 0.9) 100%
-      );
-    }
-
-    .panel-hover-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 3;
-      opacity: 0.7;
-      transition: opacity 0.5s ease;
-    }
-
-    .desktop-panel:hover .panel-hover-overlay,
-    .desktop-panel.is-active .panel-hover-overlay {
-      opacity: 0;
-    }
-
-    /* Content Area */
-    .panel-content {
-      position: relative;
-      z-index: 4;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.8rem 1.4rem 1.4rem 1.4rem;
-      box-sizing: border-box;
-      color: #FFFFFF;
-    }
-
-    /* Header Section */
-    .panel-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .panel-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: #F97316;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
-    }
-
-    .panel-title {
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 0.38em;
-      row-gap: 0.1em;
-      font-family: var(--font-heading, 'Outfit', sans-serif);
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      line-height: 1.25;
-      color: #FFFFFF;
-      text-transform: uppercase;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-      transition: font-size 0.4s ease, color 0.3s ease;
-    }
-
-    .desktop-panel.is-active .panel-title {
-      font-size: 1.65rem;
-      color: #FFFFFF;
-    }
-
-    .title-line {
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    .collapsed-pricing-badge {
-      display: inline-block;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #38BDF8;
-      margin-top: 0.2rem;
-      transition: opacity 0.3s ease;
-    }
-
-    .desktop-panel.is-active .collapsed-pricing-badge {
-      display: none;
-    }
-
-    /* Expandable Sublinks Container */
-    .panel-sublinks-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      opacity: 0;
-      transform: translateY(14px);
-      pointer-events: none;
-      transition: opacity 0.45s cubic-bezier(0.25, 1, 0.35, 1) 0.12s,
-                  transform 0.45s cubic-bezier(0.25, 1, 0.35, 1) 0.12s;
-      margin: auto 0;
-      max-width: 440px;
-    }
-
-    .desktop-panel.is-active .panel-sublinks-wrapper {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .panel-specs-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(2, 132, 199, 0.25);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #BAE6FD;
-      width: fit-content;
-    }
-
-    .spec-rate {
-      color: #38BDF8;
-      font-weight: 800;
-    }
-
-    .spec-dot {
-      opacity: 0.5;
-    }
-
-    .panel-sublinks {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .sublink-item {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      color: #F8FAFC;
+    .card-subtitle {
       font-size: 0.92rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 0.48rem 0.85rem;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: all 0.25s ease;
+      margin-bottom: 1.35rem;
+    }
+
+    .card-action-row {
+      flex-direction: column;
       width: 100%;
-      box-sizing: border-box;
+      max-width: 290px;
+      gap: 0.65rem;
     }
 
-    .sublink-item:hover {
-      color: #FFFFFF;
-      background: rgba(2, 132, 199, 0.35);
-      border-color: rgba(56, 189, 248, 0.55);
-      transform: translateX(4px);
-    }
-
-    .sublink-arrow {
-      color: #38BDF8;
-      transition: transform 0.25s ease;
-      flex-shrink: 0;
-    }
-
-    .sublink-item:hover .sublink-arrow {
-      transform: translateX(3px);
-    }
-
-    /* Footer Area */
-    .panel-footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding-top: 0.6rem;
-    }
-
-    .panel-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.76rem;
-      font-weight: 800;
-      color: #CBD5E1;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(15, 23, 42, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    .desktop-panel.is-active .panel-cta-btn {
-      background: #0284C7;
-      border-color: #38BDF8;
-      color: #FFFFFF;
-      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.45);
-    }
-
-    .desktop-panel.is-active .panel-cta-btn:hover {
-      background: #0369A1;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(2, 132, 199, 0.6);
-    }
-
-    .panel-cta-btn .cta-icon {
-      transition: transform 0.3s ease;
-    }
-
-    .panel-cta-btn:hover .cta-icon {
-      transform: translateX(4px);
-    }
-
-    /* Keyboard focus indicator */
-    .desktop-panel:focus-visible {
-      outline: 2px solid #38BDF8;
-      outline-offset: -2px;
+    .card-action-row a,
+    .card-action-row button {
+      width: 100%;
+      justify-content: center;
     }
   }
 
   /* =========================================================================
-     MOBILE & TABLET ACCORDION (< 900px)
+     CRAFTSMANSHIP & SPECIFICATIONS BOTTOM-SHEET MODAL
      ========================================================================= */
-  @media (max-width: 899px) {
-    .mobile-accordion {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      width: 100%;
-    }
+  .specs-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1050;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
 
-    .mobile-card {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: #0B1120;
-      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+  .specs-modal-backdrop.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-    .mobile-card.is-active {
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 12px 32px -4px rgba(2, 132, 199, 0.25);
-    }
+  .specs-sheet {
+    width: 100%;
+    max-width: 640px;
+    background: #111111;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px 16px 0 0;
+    padding: clamp(1.5rem, 3.5vw, 2.25rem);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.35, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    color: #FFFFFF;
+  }
 
-    /* Background image for mobile card */
-    .mobile-card-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: 1;
-      opacity: 0.4;
-      transform: scale(1.02);
-      transition: transform 0.5s ease, opacity 0.3s ease;
-    }
+  .specs-modal-backdrop.is-active .specs-sheet {
+    transform: translateY(0);
+  }
 
-    .mobile-card.is-active .mobile-card-bg {
-      opacity: 0.55;
-      transform: scale(1.05);
-    }
+  .sheet-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+  }
 
-    .mobile-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(11, 17, 32, 0.92) 0%,
-        rgba(11, 17, 32, 0.84) 40%,
-        rgba(11, 17, 32, 0.96) 100%
-      );
-      z-index: 2;
-    }
+  .sheet-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
 
-    /* Mobile Header Button (Touch Area) */
-    .mobile-card-trigger {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.15rem 1.15rem;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      color: #FFFFFF;
-      min-height: 72px;
-      box-sizing: border-box;
-      outline: none;
-    }
+  .sheet-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    margin: 0;
+  }
 
-    .mobile-card-trigger:focus-visible {
-      background: rgba(255, 255, 255, 0.05);
-    }
+  .sheet-close-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #CBD5E1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
 
-    .trigger-left {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
+  .sheet-close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+  }
 
-    .mobile-eyebrow {
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: #F97316;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
+  .sheet-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-    .mobile-title {
-      font-family: var(--font-heading, 'Outfit', sans-serif);
-      font-size: 1.12rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      color: #FFFFFF;
-      margin: 0;
-      text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 
-    .mobile-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-top: 0.2rem;
+  @media (max-width: 480px) {
+    .specs-grid {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .mobile-pill-price {
-      font-size: 0.74rem;
-      font-weight: 800;
-      color: #38BDF8;
-      background: rgba(2, 132, 199, 0.2);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.15rem 0.55rem;
-      border-radius: 20px;
-    }
+  .spec-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 
-    .mobile-pill-count {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #94A3B8;
-    }
+  .spec-item-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #94A3B8;
+    text-transform: uppercase;
+  }
 
-    .trigger-right {
-      flex-shrink: 0;
-      margin-left: 0.75rem;
-    }
+  .spec-item-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #F8FAFC;
+  }
 
-    .chevron-circle {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #CBD5E1;
-      transition: all 0.35s cubic-bezier(0.25, 1, 0.35, 1);
-    }
+  .sheet-solutions-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    .mobile-card.is-active .chevron-circle {
-      background: #0284C7;
-      border-color: #38BDF8;
-      color: #FFFFFF;
-      transform: rotate(180deg);
-    }
+  .sheet-solutions-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+  }
 
-    /* Collapsible Drawer with CSS Grid Animation */
-    .mobile-card-drawer {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      grid-template-rows: 0fr;
-      overflow: hidden;
-      transition: grid-template-rows 0.38s cubic-bezier(0.25, 1, 0.35, 1);
-    }
+  .sheet-solutions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
 
-    .mobile-card.is-active .mobile-card-drawer {
-      grid-template-rows: 1fr;
-    }
+  .sheet-solution-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
 
-    .mobile-card-drawer-inner {
-      min-height: 0;
-      overflow: hidden;
-      padding: 0 1.15rem 1.25rem 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
+  .sheet-solution-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+  }
 
-    .mobile-card:not(.is-active) .mobile-card-drawer-inner {
-      opacity: 0;
-      transform: translateY(-8px);
-      pointer-events: none;
-    }
-
-    .mobile-drawer-spec {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #BAE6FD;
-      background: rgba(2, 132, 199, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
-    }
-
-    .mobile-sublinks-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .mobile-sublink-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0.95rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      color: #F1F5F9;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      min-height: 48px;
-      box-sizing: border-box;
-      transition: all 0.2s ease;
-      -webkit-tap-highlight-color: rgba(2, 132, 199, 0.3);
-    }
-
-    .mobile-sublink-btn:active {
-      background: rgba(2, 132, 199, 0.25);
-      border-color: #38BDF8;
-      color: #FFFFFF;
-      transform: scale(0.98);
-    }
-
-    .mobile-sublink-arrow {
-      color: #38BDF8;
-      flex-shrink: 0;
-    }
-
-    .mobile-main-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      padding: 0.85rem 1rem;
-      margin-top: 0.4rem;
-      background: #0284C7;
-      border: 1px solid #38BDF8;
-      border-radius: 10px;
-      color: #FFFFFF;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
-      min-height: 48px;
-      box-sizing: border-box;
-    }
-
-    .mobile-main-cta:active {
-      background: #0369A1;
-      transform: scale(0.98);
-    }
+  .sheet-footer {
+    margin-top: 0.5rem;
   }
 </style>
 
-<script>
-  function setupSolutionsInteractions() {
-    const root = document.getElementById('solutions-interactive-showcase');
-    if (!root) return;
+<script define:vars={{ collections }}>
+  function setupEditorialSpecsModal() {
+    const backdrop = document.getElementById('specs-modal-backdrop');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const modalEyebrow = document.getElementById('modal-eyebrow');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSpecsGrid = document.getElementById('modal-specs-grid');
+    const modalSolutionsList = document.getElementById('modal-solutions-list');
+    const triggerButtons = document.querySelectorAll('.trigger-specs-modal');
 
-    /* ---------------------------------------------------------
-       DESKTOP INTERACTIONS
-       --------------------------------------------------------- */
-    const desktopPanels = root.querySelectorAll<HTMLElement>('.desktop-panel');
-    let currentActiveIndex = 0;
+    if (!backdrop || !closeBtn || !modalSpecsGrid || !modalSolutionsList) return;
 
-    function activateDesktopPanel(index: number) {
-      if (index === currentActiveIndex) return;
-      currentActiveIndex = index;
-      root.dataset.activeIndex = String(index);
+    function openModal(collectionId) {
+      const collection = collections.find((c) => c.id === collectionId);
+      if (!collection) return;
 
-      desktopPanels.forEach((panel, i) => {
-        if (i === index) {
-          panel.classList.add('is-active');
-          panel.setAttribute('aria-selected', 'true');
-        } else {
-          panel.classList.remove('is-active');
-          panel.setAttribute('aria-selected', 'false');
-        }
+      if (modalEyebrow) modalEyebrow.textContent = collection.eyebrow + ' · CRAFTSMANSHIP';
+      if (modalTitle) modalTitle.textContent = collection.title;
+
+      // Populate specs grid
+      modalSpecsGrid.innerHTML = '';
+      Object.entries(collection.specs).forEach(([key, val]) => {
+        const item = document.createElement('div');
+        item.className = 'spec-item';
+        item.innerHTML = `
+          <span class="spec-item-label">${key.replace(/([A-Z])/g, ' $1')}</span>
+          <span class="spec-item-value">${val}</span>
+        `;
+        modalSpecsGrid.appendChild(item);
       });
+
+      // Populate solutions list
+      modalSolutionsList.innerHTML = '';
+      collection.solutions.forEach((sol) => {
+        const a = document.createElement('a');
+        a.href = sol.href;
+        a.className = 'sheet-solution-link';
+        a.innerHTML = `<span>${sol.name}</span><span>&rarr;</span>`;
+        modalSolutionsList.appendChild(a);
+      });
+
+      backdrop.classList.add('is-active');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    desktopPanels.forEach((panel, index) => {
-      // Hover activates panel
-      panel.addEventListener('mouseenter', () => {
-        activateDesktopPanel(index);
-      });
+    function closeModal() {
+      backdrop.classList.remove('is-active');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
 
-      // Click also activates panel
-      panel.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement).closest('a')) return;
-        activateDesktopPanel(index);
-      });
-
-      // Keyboard navigation
-      panel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          const nextIndex = (index + 1) % desktopPanels.length;
-          activateDesktopPanel(nextIndex);
-          desktopPanels[nextIndex].focus();
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          const prevIndex = (index - 1 + desktopPanels.length) % desktopPanels.length;
-          activateDesktopPanel(prevIndex);
-          desktopPanels[prevIndex].focus();
-        } else if (e.key === 'Enter' || e.key === ' ') {
-          if ((e.target as HTMLElement).closest('a')) return;
-          e.preventDefault();
-          activateDesktopPanel(index);
-        }
+    triggerButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = btn.getAttribute('data-collection-id');
+        if (id) openModal(id);
       });
     });
 
-    /* ---------------------------------------------------------
-       MOBILE & TABLET ACCORDION (TOUCH)
-       --------------------------------------------------------- */
-    const mobileCards = root.querySelectorAll<HTMLElement>('.mobile-card');
+    closeBtn.addEventListener('click', closeModal);
 
-    mobileCards.forEach((card, index) => {
-      const trigger = card.querySelector<HTMLButtonElement>('.mobile-card-trigger');
-      if (!trigger) return;
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
 
-      trigger.addEventListener('click', () => {
-        const isCurrentlyActive = card.classList.contains('is-active');
-
-        // Toggle clicked card
-        if (isCurrentlyActive) {
-          card.classList.remove('is-active');
-          trigger.setAttribute('aria-expanded', 'false');
-        } else {
-          // Close others, open clicked card
-          mobileCards.forEach((c) => {
-            c.classList.remove('is-active');
-            c.querySelector('.mobile-card-trigger')?.setAttribute('aria-expanded', 'false');
-          });
-          card.classList.add('is-active');
-          trigger.setAttribute('aria-expanded', 'true');
-
-          // Smoothly bring opened card into view if needed
-          setTimeout(() => {
-            const rect = card.getBoundingClientRect();
-            if (rect.top < 60) {
-              window.scrollBy({ top: rect.top - 70, behavior: 'smooth' });
-            }
-          }, 150);
-        }
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop.classList.contains('is-active')) {
+        closeModal();
+      }
     });
   }
 
-  // Bind to Astro lifecycle
-  document.addEventListener('DOMContentLoaded', setupSolutionsInteractions);
-  document.addEventListener('astro:page-load', setupSolutionsInteractions);
+  document.addEventListener('DOMContentLoaded', setupEditorialSpecsModal);
+  document.addEventListener('astro:page-load', setupEditorialSpecsModal);
 </script>

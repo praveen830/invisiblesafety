@@ -84,7 +84,7 @@ export default function CostEstimator() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '2.5rem' }}>
+      <div className="cost-estimator-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '2.5rem' }}>
         {/* Left Column: Inputs */}
         <div>
           {/* Product Type Toggle */}

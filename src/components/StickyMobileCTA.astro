@@ -1,35 +1,28 @@
 ---
 import { business } from '../data/business';
-import { Phone, MessageCircle, Calculator } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 ---
 
-<div class="mobile-bottom-bar" id="sticky-mobile-bar">
+<aside class="editorial-floating-actions" aria-label="Direct Quick Contact">
+  <!-- Minimalist Frosted Call Button (Bottom Left) -->
   <a
     href={`tel:${business.phoneRaw}`}
-    class="mobile-bottom-btn mobile-bottom-btn-call"
-    aria-label="Call Invisible Safety"
+    class="editorial-floating-btn btn-call"
+    aria-label="Direct Phone Call"
+    title="Call Invisible Safety"
   >
-    <Phone size={18} />
-    <span>Call</span>
+    <Phone size={19} strokeWidth={2} />
   </a>
 
+  <!-- Minimalist Frosted WhatsApp Button (Bottom Right) -->
   <a
-    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20looking%20for%20a%20site%20measurement%20and%20quotation.`}
+    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20site%20measurement%20and%20architectural%20consultation.`}
     target="_blank"
     rel="noopener noreferrer"
-    class="mobile-bottom-btn mobile-bottom-btn-whatsapp"
+    class="editorial-floating-btn btn-whatsapp"
     aria-label="Chat on WhatsApp"
+    title="WhatsApp Invisible Safety"
   >
-    <MessageCircle size={18} />
-    <span>WhatsApp</span>
+    <MessageCircle size={21} strokeWidth={2} />
   </a>
-
-  <a
-    href="/contact/#quote"
-    class="mobile-bottom-btn mobile-bottom-btn-quote"
-    aria-label="Get a Free Quote"
-  >
-    <Calculator size={18} />
-    <span>GET A QUOTE</span>
-  </a>
-</div>
+</aside>
