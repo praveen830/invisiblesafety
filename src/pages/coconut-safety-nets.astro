@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Shield, Target } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "Coconut Tree Safety Nets",
-  "Heavy-ply UV-treated polymer canopy nets designed to catch falling coconuts and protect pedestrians, parked cars, and property with custom site quote",
-  26
+  "High-impact tree canopy and suspended catchment safety netting preventing coconut fall damage with custom site quote",
+  16
 );
 
 const breadcrumbs = getBreadcrumbSchema([
@@ -18,143 +18,199 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Specialty Solutions", url: "https://invisiblesafety.in/sports-nets/" },
   { name: "Coconut Safety Nets", url: "https://invisiblesafety.in/coconut-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Impact Tensile Core", value: "Multi-Ply Heavy Nylon / HDPE", icon: ShieldCheck },
+  { label: "Drop Protection", value: "Withstands Heavy Coconut Impact Drops", icon: Award },
+  { label: "Anchor Cables", value: "Stainless Steel Tree Collar Grips", icon: Wrench },
+  { label: "Durability Guarantee", value: "3-Year Weather & Sun Resistance", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Swimming Pool Protective Nets",
+    subtitle: "High-tension surface barriers preventing accidental pool falls by infants and pets.",
+    href: "/swimming-pool-nets/",
+    image: "/images/swimming-pool-net.jpg",
+    spec: "Corrosion-Proof Marine Anchors",
+    badge: "Family Safety"
+  },
+  {
+    title: "Car Parking Perimeter Nets",
+    subtitle: "Basement and podium parking barriers preventing ball strikes and vehicular glass damage.",
+    href: "/car-parking-safety-nets/",
+    image: "/images/car-parking-net.jpg",
+    spec: "Weather-Resistant Multi-Strand Mesh",
+    badge: "Basement Shield"
+  },
+  {
+    title: "Rooftop Cricket Practice Nets",
+    subtitle: "Enclosed practice cages allowing hard leather ball batting practice without perimeter danger.",
+    href: "/sports-practice-nets/",
+    image: "/images/sports-nets.webp",
+    spec: "Heavy-Gauge Multi-Strand Mesh",
+    badge: "Sports Suite"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Boundary safety netting installed over open roof parapets to secure terrace gatherings.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Tensile Perimeter Tie Cords",
+    badge: "Rooftop Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/coconut-safety-net.jpg",
+    alt: "Coconut Drop Catch Netting",
+    title: "High-Impact Canopy Catch",
+    caption: "Heavy-duty perimeter webbing suspended beneath palm canopies preventing vehicular glass damage.",
+    badge: "Property Protection"
+  },
+  {
+    src: "/images/swimming-pool-net.jpg",
+    alt: "Swimming Pool Protective Cover",
+    title: "Villas Pool Safety Barrier",
+    caption: "Precision edge-anchored tension net safeguarding toddlers and pets.",
+    badge: "Villa Safety"
+  },
+  {
+    src: "/images/car-parking-net.jpg",
+    alt: "Podium Parking Protection",
+    title: "Podium Car Parking Barrier",
+    caption: "Aesthetic perimeter mesh shielding luxury cars from stray ball impacts.",
+    badge: "Podium Shield"
+  },
+  {
+    src: "/images/sports-nets.webp",
+    alt: "Sports Netting Rooftop Turf",
+    title: "Rooftop Practice Enclosure",
+    caption: "High-velocity ball containment enclosure for residential clubhouses.",
+    badge: "Specialty Sports"
+  }
+];
 ---
 
-<BaseLayout
-  title="Coconut Tree Safety Nets | Palm Falling Fruit Defense | Invisible Safety"
-  description="Heavy-ply UV-treated coconut safety nets to stop falling coconuts from damaging parked cars and injuring pedestrians. with custom site quote with stainless steel turnbuckle rigging."
+<SubPageLayout
+  title="Coconut Tree Safety Nets | Anti-Drop Canopy Catching | Invisible Safety"
+  description="Heavy-duty coconut tree safety netting preventing falling coconut injuries and vehicle damage. UV-stabilized polymer with 3-year warranty."
   canonicalUrl="/coconut-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="PROPERTY & VEHICULAR DEFENSE"
+  heroTitle="COCONUT PALM SAFETY NETS"
+  heroSubtitle="Suspended high-tensile impact-absorption netting arrays positioned beneath palm tree canopies to safely catch falling coconuts before striking vehicles or pedestrians."
+  heroImage="/images/coconut-safety-net.jpg"
+  heroImageAlt="Coconut Tree Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/sports-nets/" style="color: #64748B; text-decoration: none;">SPECIALTY SOLUTIONS</a>
-        <span>/</span>
-        <span style="color: #C2410C;">COCONUT SAFETY NETS</span>
-      </nav>
+  <!-- Impact Dynamics Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">IMPACT ARREST INTEGRITY</span>
+        <h2 class="editorial-title">Heavy Kinetic Drop Dissipation</h2>
+        <p class="editorial-subtitle">
+          A mature coconut dropping from 40 feet generates fatal impact force. Our suspended nets eliminate danger completely.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/coconut-safety-net.jpg"
-              alt="Coconut Tree Safety Net Installation"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #15803D; display: flex; align-items: center; gap: 0.4rem;">
-              <Shield size={13} /> HIGH-VELOCITY IMPACT CATCH
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #4ADE80; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                CANOPY DEFENSE SYSTEM
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                The Canopy Defense
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                Heavy-Duty Virgin Polymer Mesh • Weatherproof Stainless Rigging
-              </div>
-            </div>
-          </div>
+      <div class="coconut-grid">
+        <div class="coconut-card">
+          <h3 class="coconut-card-title">Vehicular Windshield Protection</h3>
+          <p class="coconut-card-desc">
+            Villas and apartment driveways flanked by coconut palms risk shattered windshields and dented roofs. The catchment funnel traps nuts gently without bounce-off.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #15803D; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> PROPERTY & PEDESTRIAN LIFE DEFENSE
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            COCONUT SAFETY NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #15803D; margin-bottom: 1.5rem; line-height: 1.4;">
-            Heavy-gauge canopy nets suspended beneath coconut palms to safely catch falling coconuts and fronds.
+        <div class="coconut-card">
+          <h3 class="coconut-card-title">Tree Trunk Friendly Anchors</h3>
+          <p class="coconut-card-desc">
+            Installed with rubberized tree collar brackets that adjust to natural tree growth without strangling bark, driving nails, or harming coconut yield.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">3 to 5 Years UV Stable</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            A falling coconut weighing 2 to 4 kg descending from a 30-foot tree generates sufficient kinetic energy to shatter vehicle windshields, dent roof hoods, or cause fatal cranial trauma to pedestrians. Invisible Safety Coconut Safety Nets are engineered with heavy-ply knotted nylon and HDPE braids slung under the canopy crown, deflecting and cradling falling nuts before they reach ground level.
+        <div class="coconut-card">
+          <h3 class="coconut-card-title">UV Heat Resilient Strands</h3>
+          <p class="coconut-card-desc">
+            Infused with carbon black and UV inhibitors to withstand uninterrupted 365-day rooftop sun exposure and torrential monsoons.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Polymer Mesh Type</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">High-Tenacity Virgin Garware Braided Polymer (Heavy-Gauge)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Impact Absorption</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Withstands 50+ kg dynamic drop force without rupture</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Mesh Aperture</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">40 mm to 50 mm diamond weave</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Rigging Hardware</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Weatherproof galvanized steel wire rope, D-shackles & turnbuckles</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">UV Protection</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">100% Heat-Set UV Stabilizers (Zero brittle degradation)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #15803D; border-color: #15803D;">
-              <span>Calculate Coconut Net Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20a%20quote%20for%20Coconut%20Tree%20Safety%20Nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>WhatsApp Tree Inspection</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-        <span class="badge-emerald">FREE QUOTATION</span>
-        <h2>Calculate Coconut Net Price</h2>
-        <p>Estimate square footage based on palm canopy width.</p>
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Coconut Netting Quote</h2>
+        <p class="editorial-subtitle">
+          Configure number of trees and perimeter radius for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
   <TrustSection />
-  <FAQSection category="safety-nets" title="Coconut Tree Safety Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .coconut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .coconut-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .coconut-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .coconut-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .coconut-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

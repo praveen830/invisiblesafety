@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TrustSection from '../components/TrustSection.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
+import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Check, Sparkles, MessageCircle, Phone, ArrowRight, Eye, Activity } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Shield, Eye, Activity, Check, ArrowRight } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "Balcony Fall Safety Solutions",
@@ -18,112 +18,155 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
   { name: "Balcony Safety", url: "https://invisiblesafety.in/balcony-safety/" }
 ]);
+
+const specs = [
+  { label: "Core Metallurgy", value: "Virgin Japanese SS316 / HDPE Polymer", icon: ShieldCheck },
+  { label: "Impact Rating", value: "400+ kgf Breaking Load (SS316)", icon: Award },
+  { label: "Visual Permeability", value: "98% Unobstructed Skyline Vista", icon: Eye },
+  { label: "Compliance Guarantee", value: "100% Gated Society RWA Approved", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Balcony Invisible Grills",
+    subtitle: "Floor-to-ceiling high-tensile SS316 marine cables providing 400+ kgf fall safety with unobstructed panoramic views.",
+    href: "/balcony-invisible-grills/",
+    image: "/images/hero-balcony.webp",
+    spec: "Japanese SS316 (2.0mm / 2.5mm)",
+    badge: "Flagship Luxury"
+  },
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "UV-stabilized high-density polymer netting stopping infant and pet falls without cage-like aesthetic disruption.",
+    href: "/safety-nets/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "150+ kgf Impact Resistance",
+    badge: "Child & Pet Core"
+  },
+  {
+    title: "French Window Invisible Grills",
+    subtitle: "Frameless tensile cable installations for floor-to-ceiling bedroom and living room glass sliding fenestrations.",
+    href: "/window-invisible-grills/",
+    image: "/images/window-invisible-grills.webp",
+    spec: "50mm / 75mm Spacing Options",
+    badge: "Fenestration Suite"
+  },
+  {
+    title: "Child-Safe Calibrated Mesh",
+    subtitle: "Zero-foothold tensioned safety systems strictly preventing toddler climbing leverage or head entrapment.",
+    href: "/child-safety-invisible-grills/",
+    image: "/images/child-safety.webp",
+    spec: "50mm Anti-Entrapment Core",
+    badge: "Toddler Proof"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "Balcony Fall Safety Invisible Grills",
+    title: "High-Rise Balcony Suite",
+    caption: "Engineered SS316 cables securing a 24th-floor penthouse balcony overlooking the urban skyline.",
+    badge: "High-Rise Specialized"
+  },
+  {
+    src: "/images/hero-balcony.webp",
+    alt: "Panoramic Skyline Invisible Grills",
+    title: "Panoramic Skyline Deck",
+    caption: "Full-width tensile installation preserving daylight and evening skyline vistas.",
+    badge: "100% RWA Approved"
+  },
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Balcony Safety Net Array",
+    title: "Resilient Balcony Netting",
+    caption: "UV-treated high-density netting anchored with stainless steel eye bolts.",
+    badge: "Impact Tested"
+  },
+  {
+    src: "/images/child-safety.webp",
+    alt: "Toddler and Pet Safe Balcony",
+    title: "Toddler Anti-Fall System",
+    caption: "Tight-calibrated barrier giving parents total peace of mind in high-rise residences.",
+    badge: "Family Peace of Mind"
+  }
+];
 ---
 
-<BaseLayout
-  title="Balcony Safety Grills & Fall Protection Solutions | Invisible Safety"
+<SubPageLayout
+  title="Balcony Safety Grills & Fall Protection Systems | Invisible Safety"
   description="Engineered balcony fall-safety systems for high-rise apartments. SS316 marine invisible grills & reinforced safety mesh. 400+ kg breaking load, 100% RWA approved."
   canonicalUrl="/balcony-safety/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HIGH-RISE BALCONY SPECIALIZATION"
+  heroTitle="ENGINEERED BALCONY FALL PROTECTION"
+  heroSubtitle="Balcony heights above the 4th floor present severe fall hazards. Our certified SS316 marine-grade tensile cables safeguard children and pets with 400+ kgf load resistance while preserving open 180° panoramic vistas."
+  heroImage="/images/balcony-safety.webp"
+  heroImageAlt="Engineered Balcony Fall Safety Systems"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <!-- Hero Section -->
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #E0F2FE; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #0369A1; margin-bottom: 1.25rem;">
-            <ShieldCheck size={14} /> HIGH-RISE BALCONY SPECIALIZATION
-          </div>
-          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
-            Engineered Balcony <br />
-            <span style="color: #0284C7;">Fall Protection Systems</span>
-          </h1>
-          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
-            Balcony heights above the 4th floor present serious fall risks for young children and pets. Invisible Safety delivers architecturally approved invisible grills that secure your balcony perimeter without sacrificing daylight, ventilation, or panoramic vistas.
-          </p>
+  <!-- Interactive Architectural Visualizer: Before vs After -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">THE ARCHITECTURAL DIFFERENCE</span>
+        <h2 class="editorial-title">Balcony Transformation</h2>
+        <p class="editorial-subtitle">
+          Slide to experience the difference between bulky iron cages and our virtually invisible SS316 marine tensile system.
+        </p>
+      </div>
 
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
-            <a href="#estimator" class="btn btn-primary">
-              <span>Calculate Balcony Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20balcony%20safety%20grill%20options%20for%20my%20apartment.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-            >
-              <MessageCircle size={17} />
-              <span>Consult on WhatsApp</span>
-            </a>
-          </div>
-
-          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Invisible Grills:</span>
-              <span style="font-size: 1.35rem; font-weight: 800; color: #0284C7;">with custom site quote / sq.ft</span>
-            </div>
-            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Safety Nets:</span>
-              <span style="font-size: 1.35rem; font-weight: 800; color: #16A34A;">with custom site quote / sq.ft</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Image Showcase -->
-        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
-            <img
-              src="/images/balcony-safety.webp"
-              alt="Engineered Balcony Fall Safety Systems"
-              style="width: 100%; height: 100%; object-fit: cover; display: block;"
-              width="640"
-              height="360"
-              loading="eager"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
-              <Activity size={14} /> 400+ kg Break Load
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
-              <span>100% Gated Society Approved</span>
-            </div>
-          </div>
-          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
-            <span>Precision Laser Alignment & Calibration</span>
-            <span style="color: #16A34A; font-weight: 700;">✓ Zero Facade Alteration</span>
-          </div>
-        </div>
+      <div class="visualizer-wrapper">
+        <BeforeAfterSlider client:visible />
       </div>
     </div>
   </section>
 
-  <!-- Visualizer Island -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Before vs After</span>
-        <h2>High-Rise Panoramic Balcony Transformation</h2>
-        <p>Slide to compare traditional cage bars vs Invisible Safety SS316 architectural grills.</p>
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Balcony Safety Cost</h2>
+        <p class="editorial-subtitle">
+          Configure your balcony dimensions for real-time instant quotation and certified laser measurement scheduling.
+        </p>
       </div>
 
-      <BeforeAfterSlider client:visible />
-    </div>
-  </section>
-
-  <!-- Estimator Section -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-emerald">Live Pricing</span>
-        <h2>Calculate Balcony Safety Cost</h2>
-        <p>Configure your dimensions to get transparent pricing for invisible grills or safety nets.</p>
+      <div class="estimator-box">
+        <CostEstimator client:visible />
       </div>
-      <CostEstimator client:load />
     </div>
   </section>
 
   <TrustSection />
+  <FAQSection category="safety-nets" title="Balcony Safety Questions &amp; Answers" />
+</SubPageLayout>
 
-  <FAQSection category="safety-nets" title="Balcony Safety Frequently Asked Questions" />
-</BaseLayout>
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .visualizer-wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

@@ -37,7 +37,7 @@ import { ArrowRight } from 'lucide-react';
 
       <!-- Minimal Frosted Glass Action Buttons -->
       <div class="hero-editorial-actions">
-        <a href="/contact/#quote" class="btn-editorial-solid">
+        <a href="/contact/#quote" class="btn-editorial-pill">
           <span>REQUEST SITE SURVEY</span>
         </a>
 
@@ -56,7 +56,7 @@ import { ArrowRight } from 'lucide-react';
   .editorial-hero {
     position: relative;
     width: 100%;
-    min-height: clamp(560px, 92vh, 100dvh);
+    min-height: 100dvh;
     height: 100dvh;
     overflow: hidden;
     display: flex;
@@ -79,8 +79,8 @@ import { ArrowRight } from 'lucide-react';
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: scale(1.02);
-    transition: transform 3s cubic-bezier(0.25, 1, 0.35, 1);
+    transform: scale(1.0);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .editorial-hero:hover .hero-media-img {
@@ -93,13 +93,19 @@ import { ArrowRight } from 'lucide-react';
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.25) 0%,
       transparent 30%,
-      rgba(0, 0, 0, 0.35) 60%,
-      rgba(0, 0, 0, 0.85) 100%
+      rgba(0, 0, 0, 0.45) 60%,
+      rgba(0, 0, 0, 0.9) 100%
     );
+    opacity: 0.65;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     z-index: 2;
+  }
+
+  .editorial-hero:hover .hero-cinematic-scrim {
+    opacity: 0.8;
   }
 
   /* Content Anchor */

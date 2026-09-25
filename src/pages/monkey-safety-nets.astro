@@ -1,160 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Shield } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Monkey Safety Nets",
-  "High-gauge tear-resistant heavy-duty polymer safety nets engineered to prevent monkey intrusions with custom site quote",
-  35
+  "Anti-Monkey Balcony Safety Nets",
+  "High-tensile reinforced wire netting designed to withstand aggressive monkey pulling and tampering with custom site quote",
+  22
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
-  { name: "Animal & Bird Protection", url: "https://invisiblesafety.in/animals-birds-safety-nets/" },
+  { name: "Animal & Bird Protection", url: "https://invisiblesafety.in/pigeon-nets/" },
   { name: "Monkey Safety Nets", url: "https://invisiblesafety.in/monkey-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Core Tensile Gauge", value: "Reinforced Multi-Strand Stainless / HDPE", icon: ShieldCheck },
+  { label: "Bite & Tear Defense", value: "Anti-Tear Primed Locking Knots", icon: Award },
+  { label: "Anchoring Force", value: "Heavy-Duty Expansion Anchor Bolts", icon: Wrench },
+  { label: "Direct Warranty", value: "3-Year Wildlife Defense Guarantee", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Translucent Anti-Pigeon Netting",
+    subtitle: "Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.",
+    href: "/pigeon-nets/",
+    image: "/images/pigeon-net.webp",
+    spec: "Virgin UV-Stabilized Co-Polymer",
+    badge: "Discreet Living"
+  },
+  {
+    title: "SS304 Polycarbonate Bird Spikes",
+    subtitle: "Humane curved blunt spikes preventing bird perching on narrow parapets, AC units, and ledges.",
+    href: "/bird-spikes/",
+    image: "/images/balcony-safety.webp",
+    spec: "Weather-Resistant Virgin Polycarbonate",
+    badge: "Ledge Protection"
+  },
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "Full-perimeter protective enclosure stopping accidental falls without feeling caged.",
+    href: "/balcony-safety/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Virgin High-Density Polymer",
+    badge: "Residential Core"
+  },
+  {
+    title: "Fine-Mesh Insect & Mosquito Nets",
+    subtitle: "Pleated and roller insect screens providing 100% insect protection with cross-ventilation.",
+    href: "/mosquito-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "Fiberglass Anti-Tear Mesh",
+    badge: "Clean Airflow"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Reinforced Anti-Monkey Enclosure",
+    title: "High-Tensile Balcony Barrier",
+    caption: "Heavy-gauge netting protecting hillside residences and apartment balconies against aggressive wildlife intrusion.",
+    badge: "Perimeter Shield"
+  },
+  {
+    src: "/images/pigeon-net.webp",
+    alt: "Translucent Pigeon Net on Balcony",
+    title: "Translucent Skyline Protection",
+    caption: "Unobtrusive bird exclusion preserving pristine aesthetic elevation.",
+    badge: "Penthouse Living"
+  },
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "Stainless Steel Bird Spikes along Parapet",
+    title: "SS304 Anti-Perching Ledge Spikes",
+    caption: "Precision silicon-bonded spikes installed on high-rise AC ledges.",
+    badge: "Facade Care"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Terrace Bird Exclusion Netting",
+    title: "Rooftop Air Duct & Terrace Net",
+    caption: "Wide-span horizontal netting keeping roof shafts free of bird nesting.",
+    badge: "Clean Architecture"
+  }
+];
 ---
 
-<BaseLayout
-  title="Monkey Safety Nets | Heavy-Gauge Tear-Proof Balcony Mesh | Invisible Safety"
-  description="High-tensile heavy-gauge monkey safety nets for balconies, apartments, and farmhouses with custom site quote Tear-resistant virgin polymer with 3-year warranty."
+<SubPageLayout
+  title="Anti-Monkey Safety Nets | Balcony Wildlife Protection | Invisible Safety"
+  description="High-tensile reinforced anti-monkey balcony safety nets with custom site quote Stops aggressive monkey entry and destruction with 3-year warranty."
   canonicalUrl="/monkey-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="WILDLIFE EXCLUSION ARCHITECTURE"
+  heroTitle="ANTI-MONKEY SAFETY NETS"
+  heroSubtitle="Reinforced heavy-gauge tensile wire and polymer netting designed to withstand vigorous monkey chewing, shaking, and scaling, securing hillside and perimeter apartments."
+  heroImage="/images/safety-net-balcony.webp"
+  heroImageAlt="Anti-Monkey Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/animals-birds-safety-nets/" style="color: #64748B; text-decoration: none;">ANIMAL & BIRD PROTECTION</a>
-        <span>/</span>
-        <span style="color: #C2410C;">MONKEY SAFETY NETS</span>
-      </nav>
+  <!-- Monkey Defense Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">HEAVY-DUTY WILDLIFE DEFENSE</span>
+        <h2 class="editorial-title">Engineered Against Animal Intrusion</h2>
+        <p class="editorial-subtitle">
+          Standard bird nets tear immediately under monkey claws. Our reinforced netting resists high pulling torque.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/safety-net-balcony.webp"
-              alt="Monkey Safety Nets for Balcony Enclosure"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #D97706; display: flex; align-items: center; gap: 0.4rem;">
-              <Shield size={13} /> HEAVY-PLY ANTI-TEAR
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #FBBF24; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                PRIMATE INTRUSION DEFENSE
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                Monkey Defense Mesh
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                Bite-Resistant Braided Core • Steel Turnbuckle Perimeter
-              </div>
-            </div>
-          </div>
+      <div class="monkey-grid">
+        <div class="monkey-card">
+          <h3 class="monkey-card-title">Heavy-Gauge Braided Core</h3>
+          <p class="monkey-card-desc">
+            Constructed with high-denier twisted polymer yarns that cannot be cut or bitten through by sharp teeth, keeping balconies 100% secure.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #D97706; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> UNBREAKABLE PRIMATE DETERRENT
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            MONKEY SAFETY NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #D97706; margin-bottom: 1.5rem; line-height: 1.4;">
-            High-gauge, tear-resistant safety nets designed to prevent aggressive monkey troops from entering balconies and terraces.
+        <div class="monkey-card">
+          <h3 class="monkey-card-title">Continuous Tension Anchoring</h3>
+          <p class="monkey-card-desc">
+            Anchored tightly every 4 inches along walls and ceilings with heavy steel eyebolts so monkeys cannot pry open corner gaps to crawl inside.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">3-Year Anti-Tear Guarantee</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            Residential areas adjacent to hills, forests, or parks frequently suffer aggressive monkey troops raiding balconies, destroying plants, and endangering family members. Standard pigeon nets can be easily shredded by monkey teeth and claws. Invisible Safety Monkey Safety Nets utilize extra-thick 2.5mm+ braided virgin polymer ropes anchored with heavy stainless steel perimeter wire rope and turnbuckles that monkeys cannot chew or tear through.
+        <div class="monkey-card">
+          <h3 class="monkey-card-title">Protects Plants &amp; Balcony Furniture</h3>
+          <p class="monkey-card-desc">
+            Allows you to maintain potted plants, dry clothing, and keep French balcony doors open without fear of monkey ransacking or aggressive confrontation.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Mesh Thickness</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">2.5 mm to 3.0 mm Extra-Heavy Braided HDPE Polymer</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Tensile Strength</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">200+ kgf Breaking Strength (Primate-proof)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Mesh Aperture</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">40 mm x 40 mm (Blocks limbs and head entry)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Perimeter Anchors</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">4.0 mm Galvanized Wire Rope with Heavy-Duty Turnbuckles</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Full Replacement Anti-Tear Warranty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #D97706; border-color: #D97706;">
-              <span>Calculate Monkey Net Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20have%20a%20monkey%20problem%20and%20need%20Monkey%20Safety%20Nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>Book Monkey Inspection on WhatsApp</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-        <span class="badge-arch">FAST ESTIMATION</span>
-        <h2>Calculate Monkey Net Price</h2>
-        <p>Instant online price calculation based on balcony dimensions.</p>
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Anti-Monkey Net Quote</h2>
+        <p class="editorial-subtitle">
+          Configure balcony dimensions for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
   <TrustSection />
-  <FAQSection category="safety-nets" title="Monkey Safety Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .monkey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .monkey-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .monkey-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .monkey-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .monkey-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

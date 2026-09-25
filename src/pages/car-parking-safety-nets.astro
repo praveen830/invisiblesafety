@@ -1,145 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, HardHat, MessageCircle, Phone, ArrowRight, Car, Shield } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "Car Parking Safety Nets",
-  "Overhead basement ceiling fall and debris protection netting for multi-level car parkings with custom site quote",
-  22
+  "High-impact basement, podium, and open car parking safety netting preventing ball hits, bird droppings, and overhead debris with custom site quote",
+  18
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
-  { name: "Construction & Industrial", url: "https://invisiblesafety.in/duct-safety-nets/" },
+  { name: "Construction & Industrial", url: "https://invisiblesafety.in/construction-safety-nets/" },
   { name: "Car Parking Safety Nets", url: "https://invisiblesafety.in/car-parking-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Mesh Polymer", value: "High-Density Braided UV-Resistant HDPE", icon: ShieldCheck },
+  { label: "Impact Defense", value: "Withstands Direct Cricket & Football Hits", icon: Award },
+  { label: "Corrosion Grade", value: "SS304 Tensioned Perimeter Cables", icon: Wrench },
+  { label: "Direct Warranty", value: "3 to 5-Year Weatherproof Guarantee", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Building Duct Shaft Enclosures",
+    subtitle: "Continuous vertical netting closing deep building plumbing ducts to prevent tool drops.",
+    href: "/duct-safety-nets/",
+    image: "/images/duct-net.webp",
+    spec: "Shaft Void Protection",
+    badge: "Hygiene Guard"
+  },
+  {
+    title: "Industrial Debris Containment",
+    subtitle: "Heavy-duty warehouse perimeter screens containing pallet fragments and high-bay storage fall-off.",
+    href: "/industrial-safety-nets/",
+    image: "/images/industrial-safety-net.jpg",
+    spec: "UV-Treated Industrial Polyethylene",
+    badge: "Factory Grade"
+  },
+  {
+    title: "Coconut Palm Anti-Drop Netting",
+    subtitle: "Suspended impact-absorption nets preventing heavy coconut fall damage to cars and residents.",
+    href: "/coconut-safety-nets/",
+    image: "/images/coconut-safety-net.jpg",
+    spec: "Heavy Impact-Cushioning Webbing",
+    badge: "Property Protection"
+  },
+  {
+    title: "Construction Site Fall Nets",
+    subtitle: "Dual-layer personnel fall arrest mesh with fine debris catch lining for active multi-story sites.",
+    href: "/construction-safety-nets/",
+    image: "/images/construction-safety-net.jpg",
+    spec: "High-Impact Shock-Absorbing Core",
+    badge: "Life Safety"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/car-parking-net.jpg",
+    alt: "Podium Car Parking Safety Nets",
+    title: "Podium Car Parking Barrier",
+    caption: "Aesthetic perimeter mesh shielding luxury cars from stray ball impacts and overhead falling objects.",
+    badge: "Podium Shield"
+  },
+  {
+    src: "/images/coconut-safety-net.jpg",
+    alt: "Coconut Drop Catch Netting",
+    title: "High-Impact Canopy Catch",
+    caption: "Heavy-duty perimeter webbing preventing vehicular glass damage in driveways.",
+    badge: "Property Protection"
+  },
+  {
+    src: "/images/industrial-safety-net.jpg",
+    alt: "Industrial Warehouse Safety Netting",
+    title: "Logistics Hub Storage Net",
+    caption: "Ceiling-to-floor containment preventing high-bay pallet falls.",
+    badge: "Warehouse Safety"
+  },
+  {
+    src: "/images/duct-net.webp",
+    alt: "Vertical Duct Enclosure",
+    title: "Internal Duct Void Enclosure",
+    caption: "Continuous floor-to-floor vertical barrier protecting service shafts.",
+    badge: "Shaft Protection"
+  }
+];
 ---
 
-<BaseLayout
-  title="Car Parking Safety Nets | Basement Overhead Debris Defense | Invisible Safety"
-  description="Basement parking ceiling fall protection and concrete spalling catch nets with custom site quote Protect luxury vehicles from overhead pipe leaks, debris, and roosting."
+<SubPageLayout
+  title="Car Parking Safety Nets | Podium & Basement Vehicle Protection | Invisible Safety"
+  description="High-density car parking safety nets for podiums, basements, and open lots with custom site quote Prevents ball damage, bird droppings, and debris."
   canonicalUrl="/car-parking-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="VEHICULAR & PODIUM PROTECTION"
+  heroTitle="CAR PARKING SAFETY NETS"
+  heroSubtitle="High-tensile perimeter safety netting arrays shielding residential podiums, driveways, and basement parking bays from stray cricket balls, falling debris, and roosting birds."
+  heroImage="/images/car-parking-net.jpg"
+  heroImageAlt="Car Parking Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/duct-safety-nets/" style="color: #64748B; text-decoration: none;">CONSTRUCTION & INDUSTRIAL</a>
-        <span>/</span>
-        <span style="color: #C2410C;">CAR PARKING SAFETY NETS</span>
-      </nav>
+  <!-- Parking Defense Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">AUTOMOTIVE ASSET DEFENSE</span>
+        <h2 class="editorial-title">Zero Dent &amp; Glass Breakage Protection</h2>
+        <p class="editorial-subtitle">
+          Podium parking adjacent to children play areas poses constant risk to vehicle glass and paint.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/car-parking-net.jpg"
-              alt="Car Parking Overhead Safety Nets"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #FDE68A; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #D97706; display: flex; align-items: center; gap: 0.4rem;">
-              <Car size={13} /> VEHICLE OVERHEAD DEFENSE
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #FBBF24; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                BASEMENT UTILITY PROTECTION
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                Car Parking Fall & Debris Catch
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                Stops Falling Concrete Plaster, Cables & Guano
-              </div>
-            </div>
-          </div>
+      <div class="park-grid">
+        <div class="park-card">
+          <h3 class="park-card-title">Ball Deflection Buffer</h3>
+          <p class="park-card-desc">
+            Positioned between sports play areas and open parking bays to absorb and deflect cricket balls, footballs, and basketballs with zero bounce damage.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #D97706; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> LUXURY VEHICLE EXTERIOR PRESERVATION
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            CAR PARKING SAFETY NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #D97706; margin-bottom: 1.5rem; line-height: 1.4;">
-            Overhead ceiling fall protection and debris containment for apartment basement parkings and commercial garages.
+        <div class="park-card">
+          <h3 class="park-card-title">Pigeon Dropping Barrier</h3>
+          <p class="park-card-desc">
+            Acidic pigeon droppings permanently corrode luxury automotive clear-coats. Overhead netting seals basement ceiling pipes against bird roosting.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">3-Year Guarantee</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            Multi-level basement parkings feature complex overhead ceiling networks of drainage pipes, fire sprinkler cables, and concrete ceilings that shed spalling plaster or harbor roosting birds. Falling debris can severely scratch premium vehicle paintwork and crack panoramic sunroofs. Invisible Safety Car Parking Safety Nets install flush beneath ceiling utility conduits to catch all falling particles.
+        <div class="park-card">
+          <h3 class="park-card-title">Clear Headroom Clearance</h3>
+          <p class="park-card-desc">
+            Tensioned overhead with stainless steel guide cables that maintain complete clearance for high-roof SUVs and emergency fire response vehicles.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Mesh Ply</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">High-Density Virgin Polymer (Fire-Retardant additives available)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Debris Load Containment</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Withstands falling plaster, bolts, and pipe components</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Aperture Mesh</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">25 mm / 30 mm (Dual function: Debris & bird deterrence)</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Replacement Guarantee</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #D97706; border-color: #D97706;">
-              <span>Calculate Parking Net Price</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20Car%20Parking%20Safety%20Nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>WhatsApp Parking Inspection</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Parking Net Quote</h2>
+        <p class="editorial-subtitle">
+          Configure parking bay dimensions for an instant certified engineering quotation.
+        </p>
+      </div>
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
   <TrustSection />
-  <FAQSection category="safety-nets" title="Car Parking Safety Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .park-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .park-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .park-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .park-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .park-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

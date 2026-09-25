@@ -4,7 +4,8 @@ import SolutionsAccordion from '../components/SolutionsAccordion.astro';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { getBreadcrumbSchema } from '../utils/seo';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Phone } from 'lucide-react';
+import { business } from '../data/business';
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -21,43 +22,40 @@ const breadcrumbs = getBreadcrumbSchema([
   <!-- Full-Width Interactive Solutions Showcase -->
   <section class="solutions-showcase-section">
     <div class="solutions-header-wrapper">
-      <div class="catalog-eyebrow-pill">
-        <Sparkles size={14} color="#38BDF8" />
-        <span>ARCHITECTURAL SAFETY CATALOG</span>
-      </div>
+      <span class="editorial-eyebrow">ARCHITECTURAL SAFETY CATALOG</span>
       <h1 class="solutions-main-title">
-        Explore Solutions By Category
+        The Five Core Divisions
       </h1>
       <p class="solutions-subtitle">
-        Explore our 5 architectural safety systems below. Select any category to view specifications, pricing, and dedicated solutions.
+        Explore our five architectural safety systems below. Select any collection to discover detailed metallurgy, load certifications, and dedicated format specifications.
       </p>
     </div>
 
-    <!-- Interactive Showcase (Desktop Horizontal Accordion & Mobile Touch Cards) -->
+    <!-- Interactive 100dvh Snap Stack Showcase -->
     <div class="solutions-content-wrapper">
       <SolutionsAccordion isStandalone={true} />
     </div>
   </section>
 
-  <!-- Quick Assistance / Consultation Strip -->
-  <section class="consultation-strip">
-    <div class="container consultation-inner">
-      <div class="consultation-text">
-        <h3 class="consultation-title">
-          Need a Custom Multi-Balcony Consultation?
-        </h3>
-        <p class="consultation-desc">
-          Our structural engineers provide free on-site laser measurement across Hyderabad, Vizag & Vijayawada.
+  <!-- Quick Concierge Consultation Strip -->
+  <section class="editorial-concierge-strip">
+    <div class="subpage-container">
+      <div class="concierge-editorial-box">
+        <span class="concierge-eyebrow">DOORSTEP LASER CALIBRATION</span>
+        <h2 class="concierge-title">Need a Multi-Balcony Consultation?</h2>
+        <p class="concierge-desc">
+          Our certified architectural surveyor will inspect your structure, measure cable lengths with high-precision lasers, present authentic SS316 wire samples, and deliver a zero-obligation quotation across Hyderabad, Vizag, and Vijayawada.
         </p>
-      </div>
-      <div class="consultation-actions">
-        <a href="/invisible-grill-cost/" class="btn btn-primary">
-          <span>Instant Cost Estimator</span>
-          <ArrowRight size={14} />
-        </a>
-        <a href="/contact/" class="btn btn-secondary">
-          <span>Schedule Site Visit</span>
-        </a>
+        <div class="concierge-actions">
+          <a href="/contact/#quote" class="btn-editorial-pill">
+            <span>REQUEST SITE SURVEY</span>
+            <ArrowRight size={14} />
+          </a>
+          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-pill-secondary">
+            <Phone size={14} />
+            <span>DIRECT CALL: {business.phone}</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -67,139 +65,159 @@ const breadcrumbs = getBreadcrumbSchema([
 
 <style>
   .solutions-showcase-section {
-    background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%);
-    border-bottom: 1px solid #E2E8F0;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
     position: relative;
-    padding: 3rem 1.5rem 4rem 1.5rem;
+    padding-top: clamp(3rem, 5vw, 4.5rem);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .solutions-header-wrapper {
-    max-width: 800px;
-    margin: 0 auto 2.2rem auto;
+    max-width: 820px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem) auto;
     width: 100%;
     text-align: center;
+    padding: 0 1.5rem;
     box-sizing: border-box;
   }
 
-  .catalog-eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #E0F2FE;
-    border: 1px solid #BAE6FD;
-    padding: 0.35rem 0.9rem;
-    border-radius: 30px;
-    margin-bottom: 1rem;
-  }
-
-  .catalog-eyebrow-pill span {
-    font-size: 0.76rem;
-    font-weight: 800;
-    color: #0369A1;
-    letter-spacing: 0.12em;
+  .editorial-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-gold, #C5A880);
     text-transform: uppercase;
-  }
-
-  .solutions-main-title {
-    font-family: var(--font-heading, 'Outfit', sans-serif);
-    font-size: clamp(2rem, 3.8vw, 3.2rem);
-    font-weight: 900;
-    color: #0F172A;
-    letter-spacing: -0.025em;
-    line-height: 1.18;
+    display: block;
     margin-bottom: 0.75rem;
   }
 
+  .solutions-main-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
   .solutions-subtitle {
-    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-    color: #475569;
-    max-width: 680px;
-    margin: 0 auto;
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(1rem, 1.35vw, 1.2rem);
+    color: #94A3B8;
     line-height: 1.6;
+    margin: 0;
   }
 
   .solutions-content-wrapper {
     width: 100%;
-    max-width: 1440px;
+  }
+
+  .editorial-concierge-strip {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .subpage-container {
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
     box-sizing: border-box;
   }
 
-  /* Consultation Strip */
-  .consultation-strip {
-    background: #FFFFFF;
-    border-top: 1px solid #E2E8F0;
-    border-bottom: 1px solid #E2E8F0;
-    padding: 2.5rem 1.5rem;
-  }
-
-  .consultation-inner {
-    max-width: 960px;
+  .concierge-editorial-box {
+    max-width: 840px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
   }
 
-  .consultation-text {
-    text-align: left;
-    max-width: 540px;
+  .concierge-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.85rem;
   }
 
-  .consultation-title {
-    font-size: 1.25rem;
+  .concierge-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.5rem, 3vw, 2.35rem);
     font-weight: 800;
-    color: #0F172A;
-    margin-bottom: 0.35rem;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
   }
 
-  .consultation-desc {
-    font-size: 0.9rem;
-    color: #475569;
-    margin: 0;
-    line-height: 1.5;
+  .concierge-desc {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: #CBD5E1;
+    line-height: 1.6;
+    margin: 0 auto 2rem auto;
+    max-width: 640px;
   }
 
-  .consultation-actions {
+  .concierge-actions {
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
-  @media (max-width: 899px) {
-    .solutions-showcase-section {
-      padding: 2rem 1rem 3.5rem 1rem;
-    }
+  .btn-editorial-pill-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.75rem 2rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    .solutions-header-wrapper {
-      margin-bottom: 1.5rem;
-    }
+  .btn-editorial-pill-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
 
-    .consultation-inner {
+  @media (max-width: 580px) {
+    .concierge-actions {
       flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-
-    .consultation-text {
-      text-align: center;
-    }
-
-    .consultation-actions {
-      justify-content: center;
       width: 100%;
     }
 
-    .consultation-actions .btn {
-      flex: 1;
-      min-width: 160px;
-      justify-content: center;
+    .concierge-actions a {
+      width: 100%;
     }
   }
 </style>

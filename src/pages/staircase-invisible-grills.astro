@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Activity, Eye, Layers } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Ruler, Layers } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "Staircase Invisible Grills",
-  "Floor-to-ceiling vertical tensioned SS316 invisible grills for duplex stairs, floating staircases, and void drops with 10-year warranty.",
-  195
+  "Floor-to-ceiling vertical tension safety cables for duplex staircases and luxury floating stairs with 10-year warranty with custom site quote",
+  190
 );
 
 const breadcrumbs = getBreadcrumbSchema([
@@ -18,143 +18,199 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Invisible Grills", url: "https://invisiblesafety.in/invisible-grills/" },
   { name: "Staircase Invisible Grills", url: "https://invisiblesafety.in/staircase-invisible-grills/" }
 ]);
+
+const specs = [
+  { label: "Cable Metallurgy", value: "Virgin Japanese SS316 Marine Grade", icon: ShieldCheck },
+  { label: "Tensile Breaking Load", value: "400+ kgf Load Strength", icon: Award },
+  { label: "Spatial Aesthetic", value: "Floor-to-Ceiling Continuous Array", icon: Layers },
+  { label: "Direct Warranty", value: "10-Year Direct Written Guarantee", icon: Wrench }
+];
+
+const subcategories = [
+  {
+    title: "Balcony Invisible Grills",
+    subtitle: "Floor-to-ceiling high-tensile SS316 marine cables safeguarding high-rise living balconies.",
+    href: "/balcony-invisible-grills/",
+    image: "/images/hero-balcony.webp",
+    spec: "Japanese SS316 (2.0mm / 2.5mm)",
+    badge: "Flagship Balcony"
+  },
+  {
+    title: "French Window Invisible Grills",
+    subtitle: "Frameless high-tensile safety barriers for low-sill windows and sliding fenestrations.",
+    href: "/window-invisible-grills/",
+    image: "/images/window-invisible-grills.webp",
+    spec: "Direct Wall Anchor Tracks",
+    badge: "Fenestration Guard"
+  },
+  {
+    title: "Child-Safe Calibrated Spacing",
+    subtitle: "50mm anti-head entrapment spacing engineered to protect toddlers and pets without climbable steps.",
+    href: "/child-safety-invisible-grills/",
+    image: "/images/child-safety.webp",
+    spec: "50mm Anti-Entrapment Core",
+    badge: "Toddler Proof"
+  },
+  {
+    title: "Duplex Void Enclosures",
+    subtitle: "Full-height vertical safety arrays enclosing double-height living room mezzanine voids.",
+    href: "/staircase-invisible-grills/",
+    image: "/images/staircase-invisible-grills.webp",
+    spec: "Architectural Ceiling Anchors",
+    badge: "Mezzanine Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/staircase-invisible-grills.webp",
+    alt: "Duplex Staircase Invisible Grills Installation",
+    title: "Duplex Architectural Staircase",
+    caption: "Floor-to-ceiling tensioned SS316 cables securing floating wooden stairs in a luxury penthouse.",
+    badge: "Interior Luxury"
+  },
+  {
+    src: "/images/hero-balcony.webp",
+    alt: "Balcony Invisible Grills",
+    title: "Panoramic Skyline Aperture",
+    caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
+    badge: "Skyline Vista"
+  },
+  {
+    src: "/images/window-invisible-grills.webp",
+    alt: "French Window Invisible Grills",
+    title: "French Fenestration Suite",
+    caption: "Full ventilation and child anti-fall safety with zero visual blockage.",
+    badge: "Window Protection"
+  },
+  {
+    src: "/images/child-safety.webp",
+    alt: "Child-Safe Calibrated Balcony",
+    title: "Toddler Anti-Fall System",
+    caption: "Zero footholds preventing climbing leverage with unyielding 400+ kg load strength.",
+    badge: "Child & Pet Safety"
+  }
+];
 ---
 
-<BaseLayout
-  title="Staircase Invisible Grills | Duplex & Void Fall Protection | Invisible Safety"
-  description="Architectural floor-to-ceiling SS316 vertical invisible grills for duplex apartments and villas with custom site quote Anti-fall protection without visual barriers."
+<SubPageLayout
+  title="Staircase Invisible Grills | Duplex Void Fall Protection | Invisible Safety"
+  description="Floor-to-ceiling SS316 vertical cable tension safety grills for duplex staircases and floating steps with custom site quote Architectural elegance with 10-year warranty."
   canonicalUrl="/staircase-invisible-grills/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="THE SPIRAL ASCENT"
+  heroTitle="STAIRCASE INVISIBLE GRILLS"
+  heroSubtitle="Floor-to-ceiling tensioned cables safeguarding open stairwells, void drops, and luxury floating stairs while accentuating modern duplex verticality."
+  heroImage="/images/staircase-invisible-grills.webp"
+  heroImageAlt="Staircase Invisible Grills Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/invisible-grills/" style="color: #64748B; text-decoration: none;">INVISIBLE GRILLS</a>
-        <span>/</span>
-        <span style="color: #C2410C;">STAIRCASE INVISIBLE GRILLS</span>
-      </nav>
+  <!-- Architectural Void Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INTERIOR ARCHITECTURE</span>
+        <h2 class="editorial-title">Dramatic Verticality &amp; Fall Protection</h2>
+        <p class="editorial-subtitle">
+          Secure floating steps and duplex voids without heavy glass partitions that collect smudges or obstruct natural light.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/staircase-invisible-grills.webp"
-              alt="Staircase Invisible Grills Installation"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
-              <Layers size={13} /> INTERIOR SAFETY & AESTHETICS
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                DUPLEX VOID DROP RIGGING
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                The Spiral & Linear Staircase Ascent
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                Floor-to-Ceiling Continuous Vertical Tensioning
-              </div>
-            </div>
-          </div>
+      <div class="staircase-grid">
+        <div class="staircase-card">
+          <h3 class="staircase-card-title">Floating Staircase Integrity</h3>
+          <p class="staircase-card-desc">
+            Cantilevered and open-tread stairs look visually striking but pose severe fall hazards for children. Vertical invisible cables provide transparent edge protection from step to ceiling.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #0284C7; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> DUPLEX VOID FALL PROTECTION
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            STAIRCASE INVISIBLE GRILLS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #0284C7; margin-bottom: 1.5rem; line-height: 1.4;">
-            Floor-to-ceiling tensioned cables safeguarding open stairwells, void drops, and luxury floating stairs.
+        <div class="staircase-card">
+          <h3 class="staircase-card-title">Airy Spatial Continuation</h3>
+          <p class="staircase-card-desc">
+            Unlike solid glass panels that restrict air circulation and require frequent cleaning, tensioned cables maintain breezy open-plan airflow across multi-level duplex living rooms.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Official Guarantee:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">10-Year Direct Warranty</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            Open-concept duplexes, penthouses, and modern architectural villas often feature floating staircases and dramatic atrium void drops that pose lethal fall hazards for children, elderly family members, and pets. Invisible Safety Staircase Invisible Grills run seamless, high-tension vertical SS316 cables from slab to ceiling or handrail to stringer. They create an impenetrable barrier that complements architectural geometry without creating visual clutter.
+        <div class="staircase-card">
+          <h3 class="staircase-card-title">Structural Ceiling Anchors</h3>
+          <p class="staircase-card-desc">
+            Heavy-duty counter-sunk anchors embedded into concrete slabs with concealed aesthetic caps ensure pristine architectural alignment without visible brackets.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Wire Metallurgy</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Virgin Japanese AISI 316 Marine Grade Stainless Steel</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Orientation</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Vertical Continuous Tension (Zero Horizontal Climbable Strands)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Spacing Profile</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">50 mm Anti-Entrapment Spacing (Strictly Compliant)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Anchoring System</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Recessed or Surface Ceiling-to-Tread Aluminium Mounting Tracks</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">10 Years Direct Manufacturer Zero-Rust & Tension Guarantee</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem;">
-              <span>Calculate Staircase Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20a%20quote%20for%20Staircase%20Invisible%20Grills.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>Book Free Staircase Inspection</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-        <span class="badge-arch">ONLINE ESTIMATION</span>
-        <h2>Calculate Staircase Invisible Grill Price</h2>
-        <p>Enter your staircase height and length for instant estimate.</p>
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Staircase Grill Cost</h2>
+        <p class="editorial-subtitle">
+          Configure stairwell dimensions for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
   <TrustSection />
-  <FAQSection category="invisible-grills" title="Staircase Invisible Grills FAQ" />
-</BaseLayout>
+  <FAQSection category="invisible-grills" title="Staircase Invisible Grills Questions &amp; Answers" />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .staircase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .staircase-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .staircase-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .staircase-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .staircase-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

@@ -1,0 +1,484 @@
+---
+import SubPageLayout from '../../layouts/SubPageLayout.astro';
+import CostEstimator from '../../components/react/CostEstimator';
+import BeforeAfterSlider from '../../components/react/BeforeAfterSlider';
+import FAQSection from '../../components/FAQSection.astro';
+import { getServiceSchema, getBreadcrumbSchema } from '../../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Ruler, Sparkles, ArrowRight } from 'lucide-react';
+
+export function getStaticPaths() {
+  const solutionsData = [
+    {
+      slug: "sports-nets",
+      title: "Sports & Cricket Practice Nets | The Aperture Collection | Invisible Safety",
+      description: "High-impact ball containment and cricket practice netting for rooftops, terraces, and clubhouses. Heavy-duty UV-stabilized polymer.",
+      heroEyebrow: "SPECIALTY LEISURE & UTILITIES",
+      heroTitle: "THE APERTURE COLLECTION",
+      heroSubtitle: "High-impact ball containment sports netting and structural utility arrays for residential rooftops, sports turf enclosures, and villas.",
+      heroImage: "/images/sports-nets.webp",
+      heroImageAlt: "Sports and Cricket Practice Net Installation",
+      specs: [
+        { label: "Core Composition", value: "High-Tenacity Multi-Strand HDPE", icon: ShieldCheck },
+        { label: "Impact Rating", value: "Cricket Ball Tested (140+ km/h)", icon: Award },
+        { label: "Mounting Metallurgy", value: "Rust-Proof Marine SS Wire Rope", icon: Wrench },
+        { label: "Direct Warranty", value: "Certified High-Tension Guarantee", icon: CheckCircle2 }
+      ],
+      subcategories: [
+        {
+          title: "Rooftop Cricket Practice Nets",
+          subtitle: "Enclosed practice cages allowing hard leather ball batting practice without perimeter danger.",
+          href: "/sports-practice-nets/",
+          image: "/images/sports-nets.webp",
+          spec: "Heavy-Gauge Multi-Strand Braided Mesh",
+          badge: "Most Popular"
+        },
+        {
+          title: "Ceiling Cloth Drying Hangers",
+          subtitle: "Individual stainless steel pull-down pipes maximizing balcony utility and airflow.",
+          href: "/cloth-drying-hangers/",
+          image: "/images/cloth-drying-hanger.jpg",
+          spec: "100% Stainless Steel Rust-Proof Rods",
+          badge: "Utility Suite"
+        },
+        {
+          title: "Swimming Pool Protective Nets",
+          subtitle: "High-tension surface barriers preventing accidental pool falls by infants and pets.",
+          href: "/swimming-pool-nets/",
+          image: "/images/swimming-pool-net.jpg",
+          spec: "Corrosion-Proof Marine Anchors",
+          badge: "Family Safety"
+        },
+        {
+          title: "Coconut Palm Anti-Drop Netting",
+          subtitle: "Suspended impact-absorption nets preventing heavy coconut fall damage to cars and residents.",
+          href: "/coconut-safety-nets/",
+          image: "/images/coconut-safety-net.jpg",
+          spec: "Heavy Impact-Cushioning Webbing",
+          badge: "Property Protection"
+        }
+      ],
+      gallery: [
+        {
+          src: "/images/sports-nets.webp",
+          alt: "Rooftop Cricket Turf Netting",
+          title: "High-Rise Rooftop Cricket Turf",
+          caption: "Full-height multi-lane cricket practice enclosure overlooking city skyline.",
+          badge: "Society Turf"
+        },
+        {
+          src: "/images/cloth-drying-hanger.jpg",
+          alt: "Balcony Ceiling Clothes Hanger",
+          title: "Architectural Pulley System",
+          caption: "Retractable ceiling-mounted drying tracks preserving floor space.",
+          badge: "Balcony Utility"
+        },
+        {
+          src: "/images/swimming-pool-net.jpg",
+          alt: "Swimming Pool Protective Cover",
+          title: "Villas Pool Safety Barrier",
+          caption: "Precision edge-anchored tension net safeguarding toddlers and pets.",
+          badge: "Villa Safety"
+        },
+        {
+          src: "/images/coconut-safety-net.jpg",
+          alt: "Coconut Drop Catch Netting",
+          title: "High-Impact Canopy Catch",
+          caption: "Heavy-duty perimeter webbing preventing vehicular glass damage.",
+          badge: "Property Protection"
+        }
+      ]
+    },
+    {
+      slug: "bird-protection",
+      title: "Pigeon Nets & Stainless Steel Bird Spikes | The Winged Sanctuary | Invisible Safety",
+      description: "Humane translucent bird exclusion netting and SS304 spikes for apartments, balconies, and windows. 100% skyline clarity.",
+      heroEyebrow: "ANIMAL & BIRD EXCLUSION",
+      heroTitle: "THE WINGED SANCTUARY",
+      heroSubtitle: "Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views.",
+      heroImage: "/images/pigeon-net.webp",
+      heroImageAlt: "Translucent Pigeon Net Installation",
+      specs: [
+        { label: "Mesh Diameter", value: "0.7mm Translucent UV Monofilament", icon: ShieldCheck },
+        { label: "Optical Transparency", value: "98% Visual Skyline Transmission", icon: Award },
+        { label: "Spike Metallurgy", value: "SS304 Spikes on Polycarbonate Base", icon: Wrench },
+        { label: "Living Guarantee", value: "3-Year Clean Balcony Warranty", icon: CheckCircle2 }
+      ],
+      subcategories: [
+        {
+          title: "Translucent Anti-Pigeon Netting",
+          subtitle: "Near-invisible monofilament grid denying roosting access to pigeons without obstructing daylight.",
+          href: "/pigeon-nets/",
+          image: "/images/pigeon-net.webp",
+          spec: "Virgin UV-Stabilized Co-Polymer",
+          badge: "Discreet Living"
+        },
+        {
+          title: "SS304 Polycarbonate Bird Spikes",
+          subtitle: "Humane curved blunt spikes preventing bird perching on narrow parapets, AC units, and ledges.",
+          href: "/bird-spikes/",
+          image: "/images/balcony-safety.webp",
+          spec: "Weather-Resistant Virgin Polycarbonate",
+          badge: "Ledge Protection"
+        },
+        {
+          title: "Anti-Monkey Balcony Enclosures",
+          subtitle: "High-tensile braided wire netting designed to withstand aggressive monkey pulling and tampering.",
+          href: "/monkey-safety-nets/",
+          image: "/images/safety-net-balcony.webp",
+          spec: "Reinforced Multi-Cord Tension",
+          badge: "Wildlife Defense"
+        },
+        {
+          title: "Fine-Mesh Insect & Mosquito Nets",
+          subtitle: "Pleated and roller insect screens providing 100% insect protection while ensuring cross-ventilation.",
+          href: "/mosquito-safety-nets/",
+          image: "/images/terrace-top-net.jpg",
+          spec: "Fiberglass Anti-Tear Mesh",
+          badge: "Clean Airflow"
+        }
+      ],
+      gallery: [
+        {
+          src: "/images/pigeon-net.webp",
+          alt: "Translucent Pigeon Net on Balcony",
+          title: "Translucent Skyline Protection",
+          caption: "Unobtrusive bird exclusion preserving pristine aesthetic elevation.",
+          badge: "Penthouse Living"
+        },
+        {
+          src: "/images/balcony-safety.webp",
+          alt: "Stainless Steel Bird Spikes along Parapet",
+          title: "SS304 Anti-Perching Ledge Spikes",
+          caption: "Precision silicon-bonded spikes installed on high-rise AC ledges.",
+          badge: "Facade Care"
+        },
+        {
+          src: "/images/safety-net-balcony.webp",
+          alt: "Reinforced Anti-Monkey Enclosure",
+          title: "High-Tensile Balcony Barrier",
+          caption: "Heavy-gauge netting protecting hillside residences against wildlife intrusion.",
+          badge: "Perimeter Shield"
+        },
+        {
+          src: "/images/terrace-top-net.jpg",
+          alt: "Terrace Bird Exclusion Netting",
+          title: "Rooftop Air Duct & Terrace Net",
+          caption: "Wide-span horizontal netting keeping roof shafts free of bird nesting.",
+          badge: "Clean Architecture"
+        }
+      ]
+    },
+    {
+      slug: "construction-safety",
+      title: "Construction & Industrial Debris Nets | Debris & Fall Containment | Invisible Safety",
+      description: "Certified heavy-duty fall arrest and debris containment netting for commercial construction, shafts, and industrial perimeters.",
+      heroEyebrow: "STRUCTURAL ARCHITECTURE",
+      heroTitle: "DEBRIS & FALL CONTAINMENT",
+      heroSubtitle: "Industrial-grade high-altitude fall arrest networks and structural void enclosures engineered in compliance with IS safety standards.",
+      heroImage: "/images/construction-safety-net.jpg",
+      heroImageAlt: "Construction Safety Net Site Installation",
+      specs: [
+        { label: "Tensile Fiber", value: "Industrial Braided High-Ply Nylon / HDPE", icon: ShieldCheck },
+        { label: "Load Capacity", value: "Engineered Fall Arrest & Debris Catch", icon: Award },
+        { label: "Standards", value: "Compliant with IS 3521 / Industrial Anchors", icon: Wrench },
+        { label: "Site Guarantee", value: "Commercial Site Safety Certification", icon: CheckCircle2 }
+      ],
+      subcategories: [
+        {
+          title: "Construction Site Fall Nets",
+          subtitle: "Dual-layer personnel fall arrest mesh with fine debris catch lining for active multi-story sites.",
+          href: "/construction-safety-nets/",
+          image: "/images/construction-safety-net.jpg",
+          spec: "High-Impact Shock-Absorbing Core",
+          badge: "Life Safety"
+        },
+        {
+          title: "Building Duct Shaft Enclosures",
+          subtitle: "Continuous vertical netting closing deep building plumbing ducts to prevent accidental tool drops.",
+          href: "/duct-safety-nets/",
+          image: "/images/duct-net.webp",
+          spec: "Corrosion-Proof Heavy Perimeter Rope",
+          badge: "Shaft Safety"
+        },
+        {
+          title: "Industrial Debris Containment",
+          subtitle: "Heavy-duty warehouse perimeter screens containing pallet fragments and high-bay storage fall-off.",
+          href: "/industrial-safety-nets/",
+          image: "/images/industrial-safety-net.jpg",
+          spec: "UV-Treated Industrial Polyethylene",
+          badge: "Factory Grade"
+        },
+        {
+          title: "Car Parking Perimeter Nets",
+          subtitle: "Basement and podium parking barriers preventing cricket ball strikes and vehicular damage.",
+          href: "/car-parking-safety-nets/",
+          image: "/images/car-parking-net.jpg",
+          spec: "Weather-Resistant Multi-Strand Mesh",
+          badge: "Basement Shield"
+        }
+      ],
+      gallery: [
+        {
+          src: "/images/construction-safety-net.jpg",
+          alt: "Commercial High-Rise Scaffolding Net",
+          title: "Multi-Tower Facade Catch Net",
+          caption: "Engineered fall arrest network safeguarding active high-rise construction.",
+          badge: "Commercial Site"
+        },
+        {
+          src: "/images/duct-net.webp",
+          alt: "Vertical Duct Shaft Enclosure",
+          title: "Internal Duct Void Enclosure",
+          caption: "Continuous floor-to-floor vertical barrier protecting service shafts.",
+          badge: "Shaft Protection"
+        },
+        {
+          src: "/images/industrial-safety-net.jpg",
+          alt: "Industrial Warehouse Safety Netting",
+          title: "Logistics Hub Storage Net",
+          caption: "Ceiling-to-floor containment preventing high-bay pallet falls.",
+          badge: "Warehouse Safety"
+        },
+        {
+          src: "/images/car-parking-net.jpg",
+          alt: "Podium Parking Protective Enclosure",
+          title: "Podium Car Parking Barrier",
+          caption: "Aesthetic perimeter mesh shielding luxury cars from stray ball impacts.",
+          badge: "Podium Shield"
+        }
+      ]
+    },
+    {
+      slug: "invisible-grills",
+      title: "SS316 Marine Invisible Grills | The Invisible Threshold | Invisible Safety",
+      description: "Ultra-luxury SS316 marine-grade invisible safety grills for penthouses, high-rise balconies, and windows. 400+ kgf load tested.",
+      heroEyebrow: "FLAGSHIP ARCHITECTURE",
+      heroTitle: "THE INVISIBLE THRESHOLD",
+      heroSubtitle: "Virgin SS316 marine-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing 400+ kgf safety.",
+      heroImage: "/images/hero-balcony.webp",
+      heroImageAlt: "Luxury SS316 Invisible Grills on Skyline Balcony",
+      specs: [
+        { label: "Cable Metallurgy", value: "Virgin Japanese SS316 Marine Grade", icon: ShieldCheck },
+        { label: "Tensile Strength", value: "400+ kgf Breaking Load per Cable", icon: Award },
+        { label: "Pitch Options", value: "50mm Child-Safe or 75mm Expansive View", icon: Ruler },
+        { label: "Direct Warranty", value: "10-Year Direct Written Guarantee", icon: Wrench }
+      ],
+      subcategories: [
+        {
+          title: "Balcony Invisible Grills",
+          subtitle: "Edge-to-edge floor-to-ceiling tensioned cables preserving 180° skyline panoramas.",
+          href: "/balcony-invisible-grills/",
+          image: "/images/hero-balcony.webp",
+          spec: "Japanese SS316 (2.0mm / 2.5mm)",
+          badge: "Most Popular"
+        },
+        {
+          title: "French Window Invisible Grills",
+          subtitle: "Frameless high-tensile safety barriers for low-sill windows and full-height French fenestrations.",
+          href: "/window-invisible-grills/",
+          image: "/images/window-invisible-grills.webp",
+          spec: "Direct Wall Anchor Structural Tracks",
+          badge: "Maximum Airflow"
+        },
+        {
+          title: "Duplex Staircase Tension Grills",
+          subtitle: "Architectural vertical cable dividers safeguarding duplex open voids and modern floating stairs.",
+          href: "/staircase-invisible-grills/",
+          image: "/images/staircase-invisible-grills.webp",
+          spec: "Floor-to-Ceiling SS316 Cables",
+          badge: "Interior Luxury"
+        },
+        {
+          title: "Child-Safe Calibrated Spacing",
+          subtitle: "50mm anti-head entrapment spacing engineered to safeguard toddlers without climbable rungs.",
+          href: "/child-safety-invisible-grills/",
+          image: "/images/child-safety.webp",
+          spec: "50mm Anti-Entrapment Core",
+          badge: "Toddler Proof"
+        }
+      ],
+      gallery: [
+        {
+          src: "/images/hero-balcony.webp",
+          alt: "Luxury Balcony with Invisible Grills",
+          title: "Skyline High-Rise Balcony Suite",
+          caption: "Virgin SS316 cables preserving 180° panoramic skyline vistas.",
+          badge: "Penthouse Flagship"
+        },
+        {
+          src: "/images/window-invisible-grills.webp",
+          alt: "French Window Invisible Grills",
+          title: "French Fenestration Suite",
+          caption: "Full ventilation and child anti-fall safety with zero visual blockage.",
+          badge: "Window Protection"
+        },
+        {
+          src: "/images/staircase-invisible-grills.webp",
+          alt: "Duplex Staircase Safety Cables",
+          title: "Duplex Floating Staircase Array",
+          caption: "Vertical architectural tension cables guarding interior stairwell voids.",
+          badge: "Interior Architecture"
+        },
+        {
+          src: "/images/child-safety.webp",
+          alt: "Child-Safe Calibrated Balcony",
+          title: "Toddler Anti-Fall System",
+          caption: "Zero footholds preventing climbing leverage with unyielding 400+ kg load strength.",
+          badge: "Child & Pet Safety"
+        }
+      ]
+    },
+    {
+      slug: "safety-nets",
+      title: "Living Spaces & Children Safety Nets | Boundless Horizons | Invisible Safety",
+      description: "High-density polymer balcony and child protection safety nets with 150+ kgf impact resistance. Certified 5-year guarantee.",
+      heroEyebrow: "RESIDENTIAL PERIMETERS",
+      heroTitle: "BOUNDLESS HORIZONS",
+      heroSubtitle: "High-density UV-treated virgin polymer safety nets safeguarding living balconies, internal stairwells, and terrace perimeters.",
+      heroImage: "/images/safety-net-balcony.webp",
+      heroImageAlt: "High-Rise Balcony Safety Net Installation",
+      specs: [
+        { label: "Polymer Standard", value: "Virgin UV-Stabilized Monofilament", icon: ShieldCheck },
+        { label: "Impact Capacity", value: "150+ kgf Resistance per Mesh Unit", icon: Award },
+        { label: "Weather Durability", value: "Heat, Rain & Monsoon Resistant", icon: Wrench },
+        { label: "Replacement Warranty", value: "3 to 5-Year Certified Guarantee", icon: CheckCircle2 }
+      ],
+      subcategories: [
+        {
+          title: "Apartment Balcony Safety Nets",
+          subtitle: "Full-perimeter protective enclosure stopping accidental falls without making balconies feel caged.",
+          href: "/balcony-safety/",
+          image: "/images/safety-net-balcony.webp",
+          spec: "Virgin High-Density Polymer",
+          badge: "Residential Core"
+        },
+        {
+          title: "Toddler & Pet Anti-Fall Nets",
+          subtitle: "Calibrated mesh preventing toys, toddlers, or pets from squeezing through railings.",
+          href: "/child-safety-nets/",
+          image: "/images/child-safety.webp",
+          spec: "Anti-Chafe Smooth Knots",
+          badge: "Child Safe"
+        },
+        {
+          title: "Internal Stairwell Void Protection",
+          subtitle: "Vertical safety netting closing large staircase eye gaps in villas and duplexes.",
+          href: "/staircase-safety-nets/",
+          image: "/images/staircase-invisible-grills.webp",
+          spec: "Floor-to-Floor Continuous Webbing",
+          badge: "Interior Void"
+        },
+        {
+          title: "Terrace Top Fall Perimeter",
+          subtitle: "Boundary safety netting installed over open parapets to secure terrace gatherings.",
+          href: "/terrace-safety-nets/",
+          image: "/images/terrace-top-net.jpg",
+          spec: "High-Tensile Perimeter Tie Cords",
+          badge: "Rooftop Guard"
+        }
+      ],
+      gallery: [
+        {
+          src: "/images/safety-net-balcony.webp",
+          alt: "Balcony Safety Net Overlooking City",
+          title: "Apartment Balcony Fall Shield",
+          caption: "UV-treated high-density netting installed on a 15th-floor luxury balcony.",
+          badge: "Residential Core"
+        },
+        {
+          src: "/images/balcony-safety.webp",
+          alt: "Clean Balcony Safety Mesh",
+          title: "Architectural Parapet Extension",
+          caption: "Precision anchor installation providing total peace of mind for families.",
+          badge: "Family Peace of Mind"
+        },
+        {
+          src: "/images/child-safety.webp",
+          alt: "Toddler Safe Balcony Railing",
+          title: "Toddler & Pet Anti-Drop Barrier",
+          caption: "Tight-grid netting stopping pets and toy drops with high impact resilience.",
+          badge: "Pet & Child Guard"
+        },
+        {
+          src: "/images/terrace-top-net.jpg",
+          alt: "Terrace Top Fall Perimeter",
+          title: "Terrace Party Deck Protection",
+          caption: "Secured terrace boundary allowing safe evening gatherings and events.",
+          badge: "Terrace Guard"
+        }
+      ]
+    }
+  ];
+
+  return solutionsData.map((solution) => ({
+    params: { slug: solution.slug },
+    props: { solution }
+  }));
+}
+
+const { solution } = Astro.props;
+
+const serviceSchema = getServiceSchema(
+  solution.heroTitle,
+  solution.description,
+  solution.slug === "invisible-grills" ? "SS316 Marine Grade" : "Certified Architectural Safety System"
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Solutions", url: "https://invisiblesafety.in/solutions/" },
+  { name: solution.heroTitle, url: `https://invisiblesafety.in/solutions/${solution.slug}/` }
+]);
+---
+
+<SubPageLayout
+  title={solution.title}
+  description={solution.description}
+  canonicalUrl={`/solutions/${solution.slug}/`}
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow={solution.heroEyebrow}
+  heroTitle={solution.heroTitle}
+  heroSubtitle={solution.heroSubtitle}
+  heroImage={solution.heroImage}
+  heroImageAlt={solution.heroImageAlt}
+  specs={solution.specs}
+  subcategories={solution.subcategories}
+  gallery={solution.gallery}
+>
+  <!-- Interactive Cost Estimator & Visualizer Integration -->
+  <section class="editorial-interactive-slot">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Your Space Measurement</h2>
+        <p class="editorial-subtitle">
+          Configure balcony or window dimensions for an instant certified engineering quotation.
+        </p>
+      </div>
+
+      <div class="calculator-slot-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Essential Residential FAQ Section -->
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-interactive-slot {
+    background-color: #0D0D0D;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .calculator-slot-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

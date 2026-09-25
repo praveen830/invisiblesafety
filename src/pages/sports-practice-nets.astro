@@ -1,15 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Target, Activity } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Sports & Cricket Practice Nets",
-  "Rooftop and terrace cricket practice netting cages tested for 180+ kg ball impacts with custom site quote",
+  "Sports Practice Nets & Turf Enclosures",
+  "High-velocity ball containment sports netting for cricket practice, terrace pitches, and clubhouses with custom site quote",
   18
 );
 
@@ -18,143 +18,199 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Specialty Solutions", url: "https://invisiblesafety.in/sports-nets/" },
   { name: "Sports Practice Nets", url: "https://invisiblesafety.in/sports-practice-nets/" }
 ]);
+
+const specs = [
+  { label: "Mesh Composition", value: "High-Tenacity Multi-Strand HDPE", icon: ShieldCheck },
+  { label: "Velocity Rating", value: "Cricket Leather Ball Tested (140+ km/h)", icon: Award },
+  { label: "Rigging Hardware", value: "Turnbuckle & SS Wire Rope Suspensions", icon: Wrench },
+  { label: "Tension Warranty", value: "Certified High-Tension Guarantee", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Ceiling Cloth Drying Hangers",
+    subtitle: "Individual stainless steel pull-down pipes maximizing balcony utility and airflow.",
+    href: "/cloth-drying-hangers/",
+    image: "/images/cloth-drying-hanger.jpg",
+    spec: "100% Stainless Steel Rust-Proof Rods",
+    badge: "Utility Suite"
+  },
+  {
+    title: "Swimming Pool Protective Nets",
+    subtitle: "High-tension surface barriers preventing accidental pool falls by infants and pets.",
+    href: "/swimming-pool-nets/",
+    image: "/images/swimming-pool-net.jpg",
+    spec: "Corrosion-Proof Marine Anchors",
+    badge: "Family Safety"
+  },
+  {
+    title: "Coconut Palm Anti-Drop Netting",
+    subtitle: "Suspended impact-absorption nets preventing heavy coconut fall damage to cars and residents.",
+    href: "/coconut-safety-nets/",
+    image: "/images/coconut-safety-net.jpg",
+    spec: "Heavy Impact-Cushioning Webbing",
+    badge: "Property Protection"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Boundary safety netting installed over open roof parapets to secure terrace gatherings.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Tensile Perimeter Tie Cords",
+    badge: "Rooftop Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/sports-nets.webp",
+    alt: "Rooftop Cricket Turf Netting",
+    title: "High-Rise Rooftop Cricket Turf",
+    caption: "Full-height multi-lane cricket practice enclosure overlooking city skyline.",
+    badge: "Society Turf"
+  },
+  {
+    src: "/images/cloth-drying-hanger.jpg",
+    alt: "Balcony Ceiling Clothes Hanger",
+    title: "Architectural Pulley System",
+    caption: "Retractable ceiling-mounted drying tracks preserving floor space.",
+    badge: "Balcony Utility"
+  },
+  {
+    src: "/images/swimming-pool-net.jpg",
+    alt: "Pool Safety Cover",
+    title: "Swimming Pool Barrier",
+    caption: "Precision anchored surface barrier preventing toddler pool accidents.",
+    badge: "Pool Safety"
+  },
+  {
+    src: "/images/coconut-safety-net.jpg",
+    alt: "Coconut Drop Catch Netting",
+    title: "High-Impact Canopy Catch",
+    caption: "Heavy-duty perimeter webbing preventing vehicular glass damage.",
+    badge: "Property Protection"
+  }
+];
 ---
 
-<BaseLayout
-  title="Sports & Cricket Practice Nets | Rooftop Practice Enclosures | Invisible Safety"
-  description="High-velocity ball containment cricket nets for rooftops and clubhouses. UV-stabilized heavy-duty polymer tested for 180+ kg impact with custom site quote"
+<SubPageLayout
+  title="Sports Practice Nets | Rooftop Cricket Pitch Enclosures | Invisible Safety"
+  description="High-velocity cricket and multi-sport practice nets for terraces, schools, and clubhouses with custom site quote UV-stabilized heavy polymer."
   canonicalUrl="/sports-practice-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HIGH-VELOCITY SPORTS APERTURE"
+  heroTitle="SPORTS PRACTICE NETS &amp; TURFS"
+  heroSubtitle="Turn open rooftops, school complexes, and residential terraces into professional cricket practice enclosures and multi-sport training turfs."
+  heroImage="/images/sports-nets.webp"
+  heroImageAlt="Sports Practice Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/sports-nets/" style="color: #64748B; text-decoration: none;">SPECIALTY SOLUTIONS</a>
-        <span>/</span>
-        <span style="color: #C2410C;">SPORTS PRACTICE NETS</span>
-      </nav>
+  <!-- Sports Dynamics Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">BALL IMPACT RESILIENCE</span>
+        <h2 class="editorial-title">Multi-Sport Ball Retention</h2>
+        <p class="editorial-subtitle">
+          Constructed with knotted polyethylene mesh that absorbs and drops fast-moving balls safely inside the pitch.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/sports-nets.webp"
-              alt="Cricket Sports Practice Nets Rooftop"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
-              <Target size={13} /> 180+ KG IMPACT TESTED
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #4ADE80; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                RECREATIONAL ENCLOSURE
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                The Practice Enclosure
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                High-Impact Cricket & Turf Ball Boundary • GI Pipe Rigid Framing
-              </div>
-            </div>
-          </div>
+      <div class="sports-grid">
+        <div class="sports-card">
+          <h3 class="sports-card-title">Leather Cricket Ball Tested</h3>
+          <p class="sports-card-desc">
+            Heavy-gauge multi-ply twisted yarns prevent breaking or mesh splitting under continuous hard leather ball bowling and batting impacts.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #16A34A; margin-bottom: 1rem;">
-            <Activity size={14} /> HEAVY LEATHER & TENNIS BALL CONTAINMENT
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            SPORTS PRACTICE NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #16A34A; margin-bottom: 1.5rem; line-height: 1.4;">
-            High-impact ball containment practice cages for rooftop cricket, football turfs, and residential terraces.
+        <div class="sports-card">
+          <h3 class="sports-card-title">Full Overhead Ceiling Enclosure</h3>
+          <p class="sports-card-desc">
+            Complete six-sided box cage design ensures lofted shots remain contained inside the net, protecting neighboring windows, cars, and solar panels.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">3 to 5 Years UV Stable</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            Rooftop and society terrace cricket games often risk hard leather or heavy tennis balls escaping over boundary walls, endangering pedestrians below or breaking neighborhood glass windows. Invisible Safety Sports Practice Nets are constructed from high-tenacity braided nylon and HDPE polymers, suspended on galvanized steel boundary pipe frameworks that absorb repetitive high-speed ball impacts without stretching or tearing.
+        <div class="sports-card">
+          <h3 class="sports-card-title">Retractable Pulley Curtains</h3>
+          <p class="sports-card-desc">
+            Optional sliding curtain tracks enable nets to be gathered against walls when the terrace is used for community gatherings or parties.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Mesh Grade</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">High-Density Braided Nylon / UV Stabilized Garware Polymer</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Impact Rating</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">180+ kgf dynamic impact test (Tested for leather cricket balls)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Aperture Size</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">25 mm to 40 mm square mesh weave</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Frame Support</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Galvanized Iron (GI) Pipe framework with corner gussets</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3 to 5 Years Complete Anti-Weathering Guarantee</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #16A34A; border-color: #16A34A;">
-              <span>Calculate Sports Net Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20a%20quote%20for%20Sports%20Practice%20Nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>WhatsApp Rooftop Pitch Survey</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-        <span class="badge-emerald">FREE QUOTE</span>
-        <h2>Calculate Sports Net Price</h2>
-        <p>Instant online price calculation based on pitch dimensions.</p>
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Sports Pitch Quote</h2>
+        <p class="editorial-subtitle">
+          Configure pitch length, width, and height for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
   <TrustSection />
-  <FAQSection category="safety-nets" title="Sports Practice Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .sports-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .sports-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .sports-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .sports-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

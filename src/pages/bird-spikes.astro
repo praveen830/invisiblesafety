@@ -1,147 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Bird, MessageCircle, Phone, ArrowRight, Shield } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Shield, Bird } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Stainless Steel Bird Spikes",
-  "Blunt-tip AISI 304 stainless steel bird spikes for AC compressor outdoor units, parapets, and window ledges with custom site quote."
+  "SS304 Anti-Bird Spikes",
+  "High-grade stainless steel SS304 bird spikes on UV-stabilized polycarbonate base for AC ledges, parapets, and window sills with custom site quote",
+  120
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
-  { name: "Animal & Bird Protection", url: "https://invisiblesafety.in/animals-birds-safety-nets/" },
+  { name: "Animal & Bird Protection", url: "https://invisiblesafety.in/pigeon-nets/" },
   { name: "Bird Spikes", url: "https://invisiblesafety.in/bird-spikes/" }
 ]);
+
+const specs = [
+  { label: "Spike Metallurgy", value: "AISI 304 Marine Stainless Steel", icon: ShieldCheck },
+  { label: "Base Structure", value: "Virgin UV-Resistant Polycarbonate", icon: Award },
+  { label: "Humane Compliance", value: "100% Non-Lethal Blunt Tips", icon: Bird },
+  { label: "Durability Guarantee", value: "5-Year Rust & Crack Warranty", icon: Wrench }
+];
+
+const subcategories = [
+  {
+    title: "Translucent Anti-Pigeon Netting",
+    subtitle: "Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.",
+    href: "/pigeon-nets/",
+    image: "/images/pigeon-net.webp",
+    spec: "Virgin UV-Stabilized Co-Polymer",
+    badge: "Discreet Living"
+  },
+  {
+    title: "Anti-Monkey Balcony Enclosures",
+    subtitle: "High-tensile braided wire netting designed to withstand aggressive monkey pulling and tampering.",
+    href: "/monkey-safety-nets/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Reinforced Multi-Cord Tension",
+    badge: "Wildlife Defense"
+  },
+  {
+    title: "Building Duct Shaft Enclosures",
+    subtitle: "Continuous vertical netting closing deep building plumbing ducts to prevent bird nesting.",
+    href: "/duct-safety-nets/",
+    image: "/images/duct-net.webp",
+    spec: "Shaft Void Protection",
+    badge: "Hygiene Guard"
+  },
+  {
+    title: "Fine-Mesh Insect & Mosquito Nets",
+    subtitle: "Pleated and roller insect screens providing 100% insect protection with cross-ventilation.",
+    href: "/mosquito-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "Fiberglass Anti-Tear Mesh",
+    badge: "Clean Airflow"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "Stainless Steel Bird Spikes along Parapet",
+    title: "SS304 Anti-Perching Ledge Spikes",
+    caption: "Precision silicon-bonded spikes installed on high-rise AC ledges and parapet copings.",
+    badge: "Facade Protection"
+  },
+  {
+    src: "/images/pigeon-net.webp",
+    alt: "Translucent Pigeon Net on Balcony",
+    title: "Translucent Skyline Protection",
+    caption: "Unobtrusive bird exclusion preserving pristine aesthetic elevation.",
+    badge: "Penthouse Living"
+  },
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Reinforced Anti-Monkey Enclosure",
+    title: "High-Tensile Balcony Barrier",
+    caption: "Heavy-gauge netting protecting hillside residences against wildlife intrusion.",
+    badge: "Perimeter Shield"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Terrace Bird Exclusion Netting",
+    title: "Rooftop Air Duct & Terrace Net",
+    caption: "Wide-span horizontal netting keeping roof shafts free of bird nesting.",
+    badge: "Clean Architecture"
+  }
+];
 ---
 
-<BaseLayout
-  title="Stainless Steel Bird Spikes | AC Ledges & Parapets | Invisible Safety"
-  description="100% humane AISI 304 stainless steel anti-perching bird spikes for AC ledges, window sills, and building parapets. Free site inspection and 5-year guarantee."
+<SubPageLayout
+  title="SS304 Stainless Steel Bird Spikes | Anti-Pigeon Ledge Repellent | Invisible Safety"
+  description="High-grade SS304 stainless steel bird spikes on UV-stabilized polycarbonate base for AC ledges, parapets, and sills with custom site quote 100% humane, zero-rust guaranteed."
   canonicalUrl="/bird-spikes/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HUMANE AVIAN EXCLUSION"
+  heroTitle="STAINLESS STEEL BIRD SPIKES"
+  heroSubtitle="Surgical-grade SS304 stainless steel blunt spikes mounted on flexible UV polycarbonate bases, preventing pigeons and birds from landing on narrow parapets, window sills, and AC units."
+  heroImage="/images/balcony-safety.webp"
+  heroImageAlt="SS304 Stainless Steel Bird Spikes Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/animals-birds-safety-nets/" style="color: #64748B; text-decoration: none;">ANIMAL & BIRD PROTECTION</a>
-        <span>/</span>
-        <span style="color: #C2410C;">STAINLESS STEEL BIRD SPIKES</span>
-      </nav>
+  <!-- Ledge Protection Dynamics Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">TARGETED PERCH DENIAL</span>
+        <h2 class="editorial-title">Engineered Parapet &amp; AC Protection</h2>
+        <p class="editorial-subtitle">
+          Designed for narrow architectural surfaces where full netting is impractical or unnecessary.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/pigeon-net.webp"
-              alt="Stainless Steel Bird Spikes on Window Sill"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
-              <Bird size={13} /> 100% HUMANE DETERRENT
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #38BDF8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                LEDGE & PARAPET DEFENSE
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                SS304 Bird Spikes System
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                Blunt-Tip Design • Weatherproof Polycarbonate Base
-              </div>
-            </div>
-          </div>
+      <div class="spikes-grid">
+        <div class="spike-card">
+          <h3 class="spike-card-title">Grade AISI 304 Stainless Steel</h3>
+          <p class="spike-card-desc">
+            Marine-grade stainless rods will never rust, stain exterior painted walls, or become brittle under intense direct tropical sunlight.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #15803D; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> ZERO-ROOSTING GUARANTEE
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            STAINLESS STEEL BIRD SPIKES
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #0284C7; margin-bottom: 1.5rem; line-height: 1.4;">
-            Discreet blunt-tip stainless steel spikes preventing pigeons and birds from perching on AC outdoor units and narrow window sills.
+        <div class="spike-card">
+          <h3 class="spike-card-title">Polycarbonate Flexible Base</h3>
+          <p class="spike-card-desc">
+            Virgin Makrolon polycarbonate strip bends smoothly along curved facade arches, AC compressor brackets, and undulating concrete surfaces.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Quotation:</span>
-              <span style="font-size: 1.5rem; font-weight: 900; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">5-Year Weatherproof</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            Where full netting is not practical—such as narrow exterior window frames, air conditioner compressor outdoor tops, plumbing brackets, and decorative cornices—Invisible Safety Stainless Steel Bird Spikes provide permanent humane protection. The multi-angled blunt tips make landing physically impossible for pigeons and crows without inflicting injury.
+        <div class="spike-card">
+          <h3 class="spike-card-title">Industrial Silicone Bonding</h3>
+          <p class="spike-card-desc">
+            Mounted with weather-resistant industrial structural adhesive that bonds permanently without drilling into waterproofing membranes.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Spike Metal</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">AISI 304 Rust-Proof High-Tensile Stainless Steel</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Base Strip</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">UV-Stabilized Virgin Polycarbonate (Flexible for curves)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Tip Safety</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">100% Blunt Tips (Prevents bird impalement or harm)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Installation Fix</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Industrial Silicone Sealant + Stainless Anchor Screws</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">5 Years Zero Rust & Dislodgement Warranty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20Stainless%20Steel%20Bird%20Spikes%20for%20my%20AC%20ledges%20or%20window%20sills.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>WhatsApp Free Ledge Survey</span>
-            </a>
-            <a href="/pigeon-nets/" class="btn btn-outline" style="padding: 0.95rem 1.6rem;">
-              <span>Explore Pigeon Nets</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Bird Spikes Quote</h2>
+        <p class="editorial-subtitle">
+          Configure running feet of parapets and AC ledges for an instant certified engineering quotation.
+        </p>
+      </div>
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
   <TrustSection />
-  <FAQSection category="safety-nets" title="Bird Spikes FAQ" />
-</BaseLayout>
+  <FAQSection category="safety-nets" title="Bird Spikes Questions &amp; Answers" />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .spikes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .spike-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .spike-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .spike-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .spike-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

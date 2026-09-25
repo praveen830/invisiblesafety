@@ -1,149 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Building, Shield } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Building & High-Rise Perimeter Safety Nets",
-  "High-rise facade perimeter netting protecting pedestrians and vehicles from accidental object drops with custom site quote",
-  25
+  "Building Safety Nets & Facade Protection",
+  "High-rise building facade, duct void, and perimeter safety netting for residential societies and commercial towers with custom site quote",
+  20
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
-  { name: "Core Safety Nets", url: "https://invisiblesafety.in/safety-nets/" },
+  { name: "Construction & Industrial", url: "https://invisiblesafety.in/construction-safety-nets/" },
   { name: "Building Safety Nets", url: "https://invisiblesafety.in/building-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "High-Altitude Tensile", value: "Virgin UV-Stabilized Polymer", icon: ShieldCheck },
+  { label: "Facade Elevation", value: "Aesthetic Uniformity Compliant", icon: Award },
+  { label: "Marine Anchoring", value: "AISI 304 Stainless Steel Rigging", icon: Wrench },
+  { label: "Direct Warranty", value: "5-Year High-Altitude Guarantee", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Building Duct Shaft Enclosures",
+    subtitle: "Continuous vertical netting closing deep building plumbing ducts to prevent tool drops.",
+    href: "/duct-safety-nets/",
+    image: "/images/duct-net.webp",
+    spec: "Shaft Void Protection",
+    badge: "Hygiene Guard"
+  },
+  {
+    title: "Construction Site Fall Nets",
+    subtitle: "Dual-layer personnel fall arrest mesh with fine debris catch lining for active multi-story sites.",
+    href: "/construction-safety-nets/",
+    image: "/images/construction-safety-net.jpg",
+    spec: "High-Impact Shock-Absorbing Core",
+    badge: "Life Safety"
+  },
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "Full-perimeter protective enclosure stopping accidental falls without feeling caged.",
+    href: "/balcony-safety/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Virgin High-Density Polymer",
+    badge: "Residential Core"
+  },
+  {
+    title: "Car Parking Perimeter Nets",
+    subtitle: "Basement and podium parking barriers preventing cricket ball strikes and vehicular damage.",
+    href: "/car-parking-safety-nets/",
+    image: "/images/car-parking-net.jpg",
+    spec: "Weather-Resistant Multi-Strand Mesh",
+    badge: "Basement Shield"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/building-safety-net.jpg",
+    alt: "Building Facade Safety Netting",
+    title: "High-Rise Multi-Tower Facade",
+    caption: "Full elevation perimeter netting installed across high-rise residential towers preserving structural safety.",
+    badge: "Society Elevation"
+  },
+  {
+    src: "/images/duct-net.webp",
+    alt: "Vertical Duct Enclosure",
+    title: "Internal Duct Void Enclosure",
+    caption: "Continuous floor-to-floor vertical barrier protecting service shafts.",
+    badge: "Shaft Protection"
+  },
+  {
+    src: "/images/construction-safety-net.jpg",
+    alt: "Construction Scaffolding Netting",
+    title: "Tower Facade Catch Net",
+    caption: "Engineered fall arrest network safeguarding active high-rise construction.",
+    badge: "Commercial Site"
+  },
+  {
+    src: "/images/car-parking-net.jpg",
+    alt: "Podium Parking Protection",
+    title: "Podium Car Parking Barrier",
+    caption: "Aesthetic perimeter mesh shielding luxury cars from stray ball impacts.",
+    badge: "Podium Shield"
+  }
+];
 ---
 
-<BaseLayout
-  title="Building Perimeter Safety Nets | High-Rise Edge Fall Defense | Invisible Safety"
-  description="Certified building perimeter and facade safety netting protecting society courtyards and open elevation drops with custom site quote High-impact tested polymer."
+<SubPageLayout
+  title="Building Safety Nets | High-Rise Facade & Society Netting | Invisible Safety"
+  description="High-rise building safety nets for societies, commercial towers, and apartments with custom site quote RWA compliant with 5-year warranty."
   canonicalUrl="/building-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HIGH-RISE STRUCTURAL FACADES"
+  heroTitle="BUILDING ELEVATION SAFETY NETS"
+  heroSubtitle="Comprehensive exterior facade, air-well shaft, and perimeter building safety netting engineered for residential gated societies, high-rise towers, and corporate campuses."
+  heroImage="/images/building-safety-net.jpg"
+  heroImageAlt="Building Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/safety-nets/" style="color: #64748B; text-decoration: none;">CORE SAFETY NETS</a>
-        <span>/</span>
-        <span style="color: #C2410C;">BUILDING SAFETY NETS</span>
-      </nav>
+  <!-- Building Facade Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">COMMUNITY ARCHITECTURE</span>
+        <h2 class="editorial-title">Society-Wide Elevation Uniformity</h2>
+        <p class="editorial-subtitle">
+          Approved by resident welfare associations (RWAs) for preserving building aesthetic balance.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/building-safety-net.jpg"
-              alt="Building Perimeter Safety Net Installation"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #15803D; display: flex; align-items: center; gap: 0.4rem;">
-              <Building size={13} /> GATED SOCIETY STANDARD
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #4ADE80; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                TOWER PERIMETER ELEVATION
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                Building Fall Perimeter
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                UV Resistant Garware Polymers • High-Impact Drop Catch
-              </div>
-            </div>
-          </div>
+      <div class="bld-grid">
+        <div class="bld-card">
+          <h3 class="bld-card-title">Air-Well &amp; Courtyard Enclosure</h3>
+          <p class="bld-card-desc">
+            Encloses open internal sky-wells and central courtyards in luxury apartments, eliminating dangerous drop corridors without darkening interior windows.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #15803D; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> CERTIFIED FALL & OBJECT DROP DEFENSE
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            BUILDING SAFETY NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #15803D; margin-bottom: 1.5rem; line-height: 1.4;">
-            Certified fall perimeter netting for tall buildings, open ducts, shafts, and perimeter facades.
+        <div class="bld-card">
+          <h3 class="bld-card-title">Facade Fall Protection</h3>
+          <p class="bld-card-desc">
+            Safeguards multi-story building perimeters during window cleaning and exterior facade maintenance, providing certified peace of mind for facility management.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">3 to 5 Years</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            High-rise gated societies require robust building-wide perimeter netting across shafts, elevated duct openings, open-air podiums, and exterior balconies to protect residents from catastrophic fall hazards and falling items. Invisible Safety Building Safety Nets are engineered with heat-set virgin polymers that withstand harsh monsoon and tropical UV exposure without sagging.
+        <div class="bld-card">
+          <h3 class="bld-card-title">Zero Corrosion Anchors</h3>
+          <p class="bld-card-desc">
+            Anchored using heavy-duty AISI 304 marine expansion fasteners and guide cables that never drip rust streaks down painted exterior walls during monsoon rains.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Polymer Standard</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Garware Virgin High-Density Polyethylene (HDPE)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Breaking Force</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">250+ kg Breaking Load Tested</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Weather Resistance</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">100% Heat-Set UV Stabilizers (Zero brittle degradation)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Anchoring</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Stainless Steel Anchor Hooks with Wire Rope Bordering</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3-Year Direct Society Replacement Warranty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #15803D; border-color: #15803D;">
-              <span>Calculate Building Net Price</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20represent%20a%20gated%20society%20and%20need%20Building%20Safety%20Nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>Book Society Survey on WhatsApp</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Building Netting Quote</h2>
+        <p class="editorial-subtitle">
+          Configure society tower or shaft dimensions for an instant certified engineering quotation.
+        </p>
+      </div>
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
   <TrustSection />
-  <FAQSection category="safety-nets" title="Building Safety Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .bld-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .bld-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .bld-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .bld-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .bld-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

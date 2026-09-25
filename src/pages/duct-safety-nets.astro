@@ -1,376 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
-import { pricing } from '../data/pricing';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { Building2, ShieldCheck, Check, ArrowRight, MessageCircle, Phone, Users, Activity } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Utility Duct & Plumbing Shaft Safety Nets",
-  "Heavy-duty HDPE netting systems for multi-storey residential building shafts, atriums, and commercial ventilation ducts with custom site quote",
-  pricing.safetyNet.ductShaftIndustrial
+  "Building Duct Shaft Safety Nets",
+  "Heavy-duty continuous vertical and horizontal duct shaft safety nets for residential and commercial towers with custom site quote",
+  20
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Construction & Industrial", url: "https://invisiblesafety.in/construction-safety-nets/" },
   { name: "Duct Safety Nets", url: "https://invisiblesafety.in/duct-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Shaft Tensile Rope", value: "Heavy-Gauge UV-Stabilized Nylon", icon: ShieldCheck },
+  { label: "Debris Containment", value: "100% Tool & Object Drop Stop", icon: Award },
+  { label: "Anchor Metallurgy", value: "SS304 Structural Expansion Bolts", icon: Wrench },
+  { label: "Site Compliance", value: "Commercial High-Rise Certified", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Construction Site Fall Nets",
+    subtitle: "Dual-layer personnel fall arrest mesh with fine debris catch lining for multi-story towers.",
+    href: "/construction-safety-nets/",
+    image: "/images/construction-safety-net.jpg",
+    spec: "High-Impact Shock-Absorbing Core",
+    badge: "Life Safety"
+  },
+  {
+    title: "Industrial Debris Containment",
+    subtitle: "Heavy-duty warehouse perimeter screens containing pallet fragments and high-bay storage fall-off.",
+    href: "/industrial-safety-nets/",
+    image: "/images/industrial-safety-net.jpg",
+    spec: "UV-Treated Industrial Polyethylene",
+    badge: "Factory Grade"
+  },
+  {
+    title: "Car Parking Perimeter Nets",
+    subtitle: "Basement and podium parking barriers preventing ball strikes and vehicular glass damage.",
+    href: "/car-parking-safety-nets/",
+    image: "/images/car-parking-net.jpg",
+    spec: "Weather-Resistant Multi-Strand Mesh",
+    badge: "Basement Shield"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Boundary safety netting installed over open roof parapets to secure terrace gatherings.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Tensile Perimeter Tie Cords",
+    badge: "Rooftop Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/duct-net.webp",
+    alt: "Vertical Duct Shaft Enclosure",
+    title: "Internal Duct Void Enclosure",
+    caption: "Continuous floor-to-floor vertical barrier protecting service shafts from accidental tool falls and pigeon infestation.",
+    badge: "Shaft Protection"
+  },
+  {
+    src: "/images/construction-safety-net.jpg",
+    alt: "Commercial Construction Netting",
+    title: "Tower Facade Catch Net",
+    caption: "Engineered fall arrest network safeguarding active high-rise construction.",
+    badge: "Commercial Site"
+  },
+  {
+    src: "/images/industrial-safety-net.jpg",
+    alt: "Industrial Debris Catch Net",
+    title: "Logistics Hub Storage Net",
+    caption: "Ceiling-to-floor containment preventing high-bay pallet falls.",
+    badge: "Warehouse Safety"
+  },
+  {
+    src: "/images/car-parking-net.jpg",
+    alt: "Podium Parking Protection",
+    title: "Podium Car Parking Barrier",
+    caption: "Aesthetic perimeter mesh shielding luxury cars from stray ball impacts.",
+    badge: "Podium Shield"
+  }
+];
 ---
 
-<BaseLayout
-  title="Duct Safety Nets for Apartments & RWAs | Invisible Safety India"
-  description="Industrial-grade HDPE safety nets for plumbing shafts, ventilation ducts, and building atriums with custom site quote Prevents technician falls and debris accumulation. RWA bulk pricing available."
+<SubPageLayout
+  title="Building Duct Shaft Safety Nets | Plumbing Shaft Enclosures | Invisible Safety"
+  description="Heavy-duty vertical building duct shaft safety nets. Stops accidental tool drops, debris fall, and pigeon roosting in plumbing shafts."
   canonicalUrl="/duct-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="STRUCTURAL ARCHITECTURE"
+  heroTitle="BUILDING DUCT SHAFT SAFETY NETS"
+  heroSubtitle="Continuous vertical and horizontal high-tensile safety netting sealing building plumbing shafts, ventilation ducts, and internal service voids against hazardous falls."
+  heroImage="/images/duct-net.webp"
+  heroImageAlt="Building Duct Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <!-- Hero Section -->
-  <section class="section-spacing" style="background: linear-gradient(180deg, #FFFBEB 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #B45309; margin-bottom: 1.25rem;">
-            <Building2 size={14} /> RWA & COMMERCIAL INFRASTRUCTURE
-          </div>
-          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
-            Utility Shaft & <br />
-            <span style="color: #D97706;">Duct Area Safety Nets</span>
-          </h1>
-          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
-            Open vertical duct areas accumulate discarded trash, bird nests, and present severe fall risks for AC mechanics and plumbers. Our heavy-ply HDPE duct netting seals vertical shafts cleanly and permanently.
-          </p>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
-            <a href="#estimator" class="btn btn-primary">
-              <span>Calculate Duct Shaft Coverage</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20from%20an%20RWA%20society%20committee%20and%20need%20a%20quote%20for%20building%20duct%20safety%20nets.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-            >
-              <MessageCircle size={17} />
-              <span>RWA Bulk Enquiry</span>
-            </a>
-          </div>
-
-          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Quotation:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #D97706;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Volume Discount:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">Up to 15% Off</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Image Showcase -->
-        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
-            <img
-              src="/images/duct-net.webp"
-              alt="Utility Duct Shaft Safety Netting"
-              style="width: 100%; height: 100%; object-fit: cover; display: block;"
-              width="640"
-              height="360"
-              loading="eager"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #FDE68A; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #B45309; display: flex; align-items: center; gap: 0.4rem;">
-              <Activity size={14} /> 200+ kg Load Bearing
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
-              <span>Heavy 50mm Industrial Ply</span>
-            </div>
-          </div>
-          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
-            <span>Solid Concrete Expansion Studs</span>
-            <span style="color: #16A34A; font-weight: 700;">✓ Society Bulk Pricing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Curated Catalog: Available Construction & Industrial Configurations (Matching User Screenshot 5) -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid #F1F5F9;">
-        <div>
-          <div style="font-size: 0.76rem; font-weight: 800; color: #D97706; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem;">
-            CURATED CATALOG
-          </div>
-          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; color: #0F172A; letter-spacing: -0.02em; margin: 0;">
-            AVAILABLE CONSTRUCTION & INDUSTRIAL CONFIGURATIONS
-          </h2>
-        </div>
-        <div style="font-size: 0.88rem; color: #64748B;">
-          Select a configuration for detailed engineering specifications
-        </div>
+  <!-- Shaft Safety Dynamics -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">SHAFT VOID PROTECTION</span>
+        <h2 class="editorial-title">Total Void Containment</h2>
+        <p class="editorial-subtitle">
+          Building plumbing ducts run up to 40 stories deep, posing critical hazards during maintenance.
+        </p>
       </div>
 
-      <!-- 4-Card Portrait Grid -->
-      <div class="grid-4" style="margin-bottom: 2rem;">
-        <!-- 1. Construction Safety -->
-        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
-          <a href="/construction-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
-            <img
-              src="/images/construction-safety-net.jpg"
-              alt="Construction Safety"
-              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-              class="hover-zoom-img"
-              loading="lazy"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #D97706;">
-              Site Approved
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Custom Site Quote</div>
-          </a>
-          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
-                THE HEAVY DEBRIS MATRIX
-              </div>
-              <a href="/construction-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
-                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
-                  CONSTRUCTION SAFETY
-                </h3>
-              </a>
-              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
-                Heavy-gauge containment mesh wrapping building scaffolding to arrest falling debris, tools, and materials.
-              </p>
-            </div>
-            <div>
-              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
-                ✓ 300+ kg Heavy Debris Containment
-              </div>
-              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
-                <a href="/construction-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
-                  <span>VIEW SPECS →</span>
-                </a>
-                <a
-                  href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20interested%20in%20Construction%20Safety%20Nets%20.%20Please%20provide%20a%20quote.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-whatsapp btn-sm"
-                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
-                >
-                  <span>Get Quote</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Industrial Safety Nets -->
-        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
-          <a href="/industrial-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
-            <img
-              src="/images/industrial-safety-net.jpg"
-              alt="Industrial Safety Nets"
-              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-              class="hover-zoom-img"
-              loading="lazy"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
-              Heavy Duty
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Custom Site Quote</div>
-          </a>
-          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
-                THE HEAVY-DUTY GRID
-              </div>
-              <a href="/industrial-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
-                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
-                  INDUSTRIAL SAFETY NETS
-                </h3>
-              </a>
-              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
-                Heavy-duty perimeter and overhead grid netting engineered for high-bay warehouses, factories, and logistics plants.
-              </p>
-            </div>
-            <div>
-              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
-                ✓ High-Tensile Warehouse Rigging
-              </div>
-              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
-                <a href="/industrial-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
-                  <span>VIEW SPECS →</span>
-                </a>
-                <a
-                  href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20interested%20in%20Industrial%20Safety%20Nets%20.%20Please%20provide%20a%20quote.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-whatsapp btn-sm"
-                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
-                >
-                  <span>Get Quote</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Terrace Top Nets -->
-        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
-          <a href="/terrace-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
-            <img
-              src="/images/terrace-top-net.jpg"
-              alt="Terrace Top Nets"
-              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-              class="hover-zoom-img"
-              loading="lazy"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #16A34A;">
-              Penthouse Deck
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Custom Site Quote</div>
-          </a>
-          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
-                THE OPEN SKYWAY
-              </div>
-              <a href="/terrace-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
-                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
-                  TERRACE TOP NETS
-                </h3>
-              </a>
-              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
-                Expansive rooftop canopy nets securing open-to-sky penthouses and terrace party decks against fall risks.
-              </p>
-            </div>
-            <div>
-              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
-                ✓ UV-Resistant Overhead Canopy
-              </div>
-              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
-                <a href="/terrace-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
-                  <span>VIEW SPECS →</span>
-                </a>
-                <a
-                  href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20interested%20in%20Terrace%20Top%20Nets%20.%20Please%20provide%20a%20quote.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-whatsapp btn-sm"
-                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
-                >
-                  <span>Get Quote</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Car Parking Safety Nets -->
-        <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
-          <a href="/car-parking-safety-nets/" style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
-            <img
-              src="/images/car-parking-net.jpg"
-              alt="Car Parking Safety Nets"
-              style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-              class="hover-zoom-img"
-              loading="lazy"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #475569;">
-              Parking Shield
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Custom Site Quote</div>
-          </a>
-          <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
-                THE VEHICLE CANOPY
-              </div>
-              <a href="/car-parking-safety-nets/" style="text-decoration: none; color: inherit; display: block;">
-                <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
-                  CAR PARKING SAFETY NETS
-                </h3>
-              </a>
-              <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
-                Taut shaded netting barriers protecting luxury vehicles from falling objects, tree branches, and intense heat.
-              </p>
-            </div>
-            <div>
-              <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
-                ✓ All-Weather Vehicle Defense
-              </div>
-              <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
-                <a href="/car-parking-safety-nets/" class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
-                  <span>VIEW SPECS →</span>
-                </a>
-                <a
-                  href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20interested%20in%20Car%20Parking%20Safety%20Nets%20.%20Please%20provide%20a%20quote.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-whatsapp btn-sm"
-                  style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
-                >
-                  <span>Get Quote</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Advantages -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-emerald">Society & Facility Management</span>
-        <h2>Engineered For Multi-Storey Shafts</h2>
-        <p>Reliable protection for gated communities, commercial IT parks, and high-rise condominiums.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="arch-card">
-          <div style="color: #D97706; margin-bottom: 1rem;"><ShieldCheck size={26} /></div>
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Technician Fall Prevention</h3>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
-            Provides essential fall-catch security for electricians, plumbers, and AC technicians working on external scaffolding or narrow utility ledge beams.
+      <div class="duct-grid">
+        <div class="duct-card">
+          <h3 class="duct-card-title">Maintenance Fall Prevention</h3>
+          <p class="duct-card-desc">
+            Provides a safety arrest mesh across every service opening so plumbers and electricians working in duct voids are fully shielded against high-altitude drops.
           </p>
         </div>
 
-        <div class="arch-card">
-          <div style="color: #D97706; margin-bottom: 1rem;"><Building2 size={26} /></div>
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Stops Garbage & Debris Build-Up</h3>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
-            Prevents residents from accidentally or intentionally dropping bottles, wrappers, and renovation debris into ground floor air ducts and basement pumps.
+        <div class="duct-card">
+          <h3 class="duct-card-title">Anti-Pigeon Roosting Block</h3>
+          <p class="duct-card-desc">
+            Deep shafts are favorite nesting spots for pigeons. Sealing the perimeter permanently halts foul odors, dead bird blockages, and HVAC contamination.
           </p>
         </div>
 
-        <div class="arch-card">
-          <div style="color: #D97706; margin-bottom: 1rem;"><Users size={26} /></div>
-          <h3 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">Society RWA Bulk Discounts</h3>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
-            Exclusive volume discounts of 10% to 15% for whole-tower shaft coverings, with official GST invoicing and multi-year maintenance agreements.
+        <div class="duct-card">
+          <h3 class="duct-card-title">Heavy Boundary Ropes</h3>
+          <p class="duct-card-desc">
+            Each section is bordered with 8mm to 12mm high-tenacity perimeter ropes anchored into RCC beams using stainless steel hook fasteners.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Live Calculator -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Fast Calculation</span>
-        <h2>Calculate Shaft Netting Investment</h2>
-        <p>Get instant indicative rates based on your shaft opening dimensions.</p>
+  <!-- Cost Estimator -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Duct Netting Quote</h2>
+        <p class="editorial-subtitle">
+          Configure duct dimensions for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
-  <FAQSection category="safety-nets" title="Duct & Shaft Netting FAQ" />
-</BaseLayout>
+  <TrustSection />
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .duct-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .duct-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .duct-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .duct-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .duct-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

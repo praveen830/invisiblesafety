@@ -1,162 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
-import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
+import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Heart, Check, ArrowRight, MessageCircle, Phone, Activity } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Shield, Heart } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
-  "Child Safety Nets & High-Rise Fall Barriers",
-  "Dedicated child and pet safety solutions for windows, low sills, and high-rise balconies with custom site quote",
-  35
+  "Child & Toddler Balcony Safety Nets",
+  "Reinforced UV-stabilized polymer netting designed to prevent toddler falls and toy drops on high-rise balconies with custom site quote",
+  18
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Safety Nets", url: "https://invisiblesafety.in/safety-nets/" },
   { name: "Child Safety Nets", url: "https://invisiblesafety.in/child-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Polymer Quality", value: "Virgin UV-Stabilized Co-Polymer", icon: ShieldCheck },
+  { label: "Impact Capacity", value: "150+ kgf Breaking Strength per Mesh", icon: Award },
+  { label: "Knot Engineering", value: "Heat-Set Non-Abrasive Knots", icon: Heart },
+  { label: "Replacement Warranty", value: "3 to 5-Year Certified Guarantee", icon: Wrench }
+];
+
+const subcategories = [
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "Full-perimeter protective enclosure stopping accidental falls without making balconies feel caged.",
+    href: "/balcony-safety/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Virgin High-Density Polymer",
+    badge: "Residential Core"
+  },
+  {
+    title: "Child Safety Invisible Grills",
+    subtitle: "50mm calibrated Japanese SS316 cables providing unyielding 400+ kgf fall safety.",
+    href: "/child-safety-invisible-grills/",
+    image: "/images/child-safety.webp",
+    spec: "400+ kgf Breaking Load",
+    badge: "Flagship Grills"
+  },
+  {
+    title: "Internal Stairwell Void Protection",
+    subtitle: "Vertical safety netting closing large staircase eye gaps in villas and duplexes.",
+    href: "/staircase-safety-nets/",
+    image: "/images/staircase-invisible-grills.webp",
+    spec: "Floor-to-Floor Continuous Webbing",
+    badge: "Interior Void"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Boundary safety netting installed over open parapets to secure terrace gatherings.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Tensile Perimeter Tie Cords",
+    badge: "Rooftop Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/child-safety.webp",
+    alt: "Toddler and Pet Safe Balcony Netting",
+    title: "Toddler & Pet Anti-Drop Barrier",
+    caption: "Tight-grid netting stopping pets and toy drops with high impact resilience on luxury high-rise balconies.",
+    badge: "Family Peace of Mind"
+  },
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Apartment Balcony Fall Shield",
+    title: "Apartment Balcony Fall Shield",
+    caption: "UV-treated high-density netting installed on a 15th-floor luxury balcony.",
+    badge: "Residential Core"
+  },
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "Clean Balcony Safety Mesh",
+    title: "Architectural Parapet Extension",
+    caption: "Precision anchor installation providing total peace of mind for families.",
+    badge: "100% Society Approved"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Terrace Party Deck Protection",
+    title: "Terrace Party Deck Protection",
+    caption: "Secured terrace boundary allowing safe evening gatherings and events.",
+    badge: "Terrace Guard"
+  }
+];
 ---
 
-<BaseLayout
-  title="Child Safety Nets & Invisible Grills for High-Rises | Invisible Safety"
-  description="Certified child-safety fall protection for balconies and windows. 50mm narrow spacing, zero ladder climbing points, 400+ kg impact tested."
+<SubPageLayout
+  title="Child Safety Nets | Toddler Balcony Protection | Invisible Safety"
+  description="High-density polymer balcony safety nets for toddlers and pets with custom site quote 150+ kg load tested, anti-abrasive knots with 5-year replacement guarantee."
   canonicalUrl="/child-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="RESIDENTIAL CHILD PROTECTION"
+  heroTitle="CHILD &amp; PET SAFETY NETS"
+  heroSubtitle="UV-stabilized high-density virgin polymer netting safeguarding living balconies, banisters, and windows, preventing infant falls and pet slips with 150+ kgf impact load resistance."
+  heroImage="/images/child-safety.webp"
+  heroImageAlt="Child Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <!-- Hero Section -->
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #DCFCE7; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #15803D; margin-bottom: 1.25rem;">
-            <Heart size={14} /> PARENT'S PEACE OF MIND
-          </div>
-          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
-            Child & Pet Fall Safety <br />
-            <span style="color: #0284C7;">For High-Rise Living</span>
-          </h1>
-          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
-            Toddlers are naturally curious and fearless explorers. Invisible Safety engineered invisible grills and heavy-gauge safety nets eliminate dangerous drops and climbing hazards so you can open windows with total confidence.
-          </p>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
-            <a href="#estimator" class="btn btn-primary">
-              <span>Calculate Child Safety Solution</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20have%20young%20children%20and%20need%20child-safety%20grills%20for%20my%20balcony.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-            >
-              <MessageCircle size={17} />
-              <span>WhatsApp Safety Expert</span>
-            </a>
-          </div>
-
-          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Quotation:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Site Visit:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">100% Free</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Image Showcase -->
-        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
-            <img
-              src="/images/child-safety.webp"
-              alt="Child Safety Net Balcony Installation"
-              style="width: 100%; height: 100%; object-fit: cover; display: block;"
-              width="640"
-              height="360"
-              loading="eager"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
-              <Activity size={14} /> Zero Head-Entrapment Gaps
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
-              <span>No Horizontal Footholds</span>
-            </div>
-          </div>
-          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
-            <span>Reinforced Vertical Tension Anchorage</span>
-            <span style="color: #16A34A; font-weight: 700;">✓ 100% Toddler Safe</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Child Protection Engineering -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Engineered Specifically For Children</span>
-        <h2>4 Layers of Child Protection</h2>
-        <p>Eliminating every mechanism of accidental balcony and window injuries.</p>
+  <!-- Child Safety Features Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">DOMESTIC SAFETY ARCHITECTURE</span>
+        <h2 class="editorial-title">Built For Curious Hands &amp; Paws</h2>
+        <p class="editorial-subtitle">
+          Engineered to prevent falls, head entrapment, and dropped objects without restricting outdoor sunlight.
+        </p>
       </div>
 
-      <div class="grid-4">
-        <div class="arch-card">
-          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            50mm Anti-Entrapment Gap
-          </div>
-          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
-            A child's average head circumference exceeds 110mm. Our 50mm cable spacing makes it physically impossible for toddlers to push through.
+      <div class="child-nets-grid">
+        <div class="child-net-card">
+          <h3 class="net-card-title">Impact-Absorbing Stretch Dynamics</h3>
+          <p class="net-card-desc">
+            Unlike rigid barriers that can cause bruising upon accidental running impact, high-density polymer meshes gently decelerate children, providing a soft cushioned perimeter.
           </p>
         </div>
 
-        <div class="arch-card">
-          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            No Horizontal Ladder Steps
-          </div>
-          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
-            Traditional metal box grills feature horizontal bars that toddlers use like ladders to climb over balustrades. Invisible vertical grills offer zero footholds.
+        <div class="child-net-card">
+          <h3 class="net-card-title">Smooth Heat-Fused Knots</h3>
+          <p class="net-card-desc">
+            Constructed with machine-extruded round filaments and heat-locked knots that will never fray, release fiber splinters, or abrade tender infant skin.
           </p>
         </div>
 
-        <div class="arch-card">
-          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            Toy Drop Prevention
-          </div>
-          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
-            Stops heavy objects, toy cars, and sports equipment from tumbling 20 floors down into pedestrian pathways and parking lots.
-          </p>
-        </div>
-
-        <div class="arch-card">
-          <div style="font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            Smooth Nylon Membrane
-          </div>
-          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
-            The clear DuPont coating encases all steel cables in a soft, burr-free exterior that will never cut, pinch, or scrape delicate toddler hands.
+        <div class="child-net-card">
+          <h3 class="net-card-title">Zero Toy Dropping Protection</h3>
+          <p class="net-card-desc">
+            Calibrated mesh density stops balls, toy cars, and feeding bottles from slipping between railing gaps and plummeting down onto pedestrian walkways below.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Live Calculator -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-emerald">Live Pricing</span>
-        <h2>Calculate Child Safety Quotation</h2>
-        <p>Choose between 50mm invisible grills or heavy-duty child safety mesh.</p>
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Child Net Cost</h2>
+        <p class="editorial-subtitle">
+          Configure balcony dimensions for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
-  <FAQSection category="child-safety" title="Child Safety Questions & Answers" />
-</BaseLayout>
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Child Safety Nets Questions &amp; Answers" />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .child-nets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .child-net-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .child-net-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .net-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .net-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

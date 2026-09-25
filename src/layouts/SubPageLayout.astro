@@ -1,0 +1,826 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import {
+  ShieldCheck,
+  Award,
+  Wrench,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Maximize2,
+  X,
+  ChevronRight,
+  ChevronLeft
+} from 'lucide-react';
+import { business } from '../data/business';
+
+export interface SpecItem {
+  label: string;
+  value: string;
+  icon?: any;
+}
+
+export interface GalleryItem {
+  src: string;
+  alt: string;
+  title: string;
+  caption?: string;
+  badge?: string;
+}
+
+export interface SubCategoryItem {
+  title: string;
+  subtitle: string;
+  href: string;
+  image?: string;
+  spec?: string;
+  badge?: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  schema?: Record<string, any> | Record<string, any>[];
+  
+  // Hero Props
+  heroEyebrow?: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  heroImage: string;
+  heroImageAlt?: string;
+  
+  // Specifications Ribbon (Technical Hallmarks)
+  specs?: SpecItem[];
+  
+  // 2-Column Editorial Visual Gallery
+  gallery?: GalleryItem[];
+  galleryEyebrow?: string;
+  galleryTitle?: string;
+  gallerySubtitle?: string;
+  
+  // Subcategories / Solutions
+  subcategories?: SubCategoryItem[];
+  subcategoriesTitle?: string;
+  subcategoriesSubtitle?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  schema,
+  heroEyebrow = "ARCHITECTURAL INTEGRATION",
+  heroTitle,
+  heroSubtitle,
+  heroImage,
+  heroImageAlt = "Invisible Safety Architectural Installation",
+  specs = [
+    { label: "Material Metallurgy", value: "Virgin SS316 Marine Grade", icon: ShieldCheck },
+    { label: "Tensile Strength", value: "400+ kgf Breaking Load", icon: Award },
+    { label: "Direct Warranty", value: "10-Year Certificate", icon: Wrench },
+    { label: "Compliance & Safety", value: "RWA Society Approved", icon: CheckCircle2 }
+  ],
+  gallery = [
+    {
+      src: "/images/hero-balcony.webp",
+      alt: "Luxury High-Rise Balcony Installation",
+      title: "Skyline Panorama Balcony",
+      caption: "Virgin SS316 cables preserving unobstructed 180° penthouse view.",
+      badge: "Flagship Residential"
+    },
+    {
+      src: "/images/window-invisible-grills.webp",
+      alt: "French Window Architectural Enclosure",
+      title: "French Fenestration Suite",
+      caption: "High-tension 50mm cable spacing for maximum cross-ventilation.",
+      badge: "High-Rise Fenestration"
+    },
+    {
+      src: "/images/staircase-invisible-grills.webp",
+      alt: "Duplex Staircase Tension Grills",
+      title: "Duplex Stairwell Void",
+      caption: "Floor-to-ceiling tensioned cable array securing architectural stairs.",
+      badge: "Interior Architecture"
+    },
+    {
+      src: "/images/child-safety.webp",
+      alt: "Child & Pet Safe Tension Array",
+      title: "Toddler Anti-Fall System",
+      caption: "Calibrated tensioning preventing climbable leverage or gap passage.",
+      badge: "Child & Pet Safety"
+    }
+  ],
+  galleryEyebrow = "VERIFIED RESIDENTIAL INSTALLATIONS",
+  galleryTitle = "Architectural Portfolio",
+  gallerySubtitle = "Documented installations across luxury penthouses, gated villas, and high-rise residences.",
+  subcategories,
+  subcategoriesTitle = "ENGINEERED CONFIGURATIONS",
+  subcategoriesSubtitle = "Explore specialized solutions engineered for diverse structural requirements."
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  schema={schema}
+>
+  <!-- =========================================================================
+       1. HERO HEADER: Edge-to-Edge High-Contrast Imagery (min-height: 60vh-75vh)
+       ========================================================================= -->
+  <header class="subpage-hero">
+    <div class="subpage-hero-media">
+      <img
+        src={heroImage}
+        alt={heroImageAlt}
+        class="subpage-hero-img"
+        loading="eager"
+        width="1920"
+        height="1080"
+      />
+      <!-- Gradient overlay: opacity shift on desktop hover & deep scrim -->
+      <div class="subpage-hero-scrim"></div>
+    </div>
+
+    <!-- Center-Bottom Content Box -->
+    <div class="subpage-hero-content">
+      <div class="subpage-hero-box">
+        <span class="subpage-eyebrow">
+          {heroEyebrow}
+        </span>
+
+        <h1 class="subpage-title">
+          {heroTitle}
+        </h1>
+
+        <p class="subpage-subtitle">
+          {heroSubtitle}
+        </p>
+
+        <!-- Minimal Action Buttons -->
+        <div class="subpage-actions">
+          <a href="/contact/#quote" class="btn-editorial-pill">
+            <span>REQUEST SITE SURVEY</span>
+            <ArrowRight size={14} />
+          </a>
+
+          <a
+            href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(heroTitle)}.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-editorial-pill-secondary"
+          >
+            <MessageCircle size={15} />
+            <span>CONSULT ON WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. QUICK SPEC RIBBON: Frosted Glass Bar (backdrop-blur-md bg-black/40 border-y border-white/10)
+       ========================================================================= -->
+  {specs && specs.length > 0 && (
+    <section class="spec-ribbon-bar" aria-label="Technical Hallmarks">
+      <div class="spec-ribbon-grid">
+        {specs.map((item) => (
+          <div class="spec-ribbon-item">
+            <div class="spec-ribbon-icon">
+              {item.icon ? <item.icon size={18} strokeWidth={1.8} /> : <ShieldCheck size={18} strokeWidth={1.8} />}
+            </div>
+            <div class="spec-ribbon-text">
+              <span class="spec-ribbon-label">{item.label}</span>
+              <span class="spec-ribbon-value">{item.value}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- =========================================================================
+       3. SUBCATEGORIES / CONFIGURATIONS (Optional interactive cards)
+       ========================================================================= -->
+  {subcategories && subcategories.length > 0 && (
+    <section class="subcategories-section">
+      <div class="subpage-container">
+        <div class="subpage-section-header">
+          <span class="editorial-eyebrow">{subcategoriesTitle}</span>
+          <h2 class="editorial-title">Available Architectural Formats</h2>
+          <p class="editorial-subtitle">{subcategoriesSubtitle}</p>
+        </div>
+
+        <div class="subcategories-grid">
+          {subcategories.map((sub) => (
+            <a href={sub.href} class="subcategory-card group">
+              {sub.image && (
+                <div class="subcategory-media">
+                  <img src={sub.image} alt={sub.title} class="subcategory-img" loading="lazy" />
+                  <div class="subcategory-overlay"></div>
+                </div>
+              )}
+              <div class="subcategory-body">
+                {sub.badge && <span class="subcategory-badge">{sub.badge}</span>}
+                <h3 class="subcategory-title">{sub.title}</h3>
+                <p class="subcategory-desc">{sub.subtitle}</p>
+                {sub.spec && <span class="subcategory-spec">{sub.spec}</span>}
+                <div class="subcategory-cta">
+                  <span>DISCOVER SPECIFICATIONS</span>
+                  <ChevronRight size={14} />
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- =========================================================================
+       4. MAIN CONTENT SLOT (Custom engineering, calculator, comparison)
+       ========================================================================= -->
+  <slot />
+
+  <!-- =========================================================================
+       5. VISUAL GALLERY GRID: 2-Column Editorial Grid with Lightbox
+       ========================================================================= -->
+  {gallery && gallery.length > 0 && (
+    <section class="editorial-gallery-section" id="gallery-showcase">
+      <div class="subpage-container">
+        <div class="subpage-section-header">
+          <span class="editorial-eyebrow">{galleryEyebrow}</span>
+          <h2 class="editorial-title">{galleryTitle}</h2>
+          <p class="editorial-subtitle">{gallerySubtitle}</p>
+        </div>
+
+        <div class="editorial-gallery-grid-2col">
+          {gallery.map((item, idx) => (
+            <div
+              class="gallery-editorial-card trigger-lightbox"
+              data-img-src={item.src}
+              data-img-alt={item.alt}
+              data-img-title={item.title}
+              data-img-caption={item.caption || ""}
+              data-idx={idx}
+              role="button"
+              tabindex="0"
+              aria-label={`View photo ${item.title}`}
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                class="gallery-card-img"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+              <div class="gallery-card-overlay">
+                {item.badge && <span class="gallery-card-badge">{item.badge}</span>}
+                <h3 class="gallery-card-title">{item.title}</h3>
+                {item.caption && <p class="gallery-card-caption">{item.caption}</p>}
+                <span class="gallery-card-action">
+                  <Maximize2 size={13} />
+                  <span>TAP TO EXPAND VIEW</span>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- =========================================================================
+       6. CONCIERGE SURVEY INVITATION STRIP
+       ========================================================================= -->
+  <section class="editorial-concierge-strip">
+    <div class="subpage-container">
+      <div class="concierge-editorial-box">
+        <span class="concierge-eyebrow">PRECISION ON-SITE ENGINEERING</span>
+        <h2 class="concierge-title">Schedule Doorstep Laser Measurement</h2>
+        <p class="concierge-desc">
+          Our certified architectural surveyor will inspect your structure, measure cable lengths with high-precision lasers, present authentic SS316 wire samples, and deliver a zero-obligation quotation.
+        </p>
+        <div class="concierge-actions">
+          <a href="/contact/#quote" class="btn-editorial-pill">
+            <span>REQUEST SITE SURVEY</span>
+            <ArrowRight size={14} />
+          </a>
+          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-pill-secondary">
+            <Phone size={14} />
+            <span>DIRECT CALL: {business.phone}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. INTERACTIVE LIGHTBOX MODAL (Built-In)
+       ========================================================================= -->
+  <div class="lightbox-backdrop" id="subpage-lightbox-modal" aria-hidden="true">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Close image preview">
+        <X size={20} />
+      </button>
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="" class="lightbox-img" id="lightbox-target-img" />
+      </div>
+      <div class="lightbox-meta">
+        <div>
+          <h3 class="lightbox-title" id="lightbox-target-title">Installation Preview</h3>
+          <p class="lightbox-caption" id="lightbox-target-caption"></p>
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* =========================================================================
+     SUBPAGE HERO (60vh - 75vh)
+     ========================================================================= */
+  .subpage-hero {
+    position: relative;
+    width: 100%;
+    min-height: clamp(520px, 70vh, 75vh);
+    height: 72vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #0D0D0D;
+  }
+
+  .subpage-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .subpage-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.0);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .subpage-hero:hover .subpage-hero-img {
+    transform: scale(1.03);
+  }
+
+  .subpage-hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.2) 30%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+    opacity: 0.8;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .subpage-hero:hover .subpage-hero-scrim {
+    opacity: 0.9;
+  }
+
+  .subpage-hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4rem);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .subpage-hero-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 860px;
+    width: 100%;
+  }
+
+  .subpage-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-gold, #C5A880);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  }
+
+  .subpage-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.8rem, 4vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.12em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 4px 30px rgba(0, 0, 0, 0.75);
+    margin: 0 0 0.85rem 0;
+    word-break: break-word;
+  }
+
+  .subpage-subtitle {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.35vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
+    max-width: 680px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+  }
+
+  .subpage-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-editorial-pill-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.75rem 2rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-editorial-pill-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .subpage-actions {
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .subpage-actions a {
+      width: 100%;
+    }
+  }
+
+  /* =========================================================================
+     CONTAINER & COMMON SECTIONS
+     ========================================================================= */
+  .subpage-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    box-sizing: border-box;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(2.5rem, 5vw, 3.5rem) auto;
+  }
+
+  .editorial-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem 0;
+    line-height: 1.2;
+  }
+
+  .editorial-subtitle {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* =========================================================================
+     SUBCATEGORIES GRID
+     ========================================================================= */
+  .subcategories-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .subcategories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .subcategory-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .subcategory-card:hover {
+    border-color: rgba(197, 168, 128, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+  }
+
+  .subcategory-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #000000;
+  }
+
+  .subcategory-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .subcategory-card:hover .subcategory-img {
+    transform: scale(1.05);
+  }
+
+  .subcategory-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+  }
+
+  .subcategory-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .subcategory-badge {
+    align-self: flex-start;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold, #C5A880);
+    background: rgba(197, 168, 128, 0.12);
+    border: 1px solid rgba(197, 168, 128, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .subcategory-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+  }
+
+  .subcategory-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.55;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+  }
+
+  .subcategory-spec {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #CBD5E1;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.75rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .subcategory-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold, #C5A880);
+    transition: gap 0.2s ease;
+  }
+
+  .subcategory-card:hover .subcategory-cta {
+    gap: 0.65rem;
+  }
+
+  /* =========================================================================
+     CONCIERGE STRIP
+     ========================================================================= */
+  .editorial-concierge-strip {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .concierge-editorial-box {
+    max-width: 840px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .concierge-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+
+  .concierge-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.5rem, 3vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
+  }
+
+  .concierge-desc {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: #CBD5E1;
+    line-height: 1.6;
+    margin: 0 auto 2rem auto;
+    max-width: 640px;
+  }
+
+  .concierge-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 580px) {
+    .concierge-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .concierge-actions a {
+      width: 100%;
+    }
+  }
+
+  .lightbox-counter {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #94A3B8;
+    font-weight: 600;
+  }
+</style>
+
+<script is:inline>
+  function setupSubpageLightbox() {
+    const backdrop = document.getElementById('subpage-lightbox-modal');
+    const closeBtn = document.getElementById('lightbox-close');
+    const targetImg = document.getElementById('lightbox-target-img');
+    const targetTitle = document.getElementById('lightbox-target-title');
+    const targetCaption = document.getElementById('lightbox-target-caption');
+    const counter = document.getElementById('lightbox-counter');
+    const cards = Array.from(document.querySelectorAll('.trigger-lightbox'));
+
+    if (!backdrop || !closeBtn || !targetImg || cards.length === 0) return;
+
+    let currentIndex = 0;
+
+    function openLightbox(idx) {
+      currentIndex = idx;
+      const card = cards[idx];
+      if (!card) return;
+
+      const src = card.getAttribute('data-img-src') || '';
+      const alt = card.getAttribute('data-img-alt') || '';
+      const title = card.getAttribute('data-img-title') || '';
+      const caption = card.getAttribute('data-img-caption') || '';
+
+      targetImg.src = src;
+      targetImg.alt = alt;
+      if (targetTitle) targetTitle.textContent = title;
+      if (targetCaption) targetCaption.textContent = caption;
+      if (counter) counter.textContent = (idx + 1) + ' / ' + cards.length;
+
+      backdrop.classList.add('is-active');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      backdrop.classList.remove('is-active');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', () => openLightbox(idx));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(idx);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!backdrop.classList.contains('is-active')) return;
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        const nextIdx = (currentIndex + 1) % cards.length;
+        openLightbox(nextIdx);
+      } else if (e.key === 'ArrowLeft') {
+        const prevIdx = (currentIndex - 1 + cards.length) % cards.length;
+        openLightbox(prevIdx);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupSubpageLightbox);
+  document.addEventListener('astro:page-load', setupSubpageLightbox);
+</script>

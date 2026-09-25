@@ -1,160 +1,216 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Sparkles, MessageCircle, Phone, ArrowRight, Shield, Layers } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "Staircase Safety Nets",
-  "High-density polymer safety netting for multi-level stairwells, atrium voids, and duplex staircases with custom site quote",
-  25
+  "Vertical stairwell and duplex void fall-arrest safety netting for apartments, schools, and villas with custom site quote",
+  18
 );
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
-  { name: "Core Safety Nets", url: "https://invisiblesafety.in/safety-nets/" },
+  { name: "Safety Nets", url: "https://invisiblesafety.in/safety-nets/" },
   { name: "Staircase Safety Nets", url: "https://invisiblesafety.in/staircase-safety-nets/" }
 ]);
+
+const specs = [
+  { label: "Tensile Webbing", value: "High-Tenacity Virgin Nylon / HDPE", icon: ShieldCheck },
+  { label: "Vertical Void Guard", value: "Continuous Floor-to-Floor Enclosure", icon: Award },
+  { label: "Anchor Metallurgy", value: "Stainless Steel SS304 Wall Fasteners", icon: Wrench },
+  { label: "Direct Warranty", value: "5-Year Certified Replacement Guarantee", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Staircase Invisible Grills",
+    subtitle: "Floor-to-ceiling vertical Japanese SS316 tension cables for luxury duplexes.",
+    href: "/staircase-invisible-grills/",
+    image: "/images/staircase-invisible-grills.webp",
+    spec: "400+ kgf Breaking Load",
+    badge: "SS316 Luxury"
+  },
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "Full-perimeter protective enclosure stopping accidental falls without feeling caged.",
+    href: "/balcony-safety/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Virgin High-Density Polymer",
+    badge: "Residential Core"
+  },
+  {
+    title: "Toddler & Pet Anti-Fall Nets",
+    subtitle: "Calibrated mesh preventing toys, toddlers, or pets from squeezing through railings.",
+    href: "/child-safety-nets/",
+    image: "/images/child-safety.webp",
+    spec: "Smooth Anti-Chafe Knots",
+    badge: "Child Safe"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Boundary safety netting installed over open roof parapets to secure terrace gatherings.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Tensile Perimeter Tie Cords",
+    badge: "Rooftop Guard"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/staircase-invisible-grills.webp",
+    alt: "Staircase Void Safety Net Array",
+    title: "Duplex Stairwell Fall Barrier",
+    caption: "Vertical continuous safety mesh sealing deep multi-floor central staircase voids in a luxury villa.",
+    badge: "Void Guard"
+  },
+  {
+    src: "/images/hero-balcony.webp",
+    alt: "Balcony Invisible Grills",
+    title: "Panoramic Skyline Aperture",
+    caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
+    badge: "Skyline Vista"
+  },
+  {
+    src: "/images/child-safety.webp",
+    alt: "Child-Safe Calibrated Balcony",
+    title: "Toddler Anti-Fall System",
+    caption: "Zero footholds preventing climbing leverage with unyielding 400+ kg load strength.",
+    badge: "Child & Pet Safety"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Terrace Top Netting",
+    title: "Terrace Party Deck Protection",
+    caption: "Secured terrace boundary allowing safe evening gatherings and events.",
+    badge: "Terrace Guard"
+  }
+];
 ---
 
-<BaseLayout
-  title="Staircase Safety Nets | Multi-Level Void Drop Fall Defense | Invisible Safety"
-  description="Certified stairwell and atrium void fall-protection safety netting with custom site quote Anti-sag virgin Garware polymer with 3-year warranty."
+<SubPageLayout
+  title="Staircase Safety Nets | Stairwell Void Fall Protection | Invisible Safety"
+  description="Floor-to-floor vertical stairwell safety netting for duplex homes, schools, and commercial apartments with custom site quote 150+ kg impact rating."
   canonicalUrl="/staircase-safety-nets/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="INTERNAL VOID FALL PROTECTION"
+  heroTitle="STAIRCASE VOID SAFETY NETS"
+  heroSubtitle="Floor-to-floor continuous high-tensile safety netting sealing central stairwell eye voids, open banister gaps, and duplex mezzanine drops against accidental falls."
+  heroImage="/images/staircase-invisible-grills.webp"
+  heroImageAlt="Staircase Safety Nets Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0; padding-top: 2rem;">
-    <div class="container">
-      <nav style="font-size: 0.76rem; font-weight: 700; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="/" style="color: #64748B; text-decoration: none;">HOME</a>
-        <span>/</span>
-        <a href="/safety-nets/" style="color: #64748B; text-decoration: none;">CORE SAFETY NETS</a>
-        <span>/</span>
-        <span style="color: #C2410C;">STAIRCASE SAFETY NETS</span>
-      </nav>
+  <!-- Staircase Void Section -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">CENTRAL VOID ENCLOSURE</span>
+        <h2 class="editorial-title">Multi-Floor Stairwell Protection</h2>
+        <p class="editorial-subtitle">
+          Open stairwells in residential duplexes and schools pose extreme multi-story drop hazards.
+        </p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3.5rem; align-items: start;">
-        <div style="position: sticky; top: 100px;">
-          <div style="position: relative; border-radius: 24px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.18); aspect-ratio: 3/4;">
-            <img
-              src="/images/safety-net-balcony.webp"
-              alt="Staircase Safety Nets Enclosure"
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="eager"
-            />
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%); pointer-events: none;"></div>
-            
-            <div style="position: absolute; top: 16px; left: 16px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #15803D; display: flex; align-items: center; gap: 0.4rem;">
-              <Layers size={13} /> STAIRWELL VOID PROTECTION
-            </div>
-
-            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #FFFFFF; pointer-events: none;">
-              <div style="font-size: 0.75rem; font-weight: 800; color: #4ADE80; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem;">
-                ATRIUM & DUPLEX VOID SHIELD
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 900; line-height: 1.2;">
-                Continuous Stairwell Fall Netting
-              </div>
-              <div style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.35rem;">
-                100% Virgin Garware Polymer • Zero-Sag Rigging
-              </div>
-            </div>
-          </div>
+      <div class="stair-nets-grid">
+        <div class="stair-net-card">
+          <h3 class="stair-card-title">Stairwell Eye Gap Closure</h3>
+          <p class="stair-card-desc">
+            Closes the central vertical void between ascending and descending flights, ensuring that even if a child slips over a banister, they are caught instantly at that floor level.
+          </p>
         </div>
 
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 20px; font-size: 0.78rem; font-weight: 800; color: #15803D; margin-bottom: 1rem;">
-            <ShieldCheck size={14} /> MULTI-STOREY DROP ARREST
-          </div>
-
-          <h1 style="font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 900; color: #0F172A; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
-            STAIRCASE SAFETY NETS
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 600; color: #15803D; margin-bottom: 1.5rem; line-height: 1.4;">
-            Certified high-density virgin polymer netting engineered for whole-stairwell void drops and multi-level railings.
+        <div class="stair-net-card">
+          <h3 class="stair-card-title">Banister Railing Gap Fill</h3>
+          <p class="stair-card-desc">
+            Ornate or widely spaced railing spindles allow toddlers to squeeze through. The mesh ties securely along the internal face without damaging polished woodwork or marble.
           </p>
+        </div>
 
-          <div style="display: flex; gap: 2rem; align-items: baseline; margin-bottom: 2rem; padding: 1.25rem 1.5rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px;">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Direct Quotation:</span>
-              <span style="font-size: 1.45rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 38px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 700; text-transform: uppercase;">Durability Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">3-Year Anti-Sag</span>
-            </div>
-          </div>
-
-          <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
-            In multi-storey apartments, schools, and commercial complexes, open vertical stairwell gaps present severe fall hazards. Staircase Safety Nets block the entire open shaft from top floor to ground level without blocking natural light, preventing accidental falls, toys dropping, or tragic injuries.
+        <div class="stair-net-card">
+          <h3 class="stair-card-title">Commercial &amp; School Approved</h3>
+          <p class="stair-card-desc">
+            Widely installed in preschools, coaching academies, and hospital staircases to comply with municipal child safety and emergency fall prevention guidelines.
           </p>
-
-          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);">
-            <div style="padding: 1rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; font-size: 0.82rem; font-weight: 800; color: #0F172A; letter-spacing: 0.08em; text-transform: uppercase;">
-              TECHNICAL SPECIFICATION TABLE
-            </div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; width: 40%; background: #FAFAFA;">Polymer Brand</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Garware Technical Fibres 100% Virgin Nylon</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Breaking Load</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">120+ kg to 250+ kg Single Knot Strength</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Aperture</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">25 mm / 30 mm Square Diamond Mesh</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #F1F5F9;">
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Hardware</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #0F172A; font-weight: 600;">Stainless Steel Heavy-Duty Anchor Hooks & Turnbuckles</td>
-                </tr>
-                <tr>
-                  <td style="padding: 0.9rem 1.5rem; font-weight: 700; color: #334155; background: #FAFAFA;">Warranty</td>
-                  <td style="padding: 0.9rem 1.5rem; color: #16A34A; font-weight: 800;">3 Years Direct Anti-Sag & UV Breakdown Warranty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#estimator" class="btn btn-primary" style="padding: 0.95rem 1.85rem; background: #15803D; border-color: #15803D;">
-              <span>Calculate Staircase Net Price</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20need%20Staircase%20Safety%20Nets%20installed.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-              style="padding: 0.95rem 1.85rem;"
-            >
-              <MessageCircle size={17} />
-              <span>Book Site Inspection on WhatsApp</span>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header" style="max-width: 780px; margin: 0 auto 3rem auto; text-align: center;">
-        <span class="badge-emerald">INSTANT ESTIMATION</span>
-        <h2>Calculate Staircase Safety Net Price</h2>
-        <p>Enter your stairwell dimensions for instant pricing.</p>
+  <!-- Estimator Section -->
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Staircase Net Quote</h2>
+        <p class="editorial-subtitle">
+          Configure stairwell dimensions for an instant certified engineering quotation.
+        </p>
       </div>
-      <CostEstimator client:load />
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
   <TrustSection />
-  <FAQSection category="safety-nets" title="Staircase Safety Nets FAQ" />
-</BaseLayout>
+  <FAQSection />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stair-nets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stair-net-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .stair-net-card:hover {
+    border-color: rgba(197, 168, 128, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .stair-card-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .stair-card-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

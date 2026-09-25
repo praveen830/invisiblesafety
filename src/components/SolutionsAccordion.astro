@@ -8,45 +8,53 @@ interface Props {
 
 const { className = "", isStandalone = false } = Astro.props;
 
+/**
+ * Core Divisions arranged in the exact editorial hierarchy:
+ * 1. THE APERTURE COLLECTION -> /solutions/sports-nets
+ * 2. THE WINGED SANCTUARY -> /solutions/bird-protection
+ * 3. DEBRIS & FALL CONTAINMENT -> /solutions/construction-safety
+ * 4. THE INVISIBLE THRESHOLD -> /solutions/invisible-grills
+ * 5. BOUNDLESS HORIZONS -> /solutions/safety-nets
+ */
 const collections = [
   {
-    id: "invisible-threshold",
-    eyebrow: "THE ATELIER",
-    title: "THE INVISIBLE THRESHOLD",
-    subtitle: "Balcony & Window Invisible Grills",
-    image: "/images/hero-balcony.webp",
-    link: "/invisible-grills/",
+    id: "aperture-collection",
+    eyebrow: "SPECIALTY LEISURE & UTILITIES",
+    title: "THE APERTURE COLLECTION",
+    subtitle: "Sports Practice Nets & Structural Utilities",
+    image: "/images/sports-nets.webp",
+    link: "/solutions/sports-nets",
     specs: {
-      material: "Virgin SS316 Marine-Grade Stainless Steel",
-      tensileLoad: "400+ kgf Breaking Strength per Cable",
-      spacing: "50mm Child-Safe or 75mm Expansive View",
-      warranty: "10-Year Direct Structural Warranty"
+      material: "High-Tenacity Multi-Strand Polyethylene",
+      impactResistance: "Cricket Leather & High-Velocity Impact Tested",
+      mounting: "Ceiling Pulley & Tension-Cable Mounted",
+      warranty: "Certified High-Tension Long-Life Guarantee"
     },
     solutions: [
-      { name: "Balcony Invisible Grills", href: "/balcony-invisible-grills/" },
-      { name: "French Window Invisible Grills", href: "/window-invisible-grills/" },
-      { name: "Duplex Staircase Tension Grills", href: "/staircase-invisible-grills/" },
-      { name: "Child-Safe Calibrated Spacing", href: "/child-safety-invisible-grills/" }
+      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
+      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
+      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
+      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
     ]
   },
   {
-    id: "boundless-horizons",
-    eyebrow: "CORE SAFETY NETS",
-    title: "BOUNDLESS HORIZONS",
-    subtitle: "Living Spaces & Children Safety Nets",
-    image: "/images/safety-net-balcony.webp",
-    link: "/safety-nets/",
+    id: "winged-sanctuary",
+    eyebrow: "ANIMAL & BIRD EXCLUSION",
+    title: "THE WINGED SANCTUARY",
+    subtitle: "Pigeon Nets & Stainless Steel Bird Spikes",
+    image: "/images/pigeon-net.webp",
+    link: "/solutions/bird-protection",
     specs: {
-      material: "High-Density Virgin UV-Treated Polymer",
-      tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
-      durability: "Weatherproof Monofilament (IS Standard)",
-      warranty: "3 to 5-Year Certified Replacement Guarantee"
+      material: "0.7mm Translucent UV-Stabilized Monofilament",
+      features: "100% Humane Exclusion, Zero Skyline Blockage",
+      spikes: "SS304 Marine Spikes on UV Polycarbonate Base",
+      warranty: "3-Year Clean Balcony Living Guarantee"
     },
     solutions: [
-      { name: "Apartment Balcony Safety Nets", href: "/balcony-safety/" },
-      { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
-      { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
-      { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
+      { name: "Translucent Anti-Pigeon Netting", href: "/pigeon-nets/" },
+      { name: "SS304 Polycarbonate Bird Spikes", href: "/bird-spikes/" },
+      { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/" },
+      { name: "Fine-Mesh Insect & Mosquito Nets", href: "/mosquito-safety-nets/" }
     ]
   },
   {
@@ -55,7 +63,7 @@ const collections = [
     title: "DEBRIS & FALL CONTAINMENT",
     subtitle: "Heavy-Duty Construction & Void Nets",
     image: "/images/construction-safety-net.jpg",
-    link: "/construction-safety-nets/",
+    link: "/solutions/construction-safety",
     specs: {
       material: "Heavy-Ply Braided Nylon / HDPE Industrial Grade",
       tensileLoad: "Industrial Fall Arrest & Debris Containment",
@@ -70,56 +78,58 @@ const collections = [
     ]
   },
   {
-    id: "winged-sanctuary",
-    eyebrow: "ANIMAL & BIRD PROTECTION",
-    title: "THE WINGED SANCTUARY",
-    subtitle: "Pigeon Nets & Stainless Steel Bird Spikes",
-    image: "/images/pigeon-net.webp",
-    link: "/pigeon-nets/",
+    id: "invisible-threshold",
+    eyebrow: "FLAGSHIP ARCHITECTURE",
+    title: "THE INVISIBLE THRESHOLD",
+    subtitle: "Balcony & Window Invisible Grills",
+    image: "/images/hero-balcony.webp",
+    link: "/solutions/invisible-grills",
     specs: {
-      material: "0.7mm Translucent UV-Stabilized Monofilament",
-      features: "100% Humane Exclusion, Zero Silhouette Blockage",
-      durability: "Sun-Resistant Anti-Rot Polymer Spikes",
-      warranty: "3-Year Clean Living Warranty"
+      material: "Virgin Japanese SS316 Marine-Grade Stainless Steel",
+      tensileLoad: "400+ kgf Breaking Strength per Cable",
+      spacing: "50mm Child-Safe or 75mm Expansive Skyline View",
+      warranty: "10-Year Direct Written Guarantee"
     },
     solutions: [
-      { name: "Translucent Anti-Pigeon Netting", href: "/pigeon-nets/" },
-      { name: "SS304 Polycarbonate Bird Spikes", href: "/bird-spikes/" },
-      { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/" },
-      { name: "Fine-Mesh Insect & Mosquito Nets", href: "/mosquito-safety-nets/" }
+      { name: "Balcony Invisible Grills", href: "/balcony-invisible-grills/" },
+      { name: "French Window Invisible Grills", href: "/window-invisible-grills/" },
+      { name: "Duplex Staircase Tension Grills", href: "/staircase-invisible-grills/" },
+      { name: "Child-Safe Calibrated Spacing", href: "/child-safety-invisible-grills/" }
     ]
   },
   {
-    id: "aperture-collection",
-    eyebrow: "SPECIALTY SOLUTIONS",
-    title: "THE APERTURE COLLECTION",
-    subtitle: "Sports Practice Nets & Utilities",
-    image: "/images/sports-nets.webp",
-    link: "/sports-nets/",
+    id: "boundless-horizons",
+    eyebrow: "RESIDENTIAL PERIMETERS",
+    title: "BOUNDLESS HORIZONS",
+    subtitle: "Living Spaces & Children Safety Nets",
+    image: "/images/safety-net-balcony.webp",
+    link: "/solutions/safety-nets",
     specs: {
-      material: "Impact-Absorbing Multi-Strand Polyethylene",
-      testing: "Cricket Ball & High-Velocity Impact Tested",
-      installation: "Ceiling Pulley & Tension-Cable Mounted",
-      warranty: "Long-Life High-Tension Guarantee"
+      material: "High-Density Virgin UV-Treated Polymer",
+      tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
+      durability: "Weatherproof Monofilament (IS Standard)",
+      warranty: "3 to 5-Year Certified Replacement Guarantee"
     },
     solutions: [
-      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
-      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
-      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
-      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
+      { name: "Apartment Balcony Safety Nets", href: "/balcony-safety/" },
+      { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
+      { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
+      { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
     ]
   }
 ];
 ---
 
-<div class={`editorial-collections-feed ${className}`} id="collections-showcase">
-  {collections.map((item, index) => (
-    <article
-      class="editorial-snap-card"
+<div class={`editorial-collections-feed snap-y-mandatory ${className}`} id="collections-showcase">
+  {collections.map((item) => (
+    <a
+      href={item.link}
+      class="editorial-snap-card group"
       id={`collection-${item.id}`}
       data-id={item.id}
+      aria-label={`Explore ${item.title}: ${item.subtitle}`}
     >
-      <!-- Edge-to-Edge Full-Bleed Photograph -->
+      <!-- Edge-to-Edge Full-Bleed Photograph with Smooth 0.8s Hover Scale -->
       <div class="card-bg-wrap">
         <img
           src={item.image}
@@ -129,7 +139,7 @@ const collections = [
           width="1920"
           height="1080"
         />
-        <!-- Ambient Cinematic Bottom Scrim Overlay -->
+        <!-- Ambient Cinematic Scrim Overlay: Dimming on Hover -->
         <div class="editorial-scrim-overlay"></div>
       </div>
 
@@ -151,15 +161,16 @@ const collections = [
             {item.subtitle}
           </p>
 
-          <!-- Minimal Outline CTA Buttons -->
+          <!-- Interactive Action Buttons -->
           <div class="card-action-row">
-            <a href={item.link} class="btn-editorial-solid">
+            <span class="btn-editorial-explore">
               <span>EXPLORE</span>
-            </a>
+              <ArrowRight size={13} />
+            </span>
 
             <button
               type="button"
-              class="btn-editorial-outline trigger-specs-modal"
+              class="btn-editorial-spec-trigger trigger-specs-modal"
               data-collection-id={item.id}
               aria-label={`View craftsmanship details for ${item.title}`}
             >
@@ -168,7 +179,7 @@ const collections = [
           </div>
         </div>
       </div>
-    </article>
+    </a>
   ))}
 
   <!-- =========================================================================
@@ -211,27 +222,30 @@ const collections = [
 
 <style>
   /* =========================================================================
-     EDITORIAL COLLECTIONS FEED (SNAP STREAM)
+     EDITORIAL COLLECTIONS FEED (100DVH SNAP SCROLLING STACK)
      ========================================================================= */
   .editorial-collections-feed {
     width: 100%;
     position: relative;
     background: #0D0D0D;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 
   .editorial-snap-card {
     position: relative;
     width: 100%;
-    min-height: clamp(560px, 86vh, 100dvh);
+    min-height: 100dvh;
     height: 100dvh;
     scroll-snap-align: start;
-    scroll-snap-stop: normal;
+    scroll-snap-stop: always;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
   }
 
   .card-bg-wrap {
@@ -241,33 +255,41 @@ const collections = [
     overflow: hidden;
   }
 
+  /* Desktop Background Scale: Smooth zoom on :hover */
   .card-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: scale(1.01);
-    transition: transform 1.8s cubic-bezier(0.25, 1, 0.35, 1);
+    transform: scale(1.0);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
   }
 
   .editorial-snap-card:hover .card-bg-image {
     transform: scale(1.04);
   }
 
-  /* Scrim Overlay: Gradient keeps bottom 40% deep & legible */
+  /* Desktop Overlay Dimming: Gradient overlay subtly deepens from 0.60 to 0.75 */
   .editorial-scrim-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.02) 30%,
-      rgba(0, 0, 0, 0.3) 55%,
-      rgba(0, 0, 0, 0.72) 80%,
-      rgba(0, 0, 0, 0.92) 100%
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.1) 30%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.82) 80%,
+      rgba(0, 0, 0, 0.96) 100%
     );
+    opacity: 0.6;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     z-index: 2;
+  }
+
+  .editorial-snap-card:hover .editorial-scrim-overlay {
+    opacity: 0.75;
   }
 
   /* Content Anchor */
@@ -275,10 +297,10 @@ const collections = [
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 920px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 4vw, 2.5rem);
-    padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
+    padding-bottom: clamp(2.75rem, 7vh, 4.75rem);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -289,31 +311,31 @@ const collections = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 780px;
+    max-width: 820px;
     width: 100%;
   }
 
   .card-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #E2E8F0;
+    color: var(--color-gold, #C5A880);
     margin-bottom: 0.75rem;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
   }
 
   .card-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.6rem, 3.8vw, 3.2rem);
+    font-size: clamp(1.65rem, 4vw, 3.4rem);
     font-weight: 800;
     line-height: 1.15;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     color: #FFFFFF;
     text-transform: uppercase;
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 4px 28px rgba(0, 0, 0, 0.75);
-    margin: 0 0 0.65rem 0;
+    margin: 0 0 0.75rem 0;
     overflow-wrap: break-word;
     word-break: break-word;
   }
@@ -321,40 +343,96 @@ const collections = [
   .card-subtitle {
     font-family: var(--font-serif, 'Playfair Display', serif);
     font-style: italic;
-    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
-    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.92);
     line-height: 1.5;
-    margin: 0 0 1.85rem 0;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+    margin: 0 0 2rem 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    max-width: 640px;
   }
 
   .card-action-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.85rem;
+    gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  /* Desktop CTA Elevation: Inverts to bg-white text-black with light glow shadow */
+  .btn-editorial-explore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.75rem 2rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .editorial-snap-card:hover .btn-editorial-explore {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-editorial-spec-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.75rem 1.85rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .btn-editorial-spec-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 640px) {
     .card-title {
-      font-size: clamp(1.35rem, 5.8vw, 1.95rem);
-      letter-spacing: 0.05em;
+      font-size: clamp(1.4rem, 6.2vw, 2.1rem);
+      letter-spacing: 0.08em;
     }
 
     .card-subtitle {
-      font-size: 0.92rem;
-      margin-bottom: 1.35rem;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
     }
 
     .card-action-row {
       flex-direction: column;
       width: 100%;
-      max-width: 290px;
-      gap: 0.65rem;
+      max-width: 300px;
+      gap: 0.75rem;
     }
 
-    .card-action-row a,
+    .card-action-row span,
     .card-action-row button {
       width: 100%;
       justify-content: center;
@@ -367,9 +445,9 @@ const collections = [
   .specs-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1050;
     display: flex;
     align-items: flex-end;
@@ -386,12 +464,12 @@ const collections = [
 
   .specs-sheet {
     width: 100%;
-    max-width: 640px;
+    max-width: 660px;
     background: #111111;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px 16px 0 0;
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
-    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.85);
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.35, 1);
     max-height: 85vh;
@@ -425,7 +503,7 @@ const collections = [
 
   .sheet-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     color: #FFFFFF;
@@ -436,8 +514,8 @@ const collections = [
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -472,7 +550,7 @@ const collections = [
   .spec-item {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 0.85rem 1rem;
     display: flex;
     flex-direction: column;
@@ -520,7 +598,7 @@ const collections = [
     padding: 0.75rem 1rem;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 6px;
+    border-radius: 4px;
     color: #E2E8F0;
     text-decoration: none;
     font-size: 0.85rem;
@@ -594,6 +672,7 @@ const collections = [
     triggerButtons.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation(); // Prevents parent card link from navigating
         const id = btn.getAttribute('data-collection-id');
         if (id) openModal(id);
       });

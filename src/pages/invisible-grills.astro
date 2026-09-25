@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SubPageLayout from '../layouts/SubPageLayout.astro';
 import TrustSection from '../components/TrustSection.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
 import EngineeringSection from '../components/EngineeringSection.astro';
@@ -9,7 +9,7 @@ import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { pricing } from '../data/pricing';
 import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
-import { ShieldCheck, Check, Sparkles, MessageCircle, Phone, ArrowRight, Layers, Award, Activity, Eye, Shield } from 'lucide-react';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Ruler, Check, ArrowRight, Activity, Eye } from 'lucide-react';
 
 const serviceSchema = getServiceSchema(
   "SS316 Marine Grade Invisible Grills",
@@ -22,337 +22,188 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Invisible Grills", url: "https://invisiblesafety.in/invisible-grills/" }
 ]);
 
-const invisibleGrillConfigs = [
+const specs = [
+  { label: "Cable Metallurgy", value: "Virgin Japanese SS316 Marine Grade", icon: ShieldCheck },
+  { label: "Tensile Strength", value: "400+ kgf Breaking Load per Cable", icon: Award },
+  { label: "Pitch Options", value: "50mm Child-Safe or 75mm Expansive View", icon: Ruler },
+  { label: "Direct Warranty", value: "10-Year Structural Written Guarantee", icon: Wrench }
+];
+
+const subcategories = [
   {
-    eyebrow: "THE HIGH-RISE APERTURE",
-    title: "BALCONY INVISIBLE GRILLS",
-    tagline: "Architectural safety panels offering uncompromised 180° panoramic skyline vistas with 400+ kg fall protection.",
+    title: "Balcony Invisible Grills",
+    subtitle: "Edge-to-edge floor-to-ceiling tensioned cables preserving 180° skyline panoramas with 400+ kgf safety.",
+    href: "/balcony-invisible-grills/",
     image: "/images/hero-balcony.webp",
-    warranty: "10-Yr Guarantee",
-    slug: "balcony-invisible-grills",
-    spec: "Virgin Japanese SS316 (2.0mm / 2.5mm)",
+    spec: "Japanese SS316 (2.0mm / 2.5mm)",
     badge: "Most Popular"
   },
   {
-    eyebrow: "THE SPIRAL ASCENT",
-    title: "STAIRCASE INVISIBLE GRILLS",
-    tagline: "Floor-to-ceiling tensioned cables safeguarding open stairwells, void drops, and luxury floating stairs.",
-    image: "/images/staircase-invisible-grills.webp",
-    warranty: "10-Yr Guarantee",
-    slug: "staircase-invisible-grills",
-    spec: "Floor-to-Ceiling SS316 Cables",
-    badge: "Interior Safety"
-  },
-  {
-    eyebrow: "THE FRAMELESS FENESTRATION",
-    title: "WINDOWS INVISIBLE GRILLS",
-    tagline: "Sleek architectural barriers for large sliding glass windows, French doors, and low-sill openings.",
+    title: "French Window Invisible Grills",
+    subtitle: "Frameless high-tensile safety barriers for low-sill windows and full-height French fenestrations.",
+    href: "/window-invisible-grills/",
     image: "/images/window-invisible-grills.webp",
-    warranty: "10-Yr Guarantee",
-    slug: "window-invisible-grills",
-    spec: "50mm / 75mm Spacing Options",
+    spec: "Direct Wall Anchor Structural Tracks",
     badge: "Maximum Airflow"
   },
   {
-    eyebrow: "THE UNSEEN GUARDIAN",
-    title: "CHILD SAFETY INVISIBLE GRILLS",
-    tagline: "50mm anti-head entrapment spacing engineered to protect toddlers and pets without climbable steps.",
+    title: "Duplex Staircase Tension Grills",
+    subtitle: "Architectural vertical cable dividers safeguarding duplex open voids and modern floating stairs.",
+    href: "/staircase-invisible-grills/",
+    image: "/images/staircase-invisible-grills.webp",
+    spec: "Floor-to-Ceiling SS316 Cables",
+    badge: "Interior Luxury"
+  },
+  {
+    title: "Child-Safe Calibrated Spacing",
+    subtitle: "50mm anti-head entrapment spacing engineered to safeguard toddlers without climbable rungs.",
+    href: "/child-safety-invisible-grills/",
     image: "/images/child-safety.webp",
-    warranty: "10-Yr Guarantee",
-    slug: "child-safety-invisible-grills",
     spec: "50mm Anti-Entrapment Core",
     badge: "Toddler Proof"
   }
 ];
+
+const gallery = [
+  {
+    src: "/images/hero-balcony.webp",
+    alt: "Luxury Balcony with Invisible Grills",
+    title: "Skyline High-Rise Balcony Suite",
+    caption: "Virgin SS316 cables preserving 180° panoramic skyline vistas.",
+    badge: "Penthouse Flagship"
+  },
+  {
+    src: "/images/window-invisible-grills.webp",
+    alt: "French Window Invisible Grills",
+    title: "French Fenestration Suite",
+    caption: "Full ventilation and child anti-fall safety with zero visual blockage.",
+    badge: "Window Protection"
+  },
+  {
+    src: "/images/staircase-invisible-grills.webp",
+    alt: "Duplex Staircase Safety Cables",
+    title: "Duplex Floating Staircase Array",
+    caption: "Vertical architectural tension cables guarding interior stairwell voids.",
+    badge: "Interior Architecture"
+  },
+  {
+    src: "/images/child-safety.webp",
+    alt: "Child-Safe Calibrated Balcony",
+    title: "Toddler Anti-Fall System",
+    caption: "Zero footholds preventing climbing leverage with unyielding 400+ kg load strength.",
+    badge: "Child & Pet Safety"
+  }
+];
 ---
 
-<BaseLayout
-  title="SS316 Marine Grade Invisible Grills | Invisible Safety India"
+<SubPageLayout
+  title="SS316 Marine Grade Invisible Grills | The Invisible Threshold | Invisible Safety"
   description="Premium Japanese SS316 marine-grade invisible safety grills for high-rise balconies and windows. 400+ kg load tested, rust-proof, RWA approved with 10-year warranty."
   canonicalUrl="/invisible-grills/"
   schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="FLAGSHIP ARCHITECTURAL SAFETY"
+  heroTitle="THE INVISIBLE THRESHOLD"
+  heroSubtitle="Virgin SS316 marine-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing 400+ kgf safety."
+  heroImage="/images/hero-balcony.webp"
+  heroImageAlt="SS316 Marine Grade Invisible Grills Balcony Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
 >
-  <!-- Hero Section -->
-  <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
-        <div>
-          <div style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; background: #E0F2FE; border: 1px solid #BAE6FD; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #0369A1; margin-bottom: 1.25rem;">
-            <Sparkles size={14} /> FLAGSHIP ARCHITECTURAL SAFETY
-          </div>
-          <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #0F172A; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.03em;">
-            SS316 Marine Grade <br />
-            <span style="color: #0284C7;">Invisible Safety Grills</span>
-          </h1>
-          <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin-bottom: 2rem;">
-            Engineered for modern high-rise apartments and luxury residences. Enjoy full 180° panoramic skyline vistas while safeguarding children and pets with 400+ kg tensile fall safety.
-          </p>
-
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
-            <a href="#estimator" class="btn btn-primary">
-              <span>Calculate Your Balcony Cost</span>
-              <ArrowRight size={17} />
-            </a>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20want%20to%20know%20more%20about%20SS316%20Invisible%20Grills%20for%20my%20balcony.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-whatsapp"
-            >
-              <MessageCircle size={17} />
-              <span>Consult On WhatsApp</span>
-            </a>
-          </div>
-
-          <!-- Live Quote Callout -->
-          <div style="display: inline-flex; align-items: center; gap: 1.5rem; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 0.85rem 1.5rem; box-shadow: var(--shadow-sm);">
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Quotation:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
-            </div>
-            <div style="width: 1px; height: 32px; background: #E2E8F0;"></div>
-            <div>
-              <span style="font-size: 0.72rem; color: #64748B; display: block; font-weight: 600; text-transform: uppercase;">Official Warranty:</span>
-              <span style="font-size: 1.25rem; font-weight: 800; color: #16A34A;">10 Years Direct</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Image Showcase -->
-        <div style="position: relative; border-radius: 20px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 0.85rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
-          <div style="position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9;">
-            <img
-              src="/images/invisible-grills-page.webp"
-              alt="SS316 Marine Grade Invisible Grills Balcony Installation"
-              style="width: 100%; height: 100%; object-fit: cover; display: block;"
-              width="640"
-              height="360"
-              loading="eager"
-            />
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BAE6FD; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #0284C7; display: flex; align-items: center; gap: 0.4rem;">
-              <Activity size={14} /> 400+ kg Break Load
-            </div>
-            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid #BBF7D0; border-radius: 20px; padding: 0.35rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: #16A34A; display: flex; align-items: center; gap: 0.4rem;">
-              <Eye size={14} /> 98% Clear Panoramic Vista
-            </div>
-          </div>
-          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #64748B;">
-            <span>DuPont Nylon Membrane • Japanese SS316 Alloy</span>
-            <span style="color: #16A34A; font-weight: 700;">✓ RWA Approved</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Curated Catalog: Available Invisible Grills Configurations (Matching User Screenshot) -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid #F1F5F9;">
-        <div>
-          <div style="font-size: 0.76rem; font-weight: 800; color: #C2410C; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem;">
-            CURATED CATALOG
-          </div>
-          <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; color: #0F172A; letter-spacing: -0.02em; margin: 0;">
-            AVAILABLE INVISIBLE GRILLS CONFIGURATIONS
-          </h2>
-        </div>
-        <div style="font-size: 0.88rem; color: #64748B;">
-          Select a configuration for detailed engineering specifications
-        </div>
-      </div>
-
-      <!-- 4-Card Grid -->
-      <div class="grid-4" style="margin-bottom: 2rem;">
-        {invisibleGrillConfigs.map(item => (
-          <div class="arch-card config-card" style="display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 0; background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.25s ease, box-shadow 0.25s ease;">
-            <!-- Portrait Image Container with Direct Subpage Link -->
-            <a href={`/${item.slug}/`} style="position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #F1F5F9; display: block; text-decoration: none;">
-              <img
-                src={item.image}
-                alt={item.title}
-                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-                class="hover-zoom-img"
-                loading="lazy"
-              />
-              <div style="position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(6px); border: 1px solid #E2E8F0; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #0284C7;">
-                {item.badge}
-              </div>
-              <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); color: #FFFFFF; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">
-                Custom Site Quote
-              </div>
-            </a>
-
-            <!-- Card Content Body -->
-            <div style="padding: 1.4rem 1.25rem 1.25rem 1.25rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-              <div>
-                <div style="font-size: 0.7rem; font-weight: 800; color: #C2410C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem;">
-                  {item.eyebrow}
-                </div>
-                <a href={`/${item.slug}/`} style="text-decoration: none; color: inherit; display: block;">
-                  <h3 style="font-size: 1.08rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.3;">
-                    {item.title}
-                  </h3>
-                </a>
-                <p style="font-size: 0.82rem; color: #64748B; line-height: 1.5; margin-bottom: 1rem;">
-                  {item.tagline}
-                </p>
-              </div>
-
-              <div>
-                <div style="font-size: 0.76rem; color: #334155; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.45rem 0.7rem; border-radius: 6px; margin-bottom: 1rem; font-weight: 600;">
-                  ✓ {item.spec}
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.5rem;">
-                  <a href={`/${item.slug}/`} class="btn btn-outline btn-sm" style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center; font-weight: 700; color: #C2410C; border-color: #FED7AA; background: #FFF7ED;">
-                    <span>VIEW SPECS →</span>
-                  </a>
-                  <a
-                    href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20am%20interested%20in%20${encodeURIComponent(item.title)}.%20Please%20provide%20a%20site%20measurement%20and%20quote.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-whatsapp btn-sm"
-                    style="font-size: 0.76rem; padding: 0.5rem 0.4rem; justify-content: center;"
-                  >
-                    <span>Get Quote</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Wire Specifications -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-emerald">Technical Options</span>
-        <h2>Customized For Your Security Needs</h2>
-        <p>
-          Choose the optimal wire thickness and spacing profile for your family's lifestyle and balcony orientation.
+  <!-- Technical Wire Thickness Comparison -->
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">METALLURGICAL CALIBRATION</span>
+        <h2 class="editorial-title">Cable Thickness Options</h2>
+        <p class="editorial-subtitle">
+          Select between standard visual minimalism or heavy-duty high-altitude reinforcement.
         </p>
       </div>
 
-      <div class="grid-2" style="max-width: 960px; margin: 0 auto;">
-        <!-- 2.0mm Standard Option -->
-        <div class="arch-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <span class="badge-arch">Standard Specification</span>
-            <span style="font-size: 1.05rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
+      <div class="thickness-cards-grid">
+        <!-- 2.0mm Option -->
+        <div class="thickness-card">
+          <div class="thickness-header">
+            <span class="thickness-badge">Standard Specification</span>
+            <span class="thickness-tag">Custom Site Quote</span>
           </div>
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            2.0 mm SS316 Marine Cable
-          </h3>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+          <h3 class="thickness-title">2.0 mm SS316 Marine Cable</h3>
+          <p class="thickness-desc">
             Ultra-fine profile providing maximum visual invisibility. Ideal for mid-rise apartments and residential bedroom windows.
           </p>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; color: #334155; margin-bottom: 1.5rem;">
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> 350 kgf tensile breaking strength</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> 99% light transmittance</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> DuPont transparent nylon sheathing</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> 5-Year Workmanship Warranty</li>
+          <ul class="thickness-checklist">
+            <li><Check size={16} color="#C5A880" /> 350 kgf tensile breaking strength</li>
+            <li><Check size={16} color="#C5A880" /> 99% light transmittance</li>
+            <li><Check size={16} color="#C5A880" /> DuPont transparent nylon sheathing</li>
+            <li><Check size={16} color="#C5A880" /> 5-Year Workmanship Warranty</li>
           </ul>
-          <a href="#estimator" class="btn btn-outline" style="width: 100%; font-size: 0.9rem;">
-            Request 2.0mm Site Inspection
+          <a href="#estimator" class="btn-editorial-pill" style="width: 100%; text-align: center;">
+            <span>REQUEST 2.0MM INSPECTION</span>
           </a>
         </div>
 
-        <!-- 2.5mm Heavy Duty Option -->
-        <div class="arch-card featured-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <span class="badge-emerald">Most Recommended (85% Choice)</span>
-            <span style="font-size: 1.05rem; font-weight: 800; color: #0284C7;">Custom Site Quote</span>
+        <!-- 2.5mm Option -->
+        <div class="thickness-card featured">
+          <div class="thickness-header">
+            <span class="thickness-badge highlight">Most Recommended (85% Choice)</span>
+            <span class="thickness-tag">Custom Site Quote</span>
           </div>
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">
-            2.5 mm SS316 Heavy-Duty Marine Cable
-          </h3>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.55; margin-bottom: 1.25rem;">
+          <h3 class="thickness-title">2.5 mm SS316 Heavy-Duty Marine Cable</h3>
+          <p class="thickness-desc">
             High-tensile reinforcement engineered specifically for high-rise towers (10th to 50th floors) with strong wind loads and energetic children.
           </p>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; color: #334155; margin-bottom: 1.5rem;">
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> 400+ kgf maximum tensile breaking strength</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> Extreme wind load & gust resistance</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> Child & pet anti-spread guarantee</li>
-            <li style="display: flex; gap: 0.6rem; align-items: center;"><Check size={16} color="#16A34A" /> 10-Year Comprehensive Warranty</li>
+          <ul class="thickness-checklist">
+            <li><Check size={16} color="#C5A880" /> 400+ kgf maximum tensile breaking strength</li>
+            <li><Check size={16} color="#C5A880" /> Extreme wind load &amp; gust resistance</li>
+            <li><Check size={16} color="#C5A880" /> Child &amp; pet anti-spread guarantee</li>
+            <li><Check size={16} color="#C5A880" /> 10-Year Comprehensive Warranty</li>
           </ul>
-          <a href="#estimator" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">
-            Request 2.5mm Site Inspection
+          <a href="#estimator" class="btn-editorial-pill" style="width: 100%; text-align: center; background: #FFFFFF; color: #000000;">
+            <span>REQUEST 2.5MM INSPECTION</span>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cable Spacing Comparison -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Cable Spacing</span>
-        <h2>50mm vs 75mm Cable Spacing</h2>
-        <p>Understanding which spacing configuration is right for your home opening.</p>
-      </div>
-
-      <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
-        <div class="arch-card">
-          <div style="font-size: 1.35rem; font-weight: 800; color: #0284C7; margin-bottom: 0.35rem;">
-            50 mm (2 Inches)
-          </div>
-          <div style="font-weight: 700; color: #0F172A; margin-bottom: 0.75rem;">
-            Child & Pet Safety Standard
-          </div>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
-            Strictly prevents toddler heads, hands, or household pets from squeezing through. Recommended for all balconies on the 3rd floor and higher where kids play.
-          </p>
-        </div>
-
-        <div class="arch-card">
-          <div style="font-size: 1.35rem; font-weight: 800; color: #0284C7; margin-bottom: 0.35rem;">
-            75 mm (3 Inches)
-          </div>
-          <div style="font-weight: 700; color: #0F172A; margin-bottom: 0.75rem;">
-            Panoramic Open View Standard
-          </div>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.6;">
-            Provides maximum visual openness while safely blocking adult body falls. Popular for master bedroom French windows and adult living sky-decks.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metallurgical Engineering -->
-  <EngineeringSection />
-
   <!-- Before / After Visualizer Island -->
-  <section class="section-spacing" style="background: #FFFFFF; border-bottom: 1px solid #E2E8F0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Panoramic Difference</span>
-        <h2>Visual Comparison on Balconies</h2>
-        <p>Drag the slider to experience the dramatic opening of high-rise living spaces.</p>
+  <section class="editorial-detail-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">THE ARCHITECTURAL DIFFERENCE</span>
+        <h2 class="editorial-title">Visual Comparison on Balconies</h2>
+        <p class="editorial-subtitle">
+          Drag the slider to experience the dramatic opening of high-rise living spaces without iron cages.
+        </p>
       </div>
 
-      <BeforeAfterSlider client:visible />
+      <div class="visualizer-wrapper">
+        <BeforeAfterSlider client:visible />
+      </div>
     </div>
   </section>
+
+  <!-- Metallurgical Engineering Section -->
+  <EngineeringSection />
 
   <!-- Comparison Matrix -->
   <ComparisonTable />
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="section-spacing" style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;" id="estimator">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-arch">Transparent Pricing</span>
-        <h2>Calculate Your Balcony Cost</h2>
-        <p>Get a calibrated real-time cost estimate for your balcony measurements.</p>
+  <section class="editorial-detail-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
+        <h2 class="editorial-title">Calculate Your Balcony Cost</h2>
+        <p class="editorial-subtitle">
+          Get a calibrated real-time cost estimate for your balcony measurements.
+        </p>
       </div>
 
-      <CostEstimator client:load />
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
     </div>
   </section>
 
@@ -361,4 +212,110 @@ const invisibleGrillConfigs = [
 
   <!-- FAQ Section -->
   <FAQSection category="invisible-grills" title="Invisible Grill Questions & Answers" />
-</BaseLayout>
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .thickness-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .thickness-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .thickness-card.featured {
+    border-color: rgba(197, 168, 128, 0.5);
+    background: #171717;
+  }
+
+  .thickness-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .thickness-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #94A3B8;
+  }
+
+  .thickness-badge.highlight {
+    color: var(--color-gold, #C5A880);
+  }
+
+  .thickness-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .thickness-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .thickness-desc {
+    font-size: 0.88rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .thickness-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .thickness-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: #CBD5E1;
+  }
+
+  .visualizer-wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>
