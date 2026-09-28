@@ -4,22 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
+        'luxury-black': '#070707',
         dark: {
-          DEFAULT: '#0D0D0D',
-          luxe: '#0D0D0D',
-          card: '#141414',
-          surface: '#1A1A1A',
-          border: 'rgba(255, 255, 255, 0.1)',
+          DEFAULT: '#070707',
+          pitch: '#070707',
+          luxe: '#070707',
+          card: '#0F0F0F',
+          secondary: '#0F0F0F',
+          surface: '#141414',
+          border: '#141414',
+          divider: '#141414',
         },
         gold: {
-          DEFAULT: '#C5A880',
-          light: '#D4BC9B',
-          dark: '#B09166',
+          DEFAULT: '#D4AF37',
+          light: '#E5C158',
+          dark: '#B08D24',
+          muted: '#C5A880',
         },
         cream: {
           DEFAULT: '#F9F8F6',
           soft: '#F4F3EF',
         },
+      },
+      borderColor: {
+        'glass-border': 'rgba(255, 255, 255, 0.15)',
+        'glass-bright': 'rgba(255, 255, 255, 0.7)',
       },
       fontFamily: {
         brand: ['Cinzel', 'Playfair Display', 'serif'],
@@ -28,6 +37,7 @@ export default {
       },
       letterSpacing: {
         luxury: '0.25em',
+        editorial: '0.3em',
         wide: '0.2em',
         tightest: '-0.03em',
       },
@@ -41,17 +51,18 @@ export default {
         '100dvh': '100dvh',
       },
       transitionTimingFunction: {
-        'luxury': 'cubic-bezier(0.25, 1, 0.5, 1)',
+        'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
         'luxury-slow': 'cubic-bezier(0.25, 1, 0.35, 1)',
       },
       transitionDuration: {
         '800': '800ms',
+        '900': '900ms',
         '1200': '1200ms',
       },
       boxShadow: {
-        'glow-white': '0 8px 24px rgba(255, 255, 255, 0.2)',
-        'glow-gold': '0 8px 24px rgba(197, 168, 128, 0.25)',
-        'luxe-deep': '0 20px 50px rgba(0, 0, 0, 0.7)',
+        'glow-white': '0 10px 30px rgba(255, 255, 255, 0.15)',
+        'glow-gold': '0 8px 24px rgba(212, 175, 55, 0.25)',
+        'luxe-deep': '0 20px 50px rgba(0, 0, 0, 0.9)',
       },
     },
   },

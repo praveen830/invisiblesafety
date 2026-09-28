@@ -18,72 +18,13 @@ const { className = "", isStandalone = false } = Astro.props;
  */
 const collections = [
   {
-    id: "aperture-collection",
-    eyebrow: "SPECIALTY LEISURE & UTILITIES",
-    title: "THE APERTURE COLLECTION",
-    subtitle: "Sports Practice Nets & Structural Utilities",
-    image: "/images/sports-nets.webp",
-    link: "/solutions/sports-nets",
-    specs: {
-      material: "High-Tenacity Multi-Strand Polyethylene",
-      impactResistance: "Cricket Leather & High-Velocity Impact Tested",
-      mounting: "Ceiling Pulley & Tension-Cable Mounted",
-      warranty: "Certified High-Tension Long-Life Guarantee"
-    },
-    solutions: [
-      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
-      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
-      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
-      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
-    ]
-  },
-  {
-    id: "winged-sanctuary",
-    eyebrow: "ANIMAL & BIRD EXCLUSION",
-    title: "THE WINGED SANCTUARY",
-    subtitle: "Pigeon Nets & Stainless Steel Bird Spikes",
-    image: "/images/pigeon-net.webp",
-    link: "/solutions/bird-protection",
-    specs: {
-      material: "0.7mm Translucent UV-Stabilized Monofilament",
-      features: "100% Humane Exclusion, Zero Skyline Blockage",
-      spikes: "SS304 Marine Spikes on UV Polycarbonate Base",
-      warranty: "3-Year Clean Balcony Living Guarantee"
-    },
-    solutions: [
-      { name: "Translucent Anti-Pigeon Netting", href: "/pigeon-nets/" },
-      { name: "SS304 Polycarbonate Bird Spikes", href: "/bird-spikes/" },
-      { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/" },
-      { name: "Fine-Mesh Insect & Mosquito Nets", href: "/mosquito-safety-nets/" }
-    ]
-  },
-  {
-    id: "structural-architecture",
-    eyebrow: "STRUCTURAL ARCHITECTURE",
-    title: "DEBRIS & FALL CONTAINMENT",
-    subtitle: "Heavy-Duty Construction & Void Nets",
-    image: "/images/construction-safety-net.jpg",
-    link: "/solutions/construction-safety",
-    specs: {
-      material: "Heavy-Ply Braided Nylon / HDPE Industrial Grade",
-      tensileLoad: "Industrial Fall Arrest & Debris Containment",
-      compliance: "IS 3521 / Industrial Safety Harness Anchoring",
-      warranty: "Commercial Site-Grade Certification"
-    },
-    solutions: [
-      { name: "Construction Site Fall Nets", href: "/construction-safety-nets/" },
-      { name: "Building Duct Shaft Enclosures", href: "/duct-safety-nets/" },
-      { name: "Industrial Debris Containment", href: "/industrial-safety-nets/" },
-      { name: "Car Parking Perimeter Nets", href: "/car-parking-safety-nets/" }
-    ]
-  },
-  {
     id: "invisible-threshold",
     eyebrow: "FLAGSHIP ARCHITECTURE",
     title: "THE INVISIBLE THRESHOLD",
-    subtitle: "Balcony & Window Invisible Grills",
-    image: "/images/hero-balcony.webp",
-    link: "/solutions/invisible-grills",
+    subtitle: "SS316 marine-grade tensile invisible grills for unobstructed penthouse and balcony panoramas.",
+    image: "/images/hero-balcony-twilight.jpg",
+    mobileImage: "/images/hero-balcony-twilight-mobile.jpg",
+    link: "/invisible-grills/",
     specs: {
       material: "Virgin Japanese SS316 Marine-Grade Stainless Steel",
       tensileLoad: "400+ kgf Breaking Strength per Cable",
@@ -101,9 +42,9 @@ const collections = [
     id: "boundless-horizons",
     eyebrow: "RESIDENTIAL PERIMETERS",
     title: "BOUNDLESS HORIZONS",
-    subtitle: "Living Spaces & Children Safety Nets",
+    subtitle: "High-density polymer balcony and child anti-fall systems engineered for modern high-rises.",
     image: "/images/safety-net-balcony.webp",
-    link: "/solutions/safety-nets",
+    link: "/balconies/",
     specs: {
       material: "High-Density Virgin UV-Treated Polymer",
       tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
@@ -115,6 +56,67 @@ const collections = [
       { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
       { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
       { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
+    ]
+  },
+  {
+    id: "winged-sanctuary",
+    eyebrow: "ANIMAL & BIRD EXCLUSION",
+    title: "THE WINGED SANCTUARY",
+    subtitle: "Translucent humane pigeon barrier netting and stainless steel spikes with zero view blockage.",
+    image: "/images/pigeon-net.webp",
+    link: "/bird-protection/",
+    specs: {
+      material: "0.7mm Translucent UV-Stabilized Monofilament",
+      features: "100% Humane Exclusion, Zero Skyline Blockage",
+      spikes: "SS304 Marine Spikes on UV Polycarbonate Base",
+      warranty: "3-Year Clean Balcony Living Guarantee"
+    },
+    solutions: [
+      { name: "Translucent Anti-Pigeon Netting", href: "/pigeon-nets/" },
+      { name: "SS304 Polycarbonate Bird Spikes", href: "/bird-spikes/" },
+      { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/" },
+      { name: "Fine-Mesh Insect & Mosquito Nets", href: "/mosquito-safety-nets/" }
+    ]
+  },
+  {
+    id: "aperture-collection",
+    eyebrow: "SPECIALTY LEISURE & UTILITIES",
+    title: "THE APERTURE COLLECTION",
+    subtitle: "Heavy-duty cricket practice enclosures, swimming pool barriers, and architectural utilities.",
+    image: "/images/sports-nets.webp",
+    link: "/sports-nets/",
+    specs: {
+      material: "High-Tenacity Multi-Strand Polyethylene",
+      impactResistance: "Cricket Leather & High-Velocity Impact Tested",
+      mounting: "Ceiling Pulley & Tension-Cable Mounted",
+      warranty: "Certified High-Tension Long-Life Guarantee"
+    },
+    solutions: [
+      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
+      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
+      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
+      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
+    ]
+  },
+  {
+    id: "structural-architecture",
+    eyebrow: "STRUCTURAL ARCHITECTURE",
+    title: "DEBRIS & FALL CONTAINMENT",
+    subtitle: "Commercial industrial debris catch systems, shaft voids, and construction safety perimeters.",
+    image: "/images/construction-safety-twilight.jpg",
+    mobileImage: "/images/construction-safety-mobile-twilight.jpg",
+    link: "/construction-safety/",
+    specs: {
+      material: "Heavy-Ply Braided Nylon / HDPE Industrial Grade",
+      tensileLoad: "Industrial Fall Arrest & Debris Containment",
+      compliance: "IS 3521 / Industrial Safety Harness Anchoring",
+      warranty: "Commercial Site-Grade Certification"
+    },
+    solutions: [
+      { name: "Construction Site Fall Nets", href: "/construction-safety-nets/" },
+      { name: "Building Duct Shaft Enclosures", href: "/duct-safety-nets/" },
+      { name: "Industrial Debris Containment", href: "/industrial-safety-nets/" },
+      { name: "Car Parking Perimeter Nets", href: "/car-parking-safety-nets/" }
     ]
   }
 ];
@@ -129,48 +131,62 @@ const collections = [
       data-id={item.id}
       aria-label={`Explore ${item.title}: ${item.subtitle}`}
     >
-      <!-- Edge-to-Edge Full-Bleed Photograph with Smooth 0.8s Hover Scale -->
+      <!-- Edge-to-Edge Full-Bleed Photograph with Smooth 0.9s Hover Scale -->
       <div class="card-bg-wrap">
-        <img
-          src={item.image}
-          alt={`${item.title} - ${item.subtitle}`}
-          class="card-bg-image"
-          loading="lazy"
-          width="1920"
-          height="1080"
-        />
-        <!-- Ambient Cinematic Scrim Overlay: Dimming on Hover -->
+        {item.mobileImage ? (
+          <picture>
+            <source media="(max-width: 768px)" srcset={item.mobileImage} />
+            <img
+              src={item.image}
+              alt={`${item.title} - ${item.subtitle}`}
+              class="card-bg-image"
+              loading="lazy"
+              width="1920"
+              height="1080"
+            />
+          </picture>
+        ) : (
+          <img
+            src={item.image}
+            alt={`${item.title} - ${item.subtitle}`}
+            class="card-bg-image"
+            loading="lazy"
+            width="1920"
+            height="1080"
+          />
+        )}
+        <!-- Ambient Multi-Stop Vignette Overlay -->
         <div class="editorial-scrim-overlay"></div>
       </div>
 
       <!-- Center-Bottom Content Box -->
       <div class="card-content-anchor">
         <div class="card-text-stack">
-          <!-- Overline Eyebrow -->
+          <!-- Gold Eyebrow Micro-Typography -->
           <span class="card-eyebrow">
             {item.eyebrow}
           </span>
 
-          <!-- High-End Luxury Title -->
+          <!-- High-End Luxury Editorial Title -->
           <h2 class="card-title">
             {item.title}
           </h2>
 
-          <!-- 1-Line Micro-Copy Subtitle -->
+          <!-- Strictly One Italic Sentence Micro-Copy -->
           <p class="card-subtitle">
             {item.subtitle}
           </p>
 
-          <!-- Interactive Action Buttons -->
+          <!-- Interactive Translucent Black-Glass Controls -->
           <div class="card-action-row">
-            <span class="btn-editorial-explore">
+            <span class="btn-editorial-glass">
               <span>EXPLORE</span>
               <ArrowRight size={13} />
             </span>
 
             <button
               type="button"
-              class="btn-editorial-spec-trigger trigger-specs-modal"
+              class="btn-editorial-glass-secondary trigger-specs-modal"
               data-collection-id={item.id}
               aria-label={`View craftsmanship details for ${item.title}`}
             >
@@ -227,7 +243,7 @@ const collections = [
   .editorial-collections-feed {
     width: 100%;
     position: relative;
-    background: #0D0D0D;
+    background: #070707;
     scroll-snap-type: y mandatory;
   }
 
@@ -242,10 +258,11 @@ const collections = [
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #141414;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    background: #070707;
   }
 
   .card-bg-wrap {
@@ -255,41 +272,41 @@ const collections = [
     overflow: hidden;
   }
 
-  /* Desktop Background Scale: Smooth zoom on :hover */
+  /* High Dynamic Contrast & Desktop 0.9s Smooth Hover Scale */
   .card-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: contrast(1.08) saturate(1.1);
     transform: scale(1.0);
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
 
   .editorial-snap-card:hover .card-bg-image {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
-  /* Desktop Overlay Dimming: Gradient overlay subtly deepens from 0.60 to 0.75 */
+  /* Ambient Multi-Stop Vignette Overlay */
   .editorial-scrim-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.1) 30%,
-      rgba(0, 0, 0, 0.45) 55%,
-      rgba(0, 0, 0, 0.82) 80%,
-      rgba(0, 0, 0, 0.96) 100%
+      rgba(7, 7, 7, 0.4) 0%,
+      rgba(7, 7, 7, 0.1) 40%,
+      rgba(7, 7, 7, 0.7) 75%,
+      #070707 100%
     );
-    opacity: 0.6;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.85;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
     z-index: 2;
   }
 
   .editorial-snap-card:hover .editorial-scrim-overlay {
-    opacity: 0.75;
+    opacity: 0.92;
   }
 
   /* Content Anchor */
@@ -315,40 +332,43 @@ const collections = [
     width: 100%;
   }
 
+  /* Gold Eyebrow Micro-Typography */
   .card-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--color-gold, #C5A880);
+    color: #D4AF37;
     margin-bottom: 0.75rem;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   }
 
+  /* High-End Luxury Editorial Title */
   .card-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.65rem, 4vw, 3.4rem);
+    font-size: clamp(1.6rem, 4.4vw, 3.5rem);
     font-weight: 800;
     line-height: 1.15;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     color: #FFFFFF;
     text-transform: uppercase;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 4px 28px rgba(0, 0, 0, 0.75);
-    margin: 0 0 0.75rem 0;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 6px 36px rgba(0, 0, 0, 0.85);
+    margin: 0 0 0.85rem 0;
     overflow-wrap: break-word;
     word-break: break-word;
   }
 
+  /* Strictly One Italic Sentence Micro-Copy */
   .card-subtitle {
     font-family: var(--font-serif, 'Playfair Display', serif);
     font-style: italic;
-    font-size: clamp(0.95rem, 1.3vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    color: #D4D4D4; /* text-neutral-300 */
     line-height: 1.5;
     margin: 0 0 2rem 0;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
-    max-width: 640px;
+    max-width: 620px;
   }
 
   .card-action-row {
@@ -359,58 +379,59 @@ const collections = [
     flex-wrap: wrap;
   }
 
-  /* Desktop CTA Elevation: Inverts to bg-white text-black with light glow shadow */
-  .btn-editorial-explore {
+  /* Translucent Black-Glass Capsule with Smooth White Invert on Hover */
+  .btn-editorial-glass {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
     padding: 0.75rem 2rem;
-    border-radius: 0;
+    border-radius: 9999px;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 11px;
     letter-spacing: 0.25em;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: #FFFFFF;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .editorial-snap-card:hover .btn-editorial-explore {
+  .editorial-snap-card:hover .btn-editorial-glass,
+  .btn-editorial-glass:hover {
     background-color: #FFFFFF;
     color: #000000;
     border-color: #FFFFFF;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
   }
 
-  .btn-editorial-spec-trigger {
+  .btn-editorial-glass-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
     padding: 0.75rem 1.85rem;
-    border-radius: 0;
+    border-radius: 9999px;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 11px;
     letter-spacing: 0.25em;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     border: 1px solid rgba(255, 255, 255, 0.35);
     background-color: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: #FFFFFF;
     cursor: pointer;
   }
 
-  .btn-editorial-spec-trigger:hover {
+  .btn-editorial-glass-secondary:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-2px);
   }
 
@@ -465,13 +486,13 @@ const collections = [
   .specs-sheet {
     width: 100%;
     max-width: 660px;
-    background: #111111;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    background: #0F0F0F;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px 16px 0 0;
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
-    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.85);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95);
     transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     max-height: 85vh;
     overflow-y: auto;
     box-sizing: border-box;
@@ -487,15 +508,15 @@ const collections = [
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #141414;
     margin-bottom: 1.5rem;
   }
 
   .sheet-eyebrow {
     font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.25em;
+    color: #D4AF37;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.25rem;

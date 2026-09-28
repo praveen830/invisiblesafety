@@ -3,45 +3,48 @@ import { ArrowRight } from 'lucide-react';
 ---
 
 <section class="editorial-hero">
-  <!-- Edge-to-Edge Fullscreen Photography -->
+  <!-- Edge-to-Edge Fullscreen Photography with High Dynamic Contrast & Responsive Crops -->
   <div class="hero-media-wrapper">
-    <img
-      src="/images/hero-balcony.webp"
-      alt="Architectural balcony with modern invisible safety grills overlooking city skyline at golden hour"
-      class="hero-media-img"
-      loading="eager"
-      width="1920"
-      height="1080"
-    />
-    <!-- Cinematic Ambient Scrim Overlay -->
+    <picture>
+      <source media="(max-width: 768px)" srcset="/images/hero-balcony-twilight-mobile.jpg" />
+      <img
+        src="/images/hero-balcony-twilight.jpg"
+        alt="Architectural penthouse balcony with modern SS316 invisible safety grills overlooking metropolitan skyline at twilight"
+        class="hero-media-img"
+        loading="eager"
+        width="1920"
+        height="1080"
+      />
+    </picture>
+    <!-- Heavy Ambient Multi-Stop Vignette Overlay -->
     <div class="hero-cinematic-scrim"></div>
   </div>
 
   <!-- Center-Bottom Editorial Content Overlay -->
   <div class="hero-content-container">
     <div class="hero-editorial-box">
-      <!-- Minimalist Overline / Eyebrow -->
+      <!-- Gold Eyebrow Micro-Typography -->
       <span class="hero-editorial-eyebrow">
         THE ARCHITECTURAL STANDARD
       </span>
 
-      <!-- High-Fashion Editorial Headline -->
+      <!-- Pure White Editorial Headline -->
       <h1 class="hero-editorial-title">
         INVISIBLE GRILLS &amp; SAFETY NETS
       </h1>
 
-      <!-- Single-Line Micro-Copy -->
+      <!-- One-Sentence Italic Sub-Caption -->
       <p class="hero-editorial-subtitle">
-        Architectural safety for modern discerning homes.
+        Architectural protection engineered with high-tension SS316 cables for unobstructed penthouse vistas.
       </p>
 
-      <!-- Minimal Frosted Glass Action Buttons -->
+      <!-- Translucent Black-Glass Capsule Controls -->
       <div class="hero-editorial-actions">
-        <a href="/contact/#quote" class="btn-editorial-pill">
+        <a href="/contact/#quote" class="btn-editorial-glass">
           <span>REQUEST SITE SURVEY</span>
         </a>
 
-        <a href="#collections-showcase" class="btn-editorial-outline">
+        <a href="#collections-showcase" class="btn-editorial-glass-secondary">
           <span>EXPLORE SOLUTIONS</span>
         </a>
       </div>
@@ -52,7 +55,7 @@ import { ArrowRight } from 'lucide-react';
 <style>
   /* =========================================================================
      FULL-BLEED EDITORIAL HERO (100dvh)
-      ========================================================================= */
+     ========================================================================= */
   .editorial-hero {
     position: relative;
     width: 100%;
@@ -62,7 +65,7 @@ import { ArrowRight } from 'lucide-react';
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: #0D0D0D;
+    background-color: #070707;
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -74,38 +77,36 @@ import { ArrowRight } from 'lucide-react';
     overflow: hidden;
   }
 
+  /* High Dynamic Contrast: Stainless steel reflections & twilight horizon pop against dark frame */
   .hero-media-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: contrast(1.08) saturate(1.1);
     transform: scale(1.0);
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
   }
 
   .editorial-hero:hover .hero-media-img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
-  /* Soft Cinematic Scrim Overlay */
+  /* Heavy Ambient Multi-Stop Vignette Overlay */
   .hero-cinematic-scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.25) 0%,
-      transparent 30%,
-      rgba(0, 0, 0, 0.45) 60%,
-      rgba(0, 0, 0, 0.9) 100%
+      rgba(7, 7, 7, 0.4) 0%,
+      rgba(7, 7, 7, 0.1) 40%,
+      rgba(7, 7, 7, 0.7) 75%,
+      #070707 100%
     );
-    opacity: 0.65;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     z-index: 2;
-  }
-
-  .editorial-hero:hover .hero-cinematic-scrim {
-    opacity: 0.8;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* Content Anchor */
@@ -116,7 +117,7 @@ import { ArrowRight } from 'lucide-react';
     max-width: 960px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 3.5vw, 2.5rem);
-    padding-bottom: clamp(2.25rem, 5.5vh, 4rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -128,29 +129,30 @@ import { ArrowRight } from 'lucide-react';
     flex-direction: column;
     align-items: center;
     max-width: 820px;
+    width: 100%;
   }
 
   .hero-editorial-eyebrow {
     font-family: var(--font-sans);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #E2E8F0;
-    margin-bottom: 0.65rem;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    color: #D4AF37;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   }
 
   .hero-editorial-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.4rem, 4.5vw, 3.2rem);
+    font-size: clamp(1.6rem, 4.6vw, 3.5rem);
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: 0.05em;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
     color: #FFFFFF;
     text-transform: uppercase;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 4px 30px rgba(0, 0, 0, 0.7);
-    margin: 0 0 0.65rem 0;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 6px 36px rgba(0, 0, 0, 0.85);
+    margin: 0 0 0.85rem 0;
     max-width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -159,19 +161,19 @@ import { ArrowRight } from 'lucide-react';
   .hero-editorial-subtitle {
     font-family: var(--font-serif, 'Playfair Display', serif);
     font-style: italic;
-    font-size: clamp(0.85rem, 2vw, 1.15rem);
-    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    color: #D4D4D4; /* text-neutral-300 */
     line-height: 1.5;
-    margin: 0 0 1.65rem 0;
-    max-width: 580px;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+    margin: 0 0 2rem 0;
+    max-width: 620px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
   }
 
   .hero-editorial-actions {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.85rem;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 

@@ -1,0 +1,168 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import FAQSection from '../components/FAQSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Bird & Pigeon Exclusion Netting",
+  "Translucent humane bird barrier netting and surgical grade SS304 spikes for balconies and windows.",
+  25
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Bird Protection", url: "https://invisiblesafety.in/bird-protection/" }
+]);
+
+const specs = [
+  { label: "Mesh Diameter", value: "0.7mm Translucent UV Monofilament", icon: ShieldCheck },
+  { label: "Optical Transparency", value: "98% Visual Skyline Transmission", icon: Award },
+  { label: "Spike Metallurgy", value: "SS304 Spikes on Polycarbonate Base", icon: Wrench },
+  { label: "Living Guarantee", value: "3-Year Clean Balcony Warranty", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Translucent Anti-Pigeon Netting",
+    subtitle: "Near-invisible monofilament grid denying roosting access to pigeons without obstructing daylight.",
+    href: "/pigeon-nets/",
+    image: "/images/pigeon-net.webp",
+    spec: "Virgin UV-Stabilized Co-Polymer",
+    badge: "Discreet Living"
+  },
+  {
+    title: "SS304 Polycarbonate Bird Spikes",
+    subtitle: "Humane curved blunt spikes preventing bird perching on narrow parapets, AC units, and ledges.",
+    href: "/bird-spikes/",
+    image: "/images/balcony-safety.webp",
+    spec: "Weather-Resistant Virgin Polycarbonate",
+    badge: "Ledge Protection"
+  },
+  {
+    title: "Anti-Monkey Balcony Enclosures",
+    subtitle: "High-tensile braided wire netting designed to withstand aggressive monkey pulling and tampering.",
+    href: "/monkey-safety-nets/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Reinforced Multi-Cord Tension",
+    badge: "Wildlife Defense"
+  },
+  {
+    title: "Fine-Mesh Insect & Mosquito Nets",
+    subtitle: "Pleated and roller insect screens providing 100% insect protection while ensuring cross-ventilation.",
+    href: "/mosquito-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "Fiberglass Anti-Tear Mesh",
+    badge: "Clean Airflow"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/pigeon-net.webp",
+    alt: "Balcony Pigeon Net Installation",
+    title: "Translucent Bird Barrier",
+    caption: "Zero-visibility pigeon exclusion net preserving 180° residential balcony view.",
+    badge: "Pigeon Exclusion"
+  },
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "SS304 Bird Spikes on Ledge",
+    title: "Architectural Parapet Spikes",
+    caption: "Rust-proof SS304 spikes on UV-stabilized base securing AC outdoor units.",
+    badge: "Ledge Spikes"
+  },
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Anti-Monkey Balcony Barrier",
+    title: "Reinforced Balcony Defense",
+    caption: "Heavy-duty perimeter netting keeping monkeys away from high-rise balconies.",
+    badge: "Monkey Defense"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Window Insect Screen",
+    title: "Fine Mesh Insect Enclosure",
+    caption: "Smooth sliding insect barrier ensuring natural cross-breeze without pests.",
+    badge: "Insect Defense"
+  }
+];
+
+const faqItems = [
+  {
+    question: "Is the pigeon netting visible from the outside?",
+    answer: "Our 0.7mm monofilament netting is designed to be virtually invisible from a distance of a few feet, preserving building facade aesthetics."
+  },
+  {
+    question: "Do bird spikes injure pigeons?",
+    answer: "No. The spikes feature blunt rounded tips that safely discourage birds from landing without causing them physical injury."
+  },
+  {
+    question: "Will the net degrade under harsh monsoon or intense sun?",
+    answer: "No. All our netting is crafted from 100% virgin UV-stabilized polymers guaranteed to endure extreme temperature swings, humidity, and rainfall."
+  }
+];
+---
+
+<SubPageLayout
+  title="Bird Protection & Pigeon Nets | The Winged Sanctuary | Invisible Safety"
+  description="Discreet translucent bird exclusion netting and SS304 spikes for apartments, balconies, and windows. 100% skyline clarity with 3-year warranty."
+  canonicalUrl="https://invisiblesafety.in/bird-protection/"
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="ANIMAL & BIRD EXCLUSION"
+  heroTitle="THE WINGED SANCTUARY"
+  heroSubtitle="Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views."
+  heroImage="/images/pigeon-net.webp"
+  heroImageAlt="Translucent Pigeon Net Balcony Installation"
+  specs={specs}
+  subcategories={subcategories}
+  subcategoriesTitle="HUMANE EXCLUSION FORMATS"
+  subcategoriesSubtitle="Engineered solutions for residential balconies, AC ledges, and window voids."
+  gallery={gallery}
+  galleryEyebrow="VERIFIED INSTALLATIONS"
+  galleryTitle="Bird Protection Gallery"
+  gallerySubtitle="Documented pigeon exclusion solutions across modern residential societies."
+>
+  <!-- Instant Cost Estimator -->
+  <section class="editorial-calculator-section" id="estimate">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">TRANSPARENT PRICING</span>
+        <h2 class="editorial-title">Instant Quote Estimator</h2>
+        <p class="editorial-subtitle">
+          Calculate estimated bird netting costs based on your balcony dimensions.
+        </p>
+      </div>
+
+      <div class="cost-estimator-wrapper">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <TrustSection />
+
+  <!-- FAQ Section -->
+  <FAQSection items={faqItems} />
+</SubPageLayout>
+
+<style>
+  .editorial-calculator-section {
+    background-color: #070707;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid #141414;
+  }
+
+  .cost-estimator-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

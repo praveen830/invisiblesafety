@@ -1,0 +1,197 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
+import FAQSection from '../components/FAQSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { business } from '../data/business';
+import { pricing } from '../data/pricing';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Check, ArrowRight } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Apartment Balcony Safety Systems",
+  "High-tensile virgin polymer safety nets and SS316 tension cable systems for high-rise apartment balconies.",
+  pricing.safetyNet["garware-nylon"]
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Balconies", url: "https://invisiblesafety.in/balconies/" }
+]);
+
+const specs = [
+  { label: "Core Metallurgy / Polymer", value: "Virgin UV-Stabilized Polymer & SS316", icon: ShieldCheck },
+  { label: "Impact Tensile Load", value: "150+ kgf Impact Rating per Mesh Unit", icon: Award },
+  { label: "Balcony Elevation", value: "RWA Society Compliant Architecture", icon: CheckCircle2 },
+  { label: "Direct Written Guarantee", value: "3 to 5-Year Replacement Warranty", icon: Wrench }
+];
+
+const subcategories = [
+  {
+    title: "Apartment Balcony Safety Nets",
+    subtitle: "High-density weatherproof perimeter barriers protecting high-rise balconies without blocking natural light.",
+    href: "/balcony-safety/",
+    image: "/images/safety-net-balcony.webp",
+    spec: "Virgin Garware Nylon / UV Polymer",
+    badge: "Most Requested"
+  },
+  {
+    title: "Toddler & Pet Anti-Fall Systems",
+    subtitle: "Calibrated safety grids engineered to prevent pet escapes and toddler slips through balcony railings.",
+    href: "/child-safety-nets/",
+    image: "/images/child-safety.webp",
+    spec: "Zero Climbable Footing Geometry",
+    badge: "Family Protection"
+  },
+  {
+    title: "Internal Stairwell Void Nets",
+    subtitle: "Vertical fall arrest nets securing central open staircase wells in duplex residences and villas.",
+    href: "/staircase-safety-nets/",
+    image: "/images/staircase-invisible-grills.webp",
+    spec: "Floor-to-Ceiling High Tension",
+    badge: "Interior Architecture"
+  },
+  {
+    title: "Terrace Top Fall Perimeter",
+    subtitle: "Full-height boundary enclosures for residential rooftops, penthouses, and open party terraces.",
+    href: "/terrace-safety-nets/",
+    image: "/images/terrace-top-net.jpg",
+    spec: "High-Wind Resistance Tested",
+    badge: "Rooftop Living"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/safety-net-balcony.webp",
+    alt: "Apartment Balcony Safety Net Installation",
+    title: "High-Rise Balcony Perimeter",
+    caption: "Transparent UV-treated mesh securing 24th floor balcony while maintaining skyline view.",
+    badge: "High-Rise Balcony"
+  },
+  {
+    src: "/images/balcony-safety.webp",
+    alt: "Gated Community Balcony Netting",
+    title: "Gated Villa Balcony",
+    caption: "Seamless perimeter anchoring preserving exterior building aesthetics.",
+    badge: "Luxury Residence"
+  },
+  {
+    src: "/images/child-safety.webp",
+    alt: "Child Safe Balcony Netting",
+    title: "Toddler Safety Grid",
+    caption: "Engineered tension grid preventing accidental drops and child leverage.",
+    badge: "Child & Pet Safety"
+  },
+  {
+    src: "/images/terrace-top-net.jpg",
+    alt: "Terrace Perimeter Fall Catch",
+    title: "Penthouse Terrace Perimeter",
+    caption: "Edge-to-edge fall containment for rooftop living spaces.",
+    badge: "Penthouse Terrace"
+  }
+];
+
+const faqItems = [
+  {
+    question: "Do balcony safety nets block daylight or fresh air?",
+    answer: "No. Our high-tenacity monofilament nets are ultra-thin and translucent, allowing over 95% light and ventilation transmission while providing 100% fall protection."
+  },
+  {
+    question: "Are balcony safety nets approved by Apartment Owner Associations (RWAs)?",
+    answer: "Yes, our installation utilizes concealed stainless steel perimeter hooks that do not alter the building facade elevation or cause structural defacement."
+  },
+  {
+    question: "How long does balcony installation take?",
+    answer: "A standard apartment balcony installation takes approximately 1 to 2 hours with our certified installation crew."
+  }
+];
+---
+
+<SubPageLayout
+  title="Balcony Safety Solutions | Boundless Horizons | Invisible Safety"
+  description="Ultra-luxury residential balcony protection systems, toddler anti-fall nets, and terrace boundary enclosures engineered for high-rise apartments."
+  canonicalUrl="https://invisiblesafety.in/balconies/"
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="RESIDENTIAL PERIMETERS"
+  heroTitle="BOUNDLESS HORIZONS"
+  heroSubtitle="Architectural balcony and child anti-fall systems engineered with high-density polymer for modern luxury high-rises."
+  heroImage="/images/safety-net-balcony.webp"
+  heroImageAlt="High-Rise Apartment Balcony Safety Installation"
+  specs={specs}
+  subcategories={subcategories}
+  subcategoriesTitle="BALCONY ARCHITECTURAL FORMATS"
+  subcategoriesSubtitle="Select calibrated configurations engineered for balconies, terraces, and open voids."
+  gallery={gallery}
+  galleryEyebrow="PORTFOLIO HIGHLIGHTS"
+  galleryTitle="Verified Balcony Installations"
+  gallerySubtitle="Documented balcony safety solutions across luxury high-rise communities."
+>
+  <!-- Interactive Visualizer -->
+  <section class="editorial-visualizer-section">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">VISUAL COMPARISON</span>
+        <h2 class="editorial-title">Open vs. Protected Balcony</h2>
+        <p class="editorial-subtitle">
+          Observe how translucent safety mesh preserves breathtaking panoramic city views.
+        </p>
+      </div>
+
+      <div class="visualizer-wrapper">
+        <BeforeAfterSlider client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Instant Cost Estimator -->
+  <section class="editorial-calculator-section" id="estimate">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">TRANSPARENT PRICING</span>
+        <h2 class="editorial-title">Instant Balcony Cost Estimator</h2>
+        <p class="editorial-subtitle">
+          Calculate custom square footage pricing for your apartment balcony.
+        </p>
+      </div>
+
+      <div class="cost-estimator-wrapper">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Metallurgy Section -->
+  <TrustSection />
+
+  <!-- FAQ Section -->
+  <FAQSection items={faqItems} />
+</SubPageLayout>
+
+<style>
+  .editorial-visualizer-section,
+  .editorial-calculator-section {
+    background-color: #070707;
+    color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid #141414;
+  }
+
+  .visualizer-wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  }
+
+  .cost-estimator-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+</style>

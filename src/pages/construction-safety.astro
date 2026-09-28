@@ -1,0 +1,133 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import FAQSection from '../components/FAQSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2 } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Commercial Construction & Debris Containment Safety Nets",
+  "High-tensile industrial fall arrest and debris containment nets engineered for construction sites and building shafts.",
+  28
+);
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Construction Safety", url: "https://invisiblesafety.in/construction-safety/" }
+]);
+
+const specs = [
+  { label: "Material Specification", value: "Heavy-Ply Braided Nylon / HDPE Industrial Grade", icon: ShieldCheck },
+  { label: "Tensile Fall Rating", value: "Industrial Fall Arrest & Debris Containment", icon: Award },
+  { label: "Safety Standard", value: "IS 3521 / Industrial Safety Harness Anchoring", icon: CheckCircle2 },
+  { label: "Commercial Warranty", value: "Certified Site-Grade Safety Documentation", icon: Wrench }
+];
+
+const subcategories = [
+  {
+    title: "Construction Site Fall Nets",
+    subtitle: "Heavy-duty perimeter safety netting preventing accidental falls from active high-rise work zones.",
+    href: "/construction-safety-nets/",
+    image: "/images/construction-safety-net.jpg",
+    spec: "Heavy-Gauge Braided Nylon",
+    badge: "Site Essential"
+  },
+  {
+    title: "Building Duct Shaft Enclosures",
+    subtitle: "Vertical shaft fall containment nets securing internal electrical and plumbing utility voids.",
+    href: "/duct-safety-nets/",
+    image: "/images/duct-net.webp",
+    spec: "Multi-Floor Drop Containment",
+    badge: "High-Rise Shafts"
+  },
+  {
+    title: "Industrial Debris Containment",
+    subtitle: "Dual-layer fine mesh overlaid on structural nets to trap falling tools, rubble, and concrete fragments.",
+    href: "/industrial-safety-nets/",
+    image: "/images/industrial-safety-net.jpg",
+    spec: "Debris Overlay Grid",
+    badge: "Industrial Grade"
+  },
+  {
+    title: "Car Parking Perimeter Nets",
+    subtitle: "Multi-level parking garage boundary nets preventing vehicle and pedestrian edge falls.",
+    href: "/car-parking-safety-nets/",
+    image: "/images/car-parking-net.jpg",
+    spec: "High Impact Anchor Cable",
+    badge: "Commercial Utility"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/construction-safety-net.jpg",
+    alt: "Commercial Construction Fall Net",
+    title: "High-Rise Tower Perimeter",
+    caption: "Heavy-duty fall arrest netting installed along structural building perimeter.",
+    badge: "Active Site"
+  },
+  {
+    src: "/images/duct-net.webp",
+    alt: "Building Duct Shaft Netting",
+    title: "Ventilation Shaft Protection",
+    caption: "Precision edge anchors securing deep central building duct voids.",
+    badge: "Building Shaft"
+  },
+  {
+    src: "/images/industrial-safety-net.jpg",
+    alt: "Industrial Debris Netting",
+    title: "Heavy Debris Containment",
+    caption: "Dual-layer high-tensile safety netting trapping industrial debris.",
+    badge: "Industrial Plant"
+  },
+  {
+    src: "/images/car-parking-net.jpg",
+    alt: "Car Parking Fall Protection",
+    title: "Multi-Level Parking Enclosure",
+    caption: "Perimeter fall barriers along podium parking edge.",
+    badge: "Podium Garage"
+  }
+];
+
+const faqItems = [
+  {
+    question: "Do your construction safety nets comply with Indian safety standards?",
+    answer: "Yes, our industrial and construction safety nets comply with IS 5175 and IS 3521 safety guidelines for personnel fall arrest and debris catch."
+  },
+  {
+    question: "Can these nets withstand falling tools and heavy debris?",
+    answer: "Yes, we install dual-layer systems combining heavy braided structural cord (500+ kgf load) with a fine mesh overlay to catch small objects like bolts, rubble, and tools."
+  },
+  {
+    question: "Do you supply testing certificates and site inspection reports?",
+    answer: "Yes, all commercial and industrial installations are provided with tension test certificates and written structural anchorage guarantees."
+  }
+];
+---
+
+<SubPageLayout
+  title="Construction Safety Nets | Debris & Fall Containment | Invisible Safety"
+  description="Heavy-duty industrial fall arrest and debris containment netting for high-rise construction, building shafts, and commercial facilities."
+  canonicalUrl="https://invisiblesafety.in/construction-safety/"
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="STRUCTURAL ARCHITECTURE"
+  heroTitle="DEBRIS & FALL CONTAINMENT"
+  heroSubtitle="Commercial industrial debris catch systems, shaft voids, and construction safety perimeters engineered to stringent safety codes."
+  heroImage="/images/construction-safety-net.jpg"
+  heroImageAlt="Commercial Construction Safety Net Installation"
+  specs={specs}
+  subcategories={subcategories}
+  subcategoriesTitle="INDUSTRIAL & COMMERCIAL CONFIGURATIONS"
+  subcategoriesSubtitle="Engineered solutions for active construction towers, industrial plants, and utility shafts."
+  gallery={gallery}
+  galleryEyebrow="COMMERCIAL PORTFOLIO"
+  galleryTitle="Verified Industrial Projects"
+  gallerySubtitle="Documented fall containment and perimeter safety across premier developers."
+>
+  <!-- Trust Section -->
+  <TrustSection />
+
+  <!-- FAQ Section -->
+  <FAQSection items={faqItems} />
+</SubPageLayout>
