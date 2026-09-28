@@ -15,6 +15,7 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { business } from '../data/business';
+import { projects } from '../data/projects';
 
 export interface SpecItem {
   label: string;
@@ -85,32 +86,32 @@ const {
   ],
   gallery = [
     {
-      src: "/images/hero-balcony.webp",
-      alt: "Luxury High-Rise Balcony Installation",
+      src: "/images/category-invisible-grills.jpg",
+      alt: "Luxury High-Rise Balcony Invisible Grills",
       title: "Skyline Panorama Balcony",
-      caption: "Virgin SS316 cables preserving unobstructed 180° penthouse view.",
+      caption: "Virgin SS316 2mm cables preserving unobstructed 180° penthouse view in crisp daylight.",
       badge: "Flagship Residential"
     },
     {
-      src: "/images/window-invisible-grills.webp",
-      alt: "French Window Architectural Enclosure",
-      title: "French Fenestration Suite",
-      caption: "High-tension 50mm cable spacing for maximum cross-ventilation.",
-      badge: "High-Rise Fenestration"
+      src: "/images/category-bird-protection.jpg",
+      alt: "Translucent Bird Netting and Stainless Steel Spikes",
+      title: "Translucent Sanctuary Net & Spikes",
+      caption: "0.7mm monofilament mesh and SS304 spikes on AC ledges for complete bird exclusion.",
+      badge: "Humane Exclusion"
     },
     {
-      src: "/images/staircase-invisible-grills.webp",
-      alt: "Duplex Staircase Tension Grills",
-      title: "Duplex Stairwell Void",
-      caption: "Floor-to-ceiling tensioned cable array securing architectural stairs.",
-      badge: "Interior Architecture"
-    },
-    {
-      src: "/images/child-safety.webp",
-      alt: "Child & Pet Safe Tension Array",
-      title: "Toddler Anti-Fall System",
-      caption: "Calibrated tensioning preventing climbable leverage or gap passage.",
+      src: "/images/category-child-safety.jpg",
+      alt: "High-Rise Child and Pet Anti-Fall Safety Mesh",
+      title: "Toddler & Pet Anti-Fall System",
+      caption: "Calibrated high-density polymer safety grid preventing accidental falls and slips.",
       badge: "Child & Pet Safety"
+    },
+    {
+      src: "/images/category-structural-safety.jpg",
+      alt: "Commercial Building Void Safety Containment Net",
+      title: "Structural Fall & Void Network",
+      caption: "Industrial heavy-duty safety containment netting with visible border ropes and carabiners.",
+      badge: "Structural Containment"
     }
   ],
   galleryEyebrow = "VERIFIED RESIDENTIAL INSTALLATIONS",
@@ -322,6 +323,49 @@ const {
   )}
 
   <!-- =========================================================================
+       5B. VERIFIED REGIONAL INSTALLATIONS: Hyderabad, Vizag & Vijayawada
+       ========================================================================= -->
+  <section class="editorial-projects-section" id="verified-projects">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">DOCUMENTED PROOF OF WORK</span>
+        <h2 class="editorial-title">Live Installations Across AP &amp; Telangana</h2>
+        <p class="editorial-subtitle">
+          Real residential and commercial installations across luxury communities in Hyderabad, Visakhapatnam, and Vijayawada.
+        </p>
+      </div>
+
+      <div class="regional-projects-grid">
+        {projects.map((proj) => (
+          <div class="regional-project-card">
+            <div class="project-media-wrap">
+              <img
+                src={proj.imageAfter}
+                alt={`${proj.title} - ${proj.apartmentName}, ${proj.city}`}
+                class="project-img"
+                loading="lazy"
+                width="640"
+                height="400"
+              />
+              <span class="project-city-badge">{proj.city}</span>
+            </div>
+            <div class="project-info-block">
+              <div class="project-meta-line">
+                <span class="project-locality">{proj.locality}</span>
+                <span class="project-floor">{proj.floor}</span>
+              </div>
+              <h3 class="project-title">{proj.apartmentName}</h3>
+              <p class="project-config">{proj.configuration}</p>
+              <p class="project-quote">"{proj.clientQuote}"</p>
+              <div class="project-client-name">&mdash; {proj.clientName}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        6. CONCIERGE SURVEY INVITATION STRIP
        ========================================================================= -->
   <section class="editorial-concierge-strip">
@@ -381,7 +425,8 @@ const {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: #070707;
+    background-color: #121316;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .subpage-hero-media {
@@ -396,34 +441,28 @@ const {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: contrast(1.08) saturate(1.1);
+    filter: contrast(1.06) saturate(1.05);
     transform: scale(1.0);
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
 
   .subpage-hero:hover .subpage-hero-img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
+  /* Drastically Reduced Dark Overlay: Wire grid and product details remain clearly visible */
   .subpage-hero-scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(7, 7, 7, 0.4) 0%,
-      rgba(7, 7, 7, 0.1) 40%,
-      rgba(7, 7, 7, 0.7) 75%,
-      #070707 100%
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.7) 100%
     );
-    opacity: 0.85;
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
     z-index: 2;
-  }
-
-  .subpage-hero:hover .subpage-hero-scrim {
-    opacity: 0.92;
   }
 
   .subpage-hero-content {
@@ -451,8 +490,8 @@ const {
   .subpage-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #D4AF37;
     margin-bottom: 0.75rem;
@@ -467,20 +506,21 @@ const {
     letter-spacing: 0.08em;
     color: #FFFFFF;
     text-transform: uppercase;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 6px 36px rgba(0, 0, 0, 0.85);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
     margin: 0 0 0.85rem 0;
     word-break: break-word;
   }
 
   .subpage-subtitle {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.9rem, 1.35vw, 1.15rem);
-    color: #D4D4D4; /* text-neutral-300 */
-    line-height: 1.6;
+    font-family: var(--font-sans);
+    font-size: clamp(0.92rem, 1.35vw, 1.15rem);
+    color: #F1F1F1;
+    line-height: 1.55;
     margin: 0 0 2rem 0;
     max-width: 680px;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    font-weight: 400;
   }
 
   .subpage-actions {
@@ -688,7 +728,7 @@ const {
      SUBCATEGORIES GRID
      ========================================================================= */
   .subcategories-section {
-    background-color: #0D0D0D;
+    background-color: #121316;
     color: #FFFFFF;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -701,7 +741,7 @@ const {
   }
 
   .subcategory-card {
-    background: #141414;
+    background: #18191E;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     overflow: hidden;
@@ -809,22 +849,142 @@ const {
   }
 
   /* =========================================================================
-     CONCIERGE STRIP & SUBCATEGORIES SECTION (PITCH BLACK)
+     SECTIONS STYLING & VERIFIED REGIONAL PROJECTS (ARCHITECTURAL OFF-BLACK)
      ========================================================================= */
   .subcategories-section,
   .editorial-gallery-section,
+  .editorial-projects-section,
   .editorial-concierge-strip {
-    background-color: #070707 !important;
+    background-color: #121316 !important;
     color: #FFFFFF;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Regional Projects Grid */
+  .regional-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .regional-project-card {
+    background: #18191E;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  }
+
+  .regional-project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  }
+
+  .project-media-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #000000;
+  }
+
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.06) saturate(1.05);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .regional-project-card:hover .project-img {
+    transform: scale(1.03);
+  }
+
+  .project-city-badge {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    background: rgba(18, 19, 22, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #D4AF37;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+  }
+
+  .project-info-block {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-meta-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #94A3B8;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-floor {
+    color: #D4AF37;
+  }
+
+  .project-title {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+  }
+
+  .project-config {
+    font-size: 0.8rem;
+    color: #CBD5E1;
+    font-weight: 500;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .project-quote {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #F1F1F1;
+    line-height: 1.5;
+    margin: 0 0 0.75rem 0;
+    flex-grow: 1;
+  }
+
+  .project-client-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #94A3B8;
   }
 
   .concierge-editorial-box {
     max-width: 840px;
     margin: 0 auto;
     text-align: center;
-    background: #0F0F0F;
+    background: #18191E;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 8px;
     padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);

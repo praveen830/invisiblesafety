@@ -4,28 +4,28 @@
    ========================================================================== */
 
 :root {
-  /* Pitch Matte Black Editorial Luxury Palette */
-  --color-pitch: #070707;
-  --color-dark-luxe: #070707;
-  --color-dark-card: #0F0F0F;
-  --color-dark-border: #141414;
+  /* Architectural Off-Black Editorial Luxury Palette */
+  --color-pitch: #121316;
+  --color-dark-luxe: #121316;
+  --color-dark-card: #18191E;
+  --color-dark-border: rgba(255, 255, 255, 0.08);
   --color-gold: #D4AF37;
   --color-gold-light: #E5C158;
-  --color-cream: #F9F8F6;
-  --color-cream-soft: #F4F3EF;
+  --color-cream: #F1F1F1;
+  --color-cream-soft: #F9F8F6;
 
   /* Colors */
   --color-primary: #FFFFFF;       /* Pure White Headlines */
   --color-primary-light: #F1F5F9;
-  --color-secondary: #CBD5E1;     /* Editorial Supporting Text */
+  --color-secondary: #E2E8F0;     /* Editorial Supporting Text */
   --color-body: #94A3B8;          /* Neutral Body Text */
   --color-muted: #64748B;         /* Supporting text */
-  --color-border: #141414;        /* Dark Section Borders */
-  --color-border-light: rgba(255, 255, 255, 0.1);  /* Soft glass divider */
+  --color-border: rgba(255, 255, 255, 0.08); /* Architectural Section Borders */
+  --color-border-light: rgba(255, 255, 255, 0.12); /* Soft glass divider */
   
-  --color-bg: #070707;            /* Pitch Matte Black Page Background */
-  --color-bg-warm: #0F0F0F;       /* Secondary Charcoal Card Background */
-  --color-bg-card: #0F0F0F;       /* Deep Card Background */
+  --color-bg: #121316;            /* Architectural Off-Black Page Background */
+  --color-bg-warm: #18191E;       /* Secondary Charcoal Card Background */
+  --color-bg-card: #18191E;       /* Deep Card Background */
   
   --color-accent: #D4AF37;        /* Brand Gold */
   --color-accent-hover: #E5C158;  /* Light Gold Hover */
@@ -724,13 +724,14 @@ img {
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
 }
 
-/* Minimalist Round Floating Quick Contact (Anchored at bottom corners over vignette) */
+/* Minimalist Round Floating Quick Contact (Anchored safely at bottom corners without covering central products) */
 .editorial-floating-actions {
   position: fixed;
-  bottom: clamp(20px, 3.5vh, 32px);
+  bottom: clamp(16px, 3vh, 26px);
   left: 0;
   right: 0;
-  padding: 0 clamp(16px, 3.5vw, 36px);
+  padding: 0 clamp(16px, 3.5vw, 32px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -740,26 +741,26 @@ img {
 
 .editorial-floating-btn {
   pointer-events: auto;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: rgba(7, 7, 7, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  background: rgba(18, 19, 22, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-floating-btn:hover {
-  transform: scale(1.1) translateY(-2px);
-  background: rgba(7, 7, 7, 0.9);
+  transform: scale(1.08) translateY(-2px);
+  background: rgba(18, 19, 22, 0.95);
   border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
 }
 
 .editorial-floating-btn.btn-whatsapp {
@@ -768,7 +769,7 @@ img {
 
 .editorial-floating-btn.btn-whatsapp:hover {
   border-color: rgba(74, 222, 128, 0.8);
-  box-shadow: 0 10px 30px rgba(74, 222, 128, 0.35);
+  box-shadow: 0 10px 25px rgba(74, 222, 128, 0.35);
 }
 
 .editorial-floating-btn.btn-call {
@@ -777,24 +778,35 @@ img {
 
 .editorial-floating-btn.btn-call:hover {
   border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.35);
 }
 
-/* Ambient Multi-Stop Vignette Overlay */
+@media (max-width: 640px) {
+  .editorial-floating-actions {
+    bottom: clamp(12px, 2vh, 18px);
+    padding: 0 14px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .editorial-floating-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Reduced Dark Overlay: Wire grid and net diamonds stay razor sharp in daylight */
 .editorial-vignette-scrim,
 .editorial-scrim-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(7, 7, 7, 0.4) 0%,
-    rgba(7, 7, 7, 0.1) 40%,
-    rgba(7, 7, 7, 0.7) 75%,
-    #070707 100%
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   pointer-events: none;
   z-index: 2;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.4s ease;
 }
 
 /* =========================================================================
@@ -880,7 +892,7 @@ img {
    2-COLUMN EDITORIAL VISUAL GALLERY GRID
    ========================================================================= */
 .editorial-gallery-section {
-  background-color: #0D0D0D;
+  background-color: #121316;
   color: #FFFFFF;
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   position: relative;
@@ -915,12 +927,12 @@ img {
   height: 100%;
   object-fit: cover;
   transform: scale(1.0);
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .gallery-editorial-card:hover .gallery-card-img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .gallery-card-overlay {
@@ -928,12 +940,12 @@ img {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.2) 40%,
-    rgba(0, 0, 0, 0.85) 100%
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.02) 45%,
+    rgba(0, 0, 0, 0.75) 100%
   );
-  opacity: 0.75;
-  transition: opacity 0.4s ease;
+  opacity: 1;
+  transition: background 0.35s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -942,14 +954,19 @@ img {
 }
 
 .gallery-editorial-card:hover .gallery-card-overlay {
-  opacity: 0.92;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.04) 40%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
 }
 
 .gallery-card-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(18, 19, 22, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -958,7 +975,7 @@ img {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-gold, #C5A880);
+  color: #D4AF37;
   font-weight: 600;
 }
 
@@ -970,15 +987,17 @@ img {
   margin: 0 0 0.35rem 0;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-card-caption {
-  font-family: var(--font-serif, 'Playfair Display', serif);
-  font-style: italic;
-  font-size: 0.9rem;
-  color: #CBD5E1;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #F1F1F1;
   margin: 0 0 0.75rem 0;
-  line-height: 1.4;
+  line-height: 1.45;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-card-action {
@@ -1114,9 +1133,9 @@ img {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0) 35%,
-    rgba(0, 0, 0, 0.5) 65%,
-    rgba(0, 0, 0, 0.9) 100%
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   pointer-events: none;
   z-index: 2;

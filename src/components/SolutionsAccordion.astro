@@ -21,9 +21,9 @@ const collections = [
     id: "invisible-threshold",
     eyebrow: "FLAGSHIP ARCHITECTURE",
     title: "THE INVISIBLE THRESHOLD",
-    subtitle: "SS316 marine-grade tensile invisible grills for unobstructed penthouse and balcony panoramas.",
-    image: "/images/hero-balcony-twilight.jpg",
-    mobileImage: "/images/hero-balcony-twilight-mobile.jpg",
+    subtitle: "Parallel vertical SS316 2mm marine cables anchored into structural tracks with 98% daylight clarity.",
+    image: "/images/category-invisible-grills.jpg",
+    mobileImage: "/images/category-invisible-grills.jpg",
     link: "/invisible-grills/",
     specs: {
       material: "Virgin Japanese SS316 Marine-Grade Stainless Steel",
@@ -39,34 +39,15 @@ const collections = [
     ]
   },
   {
-    id: "boundless-horizons",
-    eyebrow: "RESIDENTIAL PERIMETERS",
-    title: "BOUNDLESS HORIZONS",
-    subtitle: "High-density polymer balcony and child anti-fall systems engineered for modern high-rises.",
-    image: "/images/safety-net-balcony.webp",
-    link: "/balconies/",
-    specs: {
-      material: "High-Density Virgin UV-Treated Polymer",
-      tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
-      durability: "Weatherproof Monofilament (IS Standard)",
-      warranty: "3 to 5-Year Certified Replacement Guarantee"
-    },
-    solutions: [
-      { name: "Apartment Balcony Safety Nets", href: "/balcony-safety/" },
-      { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
-      { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
-      { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
-    ]
-  },
-  {
     id: "winged-sanctuary",
-    eyebrow: "ANIMAL & BIRD EXCLUSION",
+    eyebrow: "HUMANE BIRD BARRIER",
     title: "THE WINGED SANCTUARY",
-    subtitle: "Translucent humane pigeon barrier netting and stainless steel spikes with zero view blockage.",
-    image: "/images/pigeon-net.webp",
+    subtitle: "Translucent HDPE pigeon barrier netting and stainless steel spikes safeguarding balconies and AC ledges.",
+    image: "/images/category-bird-protection.jpg",
+    mobileImage: "/images/category-bird-protection.jpg",
     link: "/bird-protection/",
     specs: {
-      material: "0.7mm Translucent UV-Stabilized Monofilament",
+      material: "0.7mm Translucent UV-Stabilized Co-Polymer",
       features: "100% Humane Exclusion, Zero Skyline Blockage",
       spikes: "SS304 Marine Spikes on UV Polycarbonate Base",
       warranty: "3-Year Clean Balcony Living Guarantee"
@@ -80,10 +61,11 @@ const collections = [
   },
   {
     id: "aperture-collection",
-    eyebrow: "SPECIALTY LEISURE & UTILITIES",
+    eyebrow: "SPORTS & ARCHITECTURAL UTILITIES",
     title: "THE APERTURE COLLECTION",
-    subtitle: "Heavy-duty cricket practice enclosures, swimming pool barriers, and architectural utilities.",
-    image: "/images/sports-nets.webp",
+    subtitle: "Heavy-gauge nylon cricket practice pitches, rooftop sports enclosures, and engineered utility arrays.",
+    image: "/images/sports-nets-twilight.jpg",
+    mobileImage: "/images/sports-nets-twilight.jpg",
     link: "/sports-nets/",
     specs: {
       material: "High-Tenacity Multi-Strand Polyethylene",
@@ -99,12 +81,33 @@ const collections = [
     ]
   },
   {
+    id: "boundless-horizons",
+    eyebrow: "RESIDENTIAL PERIMETERS",
+    title: "BOUNDLESS HORIZONS",
+    subtitle: "Durable high-visibility child and pet anti-fall safety netting securely anchored to high-rise railings.",
+    image: "/images/category-child-safety.jpg",
+    mobileImage: "/images/category-child-safety.jpg",
+    link: "/safety-nets/",
+    specs: {
+      material: "High-Density Virgin UV-Treated Polymer",
+      tensileLoad: "150+ kgf Impact Resistance per Mesh Unit",
+      durability: "Weatherproof Monofilament (IS Standard)",
+      warranty: "3 to 5-Year Certified Replacement Guarantee"
+    },
+    solutions: [
+      { name: "Apartment Balcony Safety Nets", href: "/balcony-safety/" },
+      { name: "Toddler & Pet Anti-Fall Nets", href: "/child-safety-nets/" },
+      { name: "Internal Stairwell Void Protection", href: "/staircase-safety-nets/" },
+      { name: "Terrace Top Fall Perimeter", href: "/terrace-safety-nets/" }
+    ]
+  },
+  {
     id: "structural-architecture",
-    eyebrow: "STRUCTURAL ARCHITECTURE",
-    title: "DEBRIS & FALL CONTAINMENT",
-    subtitle: "Commercial industrial debris catch systems, shaft voids, and construction safety perimeters.",
-    image: "/images/construction-safety-twilight.jpg",
-    mobileImage: "/images/construction-safety-mobile-twilight.jpg",
+    eyebrow: "COMMERCIAL & INDUSTRIAL CONTAINMENT",
+    title: "STRUCTURAL ARCHITECTURE",
+    subtitle: "Industrial building void safety nets, debris catch systems, and perimeter fall containment rigging.",
+    image: "/images/category-structural-safety.jpg",
+    mobileImage: "/images/category-structural-safety.jpg",
     link: "/construction-safety/",
     specs: {
       material: "Heavy-Ply Braided Nylon / HDPE Industrial Grade",
@@ -243,7 +246,7 @@ const collections = [
   .editorial-collections-feed {
     width: 100%;
     position: relative;
-    background: #070707;
+    background: #121316;
     scroll-snap-type: y mandatory;
   }
 
@@ -258,11 +261,11 @@ const collections = [
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border-bottom: 1px solid #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    background: #070707;
+    background: #121316;
   }
 
   .card-bg-wrap {
@@ -272,41 +275,44 @@ const collections = [
     overflow: hidden;
   }
 
-  /* High Dynamic Contrast & Desktop 0.9s Smooth Hover Scale */
+  /* High Dynamic Contrast & Desktop 0.8s Smooth Subtle Scale */
   .card-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: contrast(1.08) saturate(1.1);
+    filter: contrast(1.06) saturate(1.05);
     transform: scale(1.0);
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
 
   .editorial-snap-card:hover .card-bg-image {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
-  /* Ambient Multi-Stop Vignette Overlay */
+  /* Drastically Reduced Dark Overlay: Wire grid and net diamonds stay razor sharp */
   .editorial-scrim-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(7, 7, 7, 0.4) 0%,
-      rgba(7, 7, 7, 0.1) 40%,
-      rgba(7, 7, 7, 0.7) 75%,
-      #070707 100%
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.7) 100%
     );
-    opacity: 0.85;
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
     z-index: 2;
+    transition: background 0.4s ease;
   }
 
   .editorial-snap-card:hover .editorial-scrim-overlay {
-    opacity: 0.92;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.02) 50%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
   }
 
   /* Content Anchor */
@@ -336,8 +342,8 @@ const collections = [
   .card-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #D4AF37;
     margin-bottom: 0.75rem;
@@ -353,22 +359,23 @@ const collections = [
     letter-spacing: 0.08em;
     color: #FFFFFF;
     text-transform: uppercase;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 6px 36px rgba(0, 0, 0, 0.85);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
     margin: 0 0 0.85rem 0;
     overflow-wrap: break-word;
     word-break: break-word;
   }
 
-  /* Strictly One Italic Sentence Micro-Copy */
+  /* Strictly One to Two Sentence Micro-Copy */
   .card-subtitle {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
-    color: #D4D4D4; /* text-neutral-300 */
-    line-height: 1.5;
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+    color: #F1F1F1;
+    line-height: 1.55;
     margin: 0 0 2rem 0;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
-    max-width: 620px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    max-width: 640px;
+    font-weight: 400;
   }
 
   .card-action-row {
