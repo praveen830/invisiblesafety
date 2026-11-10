@@ -3,26 +3,211 @@ import { business } from '../data/business';
 import { Phone, MessageCircle } from 'lucide-react';
 ---
 
-<aside class="editorial-floating-actions" aria-label="Direct Quick Contact">
-  <!-- Minimalist Frosted Call Button (Bottom Left) -->
+<aside class="floating-conversion-actions" aria-label="Quick Contact and Consultation">
+  <!-- Bottom-Left Direct Click-to-Call Button -->
   <a
     href={`tel:${business.phoneRaw}`}
-    class="editorial-floating-btn btn-call"
-    aria-label="Direct Phone Call"
-    title="Call Invisible Safety"
+    class="floating-action-pill call-action-pill"
+    id="floating-call-btn"
+    aria-label="Direct Phone Call: +91 83097 55398"
+    title="Call Invisible Safety (+91 83097 55398)"
   >
-    <Phone size={19} strokeWidth={2} />
+    <div class="pill-icon-circle call-circle">
+      <Phone size={18} strokeWidth={2.2} />
+    </div>
+    <span class="pill-text-label">Call Now</span>
   </a>
 
-  <!-- Minimalist Frosted WhatsApp Button (Bottom Right) -->
+  <!-- Bottom-Right Floating WhatsApp Button (Pre-filled with Selected City and Service) -->
   <a
-    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20site%20measurement%20and%20architectural%20consultation.`}
+    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20SS316%20Invisible%20Grills%20in%20Telangana.%20Please%20share%20pricing%20and%20schedule%20a%20free%20laser%20measurement%20survey.`}
     target="_blank"
     rel="noopener noreferrer"
-    class="editorial-floating-btn btn-whatsapp"
-    aria-label="Chat on WhatsApp"
-    title="WhatsApp Invisible Safety"
+    class="floating-action-pill wa-action-pill"
+    id="floating-wa-btn"
+    aria-label="Chat with Safety Engineer on WhatsApp"
+    title="Chat with Safety Engineer on WhatsApp"
   >
-    <MessageCircle size={21} strokeWidth={2} />
+    <div class="pill-icon-circle wa-circle">
+      <MessageCircle size={19} strokeWidth={2.2} />
+    </div>
+    <span class="pill-text-label">WhatsApp</span>
   </a>
 </aside>
+
+<style>
+  /* =========================================================================
+     FLOATING CONVERSION ACTIONS (Bottom-Left Call & Bottom-Right WhatsApp)
+     ========================================================================= */
+  .floating-conversion-actions {
+    position: fixed;
+    bottom: clamp(18px, 3vh, 28px);
+    left: 0;
+    right: 0;
+    padding: 0 clamp(16px, 3.5vw, 32px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 995;
+  }
+
+  .floating-action-pill {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1.15rem 0.55rem 0.65rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.18);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .pill-icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  .pill-text-label {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  /* Bottom-Left Call Pill */
+  .call-action-pill {
+    background: #FFFFFF;
+    color: #1E3A5F;
+    border: 1px solid #D8E6F3;
+  }
+
+  .call-action-pill .call-circle {
+    background: #EBF3FA;
+    color: #0284C7;
+  }
+
+  .call-action-pill:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #F4F7FB;
+    border-color: #0284C7;
+    color: #0284C7;
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.25);
+  }
+
+  .call-action-pill:hover .call-circle {
+    background: #0284C7;
+    color: #FFFFFF;
+    transform: rotate(15deg);
+  }
+
+  /* Bottom-Right WhatsApp Pill */
+  .wa-action-pill {
+    background: #25D366;
+    color: #FFFFFF !important;
+    border: 1px solid #1EBE5D;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  }
+
+  .wa-action-pill .wa-circle {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+  }
+
+  .wa-action-pill:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #20BA5A;
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55);
+  }
+
+  .wa-action-pill:hover .wa-circle {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.08);
+  }
+
+  /* Responsive Mobile Tweaks: Circular Compact Buttons on Small Screens */
+  @media (max-width: 640px) {
+    .floating-conversion-actions {
+      bottom: clamp(14px, 2vh, 20px);
+      padding: 0 14px;
+    }
+
+    .floating-action-pill {
+      padding: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      justify-content: center;
+    }
+
+    .pill-icon-circle {
+      width: 100%;
+      height: 100%;
+      background: transparent !important;
+    }
+
+    .pill-text-label {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function setupFloatingActionsSync() {
+    const waBtn = document.getElementById('floating-wa-btn') as HTMLAnchorElement | null;
+    const phone = "918309755398";
+
+    // Infer service from current pathname
+    function detectService(): string {
+      const path = window.location.pathname.toLowerCase();
+      if (path.includes('pigeon') || path.includes('bird') || path.includes('spike')) {
+        return "Anti-Pigeon Nets & Bird Spikes";
+      } else if (path.includes('mosquito')) {
+        return "Mosquito & Insect Safety Mesh";
+      } else if (path.includes('monkey')) {
+        return "Anti-Monkey Safety Enclosures";
+      } else if (path.includes('sports')) {
+        return "Sports Practice & Turf Nets";
+      } else if (path.includes('construction') || path.includes('duct')) {
+        return "Commercial & Industrial Safety Nets";
+      } else if (path.includes('net') || path.includes('child')) {
+        return "Certified Balcony Safety Nets";
+      } else if (path.includes('grill') || path.includes('window') || path.includes('staircase')) {
+        return "SS316 Marine Invisible Grills";
+      }
+      return "Invisible Grills & Balcony Safety Solutions";
+    }
+
+    function updateWhatsAppUrl(locationName: string) {
+      if (!waBtn) return;
+      const service = detectService();
+      const message = `Hello Invisible Safety, I am interested in ${service} in ${locationName}. Please share pricing details and schedule a free doorstep laser measurement survey.`;
+      waBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    }
+
+    // Read stored location
+    const initialLocation = localStorage.getItem('invis_active_location') || 'Telangana';
+    updateWhatsAppUrl(initialLocation);
+
+    // Listen for real-time location switcher updates
+    window.addEventListener('invis:location-change', (e: any) => {
+      if (e.detail && e.detail.location) {
+        updateWhatsAppUrl(e.detail.location);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupFloatingActionsSync);
+  document.addEventListener('astro:page-load', setupFloatingActionsSync);
+</script>

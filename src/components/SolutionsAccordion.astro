@@ -9,18 +9,18 @@ interface Props {
 const { className = "", isStandalone = false } = Astro.props;
 
 /**
- * Core Divisions arranged in the exact editorial hierarchy:
- * 1. THE APERTURE COLLECTION -> /solutions/sports-nets
- * 2. THE WINGED SANCTUARY -> /solutions/bird-protection
- * 3. DEBRIS & FALL CONTAINMENT -> /solutions/construction-safety
- * 4. THE INVISIBLE THRESHOLD -> /solutions/invisible-grills
- * 5. BOUNDLESS HORIZONS -> /solutions/safety-nets
+ * High-Converting SEO-Direct Divisions:
+ * 1. SS316 MARINE INVISIBLE GRILLS -> /solutions/invisible-grills
+ * 2. ANTI-PIGEON NETS & BIRD SPIKES -> /solutions/bird-protection
+ * 3. BALCONY & CHILD SAFETY NETS -> /solutions/safety-nets
+ * 4. SPORTS PRACTICE & TURF NETS -> /solutions/sports-nets
+ * 5. COMMERCIAL & INDUSTRIAL SAFETY NETS -> /solutions/construction-safety
  */
 const collections = [
   {
     id: "invisible-threshold",
-    eyebrow: "FLAGSHIP ARCHITECTURE",
-    title: "THE INVISIBLE THRESHOLD",
+    eyebrow: "FLAGSHIP FALL PROTECTION",
+    title: "SS316 MARINE INVISIBLE GRILLS",
     subtitle: "Parallel vertical SS316 2mm marine cables anchored into structural tracks with 98% daylight clarity.",
     image: "/images/category-invisible-grills.jpg",
     mobileImage: "/images/category-invisible-grills.jpg",
@@ -40,8 +40,8 @@ const collections = [
   },
   {
     id: "winged-sanctuary",
-    eyebrow: "HUMANE BIRD BARRIER",
-    title: "THE WINGED SANCTUARY",
+    eyebrow: "HUMANE BIRD & PIGEON CONTROL",
+    title: "ANTI-PIGEON NETS & BIRD SPIKES",
     subtitle: "Translucent HDPE pigeon barrier netting and stainless steel spikes safeguarding balconies and AC ledges.",
     image: "/images/category-bird-protection.jpg",
     mobileImage: "/images/category-bird-protection.jpg",
@@ -60,30 +60,9 @@ const collections = [
     ]
   },
   {
-    id: "aperture-collection",
-    eyebrow: "SPORTS & ARCHITECTURAL UTILITIES",
-    title: "THE APERTURE COLLECTION",
-    subtitle: "Heavy-gauge nylon cricket practice pitches, rooftop sports enclosures, and engineered utility arrays.",
-    image: "/images/sports-nets-twilight.jpg",
-    mobileImage: "/images/sports-nets-twilight.jpg",
-    link: "/sports-nets/",
-    specs: {
-      material: "High-Tenacity Multi-Strand Polyethylene",
-      impactResistance: "Cricket Leather & High-Velocity Impact Tested",
-      mounting: "Ceiling Pulley & Tension-Cable Mounted",
-      warranty: "Certified High-Tension Long-Life Guarantee"
-    },
-    solutions: [
-      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
-      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
-      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
-      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
-    ]
-  },
-  {
     id: "boundless-horizons",
-    eyebrow: "RESIDENTIAL PERIMETERS",
-    title: "BOUNDLESS HORIZONS",
+    eyebrow: "BALCONY & CHILD PROTECTION",
+    title: "BALCONY & CHILD SAFETY NETS",
     subtitle: "Durable high-visibility child and pet anti-fall safety netting securely anchored to high-rise railings.",
     image: "/images/category-child-safety.jpg",
     mobileImage: "/images/category-child-safety.jpg",
@@ -102,9 +81,30 @@ const collections = [
     ]
   },
   {
+    id: "aperture-collection",
+    eyebrow: "SPORTS NETS & HOME UTILITIES",
+    title: "SPORTS PRACTICE & TURF NETS",
+    subtitle: "Heavy-gauge nylon cricket practice pitches, rooftop sports enclosures, and engineered utility arrays.",
+    image: "/images/sports-nets-twilight.jpg",
+    mobileImage: "/images/sports-nets-twilight.jpg",
+    link: "/sports-nets/",
+    specs: {
+      material: "High-Tenacity Multi-Strand Polyethylene",
+      impactResistance: "Cricket Leather & High-Velocity Impact Tested",
+      mounting: "Ceiling Pulley & Tension-Cable Mounted",
+      warranty: "Certified High-Tension Long-Life Guarantee"
+    },
+    solutions: [
+      { name: "Rooftop Cricket Practice Nets", href: "/sports-practice-nets/" },
+      { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/" },
+      { name: "Swimming Pool Protective Nets", href: "/swimming-pool-nets/" },
+      { name: "Coconut Palm Anti-Drop Netting", href: "/coconut-safety-nets/" }
+    ]
+  },
+  {
     id: "structural-architecture",
-    eyebrow: "COMMERCIAL & INDUSTRIAL CONTAINMENT",
-    title: "STRUCTURAL ARCHITECTURE",
+    eyebrow: "COMMERCIAL & INDUSTRIAL FALL ARREST",
+    title: "COMMERCIAL & INDUSTRIAL SAFETY NETS",
     subtitle: "Industrial building void safety nets, debris catch systems, and perimeter fall containment rigging.",
     image: "/images/category-structural-safety.jpg",
     mobileImage: "/images/category-structural-safety.jpg",
@@ -134,7 +134,7 @@ const collections = [
       data-id={item.id}
       aria-label={`Explore ${item.title}: ${item.subtitle}`}
     >
-      <!-- Edge-to-Edge Full-Bleed Photograph with Smooth 0.9s Hover Scale -->
+      <!-- Edge-to-Edge Full-Bleed Photograph with Smooth 0.8s Hover Scale -->
       <div class="card-bg-wrap">
         {item.mobileImage ? (
           <picture>
@@ -158,40 +158,40 @@ const collections = [
             height="1080"
           />
         )}
-        <!-- Ambient Multi-Stop Vignette Overlay -->
+        <!-- Coastal Atmospheric Scrim Overlay -->
         <div class="editorial-scrim-overlay"></div>
       </div>
 
       <!-- Center-Bottom Content Box -->
       <div class="card-content-anchor">
         <div class="card-text-stack">
-          <!-- Gold Eyebrow Micro-Typography -->
+          <!-- Cyan Eyebrow Micro-Typography -->
           <span class="card-eyebrow">
             {item.eyebrow}
           </span>
 
-          <!-- High-End Luxury Editorial Title -->
+          <!-- High-Converting SEO-Direct Title -->
           <h2 class="card-title">
             {item.title}
           </h2>
 
-          <!-- Strictly One Italic Sentence Micro-Copy -->
+          <!-- Descriptive Subtitle -->
           <p class="card-subtitle">
             {item.subtitle}
           </p>
 
-          <!-- Interactive Translucent Black-Glass Controls -->
+          <!-- Action Row: Warm Peach-Gold Primary CTA & Frosted White-Blue Secondary -->
           <div class="card-action-row">
             <span class="btn-editorial-glass">
               <span>EXPLORE</span>
-              <ArrowRight size={13} />
+              <ArrowRight size={14} />
             </span>
 
             <button
               type="button"
               class="btn-editorial-glass-secondary trigger-specs-modal"
               data-collection-id={item.id}
-              aria-label={`View craftsmanship details for ${item.title}`}
+              aria-label={`View engineering details for ${item.title}`}
             >
               <span>SPECIFICATIONS</span>
             </button>
@@ -202,15 +202,14 @@ const collections = [
   ))}
 
   <!-- =========================================================================
-       EDITORIAL CRAFTSMANSHIP & SPECIFICATIONS BOTTOM-SHEET MODAL
-       Keeps main photography clean while providing instant technical depth on demand
+       SPECIFICATIONS BOTTOM-SHEET MODAL (Coastal Frosted Theme)
        ========================================================================= -->
   <div class="specs-modal-backdrop" id="specs-modal-backdrop" aria-hidden="true">
     <div class="specs-sheet" id="specs-sheet">
       <div class="sheet-header">
         <div>
-          <span class="sheet-eyebrow" id="modal-eyebrow">CRAFTSMANSHIP &amp; METALLURGY</span>
-          <h3 class="sheet-title" id="modal-title">THE INVISIBLE THRESHOLD</h3>
+          <span class="sheet-eyebrow" id="modal-eyebrow">ENGINEERING &amp; METALLURGY</span>
+          <h3 class="sheet-title" id="modal-title">SS316 MARINE INVISIBLE GRILLS</h3>
         </div>
         <button type="button" class="sheet-close-btn" id="modal-close-btn" aria-label="Close specifications">
           <X size={20} />
@@ -230,7 +229,7 @@ const collections = [
         </div>
 
         <div class="sheet-footer">
-          <a href="/contact/#quote" class="btn-editorial-solid" style="width: 100%; text-align: center;">
+          <a href="/contact/#quote" class="btn-primary" style="width: 100%; text-align: center; height: 50px;">
             <span>SCHEDULE COMPLIMENTARY SITE SURVEY</span>
           </a>
         </div>
@@ -241,12 +240,12 @@ const collections = [
 
 <style>
   /* =========================================================================
-     EDITORIAL COLLECTIONS FEED (100DVH SNAP SCROLLING STACK)
+     COLLECTIONS FEED (100DVH SNAP SCROLLING STACK)
      ========================================================================= */
   .editorial-collections-feed {
     width: 100%;
     position: relative;
-    background: #121316;
+    background: #F4F7FB;
     scroll-snap-type: y mandatory;
   }
 
@@ -261,11 +260,11 @@ const collections = [
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #D8E6F3;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    background: #121316;
+    background: #0F1E36;
   }
 
   .card-bg-wrap {
@@ -275,13 +274,12 @@ const collections = [
     overflow: hidden;
   }
 
-  /* High Dynamic Contrast & Desktop 0.8s Smooth Subtle Scale */
   .card-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: contrast(1.06) saturate(1.05);
+    filter: contrast(1.05) saturate(1.04);
     transform: scale(1.0);
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
@@ -291,15 +289,14 @@ const collections = [
     transform: scale(1.03);
   }
 
-  /* Drastically Reduced Dark Overlay: Wire grid and net diamonds stay razor sharp */
   .editorial-scrim-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.05) 50%,
-      rgba(0, 0, 0, 0.7) 100%
+      rgba(15, 30, 54, 0.15) 0%,
+      rgba(15, 30, 54, 0.45) 50%,
+      rgba(15, 30, 54, 0.88) 100%
     );
     pointer-events: none;
     z-index: 2;
@@ -309,9 +306,9 @@ const collections = [
   .editorial-snap-card:hover .editorial-scrim-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.05) 0%,
-      rgba(0, 0, 0, 0.02) 50%,
-      rgba(0, 0, 0, 0.75) 100%
+      rgba(15, 30, 54, 0.1) 0%,
+      rgba(15, 30, 54, 0.4) 50%,
+      rgba(15, 30, 54, 0.92) 100%
     );
   }
 
@@ -320,7 +317,7 @@ const collections = [
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 960px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 4vw, 2.5rem);
     padding-bottom: clamp(2.75rem, 7vh, 4.75rem);
@@ -334,48 +331,46 @@ const collections = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 820px;
+    max-width: 840px;
     width: 100%;
   }
 
-  /* Gold Eyebrow Micro-Typography */
   .card-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: #38BDF8;
+    background: rgba(15, 30, 54, 0.6);
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
     margin-bottom: 0.75rem;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
   }
 
-  /* High-End Luxury Editorial Title */
   .card-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.6rem, 4.4vw, 3.5rem);
+    font-size: clamp(1.7rem, 4.4vw, 3.2rem);
     font-weight: 800;
     line-height: 1.15;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: #FFFFFF;
     text-transform: uppercase;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
     margin: 0 0 0.85rem 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    max-width: 100%;
   }
 
-  /* Strictly One to Two Sentence Micro-Copy */
   .card-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-    color: #F1F1F1;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: #E2E8F0;
     line-height: 1.55;
     margin: 0 0 2rem 0;
+    max-width: 680px;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-    max-width: 640px;
-    font-weight: 400;
   }
 
   .card-action-row {
@@ -386,66 +381,9 @@ const collections = [
     flex-wrap: wrap;
   }
 
-  /* Translucent Black-Glass Capsule with Smooth White Invert on Hover */
-  .btn-editorial-glass {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    font-weight: 600;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #FFFFFF;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .editorial-snap-card:hover .btn-editorial-glass,
-  .btn-editorial-glass:hover {
-    background-color: #FFFFFF;
-    color: #000000;
-    border-color: #FFFFFF;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-  }
-
-  .btn-editorial-glass-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.75rem 1.85rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    font-weight: 600;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background-color: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #FFFFFF;
-    cursor: pointer;
-  }
-
-  .btn-editorial-glass-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-  }
-
   @media (max-width: 640px) {
     .card-title {
       font-size: clamp(1.4rem, 6.2vw, 2.1rem);
-      letter-spacing: 0.08em;
     }
 
     .card-subtitle {
@@ -468,12 +406,12 @@ const collections = [
   }
 
   /* =========================================================================
-     CRAFTSMANSHIP & SPECIFICATIONS BOTTOM-SHEET MODAL
+     BOTTOM-SHEET MODAL (Frosted White-Blue)
      ========================================================================= */
   .specs-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.82);
+    background: rgba(15, 30, 54, 0.65);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1050;
@@ -492,18 +430,18 @@ const collections = [
 
   .specs-sheet {
     width: 100%;
-    max-width: 660px;
-    background: #0F0F0F;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px 16px 0 0;
+    max-width: 680px;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 20px 20px 0 0;
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
-    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 -20px 60px rgba(30, 58, 95, 0.2);
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     max-height: 85vh;
     overflow-y: auto;
     box-sizing: border-box;
-    color: #FFFFFF;
+    color: var(--color-body);
   }
 
   .specs-modal-backdrop.is-active .specs-sheet {
@@ -515,46 +453,46 @@ const collections = [
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid #141414;
+    border-bottom: 1px solid #EBF3FA;
     margin-bottom: 1.5rem;
   }
 
   .sheet-eyebrow {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.25em;
-    color: #D4AF37;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.25rem;
   }
 
   .sheet-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
+    letter-spacing: 0.04em;
+    color: var(--color-primary);
     margin: 0;
   }
 
   .sheet-close-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #F1F5F9;
+    border: 1px solid #D8E6F3;
     border-radius: 50%;
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #CBD5E1;
+    color: var(--color-secondary);
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
   .sheet-close-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #FFFFFF;
+    background: #EBF3FA;
+    color: var(--color-primary);
   }
 
   .sheet-body {
@@ -576,9 +514,9 @@ const collections = [
   }
 
   .spec-item {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
+    background: #F8FAFC;
+    border: 1px solid #D8E6F3;
+    border-radius: 8px;
     padding: 0.85rem 1rem;
     display: flex;
     flex-direction: column;
@@ -586,17 +524,17 @@ const collections = [
   }
 
   .spec-item-label {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #94A3B8;
+    letter-spacing: 0.08em;
+    color: #64748B;
     text-transform: uppercase;
   }
 
   .spec-item-value {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #F8FAFC;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-primary);
   }
 
   .sheet-solutions-block {
@@ -606,10 +544,10 @@ const collections = [
   }
 
   .sheet-solutions-title {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: var(--color-gold, #C5A880);
+    color: var(--color-primary);
     text-transform: uppercase;
   }
 
@@ -624,20 +562,20 @@ const collections = [
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 4px;
-    color: #E2E8F0;
+    background: #F8FAFC;
+    border: 1px solid #D8E6F3;
+    border-radius: 8px;
+    color: var(--color-primary);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.88rem;
+    font-weight: 600;
     transition: all 0.2s ease;
   }
 
   .sheet-solution-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
+    background: #EBF3FA;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   .sheet-footer {
@@ -661,7 +599,7 @@ const collections = [
       const collection = collections.find((c) => c.id === collectionId);
       if (!collection) return;
 
-      if (modalEyebrow) modalEyebrow.textContent = collection.eyebrow + ' · CRAFTSMANSHIP';
+      if (modalEyebrow) modalEyebrow.textContent = collection.eyebrow + ' · ENGINEERING';
       if (modalTitle) modalTitle.textContent = collection.title;
 
       // Populate specs grid

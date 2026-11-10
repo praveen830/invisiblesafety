@@ -60,11 +60,11 @@ const craftsmanshipPillars = [
 
 <BaseLayout
   title="Invisible Safety | Ultra-Luxury Invisible Grills & Safety Solutions"
-  description="Editorial-grade architectural invisible grills and certified safety net systems for luxury residences, high-rise penthouses, and modern apartments."
+  description="Coastal architectural invisible grills and certified safety net systems for luxury residences, high-rise penthouses, and modern apartments."
   canonicalUrl="/"
   schema={[localBusinessSchema, faqSchema]}
 >
-  <!-- 1. Full-Bleed Editorial Hero (100dvh) -->
+  <!-- 1. Full-Bleed Coastal Hero (100dvh) -->
   <Hero />
 
   <!-- 2. Viewport-Driven Full-Bleed Collections Feed (100dvh Per Space) -->
@@ -121,7 +121,7 @@ const craftsmanshipPillars = [
     </div>
   </section>
 
-  <!-- 6. Minimalist Craftsmanship & Engineering Standards -->
+  <!-- 6. Craftsmanship & Engineering Standards -->
   <section class="editorial-standards-section">
     <div class="editorial-section-container">
       <div class="editorial-section-header">
@@ -136,7 +136,7 @@ const craftsmanshipPillars = [
         {craftsmanshipPillars.map((pillar) => (
           <div class="editorial-pillar-card">
             <div class="pillar-icon-box">
-              <pillar.icon size={20} strokeWidth={1.75} />
+              <pillar.icon size={20} strokeWidth={2} />
             </div>
             <h3 class="pillar-title">{pillar.title}</h3>
             <p class="pillar-desc">{pillar.desc}</p>
@@ -146,10 +146,10 @@ const craftsmanshipPillars = [
     </div>
   </section>
 
-  <!-- 6. Essential Residential FAQ -->
+  <!-- 7. Essential Residential FAQ -->
   <FAQSection />
 
-  <!-- 7. Minimalist Concierge Survey Invitation -->
+  <!-- 8. Concierge Survey Invitation -->
   <section class="editorial-concierge-strip">
     <div class="editorial-section-container">
       <div class="concierge-editorial-box">
@@ -159,11 +159,12 @@ const craftsmanshipPillars = [
           Our structural engineer will visit your residence with physical SS316 wire samples, inspect anchoring surfaces, and provide a clear quotation.
         </p>
         <div class="concierge-actions">
-          <a href="/contact/#quote" class="btn-editorial-solid">
+          <a href="/contact/#quote" class="concierge-btn-primary">
             <span>REQUEST SITE SURVEY</span>
+            <ArrowRight size={15} />
           </a>
-          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-outline">
-            <Phone size={14} />
+          <a href={`tel:${business.phoneRaw}`} class="concierge-btn-secondary">
+            <Phone size={15} />
             <span>Call: {business.phone}</span>
           </a>
         </div>
@@ -174,18 +175,25 @@ const craftsmanshipPillars = [
 
 <style>
   /* =========================================================================
-     EDITORIAL SECTIONS STYLING
+     COASTAL ARCHITECTURAL HOME SECTIONS
      ========================================================================= */
   .editorial-visualizer-section,
-  .editorial-planner-section,
   .editorial-calculator-section,
-  .editorial-standards-section,
   .editorial-concierge-strip {
-    background-color: #121316;
-    color: #FFFFFF;
-    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    background-color: #EBF3FA; /* Soft Ice Blue */
+    color: #475569;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     position: relative;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #D8E6F3;
+  }
+
+  .editorial-planner-section,
+  .editorial-standards-section {
+    background-color: #F4F7FB; /* Pale Grey-Blue */
+    color: #475569;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    position: relative;
+    border-bottom: 1px solid #D8E6F3;
   }
 
   .editorial-section-container {
@@ -197,51 +205,52 @@ const craftsmanshipPillars = [
 
   .editorial-section-header {
     text-align: center;
-    max-width: 740px;
-    margin: 0 auto clamp(2rem, 4vw, 3.5rem) auto;
+    max-width: 760px;
+    margin: 0 auto clamp(2rem, 4vw, 3.25rem) auto;
   }
 
   .editorial-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    color: #D4AF37;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(2, 132, 199, 0.25);
     text-transform: uppercase;
-    display: block;
+    display: inline-block;
     margin-bottom: 0.75rem;
   }
 
   .editorial-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
     font-weight: 800;
-    letter-spacing: 0.06em;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
-    margin: 0 0 0.85rem 0;
+    letter-spacing: -0.01em;
+    color: #1E3A5F;
+    margin: 0 0 0.75rem 0;
     line-height: 1.2;
   }
 
   .editorial-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(0.92rem, 1.25vw, 1.1rem);
-    color: #F1F1F1;
-    line-height: 1.55;
+    font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+    color: #64748B;
+    line-height: 1.6;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   }
 
   .visualizer-wrapper,
   .visualizer-island-wrapper {
     max-width: 1080px;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    box-shadow: 0 4px 24px -2px rgba(30, 58, 95, 0.08);
   }
 
   .cost-estimator-wrapper {
@@ -249,7 +258,7 @@ const craftsmanshipPillars = [
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 24px -2px rgba(30, 58, 95, 0.08);
   }
 
   /* Pillars Grid */
@@ -272,90 +281,92 @@ const craftsmanshipPillars = [
   }
 
   .editorial-pillar-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 1.75rem 1.5rem;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 12px;
+    padding: 1.85rem 1.6rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 18px -2px rgba(30, 58, 95, 0.06);
+    transition: all 0.28s ease;
   }
 
   .editorial-pillar-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #0EA5E9;
     transform: translateY(-3px);
+    box-shadow: 0 12px 30px -4px rgba(30, 58, 95, 0.12);
   }
 
   .pillar-icon-box {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: #E0F2FE;
+    border: 1px solid #BAE6FD;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-gold, #C5A880);
+    color: #0284C7;
     margin-bottom: 1.25rem;
   }
 
   .pillar-title {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #1E3A5F;
     margin: 0 0 0.5rem 0;
   }
 
   .pillar-desc {
-    font-size: 0.85rem;
-    color: #94A3B8;
+    font-size: 0.88rem;
+    color: #64748B;
     line-height: 1.55;
     margin: 0;
   }
 
   /* Concierge Box */
   .concierge-editorial-box {
-    max-width: 820px;
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 16px;
+    padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 6px 24px -2px rgba(30, 58, 95, 0.08);
   }
 
   .concierge-eyebrow {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.22em;
-    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.18em;
+    color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.3rem 0.95rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(2, 132, 199, 0.2);
     text-transform: uppercase;
-    display: block;
+    display: inline-block;
     margin-bottom: 0.85rem;
   }
 
   .concierge-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 2.35rem);
     font-weight: 800;
-    letter-spacing: 0.06em;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin: 0 0 1rem 0;
+    color: #1E3A5F;
+    margin: 0 0 0.85rem 0;
     line-height: 1.25;
   }
 
   .concierge-desc {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    color: #CBD5E1;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: #64748B;
     line-height: 1.6;
     margin: 0 auto 2rem auto;
-    max-width: 620px;
+    max-width: 640px;
   }
 
   .concierge-actions {
@@ -364,6 +375,56 @@ const craftsmanshipPillars = [
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .concierge-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #0F1E36 !important;
+    font-weight: 800;
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
+    padding: 0.85rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+    border: 1px solid #F59E0B;
+    transition: all 0.25s ease;
+  }
+
+  .concierge-btn-primary:hover {
+    background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
+    color: #0F1E36 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+    border-color: #FBBF24;
+  }
+
+  .concierge-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #FFFFFF;
+    color: #1E3A5F !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.85rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: 1px solid #D8E6F3;
+    box-shadow: 0 2px 10px rgba(30, 58, 95, 0.06);
+    transition: all 0.25s ease;
+  }
+
+  .concierge-btn-secondary:hover {
+    background: #EBF3FA;
+    border-color: #0284C7;
+    color: #0284C7 !important;
+    transform: translateY(-2px);
   }
 
   @media (max-width: 580px) {

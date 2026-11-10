@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import { business } from '../../data/business';
 import { calculateQuote, formatINR, type CalculationInput } from '../../utils/calculator';
 import { buildWhatsAppLink } from '../../utils/whatsapp';
@@ -53,7 +53,7 @@ export default function CostEstimator() {
   return (
     <div style={{
       background: '#FFFFFF',
-      border: '1px solid #E2E8F0',
+      border: '1px solid #D8E6F3',
       borderRadius: '16px',
       padding: 'clamp(1rem, 3vw, 2rem)',
       boxShadow: '0 4px 20px -4px rgba(15, 23, 42, 0.08)',
@@ -75,7 +75,7 @@ export default function CostEstimator() {
           }}>
             <Calculator size={18} />
           </div>
-          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#1E3A5F', margin: 0 }}>
             Plan Your Free Site Measurement
           </h3>
         </div>
@@ -146,7 +146,7 @@ export default function CostEstimator() {
                     borderRadius: '6px',
                     border: '1px solid #CBD5E1',
                     fontSize: '0.88rem',
-                    color: '#0F172A',
+                    color: '#1E3A5F',
                     background: '#FFFFFF'
                   }}
                 >
@@ -167,7 +167,7 @@ export default function CostEstimator() {
                     borderRadius: '6px',
                     border: '1px solid #CBD5E1',
                     fontSize: '0.88rem',
-                    color: '#0F172A',
+                    color: '#1E3A5F',
                     background: '#FFFFFF'
                   }}
                 >
@@ -190,7 +190,7 @@ export default function CostEstimator() {
                   borderRadius: '6px',
                   border: '1px solid #CBD5E1',
                   fontSize: '0.88rem',
-                  color: '#0F172A',
+                  color: '#1E3A5F',
                   background: '#FFFFFF'
                 }}
               >
@@ -250,7 +250,7 @@ export default function CostEstimator() {
             <div style={{ marginBottom: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '0.25rem' }}>
                 <span style={{ color: '#475569' }}>Width</span>
-                <span style={{ fontWeight: 700, color: '#0F172A' }}>{width} {unit}</span>
+                <span style={{ fontWeight: 700, color: '#1E3A5F' }}>{width} {unit}</span>
               </div>
               <input
                 type="range"
@@ -267,7 +267,7 @@ export default function CostEstimator() {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '0.25rem' }}>
                 <span style={{ color: '#475569' }}>Height</span>
-                <span style={{ fontWeight: 700, color: '#0F172A' }}>{height} {unit}</span>
+                <span style={{ fontWeight: 700, color: '#1E3A5F' }}>{height} {unit}</span>
               </div>
               <input
                 type="range"
@@ -314,7 +314,7 @@ export default function CostEstimator() {
         {/* Right Column: Indicative Estimate Output */}
         <div style={{
           background: '#F8FAFC',
-          border: '1px solid #E2E8F0',
+          border: '1px solid #D8E6F3',
           borderRadius: '12px',
           padding: '1.5rem',
           display: 'flex',
@@ -339,9 +339,9 @@ export default function CostEstimator() {
           {/* Area & Price */}
           <div style={{ marginBottom: '1.25rem' }}>
             <div style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '0.2rem' }}>
-              Approximate Opening Area: <strong style={{ color: '#0F172A' }}>{result.actualAreaSqFt} sq. ft</strong>
+              Approximate Opening Area: <strong style={{ color: '#1E3A5F' }}>{result.actualAreaSqFt} sq. ft</strong>
             </div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.25 }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1E3A5F', lineHeight: 1.25 }}>
               Custom Site-Based Quote
             </div>
             <div style={{
@@ -367,7 +367,7 @@ export default function CostEstimator() {
           {/* What is Included */}
           <div style={{
             background: '#FFFFFF',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #D8E6F3',
             borderRadius: '8px',
             padding: '1rem',
             marginBottom: '1.25rem',
@@ -427,9 +427,9 @@ export default function CostEstimator() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '0.5rem',
-                background: '#2563EB',
-                color: '#FFFFFF',
-                fontWeight: 600,
+                background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+                color: '#0F1E36',
+                fontWeight: 800,
                 fontSize: '0.88rem',
                 padding: '0.75rem 1rem',
                 borderRadius: '8px',

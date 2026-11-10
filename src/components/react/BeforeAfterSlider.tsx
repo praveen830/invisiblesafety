@@ -33,7 +33,7 @@ export default function BeforeAfterSlider({
   };
 
   return (
-    <div style={{ maxWidth: '920px', margin: '0 auto', userSelect: 'none' }}>
+    <div style={{ maxWidth: '960px', margin: '0 auto', userSelect: 'none' }}>
       <div
         ref={containerRef}
         onMouseDown={() => { isDragging.current = true; }}
@@ -44,12 +44,12 @@ export default function BeforeAfterSlider({
         style={{
           position: 'relative',
           height: 'clamp(280px, 50vw, 460px)',
-          borderRadius: '12px',
+          borderRadius: '14px',
           overflow: 'hidden',
-          border: '1px solid #CBD5E1',
-          boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.08)',
+          border: '1px solid #D8E6F3',
+          boxShadow: '0 4px 20px -2px rgba(30, 58, 95, 0.08)',
           cursor: 'ew-resize',
-          background: '#0F172A'
+          background: '#0F1E36'
         }}
       >
         {/* Underneath: AFTER View (Invisible Grills Installed) */}
@@ -75,8 +75,8 @@ export default function BeforeAfterSlider({
                 style={{
                   width: '2px',
                   height: '100%',
-                  background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.4) 100%)',
-                  boxShadow: '0 0 2px rgba(255, 255, 255, 0.6)'
+                  background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.45) 100%)',
+                  boxShadow: '0 0 3px rgba(2, 132, 199, 0.5)'
                 }}
               />
             ))}
@@ -87,17 +87,21 @@ export default function BeforeAfterSlider({
             position: 'absolute',
             top: '16px',
             right: '16px',
-            background: 'rgba(15, 23, 42, 0.85)',
+            background: 'rgba(30, 58, 95, 0.9)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
             color: '#FFFFFF',
-            padding: '6px 12px',
-            borderRadius: '6px',
+            padding: '6px 14px',
+            borderRadius: '9999px',
             fontSize: '0.8rem',
-            fontWeight: 600,
+            fontWeight: 700,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px'
+            gap: '6px',
+            border: '1px solid rgba(216, 230, 243, 0.3)',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
           }}>
-            <ShieldCheck size={16} color="#16A34A" />
+            <ShieldCheck size={16} color="#38BDF8" />
             <span>AFTER: Invisible Grills Installed</span>
           </div>
         </div>
@@ -110,9 +114,9 @@ export default function BeforeAfterSlider({
           bottom: 0,
           width: `${sliderPosition}%`,
           overflow: 'hidden',
-          borderRight: '3px solid #2563EB'
+          borderRight: '3px solid #0284C7'
         }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, width: containerRef.current ? `${containerRef.current.clientWidth}px` : '920px', height: '100%' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: containerRef.current ? `${containerRef.current.clientWidth}px` : '960px', height: '100%' }}>
             <img
               src={beforeImage}
               alt="Balcony without invisible grills"
@@ -125,15 +129,19 @@ export default function BeforeAfterSlider({
             position: 'absolute',
             top: '16px',
             left: '16px',
-            background: 'rgba(15, 23, 42, 0.85)',
+            background: 'rgba(15, 30, 54, 0.9)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
             color: '#FFFFFF',
-            padding: '6px 12px',
-            borderRadius: '6px',
+            padding: '6px 14px',
+            borderRadius: '9999px',
             fontSize: '0.8rem',
-            fontWeight: 600,
+            fontWeight: 700,
             display: 'flex',
             alignItems: 'center',
-            gap: '6px'
+            gap: '6px',
+            border: '1px solid rgba(245, 158, 11, 0.4)',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
           }}>
             <AlertTriangle size={15} color="#F59E0B" />
             <span>BEFORE: Open Balcony (No Safety Barrier)</span>
@@ -156,25 +164,58 @@ export default function BeforeAfterSlider({
           }}
         >
           <div style={{
-            width: '36px',
-            height: '36px',
+            width: '38px',
+            height: '38px',
             borderRadius: '50%',
-            background: '#2563EB',
+            background: '#0284C7',
             color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            boxShadow: '0 4px 14px rgba(2, 132, 199, 0.45)',
             border: '2px solid #FFFFFF'
           }}>
-            <ArrowLeftRight size={16} />
+            <ArrowLeftRight size={17} />
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', fontSize: '0.82rem', color: '#64748B' }}>
-        <span>← Drag left or right to compare</span>
-        <span>Minimal visual obstruction with high-rise fall protection</span>
+      {/* Comparison Text Bar: Fixed missing space bug with explicit semantic separation */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '0.75rem',
+        marginTop: '0.85rem',
+        padding: '0.6rem 0.25rem',
+        fontSize: '0.85rem',
+        color: '#475569',
+        borderTop: '1px solid #D8E6F3'
+      }}>
+        <span style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.35rem',
+          background: '#EBF3FA',
+          color: '#1E3A5F',
+          padding: '0.3rem 0.85rem',
+          borderRadius: '9999px',
+          fontWeight: 700,
+          border: '1px solid #D8E6F3'
+        }}>
+          &larr; Drag left or right to compare
+        </span>
+        <span style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.45rem',
+          color: '#334155',
+          fontWeight: 600
+        }}>
+          <span style={{ color: '#0284C7', fontWeight: 800 }}>&bull;</span>
+          <span>Minimal visual obstruction with high-rise fall protection</span>
+        </span>
       </div>
     </div>
   );

@@ -101,25 +101,25 @@ const {
     },
     {
       src: "/images/category-child-safety.jpg",
-      alt: "High-Rise Child and Pet Anti-Fall Safety Mesh",
-      title: "Toddler & Pet Anti-Fall System",
-      caption: "Calibrated high-density polymer safety grid preventing accidental falls and slips.",
-      badge: "Child & Pet Safety"
+      alt: "Child and Pet Balcony Safety Netting",
+      title: "High-Rise Child Fall Protection",
+      caption: "Impact-tested virgin polymer netting anchored with stainless steel border tension cords.",
+      badge: "Safety Certified"
     },
     {
       src: "/images/category-structural-safety.jpg",
-      alt: "Commercial Building Void Safety Containment Net",
-      title: "Structural Fall & Void Network",
-      caption: "Industrial heavy-duty safety containment netting with visible border ropes and carabiners.",
-      badge: "Structural Containment"
+      alt: "Industrial Building Void Fall Protection Netting",
+      title: "Structural Duct & Void Containment",
+      caption: "Heavy-duty fall arrest netting protecting multi-floor building atrium voids and utility shafts.",
+      badge: "Commercial Grade"
     }
   ],
-  galleryEyebrow = "VERIFIED RESIDENTIAL INSTALLATIONS",
-  galleryTitle = "Architectural Portfolio",
-  gallerySubtitle = "Documented installations across luxury penthouses, gated villas, and high-rise residences.",
+  galleryEyebrow = "REAL VERIFIED INSTALLATIONS",
+  galleryTitle = "Architectural Living Portfolio",
+  gallerySubtitle = "Photographic documentation from real high-rise balconies, penthouses, and gated residences.",
   subcategories,
-  subcategoriesTitle = "ENGINEERED CONFIGURATIONS",
-  subcategoriesSubtitle = "Explore specialized solutions engineered for diverse structural requirements."
+  subcategoriesTitle = "CONFIGURATIONS & FORMATS",
+  subcategoriesSubtitle = "Explore purpose-engineered variations tailored to your specific architectural layout."
 } = Astro.props;
 ---
 
@@ -130,7 +130,7 @@ const {
   schema={schema}
 >
   <!-- =========================================================================
-       1. HERO HEADER: 100dvh Edge-to-Edge Architectural Imagery & Deep Black Scrim
+       1. SUBPAGE FULL-VIEWPORT HERO (100dvh Coastal Atmosphere)
        ========================================================================= -->
   <header class="subpage-hero">
     <div class="subpage-hero-media">
@@ -142,7 +142,7 @@ const {
         width="1920"
         height="1080"
       />
-      <!-- Ambient Multi-Stop Vignette Overlay -->
+      <!-- Coastal Atmospheric Scrim -->
       <div class="subpage-hero-scrim"></div>
     </div>
 
@@ -161,9 +161,9 @@ const {
           {heroSubtitle}
         </p>
 
-        <!-- Translucent Black-Glass Actions -->
+        <!-- Coastal Conversion Actions -->
         <div class="subpage-actions">
-          <a href="/contact/#quote" class="btn-editorial-glass">
+          <a href="/contact/#quote" class="subpage-btn-primary">
             <span>REQUEST SITE SURVEY</span>
             <ArrowRight size={14} />
           </a>
@@ -171,7 +171,7 @@ const {
           {specs && specs.length > 0 && (
             <button
               type="button"
-              class="btn-editorial-glass-secondary"
+              class="subpage-btn-secondary"
               id="trigger-subpage-specs-btn"
               aria-label={`View technical specifications for ${heroTitle}`}
             >
@@ -183,7 +183,7 @@ const {
             href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(heroTitle)}.`}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-editorial-glass-secondary hidden sm:inline-flex"
+            class="subpage-btn-secondary hidden sm:inline-flex"
             aria-label="Direct WhatsApp consultation"
           >
             <MessageCircle size={15} />
@@ -195,7 +195,7 @@ const {
   </header>
 
   <!-- =========================================================================
-       2. TRANSLUCENT BOTTOM-SHEET SPECIFICATIONS MODAL
+       2. BOTTOM-SHEET SPECIFICATIONS MODAL (Coastal Frosted Theme)
        ========================================================================= -->
   {specs && specs.length > 0 && (
     <div class="specs-modal-backdrop" id="subpage-specs-modal" aria-hidden="true">
@@ -221,7 +221,7 @@ const {
           </div>
 
           <div class="sheet-footer">
-            <a href="/contact/#quote" class="btn-editorial-solid" style="width: 100%; text-align: center;">
+            <a href="/contact/#quote" class="subpage-btn-primary" style="width: 100%; text-align: center; height: 50px;">
               <span>SCHEDULE COMPLIMENTARY SITE SURVEY</span>
             </a>
           </div>
@@ -231,7 +231,7 @@ const {
   )}
 
   <!-- =========================================================================
-       3. SUBCATEGORIES / CONFIGURATIONS (Optional interactive cards)
+       3. SUBCATEGORIES / CONFIGURATIONS (Frosted White-Blue Cards)
        ========================================================================= -->
   {subcategories && subcategories.length > 0 && (
     <section class="subcategories-section">
@@ -269,12 +269,12 @@ const {
   )}
 
   <!-- =========================================================================
-       4. MAIN CONTENT SLOT (Custom engineering, calculator, comparison)
+       4. MAIN CONTENT SLOT
        ========================================================================= -->
   <slot />
 
   <!-- =========================================================================
-       5. VISUAL GALLERY GRID: 2-Column Editorial Grid with Lightbox
+       5. VISUAL GALLERY GRID: 2-Column Grid with Lightbox
        ========================================================================= -->
   {gallery && gallery.length > 0 && (
     <section class="editorial-gallery-section" id="gallery-showcase">
@@ -298,22 +298,15 @@ const {
               tabindex="0"
               aria-label={`View photo ${item.title}`}
             >
-              <img
-                src={item.src}
-                alt={item.alt}
-                class="gallery-card-img"
-                loading="lazy"
-                width="800"
-                height="500"
-              />
+              <img src={item.src} alt={item.alt} class="gallery-card-img" loading="lazy" />
               <div class="gallery-card-overlay">
                 {item.badge && <span class="gallery-card-badge">{item.badge}</span>}
                 <h3 class="gallery-card-title">{item.title}</h3>
                 {item.caption && <p class="gallery-card-caption">{item.caption}</p>}
-                <span class="gallery-card-action">
+                <div class="gallery-card-action">
+                  <span>EXPAND HIGH-RES PHOTOGRAPH</span>
                   <Maximize2 size={13} />
-                  <span>TAP TO EXPAND VIEW</span>
-                </span>
+                </div>
               </div>
             </div>
           ))}
@@ -321,49 +314,6 @@ const {
       </div>
     </section>
   )}
-
-  <!-- =========================================================================
-       5B. VERIFIED REGIONAL INSTALLATIONS: Hyderabad, Vizag & Vijayawada
-       ========================================================================= -->
-  <section class="editorial-projects-section" id="verified-projects">
-    <div class="subpage-container">
-      <div class="subpage-section-header">
-        <span class="editorial-eyebrow">DOCUMENTED PROOF OF WORK</span>
-        <h2 class="editorial-title">Live Installations Across AP &amp; Telangana</h2>
-        <p class="editorial-subtitle">
-          Real residential and commercial installations across luxury communities in Hyderabad, Visakhapatnam, and Vijayawada.
-        </p>
-      </div>
-
-      <div class="regional-projects-grid">
-        {projects.map((proj) => (
-          <div class="regional-project-card">
-            <div class="project-media-wrap">
-              <img
-                src={proj.imageAfter}
-                alt={`${proj.title} - ${proj.apartmentName}, ${proj.city}`}
-                class="project-img"
-                loading="lazy"
-                width="640"
-                height="400"
-              />
-              <span class="project-city-badge">{proj.city}</span>
-            </div>
-            <div class="project-info-block">
-              <div class="project-meta-line">
-                <span class="project-locality">{proj.locality}</span>
-                <span class="project-floor">{proj.floor}</span>
-              </div>
-              <h3 class="project-title">{proj.apartmentName}</h3>
-              <p class="project-config">{proj.configuration}</p>
-              <p class="project-quote">"{proj.clientQuote}"</p>
-              <div class="project-client-name">&mdash; {proj.clientName}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================================
        6. CONCIERGE SURVEY INVITATION STRIP
@@ -377,11 +327,11 @@ const {
           Our certified architectural surveyor will inspect your structure, measure cable lengths with high-precision lasers, present authentic SS316 wire samples, and deliver a zero-obligation quotation.
         </p>
         <div class="concierge-actions">
-          <a href="/contact/#quote" class="btn-editorial-pill">
+          <a href="/contact/#quote" class="subpage-btn-primary">
             <span>REQUEST SITE SURVEY</span>
             <ArrowRight size={14} />
           </a>
-          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-pill-secondary">
+          <a href={`tel:${business.phoneRaw}`} class="subpage-btn-secondary">
             <Phone size={14} />
             <span>DIRECT CALL: {business.phone}</span>
           </a>
@@ -391,7 +341,7 @@ const {
   </section>
 
   <!-- =========================================================================
-       7. INTERACTIVE LIGHTBOX MODAL (Built-In)
+       7. INTERACTIVE LIGHTBOX MODAL
        ========================================================================= -->
   <div class="lightbox-backdrop" id="subpage-lightbox-modal" aria-hidden="true">
     <div class="lightbox-content">
@@ -414,7 +364,7 @@ const {
 
 <style>
   /* =========================================================================
-     SUBPAGE HERO (100dvh Full-Viewport Deep-Black Editorial)
+     SUBPAGE HERO (100dvh Coastal Atmosphere)
      ========================================================================= */
   .subpage-hero {
     position: relative;
@@ -425,8 +375,8 @@ const {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: #121316;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #0F1E36;
+    border-bottom: 1px solid #D8E6F3;
   }
 
   .subpage-hero-media {
@@ -441,7 +391,7 @@ const {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: contrast(1.06) saturate(1.05);
+    filter: contrast(1.05) saturate(1.04);
     transform: scale(1.0);
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
@@ -451,15 +401,14 @@ const {
     transform: scale(1.03);
   }
 
-  /* Drastically Reduced Dark Overlay: Wire grid and product details remain clearly visible */
   .subpage-hero-scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.05) 50%,
-      rgba(0, 0, 0, 0.7) 100%
+      rgba(15, 30, 54, 0.15) 0%,
+      rgba(15, 30, 54, 0.45) 50%,
+      rgba(15, 30, 54, 0.88) 100%
     );
     pointer-events: none;
     z-index: 2;
@@ -490,37 +439,39 @@ const {
   .subpage-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #D4AF37;
-    margin-bottom: 0.75rem;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+    color: #38BDF8;
+    background: rgba(15, 30, 54, 0.65);
+    padding: 0.35rem 1.15rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    backdrop-filter: blur(8px);
+    margin-bottom: 0.85rem;
   }
 
   .subpage-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+    font-size: clamp(1.75rem, 4.4vw, 3.4rem);
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     color: #FFFFFF;
     text-transform: uppercase;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
     margin: 0 0 0.85rem 0;
-    word-break: break-word;
+    line-height: 1.15;
+    max-width: 100%;
   }
 
   .subpage-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(0.92rem, 1.35vw, 1.15rem);
-    color: #F1F1F1;
+    font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+    color: #F1F5F9;
     line-height: 1.55;
     margin: 0 0 2rem 0;
     max-width: 680px;
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-    font-weight: 400;
   }
 
   .subpage-actions {
@@ -531,20 +482,89 @@ const {
     flex-wrap: wrap;
   }
 
-  /* Specifications Bottom-Sheet Modal */
+  /* Buttons */
+  .subpage-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 2.25rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #0F1E36 !important;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 9999px;
+    border: 1px solid #F59E0B;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.45);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .subpage-btn-primary:hover {
+    background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
+    color: #0F1E36 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245, 158, 11, 0.6);
+    border-color: #FBBF24;
+  }
+
+  .subpage-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 2.25rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #1E3A5F !important;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 9999px;
+    border: 1px solid #D8E6F3;
+    box-shadow: 0 4px 18px rgba(30, 58, 95, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .subpage-btn-secondary:hover {
+    background: #EBF3FA;
+    color: #0284C7 !important;
+    border-color: #0284C7;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .subpage-actions {
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+      gap: 0.75rem;
+    }
+    .subpage-actions a,
+    .subpage-actions button {
+      width: 100%;
+    }
+  }
+
+  /* Bottom-Sheet Specs Modal */
   .specs-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(15, 30, 54, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1050;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.35s ease;
   }
 
   .specs-modal-backdrop.is-active {
@@ -555,17 +575,17 @@ const {
   .specs-sheet {
     width: 100%;
     max-width: 680px;
-    background: #0F0F0F;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px 16px 0 0;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 20px 20px 0 0;
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
-    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 -20px 60px rgba(30, 58, 95, 0.2);
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     max-height: 85vh;
     overflow-y: auto;
     box-sizing: border-box;
-    color: #FFFFFF;
+    color: var(--color-body);
   }
 
   .specs-modal-backdrop.is-active .specs-sheet {
@@ -577,53 +597,39 @@ const {
     align-items: flex-start;
     justify-content: space-between;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid #141414;
+    border-bottom: 1px solid #EBF3FA;
     margin-bottom: 1.5rem;
   }
 
   .sheet-eyebrow {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.25em;
-    color: #D4AF37;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.25rem;
   }
 
   .sheet-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
+    color: var(--color-primary);
     margin: 0;
-    text-transform: uppercase;
   }
 
   .sheet-close-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #F1F5F9;
+    border: 1px solid #D8E6F3;
     border-radius: 50%;
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #CBD5E1;
+    color: var(--color-secondary);
     cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .sheet-close-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
-  }
-
-  .sheet-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
   }
 
   .specs-grid {
@@ -639,9 +645,9 @@ const {
   }
 
   .spec-item {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 4px;
+    background: #F8FAFC;
+    border: 1px solid #D8E6F3;
+    border-radius: 8px;
     padding: 0.85rem 1rem;
     display: flex;
     flex-direction: column;
@@ -649,89 +655,29 @@ const {
   }
 
   .spec-item-label {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #94A3B8;
+    letter-spacing: 0.08em;
+    color: #64748B;
     text-transform: uppercase;
   }
 
   .spec-item-value {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #F8FAFC;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-primary);
   }
 
   .sheet-footer {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
-  @media (max-width: 640px) {
-    .subpage-actions {
-      flex-direction: column;
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .subpage-actions a {
-      width: 100%;
-    }
-  }
-
-  /* =========================================================================
-     CONTAINER & COMMON SECTIONS
-     ========================================================================= */
-  .subpage-container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
-    box-sizing: border-box;
-  }
-
-  .subpage-section-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto clamp(2.5rem, 5vw, 3.5rem) auto;
-  }
-
-  .editorial-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--color-gold, #C5A880);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .editorial-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin: 0 0 0.85rem 0;
-    line-height: 1.2;
-  }
-
-  .editorial-subtitle {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
-    color: #94A3B8;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* =========================================================================
-     SUBCATEGORIES GRID
-     ========================================================================= */
+  /* Subcategories Grid */
   .subcategories-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #F4F7FB;
+    color: #475569;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #D8E6F3;
   }
 
   .subcategories-grid {
@@ -741,21 +687,22 @@ const {
   }
 
   .subcategory-card {
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 18px -2px rgba(30, 58, 95, 0.06);
+    transition: all 0.28s ease;
   }
 
   .subcategory-card:hover {
-    border-color: rgba(197, 168, 128, 0.5);
+    border-color: #0EA5E9;
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 12px 30px -4px rgba(30, 58, 95, 0.12);
   }
 
   .subcategory-media {
@@ -763,24 +710,24 @@ const {
     width: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: #000000;
+    background: #EBF3FA;
   }
 
   .subcategory-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.8s ease;
   }
 
   .subcategory-card:hover .subcategory-img {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
   .subcategory-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(180deg, rgba(15, 30, 54, 0.05) 0%, rgba(15, 30, 54, 0.6) 100%);
   }
 
   .subcategory-body {
@@ -792,41 +739,39 @@ const {
 
   .subcategory-badge {
     align-self: flex-start;
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-gold, #C5A880);
-    background: rgba(197, 168, 128, 0.12);
-    border: 1px solid rgba(197, 168, 128, 0.3);
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
+    color: #0284C7;
+    background: #E0F2FE;
+    border: 1px solid #BAE6FD;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
     margin-bottom: 0.75rem;
   }
 
   .subcategory-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
+    color: #1E3A5F;
     margin: 0 0 0.5rem 0;
-    text-transform: uppercase;
   }
 
   .subcategory-desc {
     font-size: 0.88rem;
-    color: #94A3B8;
+    color: #64748B;
     line-height: 1.55;
     margin: 0 0 1rem 0;
     flex-grow: 1;
   }
 
   .subcategory-spec {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: #CBD5E1;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #0284C7;
+    border-top: 1px solid #EBF3FA;
     padding-top: 0.75rem;
     margin-bottom: 1rem;
     display: block;
@@ -836,11 +781,11 @@ const {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-gold, #C5A880);
+    color: #0284C7;
     transition: gap 0.2s ease;
   }
 
@@ -848,174 +793,97 @@ const {
     gap: 0.65rem;
   }
 
-  /* =========================================================================
-     SECTIONS STYLING & VERIFIED REGIONAL PROJECTS (ARCHITECTURAL OFF-BLACK)
-     ========================================================================= */
-  .subcategories-section,
-  .editorial-gallery-section,
-  .editorial-projects-section,
-  .editorial-concierge-strip {
-    background-color: #121316 !important;
-    color: #FFFFFF;
-    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* Containers & Headers */
+  .subpage-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    box-sizing: border-box;
   }
 
-  /* Regional Projects Grid */
-  .regional-projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto clamp(2rem, 4vw, 3.25rem) auto;
   }
 
-  .regional-project-card {
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-  }
-
-  .regional-project-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-  }
-
-  .project-media-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #000000;
-  }
-
-  .project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: contrast(1.06) saturate(1.05);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .regional-project-card:hover .project-img {
-    transform: scale(1.03);
-  }
-
-  .project-city-badge {
-    position: absolute;
-    top: 0.85rem;
-    left: 0.85rem;
-    background: rgba(18, 19, 22, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    color: #D4AF37;
-    font-size: 0.7rem;
+  .editorial-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
+    letter-spacing: 0.16em;
+    color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.35rem 1rem;
     border-radius: 9999px;
-  }
-
-  .project-info-block {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .project-meta-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: #94A3B8;
+    border: 1px solid rgba(2, 132, 199, 0.25);
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
   }
 
-  .project-floor {
-    color: #D4AF37;
-  }
-
-  .project-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
-    margin: 0 0 0.5rem 0;
-    text-transform: uppercase;
-  }
-
-  .project-config {
-    font-size: 0.8rem;
-    color: #CBD5E1;
-    font-weight: 500;
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .project-quote {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: 0.88rem;
-    color: #F1F1F1;
-    line-height: 1.5;
+  .editorial-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #1E3A5F;
     margin: 0 0 0.75rem 0;
-    flex-grow: 1;
+    line-height: 1.2;
   }
 
-  .project-client-name {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: #94A3B8;
+  .editorial-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Concierge Strip */
+  .editorial-concierge-strip {
+    background-color: #EBF3FA;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid #D8E6F3;
   }
 
   .concierge-editorial-box {
-    max-width: 840px;
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 16px;
+    padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 6px 24px -2px rgba(30, 58, 95, 0.08);
   }
 
   .concierge-eyebrow {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.3em;
-    color: #D4AF37;
+    letter-spacing: 0.18em;
+    color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.3rem 0.95rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(2, 132, 199, 0.2);
     text-transform: uppercase;
-    display: block;
+    display: inline-block;
     margin-bottom: 0.85rem;
   }
 
   .concierge-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 2.35rem);
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin: 0 0 1rem 0;
+    color: #1E3A5F;
+    margin: 0 0 0.85rem 0;
     line-height: 1.25;
   }
 
   .concierge-desc {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    color: #CBD5E1;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: #64748B;
     line-height: 1.6;
     margin: 0 auto 2rem auto;
     max-width: 640px;
@@ -1029,20 +897,8 @@ const {
     flex-wrap: wrap;
   }
 
-  @media (max-width: 580px) {
-    .concierge-actions {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .concierge-actions a {
-      width: 100%;
-    }
-  }
-
   .lightbox-counter {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.8rem;
     color: #94A3B8;
     font-weight: 600;
   }

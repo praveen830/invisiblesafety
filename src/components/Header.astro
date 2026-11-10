@@ -1,112 +1,353 @@
 ---
 import { business } from '../data/business';
-import { Menu, X, Phone, User, ArrowRight } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+  MapPin,
+  ShieldCheck,
+  CheckCircle2,
+  ExternalLink,
+  MessageCircle,
+  Sparkles
+} from 'lucide-react';
 
-const productsNav = [
-  { name: "Balcony SS316 Invisible Grills", href: "/invisible-grills/", desc: "SS316 marine-grade tensile cable architecture" },
-  { name: "High-Rise Safety Nets", href: "/safety-nets/", desc: "High-density polymer balcony and child protection" },
-  { name: "Pigeon Exclusion & Spikes", href: "/pigeon-nets/", desc: "Humane anti-pigeon netting & stainless steel spikes" },
-  { name: "Window & French Door Grills", href: "/window-invisible-grills/", desc: "Unobstructed ventilation and child safety" },
-  { name: "Staircase Void Protection", href: "/staircase-invisible-grills/", desc: "Sleek vertical safety cables for duplex voids" },
-  { name: "Construction & Industrial Nets", href: "/construction-safety-nets/", desc: "Heavy-duty perimeter and void containment" },
-  { name: "Sports Practice & Turf Nets", href: "/sports-nets/", desc: "Cricket practice cages and multi-sport turf netting" }
-];
+// 3 Main Service Dropdowns
+const invisibleGrillsService = {
+  title: "Invisible Grills",
+  href: "/invisible-grills/",
+  badge: "Bestseller",
+  items: [
+    { name: "Balcony SS316 Invisible Grills", href: "/balcony-invisible-grills/", desc: "SS316 marine-grade tensile cable architecture for high-rises" },
+    { name: "Window & French Door Grills", href: "/window-invisible-grills/", desc: "Unobstructed ventilation and child safety" },
+    { name: "Child Safety Invisible Grills", href: "/child-safety-invisible-grills/", desc: "50mm calibrated spacing for toddler protection" },
+    { name: "Staircase Void Protection Grills", href: "/staircase-invisible-grills/", desc: "Vertical tension cables for duplex voids" },
+    { name: "Virgin SS316 Metallurgy", href: "/materials/", desc: "Japanese AISI 316 steel with DuPont nylon casing" },
+    { name: "Invisible Grill Cost Estimator", href: "/invisible-grill-cost/", desc: "Instant area and quote calculator" }
+  ]
+};
 
-const navigationLinks = [
-  { name: "Invisible Grills", href: "/invisible-grills/" },
-  { name: "Safety Nets", href: "/safety-nets/" },
-  { name: "Visualizer", href: "/visualizer/" },
-  { name: "Cost Estimator", href: "/invisible-grill-cost/" },
-  { name: "Gallery", href: "/gallery/" },
-  { name: "Locations", href: "/locations/" }
+const safetyNetsService = {
+  title: "Safety Nets",
+  href: "/safety-nets/",
+  badge: "High Density",
+  items: [
+    { name: "High-Rise Balcony Safety Nets", href: "/balcony-safety/", desc: "Garware virgin HDPE whole-balcony containment" },
+    { name: "Child & Toddler Safety Nets", href: "/child-safety-nets/", desc: "Heavy-duty anti-fall barrier for young children & pets" },
+    { name: "Building Duct & Shaft Nets", href: "/duct-safety-nets/", desc: "Enclosures for building voids and utility duct shafts" },
+    { name: "Construction & Industrial Nets", href: "/construction-safety-nets/", desc: "Heavy-duty worker fall arrest and debris catch rigging" },
+    { name: "Terrace & Swimming Pool Nets", href: "/terrace-safety-nets/", desc: "Perimeter fall prevention for rooftop decks & pools" },
+    { name: "Sports & Cricket Practice Nets", href: "/sports-nets/", desc: "High-velocity cricket pitches and multi-sport enclosures" }
+  ]
+};
+
+const birdProtectionService = {
+  title: "Bird Protection",
+  href: "/bird-protection/",
+  badge: "Humane",
+  items: [
+    { name: "Anti-Pigeon Safety Nets", href: "/pigeon-nets/", desc: "0.7mm translucent nylon & HDPE mesh for balconies & ledges" },
+    { name: "SS304 Stainless Steel Bird Spikes", href: "/bird-spikes/", desc: "Marine-grade spikes on UV-stabilized polycarbonate base" },
+    { name: "Humane Bird & Animal Deterrence", href: "/bird-protection/", desc: "Clean balconies without harm to birds or skyline view" },
+    { name: "Anti-Monkey Balcony Enclosures", href: "/monkey-safety-nets/", desc: "Heavy gauge containment to repel monkeys" },
+    { name: "Micro-Mesh Mosquito Nets", href: "/mosquito-safety-nets/", desc: "Insect-proof fine mesh with complete airflow" }
+  ]
+};
+
+// 4 State Location Switcher
+const states = [
+  {
+    id: "bengaluru",
+    name: "Bengaluru",
+    state: "Karnataka",
+    tagline: "Metro high-rises & tech parks",
+    hubs: "Whitefield, Indiranagar, HSR Layout, Koramangala, Bellandur, Electronic City, Sarjapur",
+    href: "/locations/"
+  },
+  {
+    id: "telangana",
+    name: "Telangana",
+    state: "Hyderabad & Secunderabad",
+    tagline: "High-rise towers & gated villas",
+    hubs: "Financial District, Gachibowli, HITEC City, Kokapet, Kondapur, Madhapur, Jubilee Hills",
+    href: "/locations/hyderabad/"
+  },
+  {
+    id: "andhra-pradesh",
+    name: "Andhra Pradesh",
+    state: "Vizag, Vijayawada & Amaravati",
+    tagline: "Coastal corrosion-proof SS316 & urban hubs",
+    hubs: "Beach Road, MVP Colony, Madhurawada, Benz Circle, Tadepalli, Mangalagiri",
+    href: "/locations/visakhapatnam/"
+  },
+  {
+    id: "kerala",
+    name: "Kerala",
+    state: "Kochi, Trivandrum & Kozhikode",
+    tagline: "Coastal humidity & heavy monsoon protection",
+    hubs: "Marine Drive, Kakkanad, Edappally, Panampilly Nagar, Kaloor, Aluva",
+    href: "/locations/"
+  }
 ];
 ---
 
-<header class="editorial-header" id="editorial-header">
+<header class="coastal-header" id="main-header">
   <div class="header-inner">
-    <!-- Left: Minimalist Hamburger Menu Trigger -->
-    <div class="header-left">
-      <button class="editorial-menu-trigger" id="editorial-menu-btn" aria-label="Open Navigation Menu">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
-
-      <!-- Desktop Nav Links -->
-      <nav class="desktop-editorial-nav" aria-label="Main Navigation">
-        {navigationLinks.slice(0, 3).map((link) => (
-          <a href={link.href} class="nav-editorial-link">{link.name}</a>
-        ))}
-      </nav>
-    </div>
-
-    <!-- Center: Bold Spaced Architectural Brand Logo -->
-    <div class="header-center">
-      <a href="/" class="brand-editorial-link" aria-label="Invisible Safety - Architectural Home Safety">
-        <span class="brand-primary-text">INVISIBLE SAFETY</span>
+    <!-- Brand Logo: Soft Light Navy Blue (#1E3A5F) -->
+    <div class="header-brand-wrap">
+      <a href="/" class="brand-link" aria-label="Invisible Safety - Home">
+        <div class="brand-icon-shield">
+          <ShieldCheck size={22} className="shield-svg" />
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">INVISIBLE SAFETY</span>
+          <span class="brand-subtext">ARCHITECTURAL HOME PROTECTION</span>
+        </div>
       </a>
     </div>
 
-    <!-- Right: Minimal Inquiry / Contact Action -->
-    <div class="header-right">
-      <nav class="desktop-editorial-nav" aria-label="Secondary Navigation">
-        {navigationLinks.slice(3).map((link) => (
-          <a href={link.href} class="nav-editorial-link">{link.name}</a>
-        ))}
-      </nav>
+    <!-- Desktop Navigation: 3 Main Service Dropdowns + Interactive Tools -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- Dropdown 1: Invisible Grills -->
+      <div class="nav-dropdown-wrapper">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span>Invisible Grills</span>
+          <ChevronDown size={14} className="dropdown-chevron" />
+        </button>
+        <div class="nav-dropdown-menu">
+          <div class="dropdown-header-strip">
+            <span class="dropdown-category-title">SS316 MARINE INVISIBLE GRILLS</span>
+            <a href="/invisible-grills/" class="dropdown-view-all">All Invisible Grills &rarr;</a>
+          </div>
+          <div class="dropdown-items-grid">
+            {invisibleGrillsService.items.map((item) => (
+              <a href={item.href} class="dropdown-item">
+                <span class="dropdown-item-title">{item.name}</span>
+                <span class="dropdown-item-desc">{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
+      <!-- Dropdown 2: Safety Nets -->
+      <div class="nav-dropdown-wrapper">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span>Safety Nets</span>
+          <ChevronDown size={14} className="dropdown-chevron" />
+        </button>
+        <div class="nav-dropdown-menu">
+          <div class="dropdown-header-strip">
+            <span class="dropdown-category-title">HIGH-DENSITY SAFETY NETS</span>
+            <a href="/safety-nets/" class="dropdown-view-all">All Safety Nets &rarr;</a>
+          </div>
+          <div class="dropdown-items-grid">
+            {safetyNetsService.items.map((item) => (
+              <a href={item.href} class="dropdown-item">
+                <span class="dropdown-item-title">{item.name}</span>
+                <span class="dropdown-item-desc">{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown 3: Bird Protection -->
+      <div class="nav-dropdown-wrapper">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          <span>Bird Protection</span>
+          <ChevronDown size={14} className="dropdown-chevron" />
+        </button>
+        <div class="nav-dropdown-menu">
+          <div class="dropdown-header-strip">
+            <span class="dropdown-category-title">ANTI-PIGEON &amp; BIRD EXCLUSION</span>
+            <a href="/bird-protection/" class="dropdown-view-all">All Bird Protection &rarr;</a>
+          </div>
+          <div class="dropdown-items-grid">
+            {birdProtectionService.items.map((item) => (
+              <a href={item.href} class="dropdown-item">
+                <span class="dropdown-item-title">{item.name}</span>
+                <span class="dropdown-item-desc">{item.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <a href="/visualizer/" class="nav-link">3D Visualizer</a>
+      <a href="/invisible-grill-cost/" class="nav-link">Cost Calculator</a>
+      <a href="/gallery/" class="nav-link">Gallery</a>
+    </nav>
+
+    <!-- Header Actions: 4 State Location Switcher + Warm Peach-Gold Call CTA -->
+    <div class="header-actions">
+      <!-- 4 State Location Switcher -->
+      <div class="location-switcher-wrap" id="location-switcher-wrap">
+        <button
+          type="button"
+          class="location-switcher-btn"
+          id="location-switcher-btn"
+          aria-expanded="false"
+          aria-haspopup="true"
+          title="Switch installation state / city"
+        >
+          <MapPin size={15} className="text-cyan" />
+          <span class="location-btn-label" id="current-location-text">Telangana</span>
+          <ChevronDown size={12} className="loc-chevron" />
+        </button>
+
+        <!-- Dropdown Menu for 4 States -->
+        <div class="location-dropdown-panel" id="location-dropdown-panel">
+          <div class="loc-dropdown-header">
+            <span>SELECT REGIONAL HUB (4 STATES)</span>
+          </div>
+          <div class="loc-dropdown-list">
+            {states.map((st) => (
+              <button
+                type="button"
+                class="loc-option-btn"
+                data-state-id={st.id}
+                data-state-name={st.name}
+                data-state-href={st.href}
+              >
+                <div class="loc-option-top">
+                  <span class="loc-state-name">{st.name}</span>
+                  <span class="loc-region-tag">{st.state}</span>
+                </div>
+                <span class="loc-sub-hubs">{st.hubs}</span>
+              </button>
+            ))}
+          </div>
+          <div class="loc-dropdown-footer">
+            <a href="/locations/" class="loc-view-all-link">
+              <span>View all regional installation hubs</span>
+              <ExternalLink size={12} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Call CTA: Warm Peach-Gold Gradient with Dark Navy Bold Text -->
       <a
-        href="/contact/"
-        class="editorial-icon-btn"
-        aria-label="Direct Inquiry & Contact"
-        title="Schedule Site Consultation"
+        href={`tel:${business.phoneRaw}`}
+        class="header-call-btn"
+        aria-label="Call +91 83097 55398"
+        title="Direct phone consultation"
       >
-        <User size={18} strokeWidth={1.8} />
+        <Phone size={15} className="phone-icon-spin" />
+        <span class="call-btn-text">Call: {business.phone}</span>
       </a>
+
+      <!-- Mobile Hamburger Trigger -->
+      <button
+        type="button"
+        class="mobile-menu-trigger"
+        id="mobile-menu-trigger"
+        aria-label="Toggle navigation menu"
+      >
+        <Menu size={22} id="hamburger-icon" />
+        <X size={22} id="close-icon" class="hidden" />
+      </button>
     </div>
   </div>
 
-  <!-- Minimalist Full-Screen / Slide-Out Luxury Drawer -->
-  <div class="editorial-drawer" id="editorial-drawer" aria-hidden="true">
-    <div class="drawer-header">
-      <a href="/" class="brand-editorial-link" aria-label="Invisible Safety">
-        <span class="brand-primary-text">INVISIBLE SAFETY</span>
-      </a>
-      <button class="drawer-close-btn" id="editorial-close-btn" aria-label="Close Menu">
-        <X size={22} strokeWidth={1.5} />
-      </button>
-    </div>
-
-    <div class="drawer-body">
-      <div class="drawer-group">
-        <span class="drawer-group-label">CURATED SAFETY COLLECTIONS</span>
-        {productsNav.map((prod) => (
-          <a href={prod.href} class="drawer-nav-item">
-            <span class="drawer-item-title">{prod.name}</span>
-            <span class="drawer-item-desc">{prod.desc}</span>
-          </a>
-        ))}
+  <!-- Mobile Drawer Menu (Responsive Coastal Theme) -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <!-- 4 State Switcher for Mobile -->
+      <div class="mobile-state-section">
+        <span class="mobile-section-heading">SELECT YOUR STATE / HUB</span>
+        <div class="mobile-state-chips">
+          {states.map((st) => (
+            <button
+              type="button"
+              class="mobile-state-chip"
+              data-state-id={st.id}
+              data-state-name={st.name}
+            >
+              <MapPin size={13} />
+              <span>{st.name}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div class="drawer-group">
-        <span class="drawer-group-label">INTERACTIVE TOOLS &amp; ARCHITECTURE</span>
-        <a href="/visualizer/" class="drawer-link-simple">Interactive Balcony 3D Visualizer</a>
-        <a href="/invisible-grill-cost/" class="drawer-link-simple">Instant Cost Estimator &amp; Quote</a>
-        <a href="/materials/" class="drawer-link-simple">Marine Grade SS316 Metallurgy</a>
-        <a href="/gallery/" class="drawer-link-simple">Real Completed Projects Gallery</a>
-        <a href="/locations/" class="drawer-link-simple">Regional Service Hubs (4 Cities)</a>
-        <a href="/warranty/" class="drawer-link-simple">10-Year Written Warranty Terms</a>
-        <a href="/why-invisible-safety/" class="drawer-link-simple">Brand Heritage &amp; Ethos</a>
-        <a href="/faq/" class="drawer-link-simple">Frequently Asked Questions</a>
-        <a href="/contact/" class="drawer-link-simple">Complimentary Doorstep Laser Survey</a>
+      <!-- 3 Main Service Accordions for Mobile -->
+      <div class="mobile-services-section">
+        <span class="mobile-section-heading">CORE SAFETY SERVICES</span>
+
+        <!-- Invisible Grills Mobile Accordion -->
+        <details class="mobile-accordion">
+          <summary class="mobile-summary">
+            <span>SS316 Invisible Grills</span>
+            <ChevronDown size={16} />
+          </summary>
+          <div class="mobile-sublinks">
+            <a href="/invisible-grills/" class="mobile-sublink font-bold text-cyan-600">&bull; All Invisible Grills Overview</a>
+            {invisibleGrillsService.items.map((item) => (
+              <a href={item.href} class="mobile-sublink">{item.name}</a>
+            ))}
+          </div>
+        </details>
+
+        <!-- Safety Nets Mobile Accordion -->
+        <details class="mobile-accordion">
+          <summary class="mobile-summary">
+            <span>Certified Safety Nets</span>
+            <ChevronDown size={16} />
+          </summary>
+          <div class="mobile-sublinks">
+            <a href="/safety-nets/" class="mobile-sublink font-bold text-cyan-600">&bull; All Safety Nets Overview</a>
+            {safetyNetsService.items.map((item) => (
+              <a href={item.href} class="mobile-sublink">{item.name}</a>
+            ))}
+          </div>
+        </details>
+
+        <!-- Bird Protection Mobile Accordion -->
+        <details class="mobile-accordion">
+          <summary class="mobile-summary">
+            <span>Bird &amp; Pigeon Protection</span>
+            <ChevronDown size={16} />
+          </summary>
+          <div class="mobile-sublinks">
+            <a href="/bird-protection/" class="mobile-sublink font-bold text-cyan-600">&bull; All Bird Protection Overview</a>
+            {birdProtectionService.items.map((item) => (
+              <a href={item.href} class="mobile-sublink">{item.name}</a>
+            ))}
+          </div>
+        </details>
       </div>
 
-      <div class="drawer-footer">
-        <p class="drawer-ethos-quote">
-          "The art of architectural protection — securing your sanctuary with quiet elegance."
-        </p>
-        <a href={`tel:${business.phoneRaw}`} class="drawer-phone-btn">
-          <Phone size={15} />
+      <!-- Quick Links -->
+      <div class="mobile-quick-links">
+        <span class="mobile-section-heading">TOOLS &amp; ESTIMATORS</span>
+        <a href="/visualizer/" class="mobile-direct-link">Interactive 3D Balcony Visualizer</a>
+        <a href="/invisible-grill-cost/" class="mobile-direct-link">Instant Cost &amp; Price Calculator</a>
+        <a href="/gallery/" class="mobile-direct-link">Real Completed Project Gallery</a>
+        <a href="/warranty/" class="mobile-direct-link">10-Year Written Warranty Certificate</a>
+        <a href="/why-invisible-safety/" class="mobile-direct-link">Why Invisible Safety Heritage</a>
+        <a href="/faq/" class="mobile-direct-link">Frequently Asked Questions</a>
+        <a href="/contact/" class="mobile-direct-link">Contact &amp; Laser Survey Booking</a>
+      </div>
+
+      <!-- Mobile CTA Buttons (Call & WhatsApp) -->
+      <div class="mobile-bottom-actions">
+        <a href={`tel:${business.phoneRaw}`} class="mobile-action-call">
+          <Phone size={17} />
           <span>Call: {business.phone}</span>
+        </a>
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20site%20measurement%20survey.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-action-wa"
+          id="mobile-drawer-wa"
+        >
+          <MessageCircle size={18} />
+          <span>Chat on WhatsApp</span>
         </a>
       </div>
     </div>
@@ -115,20 +356,21 @@ const navigationLinks = [
 
 <style>
   /* =========================================================================
-     MINIMALIST TRANSLUCENT EDITORIAL HEADER
+     STICKY CONVERSION NAVBAR (Coastal Architectural Palette)
      ========================================================================= */
-  .editorial-header {
+  .coastal-header {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 900;
-    height: 64px;
-    background: rgba(249, 248, 246, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    transition: background 0.3s ease, border-color 0.3s ease;
+    z-index: 1000;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid #D8E6F3;
+    box-shadow: 0 4px 20px -2px rgba(30, 58, 95, 0.05);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .header-inner {
@@ -139,338 +381,706 @@ const navigationLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
     box-sizing: border-box;
   }
 
-  /* Left: Hamburger + Left Nav */
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    flex: 1;
-  }
-
-  .editorial-menu-trigger {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 26px;
-    outline: none;
-  }
-
-  .menu-bar {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: #0D0D0D;
-    transition: transform 0.25s ease, width 0.25s ease;
-  }
-
-  .editorial-menu-trigger:hover .menu-bar:first-child {
-    width: 26px;
-  }
-
-  .editorial-menu-trigger:hover .menu-bar:last-child {
-    width: 18px;
-  }
-
-  /* Center: Brand Identity */
-  .header-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  /* Brand Logo */
+  .header-brand-wrap {
     flex-shrink: 0;
   }
 
-  .brand-editorial-link {
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
     text-decoration: none;
-    color: #0D0D0D;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: inherit;
   }
 
-  .brand-primary-text {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(0.85rem, 1.3vw, 1.12rem);
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #0D0D0D;
-    transition: opacity 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .brand-editorial-link:hover .brand-primary-text {
-    opacity: 0.8;
-  }
-
-  @media (max-width: 640px) {
-    .header-left, .header-right {
-      flex: 0 0 auto;
-    }
-    .brand-primary-text {
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-    }
-  }
-
-  /* Right: Right Nav + Icon */
-  .header-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1.75rem;
-    flex: 1;
-  }
-
-  .desktop-editorial-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-editorial-link {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #334155;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .nav-editorial-link:hover {
-    color: #0D0D0D;
-  }
-
-  .editorial-icon-btn {
+  .brand-icon-shield {
     width: 38px;
     height: 38px;
-    border-radius: 50%;
+    border-radius: 8px;
+    background: #EBF3FA;
+    border: 1px solid #D8E6F3;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0D0D0D;
-    text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: rgba(255, 255, 255, 0.6);
+    color: #0284C7;
     transition: all 0.25s ease;
   }
 
-  .editorial-icon-btn:hover {
-    background: #0D0D0D;
+  .brand-link:hover .brand-icon-shield {
+    background: #0284C7;
     color: #FFFFFF;
-    border-color: #0D0D0D;
+    border-color: #0284C7;
   }
 
-  /* =========================================================================
-     SLIDE-OVER LUXURY DRAWER
-     ========================================================================= */
-  .editorial-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 440px;
-    background: #0D0D0D;
-    color: #FFFFFF;
-    z-index: 1000;
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.35, 1);
-    box-shadow: 20px 0 60px rgba(0, 0, 0, 0.6);
+  .brand-text-block {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    padding: 1.5rem clamp(1.25rem, 3vw, 2rem);
-    box-sizing: border-box;
   }
 
-  .editorial-drawer.is-open {
-    transform: translateX(0);
+  .brand-name {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: 1.18rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #1E3A5F;
+    line-height: 1.1;
   }
 
-  .drawer-header {
+  .brand-subtext {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #64748B;
+    text-transform: uppercase;
+  }
+
+  /* Desktop Navigation */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (max-width: 1080px) {
+    .desktop-nav {
+      display: none;
+    }
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    padding: 0.5rem 0.65rem;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: #0284C7;
+    background: #EBF3FA;
+  }
+
+  /* Nav Dropdown Trigger & Panel */
+  .nav-dropdown-wrapper {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #1E3A5F;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.65rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown-wrapper:hover .nav-dropdown-trigger {
+    color: #0284C7;
+    background: #EBF3FA;
+  }
+
+  .dropdown-chevron {
+    transition: transform 0.2s ease;
+    color: #64748B;
+  }
+
+  .nav-dropdown-wrapper:hover .dropdown-chevron {
+    transform: rotate(180deg);
+    color: #0284C7;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 480px;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 12px 36px -4px rgba(30, 58, 95, 0.14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1010;
+  }
+
+  .nav-dropdown-wrapper:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-header-strip {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 1.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 1.75rem;
+    padding-bottom: 0.65rem;
+    margin-bottom: 0.65rem;
+    border-bottom: 1px solid #EBF3FA;
   }
 
-  .drawer-header .brand-primary-text {
-    color: #FFFFFF;
-    font-size: 0.95rem;
+  .dropdown-category-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #0284C7;
   }
 
-  .drawer-close-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
+  .dropdown-view-all {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    text-decoration: none;
+  }
+
+  .dropdown-view-all:hover {
+    color: #0284C7;
+  }
+
+  .dropdown-items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.65rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .dropdown-item:hover {
+    background: #EBF3FA;
+    transform: translateY(-1px);
+  }
+
+  .dropdown-item-title {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    margin-bottom: 0.15rem;
+  }
+
+  .dropdown-item-desc {
+    font-size: 0.75rem;
+    color: #64748B;
+    line-height: 1.35;
+  }
+
+  /* Header Actions */
+  .header-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
+    gap: 0.75rem;
+  }
+
+  /* 4 State Location Switcher */
+  .location-switcher-wrap {
+    position: relative;
+  }
+
+  .location-switcher-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
+    background: #EBF3FA;
+    border: 1px solid #D8E6F3;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1E3A5F;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
-  .drawer-close-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
+  .location-switcher-btn:hover {
+    background: #E0F2FE;
+    border-color: #0284C7;
+    color: #0284C7;
   }
 
-  .drawer-body {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .drawer-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .drawer-group-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    color: var(--color-gold, #C5A880);
-    text-transform: uppercase;
-    margin-bottom: 0.35rem;
-  }
-
-  .drawer-nav-item {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  .loc-chevron {
+    color: #64748B;
     transition: transform 0.2s ease;
   }
 
-  .drawer-nav-item:hover {
-    transform: translateX(4px);
+  .location-switcher-wrap.is-open .loc-chevron {
+    transform: rotate(180deg);
   }
 
-  .drawer-item-title {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #F8FAFC;
-    margin-bottom: 0.2rem;
+  .location-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 360px;
+    background: #FFFFFF;
+    border: 1px solid #D8E6F3;
+    border-radius: 12px;
+    padding: 0.85rem;
+    box-shadow: 0 12px 36px -4px rgba(30, 58, 95, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1020;
   }
 
-  .drawer-item-desc {
-    font-size: 0.78rem;
-    color: #94A3B8;
+  .location-switcher-wrap.is-open .location-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  .drawer-link-simple {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #E2E8F0;
-    text-decoration: none;
-    padding: 0.4rem 0;
-    transition: color 0.2s ease;
+  .loc-dropdown-header {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #64748B;
+    padding: 0.25rem 0.5rem 0.65rem 0.5rem;
+    border-bottom: 1px solid #EBF3FA;
+    margin-bottom: 0.5rem;
   }
 
-  .drawer-link-simple:hover {
-    color: var(--color-gold, #C5A880);
-  }
-
-  .drawer-footer {
-    margin-top: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  .loc-dropdown-list {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.45rem;
   }
 
-  .drawer-ethos-quote {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: #CBD5E1;
-    margin: 0;
+  .loc-option-btn {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
   }
 
-  .drawer-phone-btn {
+  .loc-option-btn:hover,
+  .loc-option-btn.active {
+    background: #EBF3FA;
+    border-color: #0284C7;
+  }
+
+  .loc-option-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.15rem;
+  }
+
+  .loc-state-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1E3A5F;
+  }
+
+  .loc-region-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #0284C7;
+  }
+
+  .loc-sub-hubs {
+    font-size: 0.72rem;
+    color: #64748B;
+    line-height: 1.3;
+  }
+
+  .loc-dropdown-footer {
+    padding-top: 0.65rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #EBF3FA;
+    text-align: center;
+  }
+
+  .loc-view-all-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 12px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-    color: #FFFFFF;
-    text-decoration: none;
+    gap: 0.35rem;
     font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
+    font-weight: 700;
+    color: #0284C7;
+    text-decoration: none;
   }
 
-  .drawer-phone-btn:hover {
-    background: #FFFFFF;
-    color: #0D0D0D;
+  /* Direct Call CTA: Warm Peach-Gold Gradient with Dark Navy Bold Text */
+  .header-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #0F1E36 !important;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    border: 1px solid #F59E0B;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
   }
 
-  @media (max-width: 1024px) {
-    .desktop-editorial-nav {
+  .header-call-btn:hover {
+    background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
+    color: #0F1E36 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(245, 158, 11, 0.45);
+    border-color: #FBBF24;
+  }
+
+  @media (max-width: 640px) {
+    .call-btn-text {
       display: none;
     }
+    .header-call-btn {
+      padding: 0.55rem;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      justify-content: center;
+    }
+  }
+
+  /* Mobile Hamburger Button */
+  .mobile-menu-trigger {
+    display: none;
+    background: #EBF3FA;
+    border: 1px solid #D8E6F3;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: #1E3A5F;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1080px) {
+    .mobile-menu-trigger {
+      display: flex;
+    }
+  }
+
+  /* Mobile Slide-in Drawer */
+  .mobile-drawer {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 30, 54, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-drawer.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-drawer-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 88%;
+    max-width: 380px;
+    background: #FFFFFF;
+    overflow-y: auto;
+    padding: 1.5rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-section-heading {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #0284C7;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.65rem;
+  }
+
+  .mobile-state-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mobile-state-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    background: #EBF3FA;
+    border: 1px solid #D8E6F3;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    cursor: pointer;
+  }
+
+  .mobile-state-chip.active {
+    background: #0284C7;
+    color: #FFFFFF;
+    border-color: #0284C7;
+  }
+
+  .mobile-accordion {
+    border: 1px solid #D8E6F3;
+    border-radius: 8px;
+    margin-bottom: 0.65rem;
+    overflow: hidden;
+  }
+
+  .mobile-summary {
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    color: #1E3A5F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+    background: #F8FAFC;
+  }
+
+  .mobile-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-sublinks {
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #FFFFFF;
+  }
+
+  .mobile-sublink {
+    font-size: 0.85rem;
+    color: #334155;
+    text-decoration: none;
+    padding: 0.2rem 0;
+  }
+
+  .mobile-sublink:hover {
+    color: #0284C7;
+  }
+
+  .mobile-quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .mobile-direct-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1E3A5F;
+    text-decoration: none;
+    padding: 0.35rem 0;
+  }
+
+  .mobile-direct-link:hover {
+    color: #0284C7;
+  }
+
+  .mobile-bottom-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #EBF3FA;
+  }
+
+  .mobile-action-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #0F1E36 !important;
+    font-weight: 800;
+    height: 48px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .mobile-action-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    height: 48px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .hidden {
+    display: none !important;
   }
 </style>
 
 <script>
-  function setupEditorialDrawer() {
-    const menuBtn = document.getElementById('editorial-menu-btn');
-    const closeBtn = document.getElementById('editorial-close-btn');
-    const drawer = document.getElementById('editorial-drawer');
+  function setupHeaderInteractivity() {
+    // Location Switcher Logic
+    const switcherWrap = document.getElementById('location-switcher-wrap');
+    const switcherBtn = document.getElementById('location-switcher-btn');
+    const locationText = document.getElementById('current-location-text');
+    const optionBtns = document.querySelectorAll('.loc-option-btn');
+    const mobileChips = document.querySelectorAll('.mobile-state-chip');
 
-    if (!drawer) return;
+    // Retrieve stored location or default to Telangana
+    let currentLocation = localStorage.getItem('invis_active_location') || 'Telangana';
 
-    menuBtn?.addEventListener('click', () => {
-      drawer.classList.add('is-open');
-      drawer.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    });
-
-    const closeDrawer = () => {
-      drawer.classList.remove('is-open');
-      drawer.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
-
-    closeBtn?.addEventListener('click', closeDrawer);
-
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
-        closeDrawer();
+    function setLocation(locName: string, shouldPersist = true) {
+      currentLocation = locName;
+      if (shouldPersist) {
+        localStorage.setItem('invis_active_location', locName);
       }
+      if (locationText) {
+        locationText.textContent = locName;
+      }
+
+      // Update active classes
+      optionBtns.forEach(btn => {
+        if (btn.getAttribute('data-state-name') === locName) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      mobileChips.forEach(chip => {
+        if (chip.getAttribute('data-state-name') === locName) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+
+      // Dispatch custom event to notify Floating WhatsApp & other components
+      window.dispatchEvent(new CustomEvent('invis:location-change', {
+        detail: { location: locName }
+      }));
+    }
+
+    // Initialize with current location
+    setLocation(currentLocation, false);
+
+    // Toggle dropdown panel
+    if (switcherBtn && switcherWrap) {
+      switcherBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        switcherWrap.classList.toggle('is-open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!switcherWrap.contains(e.target as Node)) {
+          switcherWrap.classList.remove('is-open');
+        }
+      });
+    }
+
+    // Click handler for desktop location options
+    optionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const stateName = btn.getAttribute('data-state-name');
+        if (stateName) {
+          setLocation(stateName);
+          if (switcherWrap) switcherWrap.classList.remove('is-open');
+        }
+      });
     });
 
-    // Close when clicking links inside drawer
-    drawer.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeDrawer);
+    // Click handler for mobile chips
+    mobileChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const stateName = chip.getAttribute('data-state-name');
+        if (stateName) {
+          setLocation(stateName);
+        }
+      });
     });
+
+    // Mobile Hamburger Toggle
+    const mobileTrigger = document.getElementById('mobile-menu-trigger');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileTrigger && mobileDrawer && hamburgerIcon && closeIcon) {
+      mobileTrigger.addEventListener('click', () => {
+        const isOpen = mobileDrawer.classList.toggle('is-open');
+        mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+        if (isOpen) {
+          hamburgerIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close drawer on background click
+      mobileDrawer.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) {
+          mobileDrawer.classList.remove('is-open');
+          mobileDrawer.setAttribute('aria-hidden', 'true');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      });
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', setupEditorialDrawer);
-  document.addEventListener('astro:page-load', setupEditorialDrawer);
+  document.addEventListener('DOMContentLoaded', setupHeaderInteractivity);
+  document.addEventListener('astro:page-load', setupHeaderInteractivity);
 </script>

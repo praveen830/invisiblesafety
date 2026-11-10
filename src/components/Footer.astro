@@ -1,11 +1,11 @@
 ---
 import { business } from '../data/business';
-import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
 ---
 
-<footer class="editorial-footer">
+<footer class="coastal-footer">
   <div class="footer-container">
-    <!-- Brand Statement / Ethos Quote -->
+    <!-- Brand Ethos Quote -->
     <div class="footer-quote-section">
       <blockquote class="editorial-quote">
         “The art of architectural protection — securing your sanctuary with quiet elegance.”
@@ -13,13 +13,16 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
       <div class="quote-divider"></div>
     </div>
 
-    <!-- Editorial Columns Grid -->
+    <!-- 4-Column Grid -->
     <div class="footer-editorial-grid">
       <!-- Col 1: Brand & Contact Concierge -->
       <div class="footer-col-main">
-        <span class="footer-brand-title">INVISIBLE SAFETY</span>
+        <div class="footer-brand-title-wrap">
+          <ShieldCheck size={20} className="text-cyan-bright" />
+          <span class="footer-brand-title">INVISIBLE SAFETY</span>
+        </div>
         <p class="footer-brand-desc">
-          India's premier architectural invisible grill and safety net specialist for modern luxury high-rises and private residences.
+          India's premier architectural invisible grill and certified safety net specialist for modern luxury high-rises and private residences.
         </p>
 
         <div class="footer-concierge-box">
@@ -44,18 +47,18 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
         </div>
       </div>
 
-      <!-- Col 2: Curated Collections -->
+      <!-- Col 2: Invisible Grills & Safety Nets -->
       <div>
-        <h4 class="editorial-col-heading">COLLECTIONS</h4>
+        <h4 class="editorial-col-heading">SAFETY SYSTEMS</h4>
         <ul class="editorial-footer-links">
-          <li><a href="/invisible-grills/">Balcony SS316 Grills</a></li>
-          <li><a href="/safety-nets/">Balcony Safety Nets</a></li>
+          <li><a href="/invisible-grills/">Balcony SS316 Invisible Grills</a></li>
           <li><a href="/window-invisible-grills/">Window Safety Grills</a></li>
-          <li><a href="/staircase-invisible-grills/">Staircase Safety Grills</a></li>
+          <li><a href="/child-safety-invisible-grills/">Child Safety Grills</a></li>
+          <li><a href="/staircase-invisible-grills/">Staircase Void Grills</a></li>
+          <li><a href="/safety-nets/">Balcony Safety Nets</a></li>
           <li><a href="/child-safety-nets/">Children Anti-Fall Nets</a></li>
           <li><a href="/pigeon-nets/">Anti-Pigeon Nets &amp; Spikes</a></li>
           <li><a href="/sports-nets/">Sports &amp; Cricket Nets</a></li>
-          <li><a href="/construction-safety-nets/">Construction &amp; Duct Nets</a></li>
         </ul>
       </div>
 
@@ -74,19 +77,19 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
         </ul>
       </div>
 
-      <!-- Col 4: Regional Service Hubs -->
+      <!-- Col 4: Regional Service Hubs (4 States) -->
       <div>
-        <h4 class="editorial-col-heading">SERVICE REGIONS</h4>
+        <h4 class="editorial-col-heading">4 STATE SERVICE HUBS</h4>
         <ul class="editorial-footer-links">
-          <li><a href="/locations/hyderabad/">Hyderabad &amp; Secunderabad</a></li>
-          <li><a href="/locations/visakhapatnam/">Visakhapatnam (Vizag)</a></li>
-          <li><a href="/locations/vijayawada/">Vijayawada</a></li>
-          <li><a href="/locations/amaravati/">Amaravati Capital Region</a></li>
+          <li><a href="/locations/">Bengaluru (Karnataka)</a></li>
+          <li><a href="/locations/hyderabad/">Telangana (Hyderabad &amp; Secunderabad)</a></li>
+          <li><a href="/locations/visakhapatnam/">Andhra Pradesh (Vizag, Vijayawada, Amaravati)</a></li>
+          <li><a href="/locations/">Kerala (Kochi, Trivandrum, Kozhikode)</a></li>
           <li><a href="/locations/">All Regional Hubs</a></li>
         </ul>
 
         <div class="hub-note">
-          <span>Doorstep laser measurement across all gated societies and high-rise apartments.</span>
+          <span>Doorstep laser measurement across all gated societies and high-rise apartments with authentic SS316 physical wire samples.</span>
         </div>
       </div>
     </div>
@@ -98,10 +101,8 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
       </div>
       <div class="footer-legal-links">
         <a href="/warranty/">Warranty Guarantee</a>
-        <span>·</span>
-        <a href="/contact/">Concierge</a>
-        <span>·</span>
-        <a href="/faq/">Knowledge Base</a>
+        <a href="/contact/">Site Survey</a>
+        <a href="/about/">About Us</a>
       </div>
     </div>
   </div>
@@ -109,12 +110,12 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 <style>
   /* =========================================================================
-     EDITORIAL LUXURY FOOTER
+     COASTAL ARCHITECTURAL FOOTER
      ========================================================================= */
-  .editorial-footer {
-    background-color: #0D0D0D;
+  .coastal-footer {
+    background-color: #0F1E36;
     color: #FFFFFF;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(216, 230, 243, 0.15);
     padding: clamp(3rem, 6vw, 5rem) 0 2.5rem 0;
     position: relative;
     z-index: 10;
@@ -146,9 +147,10 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
 
   .quote-divider {
     width: 60px;
-    height: 1px;
-    background: var(--color-gold, #C5A880);
+    height: 2px;
+    background: #0284C7;
     margin: 0 auto;
+    border-radius: 9999px;
   }
 
   /* Grid Layout */
@@ -180,17 +182,27 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
     gap: 1rem;
   }
 
+  .footer-brand-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .text-cyan-bright {
+    color: #38BDF8;
+  }
+
   .footer-brand-title {
     font-family: var(--font-brand, 'Cinzel', serif);
     font-size: 1.15rem;
     font-weight: 800;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.15em;
     color: #FFFFFF;
     text-transform: uppercase;
   }
 
   .footer-brand-desc {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: #94A3B8;
     line-height: 1.6;
     margin: 0;
@@ -205,10 +217,10 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
   }
 
   .concierge-label {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.15em;
+    color: #38BDF8;
     text-transform: uppercase;
   }
 
@@ -218,32 +230,30 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
     gap: 0.55rem;
     color: #E2E8F0;
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
   }
 
   .concierge-link:hover {
-    color: #FFFFFF;
+    color: #38BDF8;
   }
 
   .concierge-icon {
-    color: var(--color-gold, #C5A880);
-    flex-shrink: 0;
+    color: #94A3B8;
   }
 
   .concierge-icon-green {
     color: #4ADE80;
-    flex-shrink: 0;
   }
 
-  /* Headings & Links */
+  /* Link Columns */
   .editorial-col-heading {
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.18em;
-    color: var(--color-gold, #C5A880);
+    color: #38BDF8;
     text-transform: uppercase;
     margin: 0 0 1.25rem 0;
   }
@@ -258,58 +268,50 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
   }
 
   .editorial-footer-links a {
-    color: #94A3B8;
+    color: #CBD5E1;
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 400;
-    transition: color 0.2s ease, transform 0.2s ease;
-    display: inline-block;
+    transition: color 0.15s ease;
   }
 
   .editorial-footer-links a:hover {
     color: #FFFFFF;
-    transform: translateX(2px);
   }
 
   .hub-note {
     margin-top: 1.25rem;
+    padding: 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
     font-size: 0.76rem;
-    color: #64748B;
+    color: #94A3B8;
     line-height: 1.5;
   }
 
   /* Bottom Bar */
   .footer-bottom-editorial {
-    padding-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 2rem;
+    font-size: 0.82rem;
+    color: #64748B;
     flex-wrap: wrap;
     gap: 1rem;
-    font-size: 0.78rem;
-    color: #64748B;
   }
 
   .footer-legal-links {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    gap: 1.5rem;
   }
 
   .footer-legal-links a {
     color: #94A3B8;
     text-decoration: none;
-    transition: color 0.2s ease;
   }
 
   .footer-legal-links a:hover {
     color: #FFFFFF;
-  }
-
-  @media (max-width: 640px) {
-    .footer-bottom-editorial {
-      flex-direction: column;
-      text-align: center;
-    }
   }
 </style>
