@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -12,6 +12,11 @@ const serviceSchema = getServiceSchema(
   "High-transparency fiberglass and stainless steel mosquito mesh screens for windows and French doors with custom site quote",
   45
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Mosquito Safety Nets", url: "/mosquito-safety-nets/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -72,7 +77,7 @@ const gallery = [
   {
     src: "/images/hero-balcony.webp",
     alt: "Balcony Invisible Grills",
-    title: "High-Rise Balcony & Skyline Panorama",
+    title: "Panoramic Skyline Aperture",
     caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
     badge: "Skyline Vista"
   },
@@ -97,6 +102,7 @@ const gallery = [
   title="Mosquito Safety Screens | Insect Mesh for Windows & Balconies | Invisible Safety"
   description="High-transparency fiberglass and SS304 mosquito screens with custom site quote Full insect defense with unhindered natural cross-ventilation."
   canonicalUrl="/mosquito-safety-nets/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="VECTOR & INSECT DEFENSE"
   heroTitle="MOSQUITO &amp; INSECT SCREENS"
@@ -166,42 +172,82 @@ const gallery = [
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .mosq-grid {
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  div[class$="-grid"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
-  .mosq-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+  div[class$="-card"] {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
-  .mosq-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+  div[class$="-card"]:hover {
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
   }
 
-  .mosq-card-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+  h3[class$="-title"] {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
-  .mosq-card-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+  p[class$="-desc"] {
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +255,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

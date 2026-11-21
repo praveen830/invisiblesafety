@@ -4,7 +4,7 @@ import CostEstimator from '../../components/react/CostEstimator';
 import TrustSection from '../../components/TrustSection.astro';
 import { locations } from '../../data/locations';
 import { business } from '../../data/business';
-import { getBreadcrumbSchema, getFAQSchema } from '../../utils/seo';
+import { getBreadcrumbSchema, getFAQSchema, getLocalBusinessSchema } from '../../utils/seo';
 import { MapPin, ShieldCheck, Check, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 
 const loc = locations.visakhapatnam;
@@ -14,13 +14,14 @@ const breadcrumbs = getBreadcrumbSchema([
   { name: "Visakhapatnam", url: "https://invisiblesafety.in/locations/visakhapatnam/" }
 ]);
 const faqSchema = getFAQSchema(loc.faqs);
+const localBusinessSchema = getLocalBusinessSchema();
 ---
 
 <BaseLayout
   title="Marine Grade Invisible Grills in Visakhapatnam (Vizag) | Invisible Safety"
   description="100% rust-proof SS316 marine invisible grills for coastal homes in Beach Road, MVP Colony, Madhurawada & Rushikonda. Salt-spray tested with 10-year anti-rust guarantee."
   canonicalUrl="/locations/visakhapatnam/"
-  schema={[breadcrumbs, faqSchema]}
+  schema={[breadcrumbs, localBusinessSchema, faqSchema]}
 >
   <!-- Light Architectural Hero Section -->
   <section class="section-spacing" style="background: linear-gradient(180deg, #F0F9FF 0%, #F8FAFC 100%); border-bottom: 1px solid #E2E8F0;">

@@ -1,7 +1,6 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
-import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
 import FAQSection from '../components/FAQSection.astro';
 import TrustSection from '../components/TrustSection.astro';
 import { business } from '../data/business';
@@ -12,8 +11,13 @@ import { ShieldCheck, Award, Wrench, CheckCircle2, Check, ArrowRight } from 'luc
 const serviceSchema = getServiceSchema(
   "Apartment Balcony Safety Systems",
   "High-tensile virgin polymer safety nets and SS316 tension cable systems for high-rise apartment balconies.",
-  pricing.safetyNet["garware-nylon"]
+  pricing.safetyNet.balconyStandard
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Balconies", url: "/balconies/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -110,12 +114,13 @@ const faqItems = [
 ---
 
 <SubPageLayout
-  title="Balcony Safety Solutions | Balcony & Child Safety Nets | Invisible Safety"
+  title="Balcony Safety Solutions | Boundless Horizons | Invisible Safety"
   description="Ultra-luxury residential balcony protection systems, toddler anti-fall nets, and terrace boundary enclosures engineered for high-rise apartments."
-  canonicalUrl="https://invisiblesafety.in/balconies/"
+  canonicalUrl="/balconies/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="RESIDENTIAL PERIMETERS"
-  heroTitle="BALCONY & CHILD SAFETY NETS"
+  heroTitle="BOUNDLESS HORIZONS"
   heroSubtitle="Architectural balcony and child anti-fall systems engineered with high-density polymer for modern luxury high-rises."
   heroImage="/images/category-child-safety.jpg"
   heroImageAlt="High-Rise Apartment Balcony Safety Installation"
@@ -128,23 +133,6 @@ const faqItems = [
   galleryTitle="Verified Balcony Installations"
   gallerySubtitle="Documented balcony safety solutions across luxury high-rise communities."
 >
-  <!-- Interactive Visualizer -->
-  <section class="editorial-visualizer-section">
-    <div class="subpage-container">
-      <div class="subpage-section-header">
-        <span class="editorial-eyebrow">VISUAL COMPARISON</span>
-        <h2 class="editorial-title">Open vs. Protected Balcony</h2>
-        <p class="editorial-subtitle">
-          Observe how translucent safety mesh preserves breathtaking panoramic city views.
-        </p>
-      </div>
-
-      <div class="visualizer-wrapper">
-        <BeforeAfterSlider client:visible />
-      </div>
-    </div>
-  </section>
-
   <!-- Instant Cost Estimator -->
   <section class="editorial-calculator-section" id="estimate">
     <div class="subpage-container">
@@ -170,28 +158,56 @@ const faqItems = [
 </SubPageLayout>
 
 <style>
-  .editorial-visualizer-section,
   .editorial-calculator-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .visualizer-wrapper {
-    max-width: 1040px;
+  .subpage-container {
+    max-width: 1200px;
     margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .cost-estimator-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

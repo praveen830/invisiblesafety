@@ -1,6 +1,6 @@
-﻿---
+---
 import { business } from '../data/business';
-import { MapPin, ArrowRight, ShieldCheck, Check } from 'lucide-react';
+import { MapPin, ArrowRight, ShieldCheck, Check, Sparkles } from 'lucide-react';
 
 interface HubConfig {
   number: string;
@@ -15,21 +15,21 @@ interface HubConfig {
 const hubs: HubConfig[] = [
   {
     number: "HUB 01",
+    regionTag: "TELANGANA CENTRAL HUB (HEAD OFFICE)",
+    title: "HYDERABAD & SECUNDERABAD",
+    slug: "hyderabad",
+    description: "High-rise gated communities, premium duplexes, and luxury villa perimeters engineered with marine-grade invisible grills and fall-containment safety nets.",
+    localities: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
+    climateNote: "Calibrated for high thermal variation and intense summer sun with UV-stabilized DuPont coating and heavy-duty RCC slab anchor tracks."
+  },
+  {
+    number: "HUB 02",
     regionTag: "ANDHRA PRADESH COASTAL HUB",
     title: "VISAKHAPATNAM (VIZAG)",
     slug: "visakhapatnam",
     description: "Marine-grade AISI 316 invisible grills and pigeon deterrence systems engineered specifically for coastal salt-spray corridors and sea-facing high-rises.",
     localities: ["Madhurawada", "Yendada", "Rushikonda", "MVP Colony", "Seethammadhara", "Siripuram", "Beach Road", "Pedda Waltair", "Lawsons Bay Colony", "Kommadi"],
     climateNote: "Wind-calibrated anchor tracks and strict AISI 316 austenitic stainless steel core specified to eliminate pitting from coastal sea breeze and tropical humidity."
-  },
-  {
-    number: "HUB 02",
-    regionTag: "TELANGANA CENTRAL HUB (HEAD OFFICE)",
-    title: "HYDERABAD & SECUNDERABAD",
-    slug: "hyderabad",
-    description: "High-rise gated communities, premium duplexes, and luxury villa perimeters engineered with marine-grade invisible grills and fall-containment safety nets.",
-    localities: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
-    climateNote: "Calibrated for high thermal variation and intense summer sun with UV-stabilized Nylon-12 coating and heavy-duty RCC slab anchor tracks."
   },
   {
     number: "HUB 03",
@@ -50,18 +50,40 @@ const hubs: HubConfig[] = [
     climateNote: "Engineered for open-plain wind dynamics and high-elevation residential balconies with reinforced expansion anchoring."
   }
 ];
+
+const metroExpansions = [
+  {
+    name: "Bengaluru",
+    state: "Karnataka",
+    areas: "Whitefield, Sarjapur, Electronic City, Bellandur, Hebbal",
+    highlight: "High-rise tech corridor wind-load & bird protection"
+  },
+  {
+    name: "Chennai",
+    state: "Tamil Nadu",
+    areas: "OMR, ECR, Velachery, Anna Nagar, Porur",
+    highlight: "Coastal saline-grade SS316 rust-proof installations"
+  },
+  {
+    name: "Kochi",
+    state: "Kerala",
+    areas: "Marine Drive, Kakkanad, Edappally, Panampilly Nagar",
+    highlight: "High-rainfall & monsoon corrosion-resistant rigging"
+  }
+];
 ---
 
-<section class="section-spacing bg-ice" style="border-bottom: 1px solid var(--color-border);">
+<section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
   <div class="container" style="max-width: 1200px;">
     <div class="section-header">
       <span class="eyebrow">DEDICATED REGIONAL HUBS</span>
       <h2>Locally Certified Installation Teams</h2>
       <p>
-        Invisible Safety operates dedicated on-ground field crews with laser measurement tools and full work-at-height safety gear in each service hub across Andhra Pradesh &amp; Telangana.
+        Invisible Safety operates dedicated on-ground field crews with laser measurement tools and full work-at-height safety gear in each service hub across South India.
       </p>
     </div>
 
+    <!-- 4 Primary Regional Hubs -->
     <div style="display: flex; flex-direction: column; gap: 2rem;">
       {hubs.map((hub) => (
         <div class="hub-card">
@@ -96,7 +118,7 @@ const hubs: HubConfig[] = [
               <div class="climate-cta-wrap">
                 <a href={`/locations/${hub.slug}/`} class="climate-link">
                   <span>SCHEDULE SURVEY IN {hub.title.split(' ')[0]}</span>
-                  <ArrowRight size={13} />
+                  <ArrowRight size={14} />
                 </a>
               </div>
             </div>
@@ -104,22 +126,57 @@ const hubs: HubConfig[] = [
         </div>
       ))}
     </div>
+
+    <!-- South Indian Metro Expansion Hub Strip -->
+    <div class="metro-expansion-card">
+      <div class="metro-header">
+        <div class="metro-badge">
+          <Sparkles size={14} />
+          <span>MAJOR SOUTH INDIAN METRO HUBS</span>
+        </div>
+        <h3 class="metro-title">Active Field Support Across Bengaluru, Chennai &amp; Kochi</h3>
+        <p class="metro-desc">
+          In addition to our core hubs in Telangana &amp; Andhra Pradesh, our traveling engineering crews regularly service high-rise communities in South India's premier metropolitan centers.
+        </p>
+      </div>
+
+      <div class="metro-grid">
+        {metroExpansions.map((metro) => (
+          <div class="metro-col">
+            <div class="metro-city">{metro.name}</div>
+            <div class="metro-state">{metro.state}</div>
+            <p class="metro-areas"><strong>Localities:</strong> {metro.areas}</p>
+            <div class="metro-highlight">{metro.highlight}</div>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20in%20${metro.name}%20and%20need%20a%20site%20inspection.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="metro-btn"
+            >
+              <span>INSPECT IN {metro.name.toUpperCase()}</span>
+              <ArrowRight size={13} />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .hub-card {
     background: #FFFFFF;
-    border: 1px solid #D8E6F3;
-    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
     position: relative;
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   }
 
   .hub-card:hover {
-    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    border-color: #BAE6FD;
+    box-shadow: 0 12px 32px rgba(15, 35, 61, 0.08);
     transform: translateY(-2px);
   }
 
@@ -133,36 +190,39 @@ const hubs: HubConfig[] = [
   }
 
   .hub-number {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
     text-transform: uppercase;
   }
 
   .hub-region {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: #475569;
+    color: #64748B;
     text-transform: uppercase;
   }
 
   .hub-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2.5vw, 1.85rem);
-    font-weight: 800;
-    color: #1E3A5F;
-    letter-spacing: 0.06em;
-    margin-bottom: 1.25rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 700;
+    color: #0F233D;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
     text-transform: uppercase;
   }
 
   .hub-desc {
-    font-size: 1.02rem;
+    font-size: 0.98rem;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     max-width: 900px;
   }
 
@@ -174,10 +234,10 @@ const hubs: HubConfig[] = [
   }
 
   .hub-section-label {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.06em;
-    color: #1E3A5F;
+    color: #0F233D;
     text-transform: uppercase;
     margin-bottom: 0.85rem;
   }
@@ -189,20 +249,25 @@ const hubs: HubConfig[] = [
   }
 
   .locality-chip {
-    background: #FFFFFF;
-    border: 1px solid #D8E6F3;
-    border-radius: 4px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
     padding: 0.35rem 0.75rem;
     font-size: 0.82rem;
     font-weight: 500;
     color: #334155;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .locality-chip:hover {
+    background: #FFFFFF;
+    border-color: #CBD5E1;
   }
 
   .climate-note-box {
-    background: #F8FAFC;
-    border: 1px solid #D8E6F3;
-    border-radius: 8px;
+    background: #F8FAFD;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
     padding: 1.35rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -210,10 +275,10 @@ const hubs: HubConfig[] = [
   }
 
   .climate-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
-    color: #1E3A5F;
+    letter-spacing: 0.06em;
+    color: #0284C7;
     text-transform: uppercase;
     margin-bottom: 0.65rem;
   }
@@ -226,7 +291,7 @@ const hubs: HubConfig[] = [
   }
 
   .climate-cta-wrap {
-    border-top: 1px solid #D8E6F3;
+    border-top: 1px solid #E2E8F0;
     padding-top: 0.85rem;
   }
 
@@ -234,7 +299,7 @@ const hubs: HubConfig[] = [
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    font-size: 0.76rem;
+    font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     color: #0284C7;
@@ -246,6 +311,118 @@ const hubs: HubConfig[] = [
   .climate-link:hover {
     color: #0369A1;
     gap: 0.65rem;
+  }
+
+  /* Metro Expansion Card */
+  .metro-expansion-card {
+    margin-top: 3rem;
+    background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+    border: 1px solid #BAE6FD;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
+  }
+
+  .metro-header {
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+
+  .metro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    background: #E0F2FE;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .metro-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 0.5rem;
+  }
+
+  .metro-desc {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .metro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .metro-col {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(15, 35, 61, 0.04);
+  }
+
+  .metro-city {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0F233D;
+  }
+
+  .metro-state {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0284C7;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .metro-areas {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+  }
+
+  .metro-highlight {
+    font-size: 0.82rem;
+    color: #16A34A;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .metro-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    color: #0F233D;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .metro-btn:hover {
+    background: #0284C7;
+    color: #FFFFFF;
+    border-color: #0284C7;
   }
 
   @media (max-width: 900px) {

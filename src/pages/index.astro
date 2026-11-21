@@ -1,20 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import SolutionsAccordion from '../components/SolutionsAccordion.astro';
-import FAQSection from '../components/FAQSection.astro';
 import VisualizerIsland from '../components/react/VisualizerIsland';
-import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
 import CostEstimator from '../components/react/CostEstimator';
 import { business } from '../data/business';
 import { getLocalBusinessSchema, getFAQSchema } from '../utils/seo';
 import {
-  ShieldCheck,
-  Wrench,
   Ruler,
-  Award,
+  CheckCircle2,
   ArrowRight,
   Phone,
+  MessageCircle,
+  Check,
+  Layers,
+  Cpu,
+  MapPin,
+  Calendar,
   Sparkles
 } from 'lucide-react';
 
@@ -22,151 +23,694 @@ const localBusinessSchema = getLocalBusinessSchema();
 const faqSchema = getFAQSchema([
   {
     question: "What are invisible grills made of?",
-    answer: "Our invisible grills are constructed from virgin SS316 marine-grade stainless steel cables with a transparent protective nylon coating, mounted into powder-coated structural aluminium tracks."
+    answer: "Our invisible grills are constructed from virgin Japanese SS316 marine-grade stainless steel cables with 2.5% Molybdenum and a transparent protective DuPont nylon coating, mounted into 6063-T6 powder-coated structural aluminium tracks."
   },
   {
     question: "Are invisible grills permitted by apartment society RWAs?",
-    answer: "Yes, apartment societies and gated communities widely approve invisible grills because they maintain building elevation uniformity and do not look like protruding iron cages."
+    answer: "Yes! High-rise gated communities and RWAs (including Aparna, My Home, Prestige, and Sobha) widely approve invisible grills because they maintain building elevation uniformity, do not alter exterior facades, and preserve architectural harmony."
   },
   {
     question: "How long does site measurement and installation take?",
-    answer: "Site measurement typically takes 30-45 minutes. Once dimensions are confirmed, standard balcony installation is completed in 3 to 5 hours by our trained technicians."
+    answer: "Doorstep laser site measurement takes 30-45 minutes. Once confirmed, standard balcony installation is completed in 3 to 5 hours by our certified in-house technicians."
+  },
+  {
+    question: "Can cables be severed during a fire emergency?",
+    answer: "Yes. While invisible grills cannot be cut by children or pets, they can be severed in seconds using standard wire cutters in an emergency evacuation, complying fully with fire safety standards."
   }
 ]);
 
-const craftsmanshipPillars = [
+const metroCities = [
   {
-    icon: ShieldCheck,
-    title: "SS316 Marine Grade",
-    desc: "Genuine AISI 316 austenitic stainless steel with molybdenum to resist corrosion in coastal and monsoon conditions."
+    name: "Hyderabad & Secunderabad",
+    hubType: "Central Operations Hub",
+    href: "/locations/hyderabad/",
+    tag: "Same-Day Survey",
+    localities: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Tellapur"],
+    desc: "Elevation-compliant SS316 invisible grills and child safety nets for western IT corridor high-rise towers."
   },
   {
-    icon: Award,
-    title: "400+ kgf Tensile Strength",
-    desc: "High-breaking load capacity engineered to prevent accidental falls while preserving 98% visual clarity."
+    name: "Visakhapatnam (Vizag)",
+    hubType: "Coastal Corridor Hub",
+    href: "/locations/visakhapatnam/",
+    tag: "Marine Grade SS316",
+    localities: ["Beach Road", "MVP Colony", "Madhurawada", "Rushikonda", "Seethammadhara", "Siripuram"],
+    desc: "Molybdenum-enriched AISI 316 invisible grills engineered to withstand coastal salt spray and high humidity."
   },
   {
-    icon: Ruler,
-    title: "Laser Precision Survey",
-    desc: "Complimentary doorstep site measurement with physical wire samples and structural surface alignment."
+    name: "Vijayawada",
+    hubType: "Andhra Urban Hub",
+    href: "/locations/vijayawada/",
+    tag: "High-Airflow Safety",
+    localities: ["Benz Circle", "Patamata", "Labbipet", "Kanuru", "Poranki", "Moghalrajpuram"],
+    desc: "Child fall-protection and humane anti-pigeon netting engineered for maximum summer cross-ventilation."
   },
   {
-    icon: Wrench,
-    title: "10-Year Direct Guarantee",
-    desc: "Written warranty documentation covering cable tension, track finish, and structural anchor integrity."
+    name: "Bengaluru",
+    hubType: "Karnataka Metro Hub",
+    href: "/locations/",
+    tag: "Tech Corridor Fleet",
+    localities: ["Whitefield", "Electronic City", "Sarjapur Road", "Bellandur", "Hebbal", "HSR Layout"],
+    desc: "Certified invisible grills and anti-bird barriers for high-rise towers across Prestige, Sobha, and Godrej societies."
+  },
+  {
+    name: "Chennai",
+    hubType: "Tamil Nadu Coastal Hub",
+    href: "/locations/",
+    tag: "Anti-Corrosion Tech",
+    localities: ["OMR Expressway", "ECR", "Anna Nagar", "Adyar", "Velachery", "Porur"],
+    desc: "Corrosion-proof SS316 invisible grills and pigeon netting built for high tropical heat and maritime monsoon corridors."
+  },
+  {
+    name: "Kochi",
+    hubType: "Kerala Coastal Hub",
+    href: "/locations/",
+    tag: "Monsoon Resilient",
+    localities: ["Marine Drive", "Kakkanad InfoPark", "Edappally", "Panampilly Nagar", "Aluva"],
+    desc: "Monsoon-tested balcony safety netting and tensile cable architecture for waterfront luxury apartments."
   }
 ];
 ---
 
 <BaseLayout
-  title="Invisible Safety | Ultra-Luxury Invisible Grills & Safety Solutions"
-  description="Coastal architectural invisible grills and certified safety net systems for luxury residences, high-rise penthouses, and modern apartments."
+  title="Invisible Safety | Architectural SS316 Invisible Grills & Safety Nets"
+  description="South India's premier specialist in architectural SS316 marine-grade invisible grills, certified Garware safety nets, and smart ceiling cloth drying hangers."
   canonicalUrl="/"
   schema={[localBusinessSchema, faqSchema]}
 >
-  <!-- 1. Full-Bleed Coastal Hero (100dvh) -->
+  <!-- =========================================================================
+       SECTION 1: HERO & INSTANT TRUST BAR
+       ========================================================================= -->
   <Hero />
 
-  <!-- 2. Viewport-Driven Full-Bleed Collections Feed (100dvh Per Space) -->
-  <SolutionsAccordion />
-
-  <!-- 3. Interactive Visualizer: Open vs Protected Balcony -->
-  <section class="editorial-visualizer-section">
-    <div class="editorial-section-container">
-      <div class="editorial-section-header">
-        <span class="editorial-eyebrow">THE ARCHITECTURAL DIFFERENCE</span>
-        <h2 class="editorial-title">Before &amp; After Installation</h2>
-        <p class="editorial-subtitle">
-          Experience how invisible tensile cables secure open balconies without obstructing skyline panoramas.
+  <!-- =========================================================================
+       SECTION 2: CORE 3-PILLAR SERVICE SHOWCASE
+       ========================================================================= -->
+  <section class="section-showcase" id="services">
+    <div class="arch-container">
+      <div class="section-title-box">
+        <span class="arch-eyebrow">CORE ARCHITECTURAL PILLARS</span>
+        <h2 class="arch-heading">Three Certified Safety Verticals</h2>
+        <p class="arch-lead">
+          Precision-engineered safety solutions designed specifically for South Indian residential towers, high-rise penthouses, and gated luxury communities.
         </p>
       </div>
 
-      <div class="visualizer-wrapper">
-        <BeforeAfterSlider client:visible />
-      </div>
-    </div>
-  </section>
+      <div class="pillars-showcase-grid">
+        <!-- Pillar 1: SS316 Marine-Grade Invisible Grills -->
+        <div class="pillar-card">
+          <div class="pillar-media-frame">
+            <img
+              src="/images/category-invisible-grills.jpg"
+              alt="SS316 Marine-Grade Balcony Invisible Grills"
+              class="pillar-image"
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+            <span class="pillar-badge badge-gold">PILLAR 1: FLAGSHIP SAFETY</span>
+          </div>
 
-  <!-- 4. Interactive Space Visualizer -->
-  <section class="editorial-planner-section" id="visualize">
-    <div class="editorial-section-container">
-      <div class="editorial-section-header">
-        <span class="editorial-eyebrow">INTERACTIVE PLANNING</span>
-        <h2 class="editorial-title">Visualize Your Space</h2>
-        <p class="editorial-subtitle">
-          Preview cable pitch and aesthetic integration across various residential layouts.
-        </p>
-      </div>
+          <div class="pillar-body">
+            <h3 class="pillar-title">SS316 Marine-Grade Invisible Grills</h3>
+            <p class="pillar-desc">
+              Parallel vertical high-tensile SS316 marine cables anchored into structural aluminium tracks, delivering 98% daylight clarity with uncompromising fall protection.
+            </p>
 
-      <div class="visualizer-island-wrapper">
-        <VisualizerIsland client:visible />
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Interactive Cost & Area Estimator -->
-  <section class="editorial-calculator-section" id="estimate">
-    <div class="editorial-section-container">
-      <div class="editorial-section-header">
-        <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
-        <h2 class="editorial-title">Calculate Your Balcony Quote</h2>
-        <p class="editorial-subtitle">
-          Select your product type, approximate dimensions, and city for an instant custom measurement quote.
-        </p>
-      </div>
-
-      <div class="cost-estimator-wrapper">
-        <CostEstimator client:visible />
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Craftsmanship & Engineering Standards -->
-  <section class="editorial-standards-section">
-    <div class="editorial-section-container">
-      <div class="editorial-section-header">
-        <span class="editorial-eyebrow">UNCOMPROMISING METALLURGY</span>
-        <h2 class="editorial-title">Craftsmanship &amp; Engineering</h2>
-        <p class="editorial-subtitle">
-          Engineered for architectural harmony, safety integrity, and lifetime durability.
-        </p>
-      </div>
-
-      <div class="editorial-pillars-grid">
-        {craftsmanshipPillars.map((pillar) => (
-          <div class="editorial-pillar-card">
-            <div class="pillar-icon-box">
-              <pillar.icon size={20} strokeWidth={2} />
+            <div class="pillar-specs-box">
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-gold" />
+                <span>Virgin Japanese AISI 316 Steel with 2.5% Molybdenum</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-gold" />
+                <span>400+ kgf tensile breaking strength per cable</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-gold" />
+                <span>6063-T6 powder-coated structural aluminium track</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-gold" />
+                <span>15-Year Direct Written Guarantee</span>
+              </div>
             </div>
-            <h3 class="pillar-title">{pillar.title}</h3>
-            <p class="pillar-desc">{pillar.desc}</p>
+
+            <div class="pillar-sublinks">
+              <span class="sublinks-label">Available Applications:</span>
+              <div class="sublinks-cluster">
+                <a href="/invisible-grills/">Balcony Grills</a>
+                <span class="dot">·</span>
+                <a href="/window-invisible-grills/">Window Grills</a>
+                <span class="dot">·</span>
+                <a href="/staircase-invisible-grills/">Staircase Grills</a>
+                <span class="dot">·</span>
+                <a href="/child-safety-invisible-grills/">50mm Spacing</a>
+              </div>
+            </div>
+
+            <div class="pillar-action-row">
+              <a href="/invisible-grills/" class="btn-pillar-primary">
+                <span>Explore Invisible Grills</span>
+                <ArrowRight size={14} />
+              </a>
+              <a
+                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20quote%20for%20SS316%20Invisible%20Grills.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-pillar-whatsapp"
+                aria-label="WhatsApp Quote for Invisible Grills"
+              >
+                <MessageCircle size={16} />
+                <span>Quote</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Balcony & Anti-Pigeon Safety Nets -->
+        <div class="pillar-card">
+          <div class="pillar-media-frame">
+            <picture>
+              <source srcset="/images/safety-net-balcony.webp" type="image/webp" />
+              <img
+                src="/images/safety-net-balcony.jpg"
+                alt="High-Rise Balcony Safety Nets and Anti-Pigeon Solutions"
+                class="pillar-image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+            </picture>
+            <span class="pillar-badge badge-blue">PILLAR 2: CERTIFIED HDPE</span>
+          </div>
+
+          <div class="pillar-body">
+            <h3 class="pillar-title">Balcony &amp; Anti-Pigeon Safety Nets</h3>
+            <p class="pillar-desc">
+              100% Virgin Garware high-density polyethylene netting and stainless steel spikes delivering complete child safety and humane pigeon exclusion without trapping birds.
+            </p>
+
+            <div class="pillar-specs-box">
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-blue" />
+                <span>100% Virgin Garware HDPE polymer with UV stabilization</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-blue" />
+                <span>Translucent monofilament preserves daylight &amp; breezes</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-blue" />
+                <span>Zero bird droppings, respiratory allergens, or pigeon roosts</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-blue" />
+                <span>5-Year Weatherproof Durability Guarantee</span>
+              </div>
+            </div>
+
+            <div class="pillar-sublinks">
+              <span class="sublinks-label">Available Applications:</span>
+              <div class="sublinks-cluster">
+                <a href="/safety-nets/">Balcony Nets</a>
+                <span class="dot">·</span>
+                <a href="/pigeon-nets/">Pigeon Deterrence</a>
+                <span class="dot">·</span>
+                <a href="/bird-spikes/">SS304 Spikes</a>
+                <span class="dot">·</span>
+                <a href="/child-safety-nets/">Child Fall Nets</a>
+              </div>
+            </div>
+
+            <div class="pillar-action-row">
+              <a href="/safety-nets/" class="btn-pillar-primary">
+                <span>Explore Safety Nets</span>
+                <ArrowRight size={14} />
+              </a>
+              <a
+                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20quote%20for%20Safety%20Nets.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-pillar-whatsapp"
+                aria-label="WhatsApp Quote for Safety Nets"
+              >
+                <MessageCircle size={16} />
+                <span>Quote</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Smart Ceiling Cloth Drying Hangers -->
+        <div class="pillar-card">
+          <div class="pillar-media-frame">
+            <img
+              src="/images/cloth-drying-hanger.jpg"
+              alt="Smart Ceiling Mounted Cloth Drying Hangers"
+              class="pillar-image"
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+            <span class="pillar-badge badge-peach">PILLAR 3: SPACE RECLAMATION</span>
+          </div>
+
+          <div class="pillar-body">
+            <h3 class="pillar-title">Smart Ceiling Cloth Drying Hangers</h3>
+            <p class="pillar-desc">
+              Individual pull-down stainless steel ceiling drying pipes engineered with smooth dual nylon pulleys that reclaim 100% usable balcony and utility floor space.
+            </p>
+
+            <div class="pillar-specs-box">
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-peach" />
+                <span>100% Rust-proof heavy-gauge stainless steel tubes</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-peach" />
+                <span>Dual nylon pulley mechanism with high-tensile cords</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-peach" />
+                <span>5 kg wet weight capacity per individual pipe (up to 30 kg)</span>
+              </div>
+              <div class="spec-bullet">
+                <CheckCircle2 size={16} className="bullet-icon text-peach" />
+                <span>3-Year Mechanical Smooth-Glide Guarantee</span>
+              </div>
+            </div>
+
+            <div class="pillar-sublinks">
+              <span class="sublinks-label">Available Applications:</span>
+              <div class="sublinks-cluster">
+                <a href="/cloth-drying-hangers/">Ceiling Pull-Down Racks</a>
+                <span class="dot">·</span>
+                <a href="/cloth-drying-hangers/#utility">Balcony Utility Spaces</a>
+              </div>
+            </div>
+
+            <div class="pillar-action-row">
+              <a href="/cloth-drying-hangers/" class="btn-pillar-primary">
+                <span>Explore Cloth Hangers</span>
+                <ArrowRight size={14} />
+              </a>
+              <a
+                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20Ceiling%20Cloth%20Drying%20Hangers.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-pillar-whatsapp"
+                aria-label="WhatsApp Quote for Cloth Drying Hangers"
+              >
+                <MessageCircle size={16} />
+                <span>Quote</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: INTERACTIVE 3D BALCONY VISUALIZER & LIVE COST ESTIMATOR
+       ========================================================================= -->
+  <section class="section-interactive" id="interactive-planner">
+    <div class="arch-container">
+      <div class="section-title-box">
+        <span class="arch-eyebrow">UNIFIED BALCONY LAB</span>
+        <h2 class="arch-heading">Interactive 3D Visualizer &amp; Dynamic Cost Estimator</h2>
+        <p class="arch-lead">
+          Preview cable pitch and aesthetic integration across realistic high-rise layouts, then calibrate your exact balcony dimensions for an instant sq.ft. quotation.
+        </p>
+      </div>
+
+      <div class="interactive-split-grid">
+        <!-- Left: 3D Balcony Visualizer Island -->
+        <div class="interactive-tool-card" id="visualize">
+          <div class="tool-card-header">
+            <div>
+              <span class="tool-step-badge">STEP 1: PREVIEW AESTHETIC</span>
+              <h3 class="tool-card-title">Interactive 3D Balcony Visualizer</h3>
+            </div>
+            <div class="tool-live-pill">
+              <Sparkles size={14} />
+              <span>Interactive Space View</span>
+            </div>
+          </div>
+          <p class="tool-card-caption">
+            Simulate 50mm child-safe vs. 75mm panoramic cable pitch across daylight, twilight, and architectural balcony layouts.
+          </p>
+          <div class="tool-island-wrapper">
+            <VisualizerIsland client:visible />
+          </div>
+        </div>
+
+        <!-- Right: Dynamic Cost & Sq.Ft. Estimator -->
+        <div class="interactive-tool-card" id="estimate">
+          <div class="tool-card-header">
+            <div>
+              <span class="tool-step-badge">STEP 2: INSTANT CALIBRATION</span>
+              <h3 class="tool-card-title">Dynamic Sq.Ft. Cost Estimator</h3>
+            </div>
+            <div class="tool-live-pill">
+              <Ruler size={14} />
+              <span>Live Quote Engine</span>
+            </div>
+          </div>
+          <p class="tool-card-caption">
+            Select product type, approximate balcony dimensions, and city for an instant custom quote sent directly to WhatsApp.
+          </p>
+          <div class="tool-island-wrapper">
+            <CostEstimator client:visible />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4: ENGINEERING & SAFETY SPECIFICATIONS
+       ========================================================================= -->
+  <section class="section-engineering" id="engineering-specs">
+    <div class="arch-container">
+      <div class="section-title-box">
+        <span class="arch-eyebrow">METALLURGICAL RIGOUR &amp; POLYMER SCIENCE</span>
+        <h2 class="arch-heading">Engineering &amp; Safety Specifications</h2>
+        <p class="arch-lead">
+          Compare the metallurgical and material engineering behind our SS316 molybdenum marine steel invisible grills vs. UV-stabilized virgin Garware HDPE safety nets.
+        </p>
+      </div>
+
+      <!-- Two Deep Specification Breakdown Cards -->
+      <div class="engineering-cards-grid">
+        <!-- Card 1: SS316 Marine Invisible Grills -->
+        <div class="eng-card">
+          <div class="eng-card-header">
+            <div class="eng-icon-box bg-gold-light">
+              <Cpu size={24} className="text-gold-dark" />
+            </div>
+            <div>
+              <span class="eng-badge">METALLURGY 01</span>
+              <h3 class="eng-title">SS316 Marine-Grade Steel</h3>
+            </div>
+          </div>
+
+          <div class="eng-specs-list">
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Core Alloy Composition:</span>
+              <span class="eng-spec-val">Virgin AISI 316 (16-18% Cr, 10-14% Ni, 2-3% Molybdenum)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Tensile Breaking Strength:</span>
+              <span class="eng-spec-val">400+ kgf breaking load per individual cable strand</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Cable Core Architecture:</span>
+              <span class="eng-spec-val">7×7 multi-strand core (49 micro-wires wound in counter-tension)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Protective Sheathing:</span>
+              <span class="eng-spec-val">DuPont Pure Nylon-12 transparent casing (UV &amp; scratch immune)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Track Mounting Profile:</span>
+              <span class="eng-spec-val">6063-T6 architectural powder-coated aluminium structural profile</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Corrosion Resistance:</span>
+              <span class="eng-spec-val">100% rust-proof against coastal sea breeze &amp; hard water washes</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Direct Warranty Coverage:</span>
+              <span class="eng-spec-val">15-Year Direct Written Guarantee against rust &amp; structural sag</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: UV-Stabilized Garware HDPE Safety Nets -->
+        <div class="eng-card">
+          <div class="eng-card-header">
+            <div class="eng-icon-box bg-sky-light">
+              <Layers size={24} className="text-sky-dark" />
+            </div>
+            <div>
+              <span class="eng-badge">POLYMER 02</span>
+              <h3 class="eng-title">Garware UV-Stabilized HDPE</h3>
+            </div>
+          </div>
+
+          <div class="eng-specs-list">
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Polymer Grade:</span>
+              <span class="eng-spec-val">100% Virgin High-Density Polyethylene (Garware Technical Fibres)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Tensile Energy Absorption:</span>
+              <span class="eng-spec-val">High elastic shock-absorption (cushions accidental toddler falls)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Filament Construction:</span>
+              <span class="eng-spec-val">0.7mm to 1.2mm multi-strand braided monofilament &amp; co-polymer</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">UV Stabilization Tech:</span>
+              <span class="eng-spec-val">Carbon black &amp; hindered amine UV light stabilizers (anti-brittleness)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Pigeon Exclusion Factor:</span>
+              <span class="eng-spec-val">100% humane barrier without bird entanglement or feather entrapment</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Wind Resistance &amp; Drag:</span>
+              <span class="eng-spec-val">99% aerodynamic wind passage (zero whistling or fluttering)</span>
+            </div>
+            <div class="eng-spec-item">
+              <span class="eng-spec-label">Direct Warranty Coverage:</span>
+              <span class="eng-spec-val">5-Year Weatherproof Guarantee against rotting &amp; UV degradation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Engineering Comparison Matrix Table -->
+      <div class="matrix-table-wrap">
+        <table class="engineering-matrix-table">
+          <thead>
+            <tr>
+              <th class="matrix-th-feature">Engineering Specification</th>
+              <th class="matrix-th-grill">SS316 Invisible Grills</th>
+              <th class="matrix-th-net">Garware HDPE Safety Nets</th>
+              <th class="matrix-th-old">Traditional MS Box Grills</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Tensile Breaking Strength</td>
+              <td class="grill-val"><strong>400+ kgf</strong> per cable</td>
+              <td class="net-val"><strong>180+ kgf</strong> impact absorption</td>
+              <td class="old-val">Rigid welded joints (brittle welds)</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Daylight &amp; View Preservation</td>
+              <td class="grill-val"><strong>98% Transparent</strong> (Skyline vista)</td>
+              <td class="net-val"><strong>85–90%</strong> Translucent mesh</td>
+              <td class="old-val">Blocks 40–60% natural light</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Coastal Salt &amp; Rust Resistance</td>
+              <td class="grill-val"><strong>100% Rust-Proof</strong> (Molybdenum AISI 316)</td>
+              <td class="net-val"><strong>Inert to salt</strong> (Zero rot or corrosion)</td>
+              <td class="old-val">Severe rusting in 18–24 months</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Society Elevation Compliance</td>
+              <td class="grill-val"><strong>100% Approved</strong> across all RWAs</td>
+              <td class="net-val"><strong>Approved</strong> for balconies &amp; shafts</td>
+              <td class="old-val">Frequently banned by RWA bylaws</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Emergency Fire Evacuation</td>
+              <td class="grill-val"><strong>Cut in 10s</strong> with wire cutters</td>
+              <td class="net-val"><strong>Cut in 5s</strong> with emergency shears</td>
+              <td class="old-val">Traps residents (requires oxy-torch)</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Recommended Balcony Application</td>
+              <td class="grill-val">Living room balconies &amp; French windows</td>
+              <td class="net-val">Utility balconies, ducts &amp; AC ledges</td>
+              <td class="old-val">Ground floor security grills only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 5: SERVICE CITIES & LOCAL COVERAGE HUB
+       ========================================================================= -->
+  <section class="section-locations" id="service-locations">
+    <div class="arch-container">
+      <div class="section-title-box">
+        <span class="arch-eyebrow">SOUTH INDIA METRO HUBS</span>
+        <h2 class="arch-heading">Service Cities &amp; Local Coverage Hub</h2>
+        <p class="arch-lead">
+          Our certified in-house technician fleets deliver same-day doorstep laser measurements, physical cable demonstrations, and prompt installation across 6 major metropolitan regions.
+        </p>
+      </div>
+
+      <div class="metro-cities-grid">
+        {metroCities.map((city) => (
+          <div class="city-card">
+            <div class="city-card-header">
+              <span class="city-hub-badge">{city.hubType}</span>
+              <span class="city-feature-tag">{city.tag}</span>
+            </div>
+
+            <h3 class="city-card-title">{city.name}</h3>
+            <p class="city-card-desc">{city.desc}</p>
+
+            <div class="city-localities-wrap">
+              <span class="localities-heading">Prime Service Zones:</span>
+              <div class="localities-tags">
+                {city.localities.map((loc) => (
+                  <span class="locality-pill">{loc}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="city-action-row">
+              <a href={city.href} class="city-details-link">
+                <span>View Service Details</span>
+                <ArrowRight size={13} />
+              </a>
+              <a
+                href={`tel:${business.phoneRaw}`}
+                class="city-call-btn"
+                aria-label={`Call local technician in ${city.name}`}
+              >
+                <Phone size={13} />
+                <span>Call Local Hub</span>
+              </a>
+            </div>
           </div>
         ))}
       </div>
+
+      <!-- Additional Regional Service Footer Hub Note -->
+      <div class="regional-coverage-banner">
+        <div class="coverage-banner-content">
+          <MapPin size={22} className="coverage-icon" />
+          <div>
+            <h4 class="coverage-title">Also Serving Amaravati Capital Region &amp; Surrounding High-Rise Corridors</h4>
+            <p class="coverage-desc">
+              From Tadepalli and Mangalagiri to coastal Guntur corridors, our regional technicians are deployed with laser surveying equipment.
+            </p>
+          </div>
+        </div>
+        <div class="coverage-banner-actions">
+          <a href="/locations/amaravati/" class="btn-coverage-hub">Amaravati Hub</a>
+          <a href="/locations/" class="btn-coverage-all">All Locations Hub →</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 7. Essential Residential FAQ -->
-  <FAQSection />
-
-  <!-- 8. Concierge Survey Invitation -->
-  <section class="editorial-concierge-strip">
-    <div class="editorial-section-container">
-      <div class="concierge-editorial-box">
-        <span class="concierge-eyebrow">COMPLIMENTARY CONSULTATION</span>
-        <h2 class="concierge-title">Schedule Doorstep Laser Measurement</h2>
-        <p class="concierge-desc">
-          Our structural engineer will visit your residence with physical SS316 wire samples, inspect anchoring surfaces, and provide a clear quotation.
+  <!-- =========================================================================
+       SECTION 6: STREAMLINED CONTACT & FREE INSPECTION BOOKING
+       ========================================================================= -->
+  <section class="section-booking" id="contact-booking">
+    <div class="arch-container">
+      <div class="booking-card-main">
+        <span class="booking-eyebrow">COMPLIMENTARY DOORSTEP SURVEY</span>
+        <h2 class="booking-heading">Schedule Your Free Doorstep Laser Measurement</h2>
+        <p class="booking-subtitle">
+          Our senior structural safety engineer will visit your residence with authentic SS316 wire and aluminium track samples, measure your balconies with laser accuracy, and provide a clear quotation.
         </p>
-        <div class="concierge-actions">
-          <a href="/contact/#quote" class="concierge-btn-primary">
-            <span>REQUEST SITE SURVEY</span>
-            <ArrowRight size={15} />
-          </a>
-          <a href={`tel:${business.phoneRaw}`} class="concierge-btn-secondary">
-            <Phone size={15} />
-            <span>Call: {business.phone}</span>
-          </a>
+
+        <!-- 3 High-Conversion Booking Channels -->
+        <div class="booking-channels-grid">
+          <!-- Channel 1: WhatsApp Priority Booking -->
+          <div class="booking-channel-card highlight-whatsapp">
+            <div class="channel-icon-circle whatsapp-circle">
+              <MessageCircle size={22} />
+            </div>
+            <h3 class="channel-title">WhatsApp Priority Booking</h3>
+            <p class="channel-desc">
+              Message our technical team directly. Send balcony photos or approximate dimensions for an instant estimate.
+            </p>
+            <div class="channel-highlight-pill">Average response: &lt; 10 minutes</div>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20book%20a%20free%20doorstep%20laser%20measurement%20and%20quotation%20for%20my%20residence.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-channel-whatsapp"
+              aria-label="Book on WhatsApp"
+            >
+              <MessageCircle size={18} />
+              <span>Book via WhatsApp (+91 83097 55398)</span>
+            </a>
+          </div>
+
+          <!-- Channel 2: Direct Telephonic Consultation -->
+          <div class="booking-channel-card">
+            <div class="channel-icon-circle phone-circle">
+              <Phone size={22} />
+            </div>
+            <h3 class="channel-title">Direct Telephonic Consultation</h3>
+            <p class="channel-desc">
+              Speak directly with our senior installation lead regarding society elevation rules, timeline, and material specs.
+            </p>
+            <div class="channel-highlight-pill">Mon–Sun: 8:00 AM – 8:00 PM IST</div>
+            <a
+              href={`tel:${business.phoneRaw}`}
+              class="btn-channel-phone"
+              aria-label={`Call Invisible Safety at ${business.phone}`}
+            >
+              <Phone size={16} />
+              <span>Call: {business.phone}</span>
+            </a>
+          </div>
+
+          <!-- Channel 3: Online Doorstep Request Form -->
+          <div class="booking-channel-card">
+            <div class="channel-icon-circle calendar-circle">
+              <Calendar size={22} />
+            </div>
+            <h3 class="channel-title">Online Survey Request</h3>
+            <p class="channel-desc">
+              Submit your society details, preferred inspection date, and contact information online in under 60 seconds.
+            </p>
+            <div class="channel-highlight-pill">100% Free · Zero Obligation</div>
+            <a
+              href="/contact/#quote"
+              class="btn-channel-quote"
+              aria-label="Submit Site Survey Request Online"
+            >
+              <span>Submit Survey Form</span>
+              <ArrowRight size={15} />
+            </a>
+          </div>
+        </div>
+
+        <!-- Trust Badges Strip -->
+        <div class="booking-trust-reassurance">
+          <div class="trust-badge-pill">
+            <Check size={14} className="text-emerald-500" />
+            <span>Zero-Cost Site Inspection</span>
+          </div>
+          <div class="trust-badge-pill">
+            <Check size={14} className="text-emerald-500" />
+            <span>Physical SS316 Wire Samples Demonstration</span>
+          </div>
+          <div class="trust-badge-pill">
+            <Check size={14} className="text-emerald-500" />
+            <span>RWA &amp; Elevation Bylaws Compliance Check</span>
+          </div>
+          <div class="trust-badge-pill">
+            <Check size={14} className="text-emerald-500" />
+            <span>Transparent Written Quotation</span>
+          </div>
         </div>
       </div>
     </div>
@@ -175,266 +719,1018 @@ const craftsmanshipPillars = [
 
 <style>
   /* =========================================================================
-     COASTAL ARCHITECTURAL HOME SECTIONS
+     LIGHT-FIRST HOMEPAGE DESIGN SYSTEM STYLING
+     Palette: Soft sky blue (#EBF4FA/#F4F9FD), white (#FFFFFF), peach (#FDF6EE),
+              soft gold (#C6A66B), slate-navy (#1A365D/#334155).
      ========================================================================= */
-  .editorial-visualizer-section,
-  .editorial-calculator-section,
-  .editorial-concierge-strip {
-    background-color: #EBF3FA; /* Soft Ice Blue */
-    color: #475569;
-    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    position: relative;
-    border-bottom: 1px solid #D8E6F3;
-  }
-
-  .editorial-planner-section,
-  .editorial-standards-section {
-    background-color: #F4F7FB; /* Pale Grey-Blue */
-    color: #475569;
-    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    position: relative;
-    border-bottom: 1px solid #D8E6F3;
-  }
-
-  .editorial-section-container {
+  .arch-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    padding: 0 clamp(1rem, 3.5vw, 2.5rem);
     box-sizing: border-box;
   }
 
-  .editorial-section-header {
+  .section-title-box {
     text-align: center;
-    max-width: 760px;
-    margin: 0 auto clamp(2rem, 4vw, 3.25rem) auto;
+    max-width: 780px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem) auto;
   }
 
-  .editorial-eyebrow {
+  .arch-eyebrow {
     font-family: var(--font-sans);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    color: #0284C7;
-    background: #E0F2FE;
-    padding: 0.35rem 1rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(2, 132, 199, 0.25);
+    letter-spacing: 0.22em;
+    color: #C6A66B;
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 0.75rem;
   }
 
-  .editorial-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  .arch-heading {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.85rem, 3.8vw, 2.9rem);
     font-weight: 800;
-    letter-spacing: -0.01em;
-    color: #1E3A5F;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #1A365D;
+    line-height: 1.22;
+    margin: 0 0 1rem 0;
   }
 
-  .editorial-subtitle {
+  .arch-lead {
     font-family: var(--font-sans);
-    font-size: clamp(0.95rem, 1.25vw, 1.1rem);
-    color: #64748B;
-    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+    color: #475569;
+    line-height: 1.65;
     margin: 0;
   }
 
-  .visualizer-wrapper,
-  .visualizer-island-wrapper {
-    max-width: 1080px;
-    margin: 0 auto;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #FFFFFF;
-    border: 1px solid #D8E6F3;
-    box-shadow: 0 4px 24px -2px rgba(30, 58, 95, 0.08);
+  /* =========================================================================
+     SECTION 2: CORE 3-PILLAR SERVICE SHOWCASE
+     ========================================================================= */
+  .section-showcase {
+    background-color: #F4F9FD;
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .cost-estimator-wrapper {
-    max-width: 920px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 24px -2px rgba(30, 58, 95, 0.08);
-  }
-
-  /* Pillars Grid */
-  .editorial-pillars-grid {
+  .pillars-showcase-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 
-  @media (max-width: 1024px) {
-    .editorial-pillars-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 580px) {
-    .editorial-pillars-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .editorial-pillar-card {
+  .pillar-card {
     background: #FFFFFF;
-    border: 1px solid #D8E6F3;
-    border-radius: 12px;
-    padding: 1.85rem 1.6rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px -2px rgba(26, 54, 93, 0.06), 0 2px 6px -1px rgba(26, 54, 93, 0.04);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    box-shadow: 0 4px 18px -2px rgba(30, 58, 95, 0.06);
-    transition: all 0.28s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
-  .editorial-pillar-card:hover {
-    border-color: #0EA5E9;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px -4px rgba(30, 58, 95, 0.12);
+  .pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -4px rgba(26, 54, 93, 0.12), 0 6px 12px -2px rgba(26, 54, 93, 0.06);
+    border-color: #CBD5E1;
   }
 
-  .pillar-icon-box {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: #E0F2FE;
-    border: 1px solid #BAE6FD;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .pillar-media-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #E2E8F0;
+  }
+
+  .pillar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .pillar-card:hover .pillar-image {
+    transform: scale(1.035);
+  }
+
+  .pillar-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(15, 35, 61, 0.15);
+  }
+
+  .badge-gold {
+    background: rgba(253, 246, 238, 0.95);
+    color: #9A7738;
+    border: 1px solid #F3E5D0;
+  }
+
+  .badge-blue {
+    background: rgba(235, 244, 250, 0.95);
     color: #0284C7;
-    margin-bottom: 1.25rem;
+    border: 1px solid #BAE6FD;
+  }
+
+  .badge-peach {
+    background: rgba(254, 242, 242, 0.95);
+    color: #D97706;
+    border: 1px solid #FED7AA;
+  }
+
+  .pillar-body {
+    padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .pillar-title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #1E3A5F;
-    margin: 0 0 0.5rem 0;
+    color: #1A365D;
+    line-height: 1.3;
+    margin: 0 0 0.65rem 0;
   }
 
   .pillar-desc {
     font-size: 0.88rem;
-    color: #64748B;
+    color: #475569;
     line-height: 1.55;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .pillar-specs-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 1rem;
+    background: #F8FAFC;
+    border: 1px solid #F1F5F9;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+  }
+
+  .spec-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    color: #334155;
+    line-height: 1.4;
+  }
+
+  .bullet-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .text-gold {
+    color: #C6A66B;
+  }
+
+  .text-blue {
+    color: #0284C7;
+  }
+
+  .text-peach {
+    color: #D97706;
+  }
+
+  .pillar-sublinks {
+    margin-bottom: 1.5rem;
+  }
+
+  .sublinks-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .sublinks-cluster {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.82rem;
+  }
+
+  .sublinks-cluster a {
+    color: #1A365D;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+
+  .sublinks-cluster a:hover {
+    color: #C6A66B;
+  }
+
+  .sublinks-cluster .dot {
+    color: #CBD5E1;
+  }
+
+  .pillar-action-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn-pillar-primary {
+    flex: 1;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #1A365D;
+    color: #FFFFFF !important;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-pillar-primary:hover {
+    background: #0F233D;
+    transform: translateY(-1px);
+  }
+
+  .btn-pillar-whatsapp {
+    min-height: 44px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: #EBF7EE;
+    color: #16A34A !important;
+    border: 1px solid #BBF7D0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-pillar-whatsapp:hover {
+    background: #16A34A;
+    color: #FFFFFF !important;
+    border-color: #16A34A;
+  }
+
+  /* =========================================================================
+     SECTION 3: INTERACTIVE 3D BALCONY VISUALIZER & COST ESTIMATOR
+     ========================================================================= */
+  .section-interactive {
+    background-color: #FFFFFF;
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .interactive-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .interactive-tool-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-shadow: 0 4px 20px -2px rgba(26, 54, 93, 0.06), 0 2px 6px -1px rgba(26, 54, 93, 0.04);
+  }
+
+  .tool-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-step-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #C6A66B;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .tool-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1A365D;
+    line-height: 1.25;
     margin: 0;
   }
 
-  /* Concierge Box */
-  .concierge-editorial-box {
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-    background: #FFFFFF;
-    border: 1px solid #D8E6F3;
-    border-radius: 16px;
-    padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 4vw, 3rem);
-    box-shadow: 0 6px 24px -2px rgba(30, 58, 95, 0.08);
-  }
-
-  .concierge-eyebrow {
+  .tool-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #EBF4FA;
+    color: #0284C7;
+    border: 1px solid #BAE6FD;
+    padding: 4px 10px;
+    border-radius: 9999px;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.18em;
-    color: #0284C7;
-    background: #E0F2FE;
-    padding: 0.3rem 0.95rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(2, 132, 199, 0.2);
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 0.85rem;
+    white-space: nowrap;
   }
 
-  .concierge-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.35rem);
-    font-weight: 800;
-    color: #1E3A5F;
-    margin: 0 0 0.85rem 0;
-    line-height: 1.25;
-  }
-
-  .concierge-desc {
-    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  .tool-card-caption {
+    font-size: 0.88rem;
     color: #64748B;
-    line-height: 1.6;
-    margin: 0 auto 2rem auto;
-    max-width: 640px;
+    line-height: 1.5;
+    margin: 0 0 1.25rem 0;
   }
 
-  .concierge-actions {
+  .tool-island-wrapper {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  /* =========================================================================
+     SECTION 4: ENGINEERING & SAFETY SPECIFICATIONS
+     ========================================================================= */
+  .section-engineering {
+    background-color: #F4F9FD;
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .engineering-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .eng-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px -2px rgba(26, 54, 93, 0.06);
+  }
+
+  .eng-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #F1F5F9;
+  }
+
+  .eng-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bg-gold-light {
+    background: #FDF6EE;
+    border: 1px solid #F3E5D0;
+  }
+
+  .text-gold-dark {
+    color: #C6A66B;
+  }
+
+  .bg-sky-light {
+    background: #EBF4FA;
+    border: 1px solid #BAE6FD;
+  }
+
+  .text-sky-dark {
+    color: #0284C7;
+  }
+
+  .eng-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #64748B;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .eng-title {
+    font-family: var(--font-heading);
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: #1A365D;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .eng-specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .eng-spec-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .eng-spec-label {
+    font-weight: 700;
+    color: #1A365D;
+    font-size: 0.82rem;
+    margin-bottom: 2px;
+  }
+
+  .eng-spec-val {
+    color: #475569;
+  }
+
+  /* Matrix Table Styling */
+  .matrix-table-wrap {
+    overflow-x: auto;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px -2px rgba(26, 54, 93, 0.06);
+  }
+
+  .engineering-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    min-width: 680px;
+  }
+
+  .engineering-matrix-table th {
+    padding: 1.15rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .matrix-th-feature {
+    background: #F8FAFC;
+    color: #475569;
+    width: 28%;
+  }
+
+  .matrix-th-grill {
+    background: #EBF4FA;
+    color: #1A365D;
+    border-left: 2px solid #BAE6FD;
+    border-right: 2px solid #BAE6FD;
+    width: 28%;
+  }
+
+  .matrix-th-net {
+    background: #F8FAFC;
+    color: #0284C7;
+    width: 24%;
+  }
+
+  .matrix-th-old {
+    background: #FFF1F2;
+    color: #BE123C;
+    width: 20%;
+  }
+
+  .engineering-matrix-table td {
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .feature-name {
+    font-weight: 600;
+    color: #1A365D;
+  }
+
+  .grill-val {
+    background: #F4F9FD;
+    border-left: 2px solid #BAE6FD;
+    border-right: 2px solid #BAE6FD;
+    color: #15803D;
+  }
+
+  .net-val {
+    color: #0369A1;
+  }
+
+  .old-val {
+    color: #BE123C;
+  }
+
+  /* =========================================================================
+     SECTION 5: SERVICE CITIES & LOCAL COVERAGE HUB
+     ========================================================================= */
+  .section-locations {
+    background-color: #FFFFFF;
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .metro-cities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .city-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 12px -2px rgba(26, 54, 93, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .city-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -4px rgba(26, 54, 93, 0.1);
+    border-color: #CBD5E1;
+  }
+
+  .city-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .city-hub-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #C6A66B;
+    text-transform: uppercase;
+  }
+
+  .city-feature-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: #0284C7;
+    background: #EBF4FA;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .city-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1A365D;
+    line-height: 1.3;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .city-card-desc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+  }
+
+  .city-localities-wrap {
+    margin-bottom: 1.25rem;
+  }
+
+  .localities-heading {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .localities-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .locality-pill {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    color: #334155;
+  }
+
+  .city-action-row {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #F1F5F9;
+  }
+
+  .city-details-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #1A365D;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .city-details-link:hover {
+    color: #C6A66B;
+  }
+
+  .city-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0284C7;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #F0F9FF;
+  }
+
+  .city-call-btn:hover {
+    background: #E0F2FE;
+  }
+
+  .regional-coverage-banner {
+    background: #FDF6EE;
+    border: 1px solid #F3E5D0;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .coverage-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 780px;
+  }
+
+  .coverage-icon {
+    color: #C6A66B;
+    flex-shrink: 0;
+  }
+
+  .coverage-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1A365D;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .coverage-desc {
+    font-size: 0.85rem;
+    color: #64748B;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .coverage-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn-coverage-hub {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    color: #1A365D;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-coverage-all {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #1A365D;
+    color: #FFFFFF !important;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* =========================================================================
+     SECTION 6: STREAMLINED CONTACT & BOOKING
+     ========================================================================= */
+  .section-booking {
+    background-color: #FDF6EE;
+    padding: clamp(4rem, 7vw, 6rem) 0;
+  }
+
+  .booking-card-main {
+    background: #FFFFFF;
+    border: 1px solid #F3E5D0;
+    border-radius: 24px;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    box-shadow: 0 12px 36px -4px rgba(26, 54, 93, 0.08);
+    text-align: center;
+  }
+
+  .booking-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #C6A66B;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .booking-heading {
+    font-family: var(--font-brand, 'Cinzel', serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #1A365D;
+    line-height: 1.22;
+    margin: 0 0 1rem 0;
+  }
+
+  .booking-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 auto 2.5rem auto;
+    max-width: 720px;
+  }
+
+  .booking-channels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .booking-channel-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .booking-channel-card.highlight-whatsapp {
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+  }
+
+  .booking-channel-card:hover {
+    transform: translateY(-3px);
+    border-color: #CBD5E1;
+  }
+
+  .channel-icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .whatsapp-circle {
+    background: #DCFCE7;
+    color: #16A34A;
+  }
+
+  .phone-circle {
+    background: #EBF4FA;
+    color: #0284C7;
+  }
+
+  .calendar-circle {
+    background: #FDF6EE;
+    color: #C6A66B;
+  }
+
+  .channel-title {
+    font-family: var(--font-heading);
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #1A365D;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .channel-desc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+  }
+
+  .channel-highlight-pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-channel-whatsapp {
+    margin-top: auto;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #16A34A;
+    color: #FFFFFF !important;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+    transition: all 0.2s ease;
+  }
+
+  .btn-channel-whatsapp:hover {
+    background: #15803D;
+    transform: translateY(-1px);
+  }
+
+  .btn-channel-phone {
+    margin-top: auto;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #1A365D;
+    color: #FFFFFF !important;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-channel-phone:hover {
+    background: #0F233D;
+    transform: translateY(-1px);
+  }
+
+  .btn-channel-quote {
+    margin-top: auto;
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #1A365D !important;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-channel-quote:hover {
+    background: #F4F9FD;
+    border-color: #1A365D;
+  }
+
+  /* Reassurance Pills */
+  .booking-trust-reassurance {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid #F1F5F9;
   }
 
-  .concierge-btn-primary {
+  .trust-badge-pill {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-    color: #0F1E36 !important;
-    font-weight: 800;
-    font-size: 0.92rem;
-    letter-spacing: 0.06em;
-    padding: 0.85rem 2rem;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #334155;
+    background: #F8FAFC;
+    padding: 6px 14px;
     border-radius: 9999px;
-    text-decoration: none;
-    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
-    border: 1px solid #F59E0B;
-    transition: all 0.25s ease;
+    border: 1px solid #E2E8F0;
   }
 
-  .concierge-btn-primary:hover {
-    background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
-    color: #0F1E36 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
-    border-color: #FBBF24;
-  }
-
-  .concierge-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    background: #FFFFFF;
-    color: #1E3A5F !important;
-    font-weight: 700;
-    font-size: 0.92rem;
-    padding: 0.85rem 2rem;
-    border-radius: 9999px;
-    text-decoration: none;
-    border: 1px solid #D8E6F3;
-    box-shadow: 0 2px 10px rgba(30, 58, 95, 0.06);
-    transition: all 0.25s ease;
-  }
-
-  .concierge-btn-secondary:hover {
-    background: #EBF3FA;
-    border-color: #0284C7;
-    color: #0284C7 !important;
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 580px) {
-    .concierge-actions {
-      flex-direction: column;
-      width: 100%;
+  /* =========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================= */
+  @media (max-width: 1024px) {
+    .pillars-showcase-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
 
-    .concierge-actions a {
+    .interactive-split-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .engineering-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metro-cities-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .booking-channels-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .metro-cities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .regional-coverage-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+    }
+
+    .coverage-banner-actions {
       width: 100%;
+      flex-direction: column;
+    }
+
+    .btn-coverage-hub,
+    .btn-coverage-all {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .booking-card-main {
+      padding: 1.5rem 1rem;
     }
   }
 </style>

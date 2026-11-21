@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -13,6 +13,11 @@ const serviceSchema = getServiceSchema(
   "Certified high-density polyethylene (HDPE) and nylon safety netting for residential balconies, child safety, and pigeon deterrent.",
   pricing.safetyNet.balconyStandard
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Safety Nets", url: "/safety-nets/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -94,12 +99,13 @@ const gallery = [
 ---
 
 <SubPageLayout
-  title="Balcony Safety Nets & Living Spaces | Balcony & Child Safety Nets | Invisible Safety"
+  title="Balcony Safety Nets & Living Spaces | Boundless Horizons | Invisible Safety"
   description="High-density UV-treated balcony safety nets, sports nets, and translucent anti-pigeon netting. 100% humane, zero-sag guarantee, SS304 anchors."
   canonicalUrl="/safety-nets/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="RESIDENTIAL PERIMETERS"
-  heroTitle="BALCONY & CHILD SAFETY NETS"
+  heroTitle="BOUNDLESS HORIZONS"
   heroSubtitle="High-density UV-treated virgin polymer safety nets safeguarding living balconies, internal stairwells, and terrace perimeters."
   heroImage="/images/category-child-safety.jpg"
   heroImageAlt="High-Rise Balcony Safety Net Installation"
@@ -120,6 +126,7 @@ const gallery = [
 
       <div class="safety-features-grid">
         <div class="feature-card">
+          <div class="feature-tag">ANCHORING HARDWARE</div>
           <h3 class="feature-title">SS304 Corner Tensioning</h3>
           <p class="feature-desc">
             Anchored using heavy-duty AISI 304 marine stainless steel eye-bolts and perimeter cables, eliminating sag over years of sun exposure.
@@ -127,6 +134,7 @@ const gallery = [
         </div>
 
         <div class="feature-card">
+          <div class="feature-tag">CHILD &amp; PET SAFE</div>
           <h3 class="feature-title">Anti-Chafe Knots</h3>
           <p class="feature-desc">
             Ultra-smooth monofilament joints will not scratch toddler hands or pet paws during vigorous contact or balcony play.
@@ -134,6 +142,7 @@ const gallery = [
         </div>
 
         <div class="feature-card">
+          <div class="feature-tag">BUILDING COMPLIANCE</div>
           <h3 class="feature-title">RWA Uniformity Approved</h3>
           <p class="feature-desc">
             Clean perimeter lines that conform to gated community architectural elevation guidelines without protruding iron cages.
@@ -144,7 +153,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -161,47 +170,99 @@ const gallery = [
   </section>
 
   <TrustSection />
-  <FAQSection />
+  <FAQSection category="safety-nets" title="Balcony Safety Net Questions & Answers" />
 </SubPageLayout>
 
 <style>
   .editorial-detail-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .safety-features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .feature-card {
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .feature-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .feature-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .feature-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .feature-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +270,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

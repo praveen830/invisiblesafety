@@ -4,3 +4,4 @@ Disallow: /thank-you/
 Disallow: /404/
 
 Sitemap: https://invisiblesafety.in/sitemap.xml
+Sitemap: https://invisiblesafety.in/sitemap-index.xml

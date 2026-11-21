@@ -13,6 +13,12 @@ const serviceSchema = getServiceSchema(
   120
 );
 
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Animal & Bird Protection", url: "/pigeon-nets/" },
+  { name: "Bird Spikes", url: "/bird-spikes/" }
+];
+
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
   { name: "Animal & Bird Protection", url: "https://invisiblesafety.in/pigeon-nets/" },
@@ -97,11 +103,12 @@ const gallery = [
   title="SS304 Stainless Steel Bird Spikes | Anti-Pigeon Ledge Repellent | Invisible Safety"
   description="High-grade SS304 stainless steel bird spikes on UV-stabilized polycarbonate base for AC ledges, parapets, and sills with custom site quote 100% humane, zero-rust guaranteed."
   canonicalUrl="/bird-spikes/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="HUMANE AVIAN EXCLUSION"
   heroTitle="STAINLESS STEEL BIRD SPIKES"
   heroSubtitle="Surgical-grade SS304 stainless steel blunt spikes mounted on flexible UV polycarbonate bases, preventing pigeons and birds from landing on narrow parapets, window sills, and AC units."
-  heroImage="/images/balcony-safety.webp"
+  heroImage="/images/category-bird-protection.jpg"
   heroImageAlt="SS304 Stainless Steel Bird Spikes Installation"
   specs={specs}
   subcategories={subcategories}
@@ -120,6 +127,7 @@ const gallery = [
 
       <div class="spikes-grid">
         <div class="spike-card">
+          <div class="spike-tag">CORROSION RESISTANT</div>
           <h3 class="spike-card-title">Grade AISI 304 Stainless Steel</h3>
           <p class="spike-card-desc">
             Marine-grade stainless rods will never rust, stain exterior painted walls, or become brittle under intense direct tropical sunlight.
@@ -127,6 +135,7 @@ const gallery = [
         </div>
 
         <div class="spike-card">
+          <div class="spike-tag">ARCHITECTURAL CONTOUR</div>
           <h3 class="spike-card-title">Polycarbonate Flexible Base</h3>
           <p class="spike-card-desc">
             Virgin Makrolon polycarbonate strip bends smoothly along curved facade arches, AC compressor brackets, and undulating concrete surfaces.
@@ -134,6 +143,7 @@ const gallery = [
         </div>
 
         <div class="spike-card">
+          <div class="spike-tag">MEMBRANE SAFE</div>
           <h3 class="spike-card-title">Industrial Silicone Bonding</h3>
           <p class="spike-card-desc">
             Mounted with weather-resistant industrial structural adhesive that bonds permanently without drilling into waterproofing membranes.
@@ -144,7 +154,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -166,42 +176,94 @@ const gallery = [
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .spikes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .spike-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .spike-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .spike-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .spike-card-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .spike-card-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +271,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

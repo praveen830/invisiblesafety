@@ -1,4 +1,4 @@
-﻿export interface BusinessConfig {
+export interface BusinessConfig {
   name: string;
   legalName: string;
   tagline: string;
@@ -87,22 +87,6 @@ export const business: BusinessConfig = {
       phone: "+91 83097 55398",
       popularAreas: ["Tadepalli", "Mangalagiri", "Undavalli", "Penumaka", "Neerukonda", "Kuragallu", "Mandadam", "Velagapudi", "Rayapudi", "Thullur"],
       tagline: "Reinforced expansion anchoring invisible grills for villas, high-rises and government quarters in the capital region."
-    },
-    {
-      slug: "bengaluru",
-      name: "Bengaluru",
-      state: "Karnataka",
-      phone: "+91 83097 55398",
-      popularAreas: ["Whitefield", "Indiranagar", "HSR Layout", "Koramangala", "Bellandur", "Electronic City", "Sarjapur Road", "Marathahalli", "Hebbal", "Yelahanka"],
-      tagline: "Ultra-luxury balcony invisible grills & certified safety nets for high-rise gated communities and IT corridor towers."
-    },
-    {
-      slug: "kerala",
-      name: "Kochi & Kerala Hubs",
-      state: "Kerala",
-      phone: "+91 83097 55398",
-      popularAreas: ["Marine Drive", "Kakkanad", "Edappally", "Panampilly Nagar", "Kaloor", "Aluva", "Thiruvananthapuram", "Kozhikode"],
-      tagline: "Corrosion-resistant SS316 marine grills and all-weather safety netting engineered for high coastal humidity and monsoon rains."
     }
   ],
   stats: {

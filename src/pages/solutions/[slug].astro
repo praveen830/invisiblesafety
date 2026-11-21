@@ -1,7 +1,6 @@
-﻿---
+---
 import SubPageLayout from '../../layouts/SubPageLayout.astro';
 import CostEstimator from '../../components/react/CostEstimator';
-import BeforeAfterSlider from '../../components/react/BeforeAfterSlider';
 import FAQSection from '../../components/FAQSection.astro';
 import { getServiceSchema, getBreadcrumbSchema } from '../../utils/seo';
 import { ShieldCheck, Award, Wrench, CheckCircle2, Ruler, Sparkles, ArrowRight } from 'lucide-react';
@@ -10,10 +9,10 @@ export function getStaticPaths() {
   const solutionsData = [
     {
       slug: "sports-nets",
-      title: "Sports & Cricket Practice Nets | Sports Practice & Turf Nets | Invisible Safety",
+      title: "Sports & Cricket Practice Nets | The Aperture Collection | Invisible Safety",
       description: "High-impact ball containment and cricket practice netting for rooftops, terraces, and clubhouses. Heavy-duty UV-stabilized polymer.",
       heroEyebrow: "SPECIALTY LEISURE & UTILITIES",
-      heroTitle: "SPORTS PRACTICE & TURF NETS",
+      heroTitle: "THE APERTURE COLLECTION",
       heroSubtitle: "High-impact ball containment sports netting and structural utility arrays for residential rooftops, sports turf enclosures, and villas.",
       heroImage: "/images/sports-nets-twilight.jpg",
       heroImageAlt: "Sports and Cricket Practice Net Installation",
@@ -90,10 +89,10 @@ export function getStaticPaths() {
     },
     {
       slug: "bird-protection",
-      title: "Pigeon Nets & Stainless Steel Bird Spikes | Anti-Pigeon Nets & Bird Spikes | Invisible Safety",
+      title: "Pigeon Nets & Stainless Steel Bird Spikes | The Winged Sanctuary | Invisible Safety",
       description: "Humane translucent bird exclusion netting and SS304 spikes for apartments, balconies, and windows. 100% skyline clarity.",
       heroEyebrow: "ANIMAL & BIRD EXCLUSION",
-      heroTitle: "ANTI-PIGEON NETS & BIRD SPIKES",
+      heroTitle: "THE WINGED SANCTUARY",
       heroSubtitle: "Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views.",
       heroImage: "/images/category-bird-protection.jpg",
       heroImageAlt: "Translucent Pigeon Net Installation",
@@ -172,7 +171,7 @@ export function getStaticPaths() {
       slug: "construction-safety",
       title: "Construction & Industrial Debris Nets | Debris & Fall Containment | Invisible Safety",
       description: "Certified heavy-duty fall arrest and debris containment netting for commercial construction, shafts, and industrial perimeters.",
-      heroEyebrow: "COMMERCIAL & INDUSTRIAL FALL ARREST",
+      heroEyebrow: "STRUCTURAL ARCHITECTURE",
       heroTitle: "DEBRIS & FALL CONTAINMENT",
       heroSubtitle: "Industrial-grade high-altitude fall arrest networks and structural void enclosures engineered in compliance with IS safety standards.",
       heroImage: "/images/category-structural-safety.jpg",
@@ -250,10 +249,10 @@ export function getStaticPaths() {
     },
     {
       slug: "invisible-grills",
-      title: "SS316 Marine Invisible Grills | SS316 Marine Invisible Grills | Invisible Safety",
+      title: "SS316 Marine Invisible Grills | The Invisible Threshold | Invisible Safety",
       description: "Ultra-luxury SS316 marine-grade invisible safety grills for penthouses, high-rise balconies, and windows. 400+ kgf load tested.",
       heroEyebrow: "FLAGSHIP ARCHITECTURE",
-      heroTitle: "SS316 MARINE INVISIBLE GRILLS",
+      heroTitle: "THE INVISIBLE THRESHOLD",
       heroSubtitle: "Virgin SS316 marine-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing 400+ kgf safety.",
       heroImage: "/images/category-invisible-grills.jpg",
       heroImageAlt: "Luxury SS316 Invisible Grills on Skyline Balcony",
@@ -330,10 +329,10 @@ export function getStaticPaths() {
     },
     {
       slug: "safety-nets",
-      title: "Living Spaces & Children Safety Nets | Balcony & Child Safety Nets | Invisible Safety",
+      title: "Living Spaces & Children Safety Nets | Boundless Horizons | Invisible Safety",
       description: "High-density polymer balcony and child protection safety nets with 150+ kgf impact resistance. Certified 5-year guarantee.",
       heroEyebrow: "RESIDENTIAL PERIMETERS",
-      heroTitle: "BALCONY & CHILD SAFETY NETS",
+      heroTitle: "BOUNDLESS HORIZONS",
       heroSubtitle: "High-density UV-treated virgin polymer safety nets safeguarding living balconies, internal stairwells, and terrace perimeters.",
       heroImage: "/images/category-child-safety.jpg",
       heroImageAlt: "High-Rise Balcony Safety Net Installation",
@@ -424,6 +423,12 @@ const serviceSchema = getServiceSchema(
   solution.slug === "invisible-grills" ? "SS316 Marine Grade" : "Certified Architectural Safety System"
 );
 
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Solutions", url: "/solutions/" },
+  { name: solution.heroTitle, url: `/solutions/${solution.slug}/` }
+];
+
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
   { name: "Solutions", url: "https://invisiblesafety.in/solutions/" },
@@ -435,6 +440,7 @@ const breadcrumbs = getBreadcrumbSchema([
   title={solution.title}
   description={solution.description}
   canonicalUrl={`/solutions/${solution.slug}/`}
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow={solution.heroEyebrow}
   heroTitle={solution.heroTitle}
@@ -468,17 +474,55 @@ const breadcrumbs = getBreadcrumbSchema([
 
 <style>
   .editorial-interactive-slot {
-    background-color: #121316;
+    background-color: #FFFFFF;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .calculator-slot-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

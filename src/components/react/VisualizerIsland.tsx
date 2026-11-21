@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { business } from '../../data/business';
 import {
   Sun,
@@ -368,7 +368,7 @@ export default function VisualizerIsland() {
       style={{
         background: '#FFFFFF',
         borderRadius: '20px',
-        border: '1px solid #D8E6F3',
+        border: '1px solid #E2E8F0',
         boxShadow: '0 20px 45px -10px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04)',
         overflow: 'hidden',
         margin: '0 auto',
@@ -380,7 +380,7 @@ export default function VisualizerIsland() {
       <div
         style={{
           background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-          borderBottom: '1px solid #D8E6F3',
+          borderBottom: '1px solid #E2E8F0',
           padding: '1rem 1.5rem',
           display: 'flex',
           alignItems: 'center',
@@ -395,7 +395,7 @@ export default function VisualizerIsland() {
               width: '38px',
               height: '38px',
               borderRadius: '10px',
-              background: 'linear-gradient(135deg, #0284C7 0%, #0284C7 100%)',
+              background: 'linear-gradient(135deg, #0284C7 0%, #2563EB 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -407,7 +407,7 @@ export default function VisualizerIsland() {
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#1E3A5F', margin: 0 }}>
+              <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>
                 Practical Home Visualizer
               </h2>
               <span
@@ -439,7 +439,7 @@ export default function VisualizerIsland() {
             background: '#F1F5F9',
             padding: '4px',
             borderRadius: '10px',
-            border: '1px solid #D8E6F3'
+            border: '1px solid #E2E8F0'
           }}
         >
           <button
@@ -450,7 +450,7 @@ export default function VisualizerIsland() {
               borderRadius: '7px',
               border: 'none',
               background: viewMode === 'before' ? '#FFFFFF' : 'transparent',
-              color: viewMode === 'before' ? '#1E3A5F' : '#64748B',
+              color: viewMode === 'before' ? '#0F172A' : '#64748B',
               boxShadow: viewMode === 'before' ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
               fontWeight: 700,
               fontSize: '0.82rem',
@@ -467,7 +467,7 @@ export default function VisualizerIsland() {
               padding: '0.45rem 0.9rem',
               borderRadius: '7px',
               border: 'none',
-              background: viewMode === 'installed' ? '#0284C7' : 'transparent',
+              background: viewMode === 'installed' ? '#2563EB' : 'transparent',
               color: viewMode === 'installed' ? '#FFFFFF' : '#64748B',
               boxShadow: viewMode === 'installed' ? '0 2px 6px rgba(37, 99, 235, 0.25)' : 'none',
               fontWeight: 700,
@@ -485,7 +485,7 @@ export default function VisualizerIsland() {
               padding: '0.45rem 0.9rem',
               borderRadius: '7px',
               border: 'none',
-              background: viewMode === 'split' ? '#1E3A5F' : 'transparent',
+              background: viewMode === 'split' ? '#0F172A' : 'transparent',
               color: viewMode === 'split' ? '#FFFFFF' : '#64748B',
               boxShadow: viewMode === 'split' ? '0 2px 6px rgba(0,0,0,0.1)' : 'none',
               fontWeight: 700,
@@ -515,7 +515,7 @@ export default function VisualizerIsland() {
         {/* LEFT COLUMN: Controls, Customization & Gallery */}
         <div
           style={{
-            borderRight: '1px solid #D8E6F3',
+            borderRight: '1px solid #E2E8F0',
             background: '#FFFFFF',
             padding: '1.5rem',
             display: 'flex',
@@ -528,7 +528,7 @@ export default function VisualizerIsland() {
           {/* STEP 1: Upload Your Photograph or Choose Preset */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#0284C7', letterSpacing: '0.05em' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563EB', letterSpacing: '0.05em' }}>
                 STEP 1 • UPLOAD OR SELECT SPACE
               </span>
               {customImage && (
@@ -596,7 +596,7 @@ export default function VisualizerIsland() {
                       style={{
                         padding: '0.25rem 0.55rem',
                         borderRadius: '6px',
-                        border: activeCategory === cat ? '1px solid #0284C7' : '1px solid #D8E6F3',
+                        border: activeCategory === cat ? '1px solid #2563EB' : '1px solid #E2E8F0',
                         background: activeCategory === cat ? '#EFF6FF' : '#F8FAFC',
                         color: activeCategory === cat ? '#1D4ED8' : '#64748B',
                         fontSize: '0.72rem',
@@ -630,7 +630,7 @@ export default function VisualizerIsland() {
                           display: 'flex',
                           flexDirection: 'column',
                           borderRadius: '8px',
-                          border: isSelected ? '2px solid #0284C7' : '1px solid #D8E6F3',
+                          border: isSelected ? '2px solid #2563EB' : '1px solid #E2E8F0',
                           background: isSelected ? '#EFF6FF' : '#FFFFFF',
                           padding: '3px',
                           cursor: 'pointer',
@@ -673,7 +673,7 @@ export default function VisualizerIsland() {
 
           {/* STEP 2: Choose Safety System */}
           <div>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#0284C7', letterSpacing: '0.05em', display: 'block', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563EB', letterSpacing: '0.05em', display: 'block', marginBottom: '0.5rem' }}>
               STEP 2 • SAFETY INSTALLATION SYSTEM
             </span>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
@@ -692,7 +692,7 @@ export default function VisualizerIsland() {
                     style={{
                       padding: '0.65rem 0.75rem',
                       borderRadius: '8px',
-                      border: isSelected ? '1.5px solid #0284C7' : '1px solid #CBD5E1',
+                      border: isSelected ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
                       background: isSelected ? '#F0F7FF' : '#FFFFFF',
                       textAlign: 'left',
                       cursor: 'pointer',
@@ -703,10 +703,10 @@ export default function VisualizerIsland() {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isSelected ? '#1D4ED8' : '#1E3A5F' }}>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isSelected ? '#1D4ED8' : '#0F172A' }}>
                         {item.title}
                       </span>
-                      {isSelected && <CheckCircle2 size={13} color="#0284C7" />}
+                      {isSelected && <CheckCircle2 size={13} color="#2563EB" />}
                     </div>
                     <span style={{ fontSize: '0.69rem', color: '#64748B' }}>{item.desc}</span>
                   </button>
@@ -717,7 +717,7 @@ export default function VisualizerIsland() {
 
           {/* STEP 3: Customize Architectural Appearance */}
           <div>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#0284C7', letterSpacing: '0.05em', display: 'block', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563EB', letterSpacing: '0.05em', display: 'block', marginBottom: '0.5rem' }}>
               STEP 3 • CUSTOMIZE SPECIFICATIONS
             </span>
 
@@ -738,7 +738,7 @@ export default function VisualizerIsland() {
                       border: '1px solid #CBD5E1',
                       fontSize: '0.8rem',
                       fontWeight: 600,
-                      color: '#1E3A5F',
+                      color: '#0F172A',
                       background: '#FFFFFF'
                     }}
                   >
@@ -762,7 +762,7 @@ export default function VisualizerIsland() {
                       border: '1px solid #CBD5E1',
                       fontSize: '0.8rem',
                       fontWeight: 600,
-                      color: '#1E3A5F',
+                      color: '#0F172A',
                       background: '#FFFFFF'
                     }}
                   >
@@ -782,7 +782,7 @@ export default function VisualizerIsland() {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.4rem' }}>
                 {[
                   { id: 'marine', label: 'SS316 Marine', color: '#CBD5E1' },
-                  { id: 'silver', label: 'Metallic Silver', color: '#D8E6F3' },
+                  { id: 'silver', label: 'Metallic Silver', color: '#E2E8F0' },
                   { id: 'anthracite', label: 'Anthracite Dark', color: '#334155' }
                 ].map((f) => {
                   const isSelected = finish === f.id;
@@ -794,7 +794,7 @@ export default function VisualizerIsland() {
                       style={{
                         padding: '0.4rem 0.3rem',
                         borderRadius: '6px',
-                        border: isSelected ? '1.5px solid #0284C7' : '1px solid #CBD5E1',
+                        border: isSelected ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
                         background: isSelected ? '#EFF6FF' : '#FFFFFF',
                         cursor: 'pointer',
                         fontSize: '0.72rem',
@@ -843,7 +843,7 @@ export default function VisualizerIsland() {
                       style={{
                         padding: '0.4rem',
                         borderRadius: '6px',
-                        border: isSelected ? '1.5px solid #0284C7' : '1px solid #CBD5E1',
+                        border: isSelected ? '1.5px solid #2563EB' : '1px solid #CBD5E1',
                         background: isSelected ? '#EFF6FF' : '#FFFFFF',
                         color: isSelected ? '#1D4ED8' : '#475569',
                         fontSize: '0.74rem',
@@ -870,14 +870,14 @@ export default function VisualizerIsland() {
               padding: '0.75rem',
               background: '#F8FAFC',
               borderRadius: '8px',
-              border: '1px solid #D8E6F3',
+              border: '1px solid #E2E8F0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between'
             }}
           >
             <div>
-              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1E3A5F' }}>
+              <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#0F172A' }}>
                 Architectural Perspective Fit
               </div>
               <div style={{ fontSize: '0.68rem', color: '#64748B' }}>
@@ -890,8 +890,8 @@ export default function VisualizerIsland() {
               style={{
                 padding: '0.35rem 0.65rem',
                 borderRadius: '6px',
-                border: isAdjustingPerspective ? '1px solid #0284C7' : '1px solid #CBD5E1',
-                background: isAdjustingPerspective ? '#0284C7' : '#FFFFFF',
+                border: isAdjustingPerspective ? '1px solid #2563EB' : '1px solid #CBD5E1',
+                background: isAdjustingPerspective ? '#2563EB' : '#FFFFFF',
                 color: isAdjustingPerspective ? '#FFFFFF' : '#334155',
                 fontSize: '0.74rem',
                 fontWeight: 700,
@@ -912,7 +912,7 @@ export default function VisualizerIsland() {
               padding: '0.85rem',
               borderRadius: '10px',
               border: 'none',
-              background: 'linear-gradient(135deg, #0284C7 0%, #1D4ED8 100%)',
+              background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
               color: '#FFFFFF',
               fontWeight: 800,
               fontSize: '0.92rem',
@@ -1057,7 +1057,7 @@ export default function VisualizerIsland() {
                   {/* Natural SS316 Marine Multi-Stop Gradient */}
                   <linearGradient id="ss316-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#64748B" stopOpacity="0.75" />
-                    <stop offset="35%" stopColor="#D8E6F3" stopOpacity="0.95" />
+                    <stop offset="35%" stopColor="#E2E8F0" stopOpacity="0.95" />
                     <stop offset="60%" stopColor="#FFFFFF" stopOpacity="1" />
                     <stop offset="85%" stopColor="#CBD5E1" stopOpacity="0.9" />
                     <stop offset="100%" stopColor="#475569" stopOpacity="0.7" />
@@ -1074,14 +1074,14 @@ export default function VisualizerIsland() {
                   <linearGradient id="anthracite-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#1E293B" stopOpacity="0.95" />
                     <stop offset="50%" stopColor="#475569" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="#1E3A5F" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#0F172A" stopOpacity="0.95" />
                   </linearGradient>
 
                   {/* Mounting Track Linear Gradient */}
                   <linearGradient id="track-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#475569" />
                     <stop offset="50%" stopColor="#1E293B" />
-                    <stop offset="100%" stopColor="#1E3A5F" />
+                    <stop offset="100%" stopColor="#0F172A" />
                   </linearGradient>
 
                   {/* Subtle Cable Shadow for 3D Depth */}
@@ -1147,7 +1147,7 @@ export default function VisualizerIsland() {
                             cx={topX}
                             cy={topY}
                             r="0.5"
-                            fill="#D8E6F3"
+                            fill="#E2E8F0"
                             stroke="#1E293B"
                             strokeWidth="0.2"
                           />
@@ -1157,7 +1157,7 @@ export default function VisualizerIsland() {
                             cx={botX}
                             cy={botY}
                             r="0.5"
-                            fill="#D8E6F3"
+                            fill="#E2E8F0"
                             stroke="#1E293B"
                             strokeWidth="0.2"
                           />
@@ -1189,8 +1189,8 @@ export default function VisualizerIsland() {
                             strokeLinecap="round"
                             opacity={ambientLight === 'evening' ? 0.75 : 0.95}
                           />
-                          <circle cx={leftX} cy={leftY} r="0.45" fill="#D8E6F3" stroke="#1E293B" strokeWidth="0.15" />
-                          <circle cx={rightX} cy={rightY} r="0.45" fill="#D8E6F3" stroke="#1E293B" strokeWidth="0.15" />
+                          <circle cx={leftX} cy={leftY} r="0.45" fill="#E2E8F0" stroke="#1E293B" strokeWidth="0.15" />
+                          <circle cx={rightX} cy={rightY} r="0.45" fill="#E2E8F0" stroke="#1E293B" strokeWidth="0.15" />
                         </g>
                       );
                     })}
@@ -1260,7 +1260,7 @@ export default function VisualizerIsland() {
                 <polygon
                   points={`${corners.tl.x},${corners.tl.y} ${corners.tr.x},${corners.tr.y} ${corners.br.x},${corners.br.y} ${corners.bl.x},${corners.bl.y}`}
                   fill="rgba(37, 99, 235, 0.12)"
-                  stroke="#0284C7"
+                  stroke="#2563EB"
                   strokeWidth="0.5"
                   strokeDasharray="1.5,1.5"
                 />
@@ -1289,7 +1289,7 @@ export default function VisualizerIsland() {
                       height: '28px',
                       borderRadius: '50%',
                       background: '#FFFFFF',
-                      border: '3px solid #0284C7',
+                      border: '3px solid #2563EB',
                       boxShadow: '0 0 15px rgba(37, 99, 235, 0.75)',
                       cursor: 'grab',
                       display: 'flex',
@@ -1298,7 +1298,7 @@ export default function VisualizerIsland() {
                       zIndex: 20
                     }}
                   >
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0284C7' }} />
+                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2563EB' }} />
                     <span
                       style={{
                         position: 'absolute',
@@ -1354,7 +1354,7 @@ export default function VisualizerIsland() {
                   width: '44px',
                   height: '44px',
                   borderRadius: '50%',
-                  background: '#0284C7',
+                  background: '#2563EB',
                   border: '3px solid #FFFFFF',
                   color: '#FFFFFF',
                   display: 'flex',
@@ -1492,7 +1492,7 @@ export default function VisualizerIsland() {
       <div
         style={{
           background: '#F8FAFC',
-          borderTop: '1px solid #D8E6F3',
+          borderTop: '1px solid #E2E8F0',
           padding: '0.75rem 1.5rem',
           display: 'flex',
           alignItems: 'center',

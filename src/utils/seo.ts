@@ -92,7 +92,7 @@ export function getLocalBusinessSchema() {
   };
 }
 
-export function getServiceSchema(serviceName: string, description: string) {
+export function getServiceSchema(serviceName: string, description: string, customSpecOrPrice?: string | number) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -112,7 +112,7 @@ export function getServiceSchema(serviceName: string, description: string) {
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "INR",
-      "price": "Custom Site Quote",
+      "price": customSpecOrPrice ? String(customSpecOrPrice) : "Custom Site Quote",
       "itemCondition": "https://schema.org/NewCondition",
       "availability": "https://schema.org/InStock"
     }

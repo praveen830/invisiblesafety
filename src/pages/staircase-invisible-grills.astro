@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -12,6 +12,12 @@ const serviceSchema = getServiceSchema(
   "Floor-to-ceiling vertical tension safety cables for duplex staircases and luxury floating stairs with 10-year warranty with custom site quote",
   190
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Invisible Grills", url: "/invisible-grills/" },
+  { name: "Staircase Invisible Grills", url: "/staircase-invisible-grills/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -72,7 +78,7 @@ const gallery = [
   {
     src: "/images/hero-balcony.webp",
     alt: "Balcony Invisible Grills",
-    title: "High-Rise Balcony & Skyline Panorama",
+    title: "Panoramic Skyline Aperture",
     caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
     badge: "Skyline Vista"
   },
@@ -97,6 +103,7 @@ const gallery = [
   title="Staircase Invisible Grills | Duplex Void Fall Protection | Invisible Safety"
   description="Floor-to-ceiling SS316 vertical cable tension safety grills for duplex staircases and floating steps with custom site quote Architectural elegance with 10-year warranty."
   canonicalUrl="/staircase-invisible-grills/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="THE SPIRAL ASCENT"
   heroTitle="STAIRCASE INVISIBLE GRILLS"
@@ -120,6 +127,7 @@ const gallery = [
 
       <div class="staircase-grid">
         <div class="staircase-card">
+          <div class="staircase-tag">EDGE CONTAINMENT</div>
           <h3 class="staircase-card-title">Floating Staircase Integrity</h3>
           <p class="staircase-card-desc">
             Cantilevered and open-tread stairs look visually striking but pose severe fall hazards for children. Vertical invisible cables provide transparent edge protection from step to ceiling.
@@ -127,6 +135,7 @@ const gallery = [
         </div>
 
         <div class="staircase-card">
+          <div class="staircase-tag">OPEN ARCHITECTURE</div>
           <h3 class="staircase-card-title">Airy Spatial Continuation</h3>
           <p class="staircase-card-desc">
             Unlike solid glass panels that restrict air circulation and require frequent cleaning, tensioned cables maintain breezy open-plan airflow across multi-level duplex living rooms.
@@ -134,6 +143,7 @@ const gallery = [
         </div>
 
         <div class="staircase-card">
+          <div class="staircase-tag">STRUCTURAL RIGOUR</div>
           <h3 class="staircase-card-title">Structural Ceiling Anchors</h3>
           <p class="staircase-card-desc">
             Heavy-duty counter-sunk anchors embedded into concrete slabs with concealed aesthetic caps ensure pristine architectural alignment without visible brackets.
@@ -144,7 +154,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -166,42 +176,94 @@ const gallery = [
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .staircase-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .staircase-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .staircase-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .staircase-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .staircase-card-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .staircase-card-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +271,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

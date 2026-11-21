@@ -742,6 +742,7 @@ const solutionsList = [
     const selectedSolutions: string[] = [];
 
     function updateCounter() {
+      if (!counter) return;
       const count = selectedSolutions.length;
       counter.textContent = `${count} selected`;
       if (count > 0) {

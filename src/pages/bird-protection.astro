@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import FAQSection from '../components/FAQSection.astro';
@@ -12,6 +12,11 @@ const serviceSchema = getServiceSchema(
   "Translucent humane bird barrier netting and surgical grade SS304 spikes for balconies and windows.",
   25
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Bird Protection", url: "/bird-protection/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -108,12 +113,13 @@ const faqItems = [
 ---
 
 <SubPageLayout
-  title="Bird Protection & Pigeon Nets | Anti-Pigeon Nets & Bird Spikes | Invisible Safety"
+  title="Bird Protection & Pigeon Nets | The Winged Sanctuary | Invisible Safety"
   description="Discreet translucent bird exclusion netting and SS304 spikes for apartments, balconies, and windows. 100% skyline clarity with 3-year warranty."
-  canonicalUrl="https://invisiblesafety.in/bird-protection/"
+  canonicalUrl="/bird-protection/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="ANIMAL & BIRD EXCLUSION"
-  heroTitle="ANTI-PIGEON NETS & BIRD SPIKES"
+  heroTitle="THE WINGED SANCTUARY"
   heroSubtitle="Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views."
   heroImage="/images/category-bird-protection.jpg"
   heroImageAlt="Translucent Pigeon Net Balcony Installation"
@@ -152,17 +158,55 @@ const faqItems = [
 
 <style>
   .editorial-calculator-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .cost-estimator-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -13,6 +13,12 @@ const serviceSchema = getServiceSchema(
   "Translucent 0.7mm nylon and UV-treated HDPE anti-pigeon netting for balconies, AC ledges, and duct shafts with custom site quote",
   pricing.safetyNet.pigeonProtection
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Animal & Bird Protection", url: "/pigeon-nets/" },
+  { name: "Pigeon Safety Nets", url: "/pigeon-nets/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -95,12 +101,13 @@ const gallery = [
 ---
 
 <SubPageLayout
-  title="Pigeon Safety Nets & Bird Exclusion | Anti-Pigeon Nets & Bird Spikes | Invisible Safety"
+  title="Pigeon Safety Nets & Bird Exclusion | The Winged Sanctuary | Invisible Safety"
   description="Translucent, virtually invisible anti-pigeon netting and SS304 spikes. 100% humane, stops bird droppings and respiratory allergens."
   canonicalUrl="/pigeon-nets/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="ANIMAL & BIRD EXCLUSION"
-  heroTitle="ANTI-PIGEON NETS & BIRD SPIKES"
+  heroTitle="THE WINGED SANCTUARY"
   heroSubtitle="Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views."
   heroImage="/images/pigeon-net.webp"
   heroImageAlt="Translucent Pigeon Net Installation"
@@ -121,6 +128,7 @@ const gallery = [
 
       <div class="pigeon-benefits-grid">
         <div class="pigeon-benefit-card">
+          <div class="benefit-tag">OPTICAL DISCRETION</div>
           <h3 class="benefit-title">Zero Optical Intrusion</h3>
           <p class="benefit-desc">
             Engineered with 0.7mm translucent co-polymer filaments that disappear against the open sky from a distance of just 1.5 meters.
@@ -128,6 +136,7 @@ const gallery = [
         </div>
 
         <div class="pigeon-benefit-card">
+          <div class="benefit-tag">HEALTH SAFEGUARD</div>
           <h3 class="benefit-title">Respiratory Protection</h3>
           <p class="benefit-desc">
             Pigeon droppings carry Histoplasmosis and Cryptococcosis spores. Enclosing your balcony permanently halts airborne microbial intrusion into your living space.
@@ -135,6 +144,7 @@ const gallery = [
         </div>
 
         <div class="pigeon-benefit-card">
+          <div class="benefit-tag">ETHICAL STANDARDS</div>
           <h3 class="benefit-title">100% Humane &amp; Harmless</h3>
           <p class="benefit-desc">
             Smooth, non-tangling knots and blunt-tip surgical spikes deter landings without causing physical injury to pigeons or songbirds.
@@ -145,7 +155,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -162,47 +172,99 @@ const gallery = [
   </section>
 
   <TrustSection />
-  <FAQSection />
+  <FAQSection category="safety-nets" title="Anti-Pigeon Net Questions & Answers" />
 </SubPageLayout>
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .pigeon-benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .pigeon-benefit-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .pigeon-benefit-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .benefit-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .benefit-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .benefit-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -210,8 +272,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

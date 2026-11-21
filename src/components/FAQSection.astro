@@ -3,7 +3,8 @@ import { faqs, type FAQItem } from '../data/faq';
 import { HelpCircle, ChevronDown } from 'lucide-react';
 
 export interface Props {
-  category?: "invisible-grill" | "safety-net" | "installation" | "warranty" | "pricing";
+  category?: "invisible-grill" | "safety-net" | "installation" | "warranty" | "pricing" | "invisible-grills" | "safety-nets";
+  items?: { question: string; answer: string; }[];
   limit?: number;
   title?: string;
   subtitle?: string;
@@ -11,12 +12,16 @@ export interface Props {
 
 const {
   category,
+  items,
   limit = 6,
   title = "Frequently Asked Questions",
   subtitle = "Straightforward, practical information about invisible grill installation, balcony safety, and building society approvals."
 } = Astro.props;
 
-const filteredFaqs = category ? faqs.filter(f => f.category === category) : faqs;
+const normalizedCat = category === "invisible-grills" ? "invisible-grill" : category === "safety-nets" ? "safety-net" : category;
+const filteredFaqs = items 
+  ? items.map((it, i) => ({ id: `faq-${i}`, question: it.question, answer: it.answer, category: "installation" as const }))
+  : (normalizedCat ? faqs.filter(f => f.category === normalizedCat) : faqs);
 const displayFaqs = limit ? filteredFaqs.slice(0, limit) : filteredFaqs;
 ---
 
@@ -48,6 +53,19 @@ const displayFaqs = limit ? filteredFaqs.slice(0, limit) : filteredFaqs;
       </a>
     </div>
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": displayFaqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
 </section>
 
 <style>

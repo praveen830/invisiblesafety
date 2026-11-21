@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -12,6 +12,12 @@ const serviceSchema = getServiceSchema(
   "High-tensile 50mm anti-entrapment Japanese SS316 invisible grills engineered specifically for toddler and pet fall protection with custom site quote",
   190
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Invisible Grills", url: "/invisible-grills/" },
+  { name: "Child Safety Invisible Grills", url: "/child-safety-invisible-grills/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -72,7 +78,7 @@ const gallery = [
   {
     src: "/images/hero-balcony.webp",
     alt: "Balcony Invisible Grills",
-    title: "High-Rise Balcony & Skyline Panorama",
+    title: "Panoramic Skyline Aperture",
     caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
     badge: "Skyline Vista"
   },
@@ -97,6 +103,7 @@ const gallery = [
   title="Child Safety Invisible Grills | Toddler & Pet Balcony Protection | Invisible Safety"
   description="Engineered 50mm anti-head entrapment SS316 invisible grills for child safety on high-rise balconies with custom site quote Zero footholds with 400+ kg load capacity."
   canonicalUrl="/child-safety-invisible-grills/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="THE UNSEEN GUARDIAN"
   heroTitle="CHILD SAFETY INVISIBLE GRILLS"
@@ -120,6 +127,7 @@ const gallery = [
 
       <div class="child-safety-grid">
         <div class="child-card">
+          <div class="child-tag">PEDIATRIC CALIBRATION</div>
           <h3 class="child-card-title">Anti-Entrapment 50mm Pitch</h3>
           <p class="child-card-desc">
             Standard horizontal balcony railings often have 100mm to 150mm gaps that allow toddlers to slip their heads or torsos through. Our 50mm calibrated spacing makes entrapment physically impossible.
@@ -127,6 +135,7 @@ const gallery = [
         </div>
 
         <div class="child-card">
+          <div class="child-tag">FALL PREVENTION</div>
           <h3 class="child-card-title">Vertical Zero-Foothold Design</h3>
           <p class="child-card-desc">
             Traditional mesh or decorative scrollwork provides footholds that active toddlers use as ladders to climb over railings. Smooth vertical cables offer zero horizontal leverage to stand on.
@@ -134,6 +143,7 @@ const gallery = [
         </div>
 
         <div class="child-card">
+          <div class="child-tag">SKIN-SAFE PROTECTION</div>
           <h3 class="child-card-title">DuPont Protective Nylon Sheathing</h3>
           <p class="child-card-desc">
             Every stainless steel core cable is clad in a transparent nylon protective sleeve that prevents skin chafing or pinched fingers even during vigorous toddler grasping.
@@ -144,7 +154,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -166,42 +176,94 @@ const gallery = [
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .child-safety-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .child-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .child-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .child-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .child-card-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .child-card-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +271,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

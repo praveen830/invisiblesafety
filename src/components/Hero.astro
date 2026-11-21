@@ -1,79 +1,134 @@
 ---
-import { ArrowRight, Phone, ShieldCheck, Sparkles } from 'lucide-react';
 import { business } from '../data/business';
+import { Phone, MessageCircle, ShieldCheck, Eye, Ruler, Award, ArrowRight } from 'lucide-react';
+
+const trustPillars = [
+  {
+    icon: ShieldCheck,
+    title: "15-Year SS316 Warranty",
+    subtitle: "Virgin Japanese marine steel guarantee"
+  },
+  {
+    icon: Eye,
+    title: "Zero-View-Obstruction",
+    subtitle: "98% daylight & skyline clarity"
+  },
+  {
+    icon: Ruler,
+    title: "Free Site Inspection",
+    subtitle: "Doorstep laser survey with wire samples"
+  },
+  {
+    icon: Award,
+    title: "Society & RWA Approved",
+    subtitle: "Compliant with high-rise elevation rules"
+  }
+];
 ---
 
-<section class="editorial-hero">
-  <!-- Edge-to-Edge Fullscreen Photography with Coastal Dynamic Contrast -->
+<section class="arch-hero">
+  <!-- Edge-to-Edge Responsive Photography -->
   <div class="hero-media-wrapper">
     <picture>
       <source media="(max-width: 768px)" srcset="/images/hero-balcony-twilight-mobile.jpg" />
+      <source srcset="/images/hero-balcony.webp" type="image/webp" />
       <img
         src="/images/hero-balcony-twilight.jpg"
-        alt="Architectural penthouse balcony with modern SS316 invisible safety grills overlooking metropolitan skyline at twilight"
+        alt="Architectural penthouse balcony with modern SS316 invisible safety grills overlooking skyline"
         class="hero-media-img"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
         width="1920"
         height="1080"
       />
     </picture>
-    <!-- Coastal Architectural Multi-Stop Scrim Overlay -->
+    <!-- Soft Architectural Scrim Overlay -->
     <div class="hero-cinematic-scrim"></div>
   </div>
 
-  <!-- Center-Bottom Content Overlay -->
+  <!-- Hero Content Center Container -->
   <div class="hero-content-container">
     <div class="hero-editorial-box">
-      <!-- Cyan Eyebrow Badge -->
-      <div class="hero-eyebrow-wrap">
-        <span class="hero-editorial-eyebrow">
-          <Sparkles size={13} className="text-cyan" />
-          SS316 MARINE GRADE &bull; 10-YEAR WARRANTY
-        </span>
-      </div>
+      <!-- Gold Eyebrow -->
+      <span class="hero-eyebrow">
+        SOUTH INDIA'S TRUSTED ARCHITECTURAL SAFETY SPECIALIST
+      </span>
 
-      <!-- Pure White / Navy Crisp Headline -->
-      <h1 class="hero-editorial-title">
-        INVISIBLE GRILLS &amp; SAFETY NETS
+      <!-- Primary Value Proposition Headline -->
+      <h1 class="hero-title">
+        Architectural SS316 Invisible Grills &amp; Safety Nets
       </h1>
 
-      <!-- High Legibility Subtitle -->
-      <p class="hero-editorial-subtitle">
-        Architectural residential safety engineered with 400+ kgf tensile SS316 cables and certified safety nets for unobstructed penthouse panoramas.
+      <!-- High-Trust Subtitle -->
+      <p class="hero-subtitle">
+        Preserve 98% panoramic daylight and balcony vistas while safeguarding your loved ones with 400+ kg tensile SS316 marine-grade cables and certified polymer nets.
       </p>
 
-      <!-- Conversion Actions: Warm Peach-Gold CTA + Frosted White-Blue Secondary -->
-      <div class="hero-editorial-actions">
-        <a href="/contact/#quote" class="hero-btn-primary">
-          <span>REQUEST FREE SITE SURVEY</span>
-          <ArrowRight size={15} />
+      <!-- Conversion Actions: Primary WhatsApp CTA & Click-to-Call Button -->
+      <div class="hero-action-group">
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20an%20instant%20quote%20and%20free%20doorstep%20site%20inspection.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-hero-whatsapp"
+          aria-label="Get WhatsApp Quote"
+        >
+          <MessageCircle size={19} className="whatsapp-icon" />
+          <span>Get WhatsApp Quote</span>
         </a>
 
-        <a href="#collections-showcase" class="hero-btn-secondary">
-          <span>EXPLORE SAFETY SOLUTIONS</span>
+        <a
+          href={`tel:${business.phoneRaw}`}
+          class="btn-hero-call"
+          aria-label={`Call ${business.phone}`}
+        >
+          <Phone size={17} className="call-icon" />
+          <span>Call: {business.phone}</span>
         </a>
       </div>
+
+      <!-- Quick Jump Link to Estimator -->
+      <div class="hero-jump-wrap">
+        <a href="#interactive-planner" class="hero-jump-link">
+          <span>Calculate Cost &amp; Preview 3D Balcony</span>
+          <ArrowRight size={13} />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instant Trust Strip (Docked at Base of Hero) -->
+  <div class="hero-trust-strip">
+    <div class="trust-strip-container">
+      {trustPillars.map((pillar) => (
+        <div class="trust-pillar-item">
+          <div class="pillar-icon-circle">
+            <pillar.icon size={18} strokeWidth={2.2} />
+          </div>
+          <div class="pillar-text-group">
+            <span class="pillar-main-title">{pillar.title}</span>
+            <span class="pillar-sub-text">{pillar.subtitle}</span>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
   /* =========================================================================
-     FULL-BLEED COASTAL HERO (100dvh)
+     FULL-BLEED ARCHITECTURAL HERO & TRUST STRIP
      ========================================================================= */
-  .editorial-hero {
+  .arch-hero {
     position: relative;
     width: 100%;
-    min-height: 100dvh;
-    height: 100dvh;
-    overflow: hidden;
+    min-height: clamp(580px, 100dvh, 880px);
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: #0F1E36;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    border-bottom: 1px solid #D8E6F3;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #0F233D;
+    overflow: hidden;
   }
 
   .hero-media-wrapper {
@@ -90,23 +145,23 @@ import { business } from '../data/business';
     object-position: center;
     filter: contrast(1.05) saturate(1.04);
     transform: scale(1.0);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .editorial-hero:hover .hero-media-img {
-    transform: scale(1.03);
+  .arch-hero:hover .hero-media-img {
+    transform: scale(1.025);
   }
 
-  /* Coastal Atmospheric Scrim: Deep Navy & Ice Blue undertone */
+  /* Architectural Multi-Stop Scrim */
   .hero-cinematic-scrim {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(15, 30, 54, 0.18) 0%,
-      rgba(15, 30, 54, 0.45) 50%,
-      rgba(15, 30, 54, 0.9) 100%
+      rgba(15, 35, 61, 0.45) 0%,
+      rgba(15, 35, 61, 0.25) 35%,
+      rgba(15, 35, 61, 0.82) 85%,
+      rgba(15, 35, 61, 0.95) 100%
     );
     pointer-events: none;
     z-index: 2;
@@ -117,148 +172,260 @@ import { business } from '../data/business';
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 980px;
+    max-width: 1060px;
     margin: 0 auto;
-    padding: 0 clamp(1rem, 3.5vw, 2.5rem);
-    padding-bottom: clamp(2.5rem, 6.5vh, 4.5rem);
-    box-sizing: border-box;
+    padding: clamp(5rem, 10vh, 7rem) clamp(1rem, 3.5vw, 2.5rem) clamp(2.5rem, 5vh, 4rem);
     display: flex;
     justify-content: center;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .hero-editorial-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 840px;
+    max-width: 860px;
     width: 100%;
   }
 
-  .hero-eyebrow-wrap {
-    margin-bottom: 0.85rem;
-  }
-
-  .hero-editorial-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
+  .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: clamp(10px, 1.1vw, 12px);
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #38BDF8;
-    background: rgba(15, 30, 54, 0.65);
-    padding: 0.35rem 1.15rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(56, 189, 248, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    color: #D8BE8A;
+    margin-bottom: 0.85rem;
+    text-shadow: 0 1px 6px rgba(15, 35, 61, 0.8);
   }
 
-  .hero-editorial-title {
+  .hero-title {
     font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.75rem, 4.8vw, 3.6rem);
+    font-size: clamp(1.85rem, 4.4vw, 3.6rem);
     font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: #FFFFFF;
-    text-transform: uppercase;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
-    margin: 0 0 0.85rem 0;
-    max-width: 100%;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    line-height: 1.18;
+    margin: 0 0 1.25rem 0;
+    text-shadow: 0 2px 16px rgba(15, 35, 61, 0.7);
   }
 
-  .hero-editorial-subtitle {
+  .hero-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
     color: #F1F5F9;
-    line-height: 1.55;
+    line-height: 1.65;
     margin: 0 0 2rem 0;
-    max-width: 680px;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
-    font-weight: 400;
+    max-width: 720px;
+    text-shadow: 0 1px 8px rgba(15, 35, 61, 0.8);
   }
 
-  .hero-editorial-actions {
+  /* Action Buttons */
+  .hero-action-group {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.15rem;
+    gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    width: 100%;
   }
 
-  /* Primary CTA: Warm Peach-Gold Gradient with Dark Navy Bold Text */
-  .hero-btn-primary {
+  .btn-hero-whatsapp {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    padding: 0.85rem 2.25rem;
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-    color: #0F1E36 !important;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 800;
-    text-decoration: none;
+    min-height: 52px;
+    padding: 0 2rem;
+    background: #16A34A;
+    color: #FFFFFF !important;
+    border: 1px solid #16A34A;
     border-radius: 9999px;
-    border: 1px solid #F59E0B;
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.45);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .hero-btn-primary:hover {
-    background: linear-gradient(135deg, #FBBF24 0%, #EA580C 100%);
-    color: #0F1E36 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(245, 158, 11, 0.6);
-    border-color: #FBBF24;
-  }
-
-  /* Secondary: Frosted White-Blue Capsule */
-  .hero-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.85rem 2.25rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #1E3A5F !important;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
-    border-radius: 9999px;
-    border: 1px solid #D8E6F3;
-    box-shadow: 0 4px 18px rgba(30, 58, 95, 0.15);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35);
+    transition: all 0.25s ease;
   }
 
-  .hero-btn-secondary:hover {
-    background: #EBF3FA;
-    color: #0284C7 !important;
-    border-color: #0284C7;
+  .btn-hero-whatsapp:hover {
+    background: #15803D;
+    border-color: #15803D;
     transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(2, 132, 199, 0.25);
+    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.45);
+  }
+
+  .btn-hero-call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 52px;
+    padding: 0 1.85rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(15, 35, 61, 0.3);
+    transition: all 0.25s ease;
+  }
+
+  .btn-hero-call:hover {
+    background: #FFFFFF;
+    color: #1A365D !important;
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(255, 255, 255, 0.25);
+  }
+
+  .call-icon {
+    color: #D8BE8A;
+    transition: color 0.25s ease;
+  }
+
+  .btn-hero-call:hover .call-icon {
+    color: #1A365D;
+  }
+
+  .hero-jump-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-jump-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #D8BE8A;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  .hero-jump-link:hover {
+    color: #FFFFFF;
+    transform: translateY(1px);
+  }
+
+  /* =========================================================================
+     INSTANT TRUST STRIP
+     ========================================================================= */
+  .hero-trust-strip {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 -4px 20px rgba(15, 35, 61, 0.08);
+  }
+
+  .trust-strip-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 1.25rem clamp(1rem, 3.5vw, 2.5rem);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .trust-pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .pillar-icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #EBF4FA;
+    border: 1px solid #BAE6FD;
+    color: #0284C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pillar-text-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .pillar-main-title {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1A365D;
+    line-height: 1.25;
+  }
+
+  .pillar-sub-text {
+    font-size: 0.76rem;
+    color: #64748B;
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 1024px) {
+    .trust-strip-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
   }
 
   @media (max-width: 640px) {
-    .hero-editorial-actions {
+    .hero-content-container {
+      padding-top: 4.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-action-group {
       flex-direction: column;
-      width: 100%;
-      max-width: 320px;
       gap: 0.75rem;
     }
 
-    .hero-editorial-actions a {
+    .btn-hero-whatsapp,
+    .btn-hero-call {
       width: 100%;
+    }
+
+    .trust-strip-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .pillar-icon-circle {
+      width: 36px;
+      height: 36px;
+    }
+
+    .pillar-main-title {
+      font-size: 0.85rem;
+    }
+
+    .pillar-sub-text {
+      font-size: 0.72rem;
     }
   }
 </style>

@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import TrustSection from '../components/TrustSection.astro';
@@ -12,6 +12,12 @@ const serviceSchema = getServiceSchema(
   "Frameless architectural SS316 invisible grills for sliding windows and French doors with 10-year warranty with custom site quote",
   190
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Invisible Grills", url: "/invisible-grills/" },
+  { name: "Windows Invisible Grills", url: "/window-invisible-grills/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -72,7 +78,7 @@ const gallery = [
   {
     src: "/images/hero-balcony.webp",
     alt: "Balcony Invisible Grills",
-    title: "High-Rise Balcony & Skyline Panorama",
+    title: "Panoramic Skyline Aperture",
     caption: "High-contrast SS316 marine cables preserving panoramic cityscape views.",
     badge: "Skyline Vista"
   },
@@ -97,6 +103,7 @@ const gallery = [
   title="Windows Invisible Grills | Frameless Sliding Window Safety | Invisible Safety"
   description="High-tensile SS316 marine-grade invisible grills for windows, French doors, and low sills with custom site quote Maximum airflow with zero visual obstruction."
   canonicalUrl="/window-invisible-grills/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="FRAMELESS FENESTRATION ARCHITECTURE"
   heroTitle="WINDOWS INVISIBLE GRILLS"
@@ -120,6 +127,7 @@ const gallery = [
 
       <div class="window-features-grid">
         <div class="window-feature-card">
+          <div class="window-tag">FALL PREVENTION</div>
           <h3 class="window-card-title">Low-Sill Window Protection</h3>
           <p class="window-card-desc">
             Modern high-rise apartments feature floor-level window sills that pose grave hazards for exploring children. Our invisible grills secure the opening with zero aesthetic degradation.
@@ -127,6 +135,7 @@ const gallery = [
         </div>
 
         <div class="window-feature-card">
+          <div class="window-tag">FIRE SAFETY</div>
           <h3 class="window-card-title">Emergency Egress Alignment</h3>
           <p class="window-card-desc">
             Unlike welded iron bars that trap occupants during fire emergencies, invisible grills can be severed with certified emergency rescue cable cutters in seconds by firefighters.
@@ -134,6 +143,7 @@ const gallery = [
         </div>
 
         <div class="window-feature-card">
+          <div class="window-tag">WEATHER RESISTANCE</div>
           <h3 class="window-card-title">Zero Rust &amp; Weatherproof</h3>
           <p class="window-card-desc">
             AISI 316 marine alloy contains molybdenum to neutralize monsoon humidity and coastal salt-spray corrosion, ensuring pristine cable tension for over 10 years.
@@ -144,7 +154,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -161,47 +171,99 @@ const gallery = [
   </section>
 
   <TrustSection />
-  <FAQSection category="invisible-grills" title="Window Invisible Grills Questions &amp; Answers" />
+  <FAQSection category="invisible-grill" title="Window Invisible Grills Questions &amp; Answers" />
 </SubPageLayout>
 
 <style>
   .editorial-detail-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .window-features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .window-feature-card {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .window-feature-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+  }
+
+  .window-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
   }
 
   .window-card-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .window-card-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -209,8 +271,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

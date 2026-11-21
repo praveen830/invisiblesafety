@@ -1,4 +1,4 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import CostEstimator from '../components/react/CostEstimator';
 import FAQSection from '../components/FAQSection.astro';
@@ -12,6 +12,11 @@ const serviceSchema = getServiceSchema(
   "High-impact UV-stabilized sports and cricket practice netting for rooftops, terraces, and clubhouses with custom site quote",
   18
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Sports Nets", url: "/sports-nets/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -96,9 +101,10 @@ const gallery = [
   title="Sports & Cricket Practice Nets for Terraces & Rooftops | Invisible Safety"
   description="High-impact ball containment sports netting for cricket pitches, society turfs, and residential rooftops. Heavy-duty UV-stabilized polymer."
   canonicalUrl="/sports-nets/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="SPECIALTY LEISURE & UTILITIES"
-  heroTitle="SPORTS PRACTICE & TURF NETS"
+  heroTitle="THE APERTURE COLLECTION"
   heroSubtitle="High-impact ball containment sports netting and structural utility arrays for residential rooftops, sports turf enclosures, and villas."
   heroImage="/images/sports-nets-twilight.jpg"
   heroImageAlt="Sports and Cricket Practice Net Installation"
@@ -146,7 +152,7 @@ const gallery = [
   </section>
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -163,58 +169,101 @@ const gallery = [
   </section>
 
   <TrustSection />
-  <FAQSection />
+  <FAQSection category="installation" title="Sports Netting Questions &amp; Answers" />
 </SubPageLayout>
 
 <style>
   .editorial-detail-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .sports-specs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .sports-spec-card {
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
     position: relative;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .sports-spec-card:hover {
-    border-color: rgba(197, 168, 128, 0.4);
+    border-color: #BAE6FD;
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
   }
 
   .sports-spec-num {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    font-family: var(--font-brand, 'Cinzel', serif);
-    color: var(--color-gold, #C5A880);
+    font-family: var(--font-heading, 'Cinzel', serif);
+    color: #0284C7;
     display: block;
-    margin-bottom: 0.75rem;
-    opacity: 0.7;
+    margin-bottom: 0.5rem;
   }
 
   .sports-spec-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.15rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #FFFFFF;
-    margin: 0 0 0.65rem 0;
+    color: #0F233D;
+    margin: 0 0 0.75rem 0;
   }
 
   .sports-spec-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -222,8 +271,8 @@ const gallery = [
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>

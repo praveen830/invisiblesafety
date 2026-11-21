@@ -47,11 +47,11 @@ const breadcrumbs = getBreadcrumbSchema([
           Our certified architectural surveyor will inspect your structure, measure cable lengths with high-precision lasers, present authentic SS316 wire samples, and deliver a zero-obligation quotation across Hyderabad, Vizag, and Vijayawada.
         </p>
         <div class="concierge-actions">
-          <a href="/contact/#quote" class="btn-editorial-pill">
+          <a href="/contact/#quote" class="btn btn-primary">
             <span>REQUEST SITE SURVEY</span>
             <ArrowRight size={14} />
           </a>
-          <a href={`tel:${business.phoneRaw}`} class="btn-editorial-pill-secondary">
+          <a href={`tel:${business.phoneRaw}`} class="btn btn-secondary">
             <Phone size={14} />
             <span>DIRECT CALL: {business.phone}</span>
           </a>
@@ -65,15 +65,15 @@ const breadcrumbs = getBreadcrumbSchema([
 
 <style>
   .solutions-showcase-section {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     position: relative;
     padding-top: clamp(3rem, 5vw, 4.5rem);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
   }
 
   .solutions-header-wrapper {
@@ -88,29 +88,27 @@ const breadcrumbs = getBreadcrumbSchema([
   .editorial-eyebrow {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.2em;
+    color: #0284C7;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.75rem;
   }
 
   .solutions-main-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading, 'Cinzel', serif);
     font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    color: #0F233D;
     text-transform: uppercase;
     margin: 0 0 1rem 0;
     line-height: 1.2;
   }
 
   .solutions-subtitle {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(1rem, 1.35vw, 1.2rem);
-    color: #94A3B8;
+    font-size: clamp(1rem, 1.35vw, 1.15rem);
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   }
@@ -120,10 +118,10 @@ const breadcrumbs = getBreadcrumbSchema([
   }
 
   .editorial-concierge-strip {
-    background-color: #0D0D0D;
-    color: #FFFFFF;
+    background-color: #FDF6EE;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
   }
 
   .subpage-container {
@@ -137,38 +135,37 @@ const breadcrumbs = getBreadcrumbSchema([
     max-width: 840px;
     margin: 0 auto;
     text-align: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
     padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
   }
 
   .concierge-eyebrow {
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.2em;
+    color: #0284C7;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.85rem;
   }
 
   .concierge-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
+    font-family: var(--font-heading, 'Cinzel', serif);
     font-size: clamp(1.5rem, 3vw, 2.35rem);
     font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    color: #0F233D;
     text-transform: uppercase;
     margin: 0 0 1rem 0;
     line-height: 1.25;
   }
 
   .concierge-desc {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    color: #CBD5E1;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: #475569;
     line-height: 1.6;
     margin: 0 auto 2rem auto;
     max-width: 640px;
@@ -180,34 +177,6 @@ const breadcrumbs = getBreadcrumbSchema([
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-  }
-
-  .btn-editorial-pill-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    padding: 0.75rem 2rem;
-    border-radius: 0;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #FFFFFF;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .btn-editorial-pill-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.9);
-    color: #FFFFFF;
-    transform: translateY(-2px);
   }
 
   @media (max-width: 580px) {

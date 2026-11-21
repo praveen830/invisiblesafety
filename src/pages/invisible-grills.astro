@@ -1,10 +1,9 @@
-﻿---
+---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
 import TrustSection from '../components/TrustSection.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
 import EngineeringSection from '../components/EngineeringSection.astro';
 import CostEstimator from '../components/react/CostEstimator';
-import BeforeAfterSlider from '../components/react/BeforeAfterSlider';
 import FAQSection from '../components/FAQSection.astro';
 import { business } from '../data/business';
 import { pricing } from '../data/pricing';
@@ -16,6 +15,11 @@ const serviceSchema = getServiceSchema(
   "Architectural high-tensile invisible grills for balconies and windows with 400+ kg breaking load and 10-year warranty.",
   pricing.invisibleGrill["2.0mm"]
 );
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Invisible Grills", url: "/invisible-grills/" }
+];
 
 const breadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://invisiblesafety.in/" },
@@ -97,12 +101,13 @@ const gallery = [
 ---
 
 <SubPageLayout
-  title="SS316 Marine Grade Invisible Grills | SS316 Marine Invisible Grills | Invisible Safety"
+  title="SS316 Marine Grade Invisible Grills | The Invisible Threshold | Invisible Safety"
   description="Premium Japanese SS316 marine-grade invisible safety grills for high-rise balconies and windows. 400+ kg load tested, rust-proof, RWA approved with 10-year warranty."
   canonicalUrl="/invisible-grills/"
+  breadcrumbs={breadcrumbsList}
   schema={[serviceSchema, breadcrumbs]}
   heroEyebrow="FLAGSHIP ARCHITECTURAL SAFETY"
-  heroTitle="SS316 MARINE INVISIBLE GRILLS"
+  heroTitle="THE INVISIBLE THRESHOLD"
   heroSubtitle="Virgin SS316 marine-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing 400+ kgf safety."
   heroImage="/images/category-invisible-grills.jpg"
   heroImageAlt="SS316 Marine Grade Invisible Grills Balcony Installation"
@@ -133,12 +138,12 @@ const gallery = [
             Ultra-fine profile providing maximum visual invisibility. Ideal for mid-rise apartments and residential bedroom windows.
           </p>
           <ul class="thickness-checklist">
-            <li><Check size={16} color="#C5A880" /> 350 kgf tensile breaking strength</li>
-            <li><Check size={16} color="#C5A880" /> 99% light transmittance</li>
-            <li><Check size={16} color="#C5A880" /> DuPont transparent nylon sheathing</li>
-            <li><Check size={16} color="#C5A880" /> 5-Year Workmanship Warranty</li>
+            <li><Check size={16} color="#0284C7" /> 350 kgf tensile breaking strength</li>
+            <li><Check size={16} color="#0284C7" /> 99% light transmittance</li>
+            <li><Check size={16} color="#0284C7" /> DuPont transparent nylon sheathing</li>
+            <li><Check size={16} color="#0284C7" /> 5-Year Workmanship Warranty</li>
           </ul>
-          <a href="#estimator" class="btn-editorial-pill" style="width: 100%; text-align: center;">
+          <a href="#estimator" class="btn btn-secondary" style="width: 100%; text-align: center; justify-content: center;">
             <span>REQUEST 2.0MM INSPECTION</span>
           </a>
         </div>
@@ -154,32 +159,15 @@ const gallery = [
             High-tensile reinforcement engineered specifically for high-rise towers (10th to 50th floors) with strong wind loads and energetic children.
           </p>
           <ul class="thickness-checklist">
-            <li><Check size={16} color="#C5A880" /> 400+ kgf maximum tensile breaking strength</li>
-            <li><Check size={16} color="#C5A880" /> Extreme wind load &amp; gust resistance</li>
-            <li><Check size={16} color="#C5A880" /> Child &amp; pet anti-spread guarantee</li>
-            <li><Check size={16} color="#C5A880" /> 10-Year Comprehensive Warranty</li>
+            <li><Check size={16} color="#16A34A" /> 400+ kgf maximum tensile breaking strength</li>
+            <li><Check size={16} color="#16A34A" /> Extreme wind load &amp; gust resistance</li>
+            <li><Check size={16} color="#16A34A" /> Child &amp; pet anti-spread guarantee</li>
+            <li><Check size={16} color="#16A34A" /> 10-Year Comprehensive Warranty</li>
           </ul>
-          <a href="#estimator" class="btn-editorial-pill" style="width: 100%; text-align: center; background: #FFFFFF; color: #000000;">
+          <a href="#estimator" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">
             <span>REQUEST 2.5MM INSPECTION</span>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before / After Visualizer Island -->
-  <section class="editorial-detail-section">
-    <div class="subpage-container">
-      <div class="subpage-section-header">
-        <span class="editorial-eyebrow">THE ARCHITECTURAL DIFFERENCE</span>
-        <h2 class="editorial-title">Visual Comparison on Balconies</h2>
-        <p class="editorial-subtitle">
-          Drag the slider to experience the dramatic opening of high-rise living spaces without iron cages.
-        </p>
-      </div>
-
-      <div class="visualizer-wrapper">
-        <BeforeAfterSlider client:visible />
       </div>
     </div>
   </section>
@@ -191,7 +179,7 @@ const gallery = [
   <ComparisonTable />
 
   <!-- Interactive Smart Cost Estimator -->
-  <section class="editorial-detail-section" id="estimator">
+  <section class="editorial-detail-section estimator-section" id="estimator">
     <div class="subpage-container">
       <div class="subpage-section-header">
         <span class="editorial-eyebrow">INSTANT CALIBRATION &amp; ESTIMATE</span>
@@ -216,10 +204,52 @@ const gallery = [
 
 <style>
   .editorial-detail-section {
-    background-color: #121316;
-    color: #FFFFFF;
+    background-color: #F8FAFD;
+    color: #1A365D;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .editorial-detail-section.estimator-section {
+    background-color: #FFFFFF;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .thickness-cards-grid {
@@ -231,18 +261,26 @@ const gallery = [
   }
 
   .thickness-card {
-    background: #18191E;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(15, 35, 61, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .thickness-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
   }
 
   .thickness-card.featured {
-    border-color: rgba(212, 175, 55, 0.5);
-    background: #1D1F25;
+    border: 2px solid #C6A66B;
+    background: #FFFAF3;
+    box-shadow: 0 10px 32px rgba(198, 166, 107, 0.15);
   }
 
   .thickness-header {
@@ -253,34 +291,38 @@ const gallery = [
   }
 
   .thickness-badge {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #94A3B8;
+    color: #64748B;
+    background: #F1F5F9;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
   }
 
   .thickness-badge.highlight {
-    color: var(--color-gold, #C5A880);
+    color: #9A7530;
+    background: #FEF3C7;
   }
 
   .thickness-tag {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #0284C7;
   }
 
   .thickness-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: 1.25rem;
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: 1.35rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #0F233D;
     margin: 0 0 0.75rem 0;
   }
 
   .thickness-desc {
-    font-size: 0.88rem;
-    color: #94A3B8;
+    font-size: 0.92rem;
+    color: #475569;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -298,24 +340,15 @@ const gallery = [
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    font-size: 0.88rem;
-    color: #CBD5E1;
-  }
-
-  .visualizer-wrapper {
-    max-width: 1080px;
-    margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+    color: #334155;
   }
 
   .estimator-box {
     max-width: 960px;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
   }
 </style>
