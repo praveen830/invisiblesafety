@@ -1,277 +1,323 @@
 ---
 import { business } from '../data/business';
-import { X, Phone, MessageCircle, ChevronDown, ShieldCheck } from 'lucide-react';
+import { Phone, MessageCircle, ChevronDown, X, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
 
-const pillar1Grills = [
-  { name: "SS316 Balcony Invisible Grills", href: "/invisible-grills/", desc: "Flagship 2.0mm/2.5mm marine-grade cables" },
-  { name: "Window & French Door Grills", href: "/window-invisible-grills/", desc: "Unobstructed ventilation & child safety" },
-  { name: "Staircase Tension Grills", href: "/staircase-invisible-grills/", desc: "Architectural vertical void safety" },
-  { name: "Child-Safe Calibrated Grills", href: "/child-safety-invisible-grills/", desc: "50mm high-density fall protection" },
-  { name: "SS316 Metallurgy Specifications", href: "/materials/", desc: "Molybdenum rust-proof certification" }
-];
-
-const pillar2Nets = [
-  { name: "High-Rise Balcony Safety Nets", href: "/safety-nets/", desc: "Virgin Garware UV-stabilized polymer" },
-  { name: "Anti-Pigeon Nets & Deterrence", href: "/pigeon-nets/", desc: "100% humane bird barrier mesh" },
-  { name: "SS304 Bird Spikes", href: "/bird-spikes/", desc: "Polycarbonate base ledge protection" },
-  { name: "Child & Toddler Anti-Fall Nets", href: "/child-safety-nets/", desc: "High-impact fall containment" },
-  { name: "Sports & Cricket Practice Nets", href: "/sports-nets/", desc: "Heavy-gauge turf and rooftop cages" }
-];
-
-const pillar3Hangers = [
-  { name: "Ceiling Cloth Drying Hangers", href: "/cloth-drying-hangers/", desc: "Individual pull-down stainless steel pipes" },
-  { name: "Balcony Utility Drying Solutions", href: "/cloth-drying-hangers/#utility", desc: "Reclaim 100% usable balcony floor space" }
+const coreServices = [
+  {
+    name: "SS316 Balcony Invisible Grills",
+    href: "/invisible-grills/",
+    desc: "2.0mm & 2.5mm marine-grade high-tensile cables",
+    badge: "Flagship"
+  },
+  {
+    name: "Window & French Door Grills",
+    href: "/window-invisible-grills/",
+    desc: "Unobstructed panoramic daylight & child safety",
+    badge: "Child-Safe"
+  },
+  {
+    name: "High-Rise Balcony Safety Nets",
+    href: "/safety-nets/",
+    desc: "Virgin Garware UV-stabilized polymer mesh",
+    badge: "Certified"
+  },
+  {
+    name: "Anti-Pigeon Nets & Spikes",
+    href: "/pigeon-nets/",
+    desc: "100% humane bird deterrence & SS304 spikes",
+    badge: "Bird-Proof"
+  },
+  {
+    name: "Child Safety Grills & Nets",
+    href: "/child-safety-invisible-grills/",
+    desc: "400+ kg tensile impact toddler & pet fall protection",
+    badge: "Tested"
+  },
+  {
+    name: "Ceiling Cloth Drying Hangers",
+    href: "/cloth-drying-hangers/",
+    desc: "Individual pull-down stainless steel space-saving pipes",
+    badge: "Utility"
+  }
 ];
 
 const serviceCities = [
-  { name: "Hyderabad & Secunderabad", href: "/locations/hyderabad/", tag: "Central Hub" },
-  { name: "Visakhapatnam (Vizag)", href: "/locations/visakhapatnam/", tag: "Coastal Hub" },
-  { name: "Vijayawada", href: "/locations/vijayawada/", tag: "Urban Hub" },
-  { name: "Amaravati Capital Region", href: "/locations/amaravati/", tag: "Capital Hub" },
-  { name: "Bengaluru", href: "/locations/", tag: "South Hub" },
-  { name: "Chennai & Kochi", href: "/locations/", tag: "Coastal Corridor" }
+  { name: "Bengaluru", href: "/locations/", state: "Karnataka", tag: "Tech Corridor" },
+  { name: "Chennai", href: "/locations/", state: "Tamil Nadu", tag: "Coastal Hub" },
+  { name: "Hyderabad", href: "/locations/hyderabad/", state: "Telangana", tag: "Central HQ" },
+  { name: "Vizag (Visakhapatnam)", href: "/locations/visakhapatnam/", state: "Andhra Pradesh", tag: "Coastal Hub" },
+  { name: "Vijayawada", href: "/locations/vijayawada/", state: "Andhra Pradesh", tag: "Urban Hub" },
+  { name: "Kochi", href: "/locations/", state: "Kerala", tag: "South Hub" },
+  { name: "Amaravati", href: "/locations/amaravati/", state: "Andhra Pradesh", tag: "Capital Region" }
 ];
 ---
 
-<header class="arch-header" id="arch-header">
-  <div class="header-container">
-    <!-- Left: Mobile Trigger & Brand -->
-    <div class="header-left">
-      <button
-        class="mobile-menu-toggle"
-        id="mobile-drawer-open-btn"
-        aria-label="Open Navigation Menu"
-        aria-expanded="false"
-      >
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-      </button>
-
-      <a href="/" class="brand-logo" aria-label="Invisible Safety - Home">
-        <span class="brand-mark">INVISIBLE SAFETY</span>
-        <span class="brand-sub">ARCHITECTURAL RESIDENTIAL SAFETY</span>
-      </a>
-    </div>
-
-    <!-- Center: Desktop Navigation with 3-Pillar Dropdowns -->
-    <nav class="desktop-nav" aria-label="Main Navigation">
-      <!-- Pillar 1 Dropdown -->
-      <div class="nav-dropdown-wrapper">
-        <button class="nav-dropdown-btn" aria-haspopup="true">
-          <span>Invisible Grills</span>
-          <ChevronDown size={14} className="dropdown-chevron" />
-        </button>
-        <div class="nav-dropdown-menu">
-          <div class="dropdown-header">
-            <span class="dropdown-badge">PILLAR 1: SS316 MARINE GRADE</span>
-          </div>
-          {pillar1Grills.map((item) => (
-            <a href={item.href} class="dropdown-link-item">
-              <span class="link-item-title">{item.name}</span>
-              <span class="link-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
+<header class="arch-header-wrapper" id="arch-header">
+  <!-- 1. Slim Top Deep Royal Navy Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="utility-container">
+      <!-- Left: Cities Announcement -->
+      <div class="utility-left">
+        <!-- Desktop Full String (>=768px) -->
+        <span class="utility-text-desktop">
+          Serving Across South India <span class="utility-sep">|</span> 7 Cities: Bengaluru <span class="utility-dot">·</span> Chennai <span class="utility-dot">·</span> Hyderabad <span class="utility-dot">·</span> Vizag <span class="utility-dot">·</span> Vijayawada <span class="utility-dot">·</span> Kochi <span class="utility-dot">·</span> Amaravati
+        </span>
+        <!-- Mobile Compact (<768px) -->
+        <span class="utility-text-mobile">
+          Serving South India
+        </span>
       </div>
 
-      <!-- Pillar 2 Dropdown -->
-      <div class="nav-dropdown-wrapper">
-        <button class="nav-dropdown-btn" aria-haspopup="true">
-          <span>Safety Nets</span>
-          <ChevronDown size={14} className="dropdown-chevron" />
-        </button>
-        <div class="nav-dropdown-menu">
-          <div class="dropdown-header">
-            <span class="dropdown-badge">PILLAR 2: CERTIFIED HDPE NETS</span>
-          </div>
-          {pillar2Nets.map((item) => (
-            <a href={item.href} class="dropdown-link-item">
-              <span class="link-item-title">{item.name}</span>
-              <span class="link-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
+      <!-- Right: Direct Contact & WhatsApp Us Badge -->
+      <div class="utility-right">
+        <a href={`tel:${business.phoneRaw}`} class="utility-phone-link" aria-label={`Call ${business.phone}`}>
+          <Phone size={12} className="utility-phone-icon" />
+          <span class="phone-digits">{business.phone}</span>
+        </a>
+
+        <a
+          href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20book%20a%20free%20site%20visit.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="utility-whatsapp-badge"
+          aria-label="WhatsApp Us"
+        >
+          <MessageCircle size={12} className="utility-wa-icon" />
+          <span>WhatsApp Us</span>
+        </a>
       </div>
-
-      <!-- Pillar 3 Dropdown -->
-      <div class="nav-dropdown-wrapper">
-        <button class="nav-dropdown-btn" aria-haspopup="true">
-          <span>Cloth Hangers</span>
-          <ChevronDown size={14} className="dropdown-chevron" />
-        </button>
-        <div class="nav-dropdown-menu">
-          <div class="dropdown-header">
-            <span class="dropdown-badge">PILLAR 3: SPACE RECLAMATION</span>
-          </div>
-          {pillar3Hangers.map((item) => (
-            <a href={item.href} class="dropdown-link-item">
-              <span class="link-item-title">{item.name}</span>
-              <span class="link-item-desc">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Quick Interactive Links -->
-      <a href="/visualizer/" class="nav-single-link">
-        <span>3D Visualizer</span>
-      </a>
-
-      <a href="/invisible-grill-cost/" class="nav-single-link highlight-link">
-        <span>Cost Calculator</span>
-      </a>
-
-      <a href="/locations/" class="nav-single-link">
-        <span>Service Cities</span>
-      </a>
-    </nav>
-
-    <!-- Right: High-Contrast CTA & Quick Contact -->
-    <div class="header-right">
-      <a
-        href={`tel:${business.phoneRaw}`}
-        class="header-phone-link"
-        aria-label={`Call Invisible Safety at ${business.phone}`}
-      >
-        <Phone size={15} className="phone-icon" />
-        <span class="phone-number">{business.phone}</span>
-      </a>
-
-      <a
-        href="/contact/#quote"
-        class="header-primary-cta"
-        aria-label="Book Free Site Inspection"
-      >
-        <span>Book Free Inspection</span>
-      </a>
     </div>
   </div>
 
-  <!-- Accessible, Responsive Mobile Navigation Drawer (Zero Horizontal Overflow, 48px Min Touch Targets) -->
+  <!-- 2. Clean White Sticky Navbar -->
+  <div class="main-navbar">
+    <div class="navbar-container">
+      <!-- Left: Brand Logo & Subtitle -->
+      <a href="/" class="brand-logo" aria-label="Invisiblesafety.in - Home">
+        <span class="brand-mark">Invisiblesafety<span class="brand-tld">.in</span></span>
+        <span class="brand-sub">Safety. Style. Peace of Mind.</span>
+      </a>
+
+      <!-- Center: Desktop Navigation Links & Dropdowns -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="/" class="nav-link">Home</a>
+
+        <!-- Services Dropdown (6 Core Services) -->
+        <div class="nav-dropdown-item">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Services</span>
+            <ChevronDown size={14} className="dropdown-chevron" />
+          </button>
+
+          <div class="nav-dropdown-menu services-dropdown-menu">
+            <div class="dropdown-header">
+              <span class="dropdown-header-title">ARCHITECTURAL SAFETY SERVICES</span>
+              <a href="/solutions/" class="dropdown-view-all">All Solutions →</a>
+            </div>
+
+            <div class="services-dropdown-grid">
+              {coreServices.map((service) => (
+                <a href={service.href} class="dropdown-card-item">
+                  <div class="card-item-top">
+                    <span class="card-item-title">{service.name}</span>
+                    <span class="card-item-badge">{service.badge}</span>
+                  </div>
+                  <span class="card-item-desc">{service.desc}</span>
+                </a>
+              ))}
+            </div>
+
+            <div class="dropdown-footer-ribbon">
+              <div class="footer-ribbon-item">
+                <span class="ribbon-label">Quick Tools:</span>
+                <a href="/visualizer/" class="ribbon-link">3D Balcony Visualizer</a>
+                <span class="ribbon-sep">·</span>
+                <a href="/invisible-grill-cost/" class="ribbon-link">Dynamic Cost Estimator</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="/gallery/" class="nav-link">Our Work</a>
+
+        <!-- Locations Dropdown (7 Cities) -->
+        <div class="nav-dropdown-item">
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Locations</span>
+            <ChevronDown size={14} className="dropdown-chevron" />
+          </button>
+
+          <div class="nav-dropdown-menu locations-dropdown-menu">
+            <div class="dropdown-header">
+              <span class="dropdown-header-title">7 REGIONAL SERVICE HUBS</span>
+              <span class="dropdown-header-sub">Complimentary Doorstep Laser Survey</span>
+            </div>
+
+            <div class="locations-dropdown-grid">
+              {serviceCities.map((city) => (
+                <a href={city.href} class="location-item-link">
+                  <div class="location-item-icon">
+                    <MapPin size={14} />
+                  </div>
+                  <div class="location-item-text">
+                    <span class="location-item-city">{city.name}</span>
+                    <span class="location-item-state">{city.state} · {city.tag}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div class="locations-dropdown-footer">
+              <p class="locations-footer-note">
+                <ShieldCheck size={14} className="note-shield" />
+                <span>Society &amp; RWA approved installations backed by 15-Year SS316 warranty.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about/" class="nav-link">About Us</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Desktop CTA & Mobile Hamburger -->
+      <div class="navbar-right">
+        <!-- Desktop CTA -->
+        <a href="/contact/#quote" class="nav-cta-btn" aria-label="Book a Free Visit">
+          <span>Book a Free Visit</span>
+          <ArrowRight size={15} className="cta-arrow" />
+        </a>
+
+        <!-- Mobile Hamburger (48x48px min touch target) -->
+        <button
+          class="mobile-menu-btn"
+          id="mobile-drawer-open-btn"
+          aria-label="Open Navigation Menu"
+          aria-expanded="false"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Accessible Slide-out Mobile Navigation Drawer (min-h-[48px] touch targets, zero overflow) -->
   <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
 
   <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="drawer-top-bar">
-      <a href="/" class="brand-logo" aria-label="Invisible Safety">
-        <span class="brand-mark">INVISIBLE SAFETY</span>
+    <div class="drawer-header">
+      <a href="/" class="brand-logo" aria-label="Invisiblesafety.in - Home">
+        <span class="brand-mark">Invisiblesafety<span class="brand-tld">.in</span></span>
+        <span class="brand-sub">Safety. Style. Peace of Mind.</span>
       </a>
+
       <button
-        class="drawer-close-button"
+        class="drawer-close-btn"
         id="mobile-drawer-close-btn"
-        aria-label="Close navigation menu"
+        aria-label="Close Navigation Menu"
       >
-        <X size={22} strokeWidth={2} />
+        <X size={22} strokeWidth={2.2} />
       </button>
     </div>
 
-    <div class="drawer-scroll-content">
-      <!-- Direct Emergency & Free Measurement Callout -->
+    <div class="drawer-content">
+      <!-- Trust Highlight Banner -->
       <div class="drawer-trust-banner">
-        <div class="trust-banner-badge">
-          <ShieldCheck size={14} />
+        <div class="drawer-banner-title">
+          <ShieldCheck size={15} />
           <span>15-Year SS316 Warranty &amp; Free Survey</span>
         </div>
-        <p class="trust-banner-text">
-          Certified doorstep laser measurement across Hyderabad, Vizag, Vijayawada, Amaravati, Bengaluru &amp; Chennai.
+        <p class="drawer-banner-desc">
+          Certified doorstep laser measurement across Bengaluru, Chennai, Hyderabad, Vizag, Vijayawada, Kochi &amp; Amaravati.
         </p>
       </div>
 
-      <!-- Pillar 1 Section -->
-      <div class="drawer-nav-section">
-        <span class="drawer-section-label">PILLAR 1: SS316 INVISIBLE GRILLS</span>
-        <div class="drawer-links-stack">
-          {pillar1Grills.map((item) => (
-            <a href={item.href} class="drawer-touch-link">
-              <span class="touch-link-main">{item.name}</span>
-              <span class="touch-link-sub">{item.desc}</span>
+      <!-- Quick Main Links -->
+      <div class="drawer-section">
+        <a href="/" class="drawer-primary-link">Home</a>
+      </div>
+
+      <!-- 6 Core Services -->
+      <div class="drawer-section">
+        <span class="drawer-section-heading">ARCHITECTURAL SERVICES</span>
+        <div class="drawer-links-list">
+          {coreServices.map((service) => (
+            <a href={service.href} class="drawer-service-link">
+              <div class="drawer-service-info">
+                <span class="drawer-service-name">{service.name}</span>
+                <span class="drawer-service-desc">{service.desc}</span>
+              </div>
+              <span class="drawer-service-badge">{service.badge}</span>
             </a>
           ))}
         </div>
       </div>
 
-      <!-- Pillar 2 Section -->
-      <div class="drawer-nav-section">
-        <span class="drawer-section-label">PILLAR 2: BALCONY &amp; PIGEON NETS</span>
-        <div class="drawer-links-stack">
-          {pillar2Nets.map((item) => (
-            <a href={item.href} class="drawer-touch-link">
-              <span class="touch-link-main">{item.name}</span>
-              <span class="touch-link-sub">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Pillar 3 Section -->
-      <div class="drawer-nav-section">
-        <span class="drawer-section-label">PILLAR 3: CLOTH DRYING HANGERS</span>
-        <div class="drawer-links-stack">
-          {pillar3Hangers.map((item) => (
-            <a href={item.href} class="drawer-touch-link">
-              <span class="touch-link-main">{item.name}</span>
-              <span class="touch-link-sub">{item.desc}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Interactive Planning & Tools -->
-      <div class="drawer-nav-section">
-        <span class="drawer-section-label">INTERACTIVE PLANNING TOOLS</span>
-        <div class="drawer-links-stack">
-          <a href="/visualizer/" class="drawer-touch-link highlight">
-            <span class="touch-link-main">Interactive 3D Balcony Visualizer</span>
-            <span class="touch-link-sub">Preview SS316 cable spacing on high-rise layouts</span>
+      <!-- Planning Tools -->
+      <div class="drawer-section">
+        <span class="drawer-section-heading">INTERACTIVE TOOLS</span>
+        <div class="drawer-tools-grid">
+          <a href="/visualizer/" class="drawer-tool-pill">
+            <span class="tool-pill-title">3D Balcony Visualizer</span>
+            <span class="tool-pill-sub">Preview cable spacing</span>
           </a>
-          <a href="/invisible-grill-cost/" class="drawer-touch-link highlight">
-            <span class="touch-link-main">Dynamic Sq.Ft. Cost Estimator</span>
-            <span class="touch-link-sub">Calculate instant balcony price quotation</span>
-          </a>
-          <a href="/gallery/" class="drawer-touch-link">
-            <span class="touch-link-main">Real Projects Gallery</span>
-            <span class="touch-link-sub">High-resolution verified installation photos</span>
-          </a>
-          <a href="/warranty/" class="drawer-touch-link">
-            <span class="touch-link-main">15-Year Warranty Terms</span>
-            <span class="touch-link-sub">Written metallurgical guarantee certificate</span>
+          <a href="/invisible-grill-cost/" class="drawer-tool-pill highlight">
+            <span class="tool-pill-title">Cost Calculator</span>
+            <span class="tool-pill-sub">Instant sq.ft estimation</span>
           </a>
         </div>
       </div>
 
-      <!-- Service Locations Hub -->
-      <div class="drawer-nav-section">
-        <span class="drawer-section-label">REGIONAL SERVICE HUBS</span>
-        <div class="drawer-city-grid">
+      <!-- 7 Regional Cities -->
+      <div class="drawer-section">
+        <div class="drawer-section-header-row">
+          <span class="drawer-section-heading">7 SERVICE CITIES</span>
+          <a href="/locations/" class="drawer-view-all">All Cities →</a>
+        </div>
+        <div class="drawer-cities-grid">
           {serviceCities.map((city) => (
-            <a href={city.href} class="city-pill-link">
-              <span class="city-name">{city.name}</span>
-              <span class="city-tag">{city.tag}</span>
+            <a href={city.href} class="drawer-city-pill">
+              <span class="city-pill-name">{city.name}</span>
+              <span class="city-pill-tag">{city.tag}</span>
             </a>
           ))}
+        </div>
+      </div>
+
+      <!-- Brand & Information Links -->
+      <div class="drawer-section">
+        <span class="drawer-section-heading">EXPLORE &amp; PORTFOLIO</span>
+        <div class="drawer-simple-links">
+          <a href="/gallery/" class="drawer-touch-item">Our Work (Gallery)</a>
+          <a href="/about/" class="drawer-touch-item">About Us</a>
+          <a href="/materials/" class="drawer-touch-item">SS316 Metallurgy Specs</a>
+          <a href="/warranty/" class="drawer-touch-item">15-Year Warranty Terms</a>
+          <a href="/contact/" class="drawer-touch-item">Contact &amp; Free Survey</a>
         </div>
       </div>
     </div>
 
     <!-- Drawer Sticky Bottom Actions -->
-    <div class="drawer-bottom-actions">
+    <div class="drawer-footer-actions">
       <a
         href={`tel:${business.phoneRaw}`}
-        class="drawer-btn drawer-btn-phone"
-        aria-label="Direct Phone Call"
+        class="drawer-action-btn btn-call"
+        aria-label="Call Invisible Safety"
       >
-        <Phone size={16} />
+        <Phone size={17} />
         <span>Call: {business.phone}</span>
       </a>
 
       <a
-        href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20free%20site%20measurement%20and%20quotation.`}
+        href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20book%20a%20free%20site%20visit.`}
         target="_blank"
         rel="noopener noreferrer"
-        class="drawer-btn drawer-btn-whatsapp"
-        aria-label="Chat on WhatsApp"
+        class="drawer-action-btn btn-whatsapp"
+        aria-label="WhatsApp Quote"
       >
-        <MessageCircle size={16} />
+        <MessageCircle size={17} />
         <span>WhatsApp Quote</span>
       </a>
     </div>
@@ -280,27 +326,155 @@ const serviceCities = [
 
 <style>
   /* =========================================================================
-     LIGHT-FIRST ARCHITECTURAL STICKY HEADER
+     HEADER WRAPPER (Sticky, Zero Horizontal Overflow)
      ========================================================================= */
-  .arch-header {
+  .arch-header-wrapper {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 900;
-    height: 72px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(26, 54, 93, 0.08);
-    box-shadow: 0 2px 12px -2px rgba(26, 54, 93, 0.04);
-    transition: all 0.25s ease;
+    width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.25s ease;
   }
 
-  .header-container {
+  /* =========================================================================
+     1. TOP SLIM UTILITY BAR (Deep Royal Navy #0F233D)
+     ========================================================================= */
+  .top-utility-bar {
+    background-color: #0F233D;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    height: 34px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .utility-container {
     max-width: 1360px;
-    height: 100%;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 clamp(1rem, 3vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 1rem;
+  }
+
+  .utility-left {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #F8FAFC;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+  }
+
+  .utility-sep {
+    color: #C6A66B;
+    margin: 0 6px;
+    font-weight: 700;
+  }
+
+  .utility-dot {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 4px;
+  }
+
+  .utility-text-desktop {
+    display: inline;
+  }
+
+  .utility-text-mobile {
+    display: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .utility-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .utility-phone-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .utility-phone-link:hover {
+    color: #C6A66B;
+  }
+
+  .utility-phone-icon {
+    color: #C6A66B;
+    flex-shrink: 0;
+  }
+
+  .utility-whatsapp-badge {
+    background-color: #25D366;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 9px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.35);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .utility-whatsapp-badge:hover {
+    background-color: #20BA5A;
+    transform: translateY(-1px);
+  }
+
+  .utility-wa-icon {
+    flex-shrink: 0;
+  }
+
+  /* =========================================================================
+     2. CLEAN WHITE STICKY NAVBAR (bg-white/95 backdrop-blur-md shadow-sm)
+     ========================================================================= */
+  .main-navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 1px 3px 0 rgba(15, 35, 61, 0.04);
+    height: 68px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navbar-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     padding: 0 clamp(1rem, 3vw, 2.5rem);
     display: flex;
     align-items: center;
@@ -309,272 +483,429 @@ const serviceCities = [
     gap: 1.5rem;
   }
 
-  /* Left: Brand Identity & Mobile Hamburger */
-  .header-left {
+  /* Brand Logo & Tagline */
+  .brand-logo {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    text-decoration: none;
     flex-shrink: 0;
   }
 
-  .mobile-menu-toggle {
-    display: none;
-    background: transparent;
-    border: 1px solid rgba(26, 54, 93, 0.15);
+  .brand-mark {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0F233D;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .brand-tld {
+    color: #2D89EF;
+    font-weight: 800;
+  }
+
+  .brand-sub {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748B;
+    letter-spacing: 0.04em;
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+
+  /* Desktop Navigation */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1E293B;
+    text-decoration: none;
+    padding: 8px 12px;
     border-radius: 8px;
-    width: 44px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: #0F233D;
+    background-color: #F0F5FA;
+  }
+
+  /* Dropdown Wrapper */
+  .nav-dropdown-item {
+    position: relative;
+  }
+
+  .nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1E293B;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .dropdown-chevron {
+    color: #64748B;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-dropdown-item:hover .nav-dropdown-toggle,
+  .nav-dropdown-item:focus-within .nav-dropdown-toggle {
+    color: #0F233D;
+    background-color: #F0F5FA;
+  }
+
+  .nav-dropdown-item:hover .dropdown-chevron,
+  .nav-dropdown-item:focus-within .dropdown-chevron {
+    transform: rotate(180deg);
+    color: #0F233D;
+  }
+
+  /* Dropdown Flyout Menu */
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px -4px rgba(15, 35, 61, 0.12), 0 4px 12px -2px rgba(15, 35, 61, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+    z-index: 950;
+    overflow: hidden;
+  }
+
+  .nav-dropdown-item:hover .nav-dropdown-menu,
+  .nav-dropdown-item:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-header {
+    padding: 12px 18px;
+    background: #FAFCFE;
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dropdown-header-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #C6A66B;
+    text-transform: uppercase;
+  }
+
+  .dropdown-header-sub {
+    font-size: 11px;
+    color: #64748B;
+    font-weight: 600;
+  }
+
+  .dropdown-view-all {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2D89EF;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .dropdown-view-all:hover {
+    color: #0F233D;
+  }
+
+  /* Services Dropdown (2-Column Grid) */
+  .services-dropdown-menu {
+    width: 620px;
+  }
+
+  .services-dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #FFFFFF;
+  }
+
+  .dropdown-card-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #FAFCFE;
+    border: 1px solid #F1F5F9;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .dropdown-card-item:hover {
+    background: #F0F5FA;
+    border-color: rgba(45, 137, 239, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .card-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .card-item-title {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F233D;
+    line-height: 1.3;
+  }
+
+  .card-item-badge {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #2D89EF;
+    background: #EBF4FE;
+    padding: 1px 6px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .card-item-desc {
+    font-size: 11px;
+    color: #64748B;
+    line-height: 1.35;
+  }
+
+  .dropdown-footer-ribbon {
+    padding: 10px 18px;
+    background: #FAFCFE;
+    border-top: 1px solid #E2E8F0;
+    font-size: 12px;
+  }
+
+  .footer-ribbon-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #64748B;
+  }
+
+  .ribbon-label {
+    font-weight: 700;
+    color: #0F233D;
+  }
+
+  .ribbon-link {
+    color: #2D89EF;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ribbon-link:hover {
+    color: #0F233D;
+    text-decoration: underline;
+  }
+
+  .ribbon-sep {
+    color: #CBD5E1;
+  }
+
+  /* Locations Dropdown (2-Column Grid) */
+  .locations-dropdown-menu {
+    width: 480px;
+  }
+
+  .locations-dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 12px 14px;
+    background: #FFFFFF;
+  }
+
+  .location-item-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #FAFCFE;
+    border: 1px solid #F1F5F9;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .location-item-link:hover {
+    background: #F0F5FA;
+    border-color: rgba(45, 137, 239, 0.35);
+  }
+
+  .location-item-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #F0F5FA;
+    border: 1px solid rgba(45, 137, 239, 0.2);
+    color: #2D89EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .location-item-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location-item-city {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F233D;
+    line-height: 1.2;
+  }
+
+  .location-item-state {
+    font-size: 10px;
+    color: #64748B;
+    margin-top: 1px;
+  }
+
+  .locations-dropdown-footer {
+    padding: 10px 16px;
+    background: #FAFCFE;
+    border-top: 1px solid #E2E8F0;
+  }
+
+  .locations-footer-note {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #475569;
+    margin: 0;
+  }
+
+  .note-shield {
+    color: #2D89EF;
+    flex-shrink: 0;
+  }
+
+  /* Right Section: Desktop CTA & Mobile Hamburger */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     height: 44px;
-    padding: 10px;
+    padding: 0 1.35rem;
+    background-color: #0F233D;
+    color: #FFFFFF !important;
+    border: 1px solid #0F233D;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(15, 35, 61, 0.15);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+  }
+
+  .nav-cta-btn:hover {
+    background-color: #1A365D;
+    border-color: #1A365D;
+    box-shadow: 0 8px 20px rgba(15, 35, 61, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .cta-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .nav-cta-btn:hover .cta-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Mobile Hamburger Button (48x48px min touch target) */
+  .mobile-menu-btn {
+    display: none;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    background: #FAFCFE;
+    border: 1px solid rgba(15, 35, 61, 0.15);
+    border-radius: 10px;
+    padding: 13px 12px;
     cursor: pointer;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     outline: none;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    touch-action: manipulation;
   }
 
-  .mobile-menu-toggle:hover {
-    background: #F4F9FD;
-    border-color: #1A365D;
+  .mobile-menu-btn:hover,
+  .mobile-menu-btn:active {
+    background: #F0F5FA;
+    border-color: #0F233D;
   }
 
   .hamburger-bar {
-    width: 20px;
+    width: 22px;
     height: 2px;
-    background-color: #1A365D;
+    background-color: #0F233D;
     border-radius: 2px;
     transition: all 0.2s ease;
   }
 
-  .brand-logo {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .brand-mark {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(0.95rem, 1.4vw, 1.18rem);
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: #1A365D;
-    line-height: 1.15;
-    white-space: nowrap;
-  }
-
-  .brand-sub {
-    font-family: var(--font-sans);
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    color: #C6A66B;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  /* Center: Desktop Navigation */
-  .desktop-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .nav-dropdown-wrapper {
-    position: relative;
-  }
-
-  .nav-dropdown-btn {
-    background: transparent;
-    border: none;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #334155;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    transition: all 0.2s ease;
-  }
-
-  .dropdown-chevron {
-    transition: transform 0.2s ease;
-    color: #64748B;
-  }
-
-  .nav-dropdown-btn:hover,
-  .nav-dropdown-wrapper:focus-within .nav-dropdown-btn {
-    color: #1A365D;
-    background: #F4F9FD;
-  }
-
-  .nav-dropdown-wrapper:hover .dropdown-chevron,
-  .nav-dropdown-wrapper:focus-within .dropdown-chevron {
-    transform: rotate(180deg);
-    color: #1A365D;
-  }
-
-  /* Desktop Dropdown Flyout Menu */
-  .nav-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 320px;
-    background: #FFFFFF;
-    border: 1px solid rgba(26, 54, 93, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 16px 36px -4px rgba(26, 54, 93, 0.12), 0 4px 12px -2px rgba(26, 54, 93, 0.04);
-    padding: 0.75rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    z-index: 920;
-  }
-
-  .nav-dropdown-wrapper:hover .nav-dropdown-menu,
-  .nav-dropdown-wrapper:focus-within .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(4px);
-    pointer-events: auto;
-  }
-
-  .dropdown-header {
-    padding: 6px 12px 10px 12px;
-    border-bottom: 1px solid #F1F5F9;
-    margin-bottom: 6px;
-  }
-
-  .dropdown-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #C6A66B;
-    text-transform: uppercase;
-  }
-
-  .dropdown-link-item {
-    display: flex;
-    flex-direction: column;
-    padding: 8px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.15s ease;
-  }
-
-  .dropdown-link-item:hover {
-    background-color: #F4F9FD;
-  }
-
-  .link-item-title {
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #1A365D;
-    line-height: 1.3;
-  }
-
-  .link-item-desc {
-    font-size: 0.76rem;
-    color: #64748B;
-    margin-top: 2px;
-  }
-
-  .nav-single-link {
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #334155;
-    padding: 8px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .nav-single-link:hover {
-    color: #1A365D;
-    background: #F4F9FD;
-  }
-
-  .nav-single-link.highlight-link {
-    color: #1A365D;
-    background: #EBF4FA;
-    font-weight: 700;
-  }
-
-  .nav-single-link.highlight-link:hover {
-    background: #E0EFF9;
-  }
-
-  /* Right: Quick Call & High-Contrast CTA */
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-shrink: 0;
-  }
-
-  .header-phone-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #1A365D;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .header-phone-link:hover {
-    background: #F4F9FD;
-  }
-
-  .phone-icon {
-    color: #C6A66B;
-  }
-
-  .header-primary-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 44px;
-    padding: 0 1.25rem;
-    background: #1A365D;
-    color: #FFFFFF !important;
-    border: 1px solid #1A365D;
-    border-radius: 9999px;
-    font-family: var(--font-sans);
-    font-size: 0.86rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.15);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .header-primary-cta:hover {
-    background: #0F233D;
-    border-color: #0F233D;
-    box-shadow: 0 6px 16px rgba(26, 54, 93, 0.25);
-    transform: translateY(-1px);
-  }
-
   /* =========================================================================
-     ACCESSIBLE MOBILE NAVIGATION DRAWER
+     3. SLIDE-OUT MOBILE NAVIGATION DRAWER
      ========================================================================= */
   .mobile-drawer-backdrop {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(15, 35, 61, 0.45);
+    background: rgba(15, 35, 61, 0.5);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     z-index: 998;
@@ -595,11 +926,11 @@ const serviceCities = [
     width: 100%;
     max-width: 380px;
     background: #FFFFFF;
-    color: #1A365D;
+    color: #0F233D;
     z-index: 999;
     transform: translateX(-100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 8px 0 32px rgba(26, 54, 93, 0.15);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 8px 0 32px rgba(15, 35, 61, 0.18);
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
@@ -611,174 +942,302 @@ const serviceCities = [
     transform: translateX(0);
   }
 
-  .drawer-top-bar {
+  .drawer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: 14px 20px;
     border-bottom: 1px solid #E2E8F0;
-    background: #F8FAFC;
+    background: #FAFCFE;
     flex-shrink: 0;
     min-height: 64px;
+    box-sizing: border-box;
   }
 
-  .drawer-close-button {
+  .drawer-close-btn {
     background: transparent;
     border: 1px solid #CBD5E1;
-    border-radius: 8px;
-    width: 44px;
-    height: 44px;
+    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1A365D;
+    color: #0F233D;
     cursor: pointer;
     transition: all 0.15s ease;
+    touch-action: manipulation;
   }
 
-  .drawer-close-button:hover {
+  .drawer-close-btn:hover,
+  .drawer-close-btn:active {
     background: #E2E8F0;
   }
 
-  .drawer-scroll-content {
+  .drawer-content {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 16px 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+    box-sizing: border-box;
   }
 
   .drawer-trust-banner {
-    background: #F4F9FD;
-    border: 1px solid #BAE6FD;
+    background: #F0F5FA;
+    border: 1px solid rgba(45, 137, 239, 0.25);
     border-radius: 12px;
     padding: 12px 14px;
   }
 
-  .trust-banner-badge {
+  .drawer-banner-title {
     display: flex;
     align-items: center;
     gap: 6px;
     font-size: 12px;
     font-weight: 700;
-    color: #0284C7;
+    color: #2D89EF;
     margin-bottom: 4px;
   }
 
-  .trust-banner-text {
+  .drawer-banner-desc {
     font-size: 11px;
-    color: #475569;
+    color: #1E293B;
     line-height: 1.45;
     margin: 0;
   }
 
-  .drawer-nav-section {
+  .drawer-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
 
-  .drawer-section-label {
+  .drawer-primary-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 10px;
+    background: #FAFCFE;
+    border: 1px solid #E2E8F0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0F233D;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    touch-action: manipulation;
+  }
+
+  .drawer-primary-link:hover,
+  .drawer-primary-link:active {
+    background: #F0F5FA;
+    border-color: #2D89EF;
+  }
+
+  .drawer-section-heading {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: #C6A66B;
     text-transform: uppercase;
   }
 
-  .drawer-links-stack {
+  .drawer-section-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .drawer-view-all {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2D89EF;
+    text-decoration: none;
+  }
+
+  .drawer-links-list {
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
 
-  /* 48px Min Touch Target for Mobile Compliance */
-  .drawer-touch-link {
+  .drawer-service-link {
     min-height: 48px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8px 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
     border-radius: 10px;
-    background: #F8FAFC;
+    background: #FAFCFE;
     border: 1px solid #E2E8F0;
     text-decoration: none;
     transition: all 0.15s ease;
     touch-action: manipulation;
   }
 
-  .drawer-touch-link:hover,
-  .drawer-touch-link:active {
-    background: #EBF4FA;
-    border-color: #BAE6FD;
+  .drawer-service-link:hover,
+  .drawer-service-link:active {
+    background: #F0F5FA;
+    border-color: rgba(45, 137, 239, 0.35);
   }
 
-  .drawer-touch-link.highlight {
-    background: #EBF4FA;
-    border-color: #BAE6FD;
+  .drawer-service-info {
+    display: flex;
+    flex-direction: column;
   }
 
-  .touch-link-main {
+  .drawer-service-name {
     font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
-    color: #1A365D;
-    line-height: 1.3;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0F233D;
+    line-height: 1.25;
   }
 
-  .touch-link-sub {
-    font-size: 11px;
+  .drawer-service-desc {
+    font-size: 10.5px;
     color: #64748B;
     margin-top: 2px;
   }
 
-  /* Service Cities Pills */
-  .drawer-city-grid {
+  .drawer-service-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: #2D89EF;
+    background: #EBF4FE;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* Tools Grid in Drawer */
+  .drawer-tools-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
-  .city-pill-link {
+  .drawer-tool-pill {
     min-height: 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6px 12px;
-    background: #F8FAFC;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #FAFCFE;
+    border: 1px solid #E2E8F0;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    touch-action: manipulation;
+  }
+
+  .drawer-tool-pill:hover,
+  .drawer-tool-pill:active {
+    background: #F0F5FA;
+    border-color: rgba(45, 137, 239, 0.35);
+  }
+
+  .drawer-tool-pill.highlight {
+    background: #FDF6EE;
+    border-color: rgba(198, 166, 107, 0.35);
+  }
+
+  .tool-pill-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0F233D;
+    line-height: 1.2;
+  }
+
+  .tool-pill-sub {
+    font-size: 9.5px;
+    color: #64748B;
+    margin-top: 2px;
+  }
+
+  /* Cities Grid in Drawer */
+  .drawer-cities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .drawer-city-pill {
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 12px;
+    background: #FAFCFE;
     border: 1px solid #E2E8F0;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.15s ease;
+    touch-action: manipulation;
   }
 
-  .city-pill-link:hover,
-  .city-pill-link:active {
-    background: #EBF4FA;
-    border-color: #BAE6FD;
+  .drawer-city-pill:hover,
+  .drawer-city-pill:active {
+    background: #F0F5FA;
+    border-color: rgba(45, 137, 239, 0.35);
   }
 
-  .city-name {
+  .city-pill-name {
     font-size: 12px;
-    font-weight: 600;
-    color: #1A365D;
+    font-weight: 700;
+    color: #0F233D;
     line-height: 1.2;
   }
 
-  .city-tag {
-    font-size: 9px;
+  .city-pill-tag {
+    font-size: 9.5px;
     font-weight: 700;
     color: #C6A66B;
     text-transform: uppercase;
     margin-top: 2px;
   }
 
+  /* Simple Links */
+  .drawer-simple-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .drawer-touch-item {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 8px;
+    background: #FAFCFE;
+    border: 1px solid #E2E8F0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1E293B;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    touch-action: manipulation;
+  }
+
+  .drawer-touch-item:hover,
+  .drawer-touch-item:active {
+    background: #F0F5FA;
+    color: #0F233D;
+    border-color: #2D89EF;
+  }
+
   /* Sticky Drawer Footer Actions */
-  .drawer-bottom-actions {
-    padding: 16px 20px;
-    background: #F8FAFC;
+  .drawer-footer-actions {
+    padding: 14px 20px;
+    background: #FAFCFE;
     border-top: 1px solid #E2E8F0;
     display: flex;
     flex-direction: column;
@@ -786,7 +1245,7 @@ const serviceCities = [
     flex-shrink: 0;
   }
 
-  .drawer-btn {
+  .drawer-action-btn {
     min-height: 48px;
     display: inline-flex;
     align-items: center;
@@ -801,50 +1260,56 @@ const serviceCities = [
     touch-action: manipulation;
   }
 
-  .drawer-btn:active {
+  .drawer-action-btn:active {
     transform: scale(0.98);
   }
 
-  .drawer-btn-phone {
-    background: #1A365D;
+  .drawer-action-btn.btn-call {
+    background: #0F233D;
     color: #FFFFFF !important;
   }
 
-  .drawer-btn-whatsapp {
-    background: #16A34A;
+  .drawer-action-btn.btn-whatsapp {
+    background: #25D366;
     color: #FFFFFF !important;
   }
 
   /* =========================================================================
-     RESPONSIVE BREAKPOINTS
+     RESPONSIVE BREAKPOINTS (Mobile <768px vs Desktop >=768px)
      ========================================================================= */
   @media (max-width: 1024px) {
     .desktop-nav {
       display: none;
     }
 
-    .mobile-menu-toggle {
+    .mobile-menu-btn {
       display: flex;
-    }
-
-    .header-phone-link {
-      display: none;
     }
   }
 
-  @media (max-width: 640px) {
-    .arch-header {
-      height: 64px;
+  @media (max-width: 767px) {
+    .utility-text-desktop {
+      display: none;
     }
 
-    .header-primary-cta {
-      height: 38px;
-      padding: 0 1rem;
-      font-size: 0.8rem;
+    .utility-text-mobile {
+      display: inline;
+    }
+
+    .utility-whatsapp-badge {
+      display: none;
+    }
+
+    .nav-cta-btn {
+      display: none;
     }
 
     .brand-sub {
       display: none;
+    }
+
+    .main-navbar {
+      height: 60px;
     }
   }
 </style>

@@ -1,431 +1,189 @@
 ---
 import { business } from '../data/business';
-import { Phone, MessageCircle, ShieldCheck, Eye, Ruler, Award, ArrowRight } from 'lucide-react';
-
-const trustPillars = [
-  {
-    icon: ShieldCheck,
-    title: "15-Year SS316 Warranty",
-    subtitle: "Virgin Japanese marine steel guarantee"
-  },
-  {
-    icon: Eye,
-    title: "Zero-View-Obstruction",
-    subtitle: "98% daylight & skyline clarity"
-  },
-  {
-    icon: Ruler,
-    title: "Free Site Inspection",
-    subtitle: "Doorstep laser survey with wire samples"
-  },
-  {
-    icon: Award,
-    title: "Society & RWA Approved",
-    subtitle: "Compliant with high-rise elevation rules"
-  }
-];
+import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucide-react';
 ---
 
-<section class="arch-hero">
-  <!-- Edge-to-Edge Responsive Photography -->
-  <div class="hero-media-wrapper">
-    <picture>
-      <source media="(max-width: 768px)" srcset="/images/hero-balcony-twilight-mobile.jpg" />
-      <source srcset="/images/hero-balcony.webp" type="image/webp" />
-      <img
-        src="/images/hero-balcony-twilight.jpg"
-        alt="Architectural penthouse balcony with modern SS316 invisible safety grills overlooking skyline"
-        class="hero-media-img"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1920"
-        height="1080"
-      />
-    </picture>
-    <!-- Soft Architectural Scrim Overlay -->
-    <div class="hero-cinematic-scrim"></div>
-  </div>
+<section class="arch-hero-section relative bg-gradient-to-b from-[#F0F5FA] via-white to-white md:py-12 lg:py-16 overflow-hidden">
+  <div class="hero-inner-container max-w-7xl mx-auto px-0 md:px-6 lg:px-8">
+    <div class="flex flex-col md:grid md:grid-cols-2 md:gap-8 lg:gap-14 md:items-center">
 
-  <!-- Hero Content Center Container -->
-  <div class="hero-content-container">
-    <div class="hero-editorial-box">
-      <!-- Gold Eyebrow -->
-      <span class="hero-eyebrow">
-        SOUTH INDIA'S TRUSTED ARCHITECTURAL SAFETY SPECIALIST
-      </span>
-
-      <!-- Primary Value Proposition Headline -->
-      <h1 class="hero-title">
-        Architectural SS316 Invisible Grills &amp; Safety Nets
-      </h1>
-
-      <!-- High-Trust Subtitle -->
-      <p class="hero-subtitle">
-        Preserve 98% panoramic daylight and balcony vistas while safeguarding your loved ones with 400+ kg tensile SS316 marine-grade cables and certified polymer nets.
-      </p>
-
-      <!-- Conversion Actions: Primary WhatsApp CTA & Click-to-Call Button -->
-      <div class="hero-action-group">
-        <a
-          href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20an%20instant%20quote%20and%20free%20doorstep%20site%20inspection.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-hero-whatsapp"
-          aria-label="Get WhatsApp Quote"
-        >
-          <MessageCircle size={19} className="whatsapp-icon" />
-          <span>Get WhatsApp Quote</span>
-        </a>
-
-        <a
-          href={`tel:${business.phoneRaw}`}
-          class="btn-hero-call"
-          aria-label={`Call ${business.phone}`}
-        >
-          <Phone size={17} className="call-icon" />
-          <span>Call: {business.phone}</span>
-        </a>
-      </div>
-
-      <!-- Quick Jump Link to Estimator -->
-      <div class="hero-jump-wrap">
-        <a href="#interactive-planner" class="hero-jump-link">
-          <span>Calculate Cost &amp; Preview 3D Balcony</span>
-          <ArrowRight size={13} />
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Instant Trust Strip (Docked at Base of Hero) -->
-  <div class="hero-trust-strip">
-    <div class="trust-strip-container">
-      {trustPillars.map((pillar) => (
-        <div class="trust-pillar-item">
-          <div class="pillar-icon-circle">
-            <pillar.icon size={18} strokeWidth={2.2} />
-          </div>
-          <div class="pillar-text-group">
-            <span class="pillar-main-title">{pillar.title}</span>
-            <span class="pillar-sub-text">{pillar.subtitle}</span>
-          </div>
+      <!-- =========================================================================
+           PHOTO BLOCK:
+           Mobile (<768px): Top Photo Block, strictly 4:5, 100% unobstructed, zero text
+           Desktop (≥768px): Right Column (order-2), cleanly framed with full clarity
+           ========================================================================= -->
+      <div class="hero-media-col order-1 md:order-2 w-full">
+        <div class="hero-photo-frame relative w-full aspect-[4/5] md:aspect-[4/3] lg:aspect-[16/11] overflow-hidden md:rounded-3xl md:shadow-card md:border md:border-slate-200/80">
+          <picture class="block w-full h-full">
+            <source
+              media="(min-width: 768px)"
+              srcset="/images/hero-balcony.webp"
+              type="image/webp"
+              width="1376"
+              height="768"
+            />
+            <source
+              media="(max-width: 767px)"
+              srcset="/images/hero-balcony-twilight-mobile.jpg"
+              type="image/jpeg"
+              width="768"
+              height="1376"
+            />
+            <img
+              src="/images/hero-balcony.webp"
+              alt="High-rise apartment balcony protected with SS316 invisible safety grills"
+              class="hero-img w-full h-full object-cover object-center"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="1376"
+              height="768"
+            />
+          </picture>
         </div>
-      ))}
+      </div>
+
+      <!-- =========================================================================
+           CONTENT / CONVERSION COLUMN:
+           Mobile (<768px): Elevated Conversion Card directly below photo (-mt-6 z-10)
+           Desktop (≥768px): Left Column (order-1), architectural high-trust showcase
+           ========================================================================= -->
+      <div class="hero-content-col order-2 md:order-1 w-full">
+        <div class="hero-conversion-card relative z-10 -mt-6 mx-3.5 p-5 md:mt-0 md:mx-0 md:p-0 bg-gradient-to-b from-[#F0F5FA] to-white md:bg-transparent rounded-3xl md:rounded-none shadow-card md:shadow-none border border-slate-100/90 md:border-0">
+
+          <!-- Architectural Eyebrow Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200/80 text-[11px] font-bold text-[#0F233D] mb-3 shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+            <span>South India's Architectural Safety Specialist</span>
+          </div>
+
+          <!-- Single Authoritative SEO H1 -->
+          <h1 class="font-brand text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#0F233D] tracking-tight leading-[1.18] mb-2 md:mb-4">
+            Invisible Grills &amp; Safety Nets<span class="hidden md:inline"> for a Safer, Happier Home</span>
+          </h1>
+
+          <!-- Value Proposition & Subtitle -->
+          <p class="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed mb-4 md:mb-6">
+            <span class="font-bold text-[#0F233D] block md:inline">Safety. Style. Peace of Mind.</span>
+            <span class="text-slate-500 hidden md:inline"> — Preserve 98% panoramic daylight and balcony vistas while safeguarding your loved ones with 400+ kg tensile SS316 marine-grade cables and certified polymer safety nets.</span>
+          </p>
+
+          <!-- =====================================================================
+               MOBILE TRUST BADGES (<768px):
+               3 compact trust badges in a clean horizontal row
+               ===================================================================== -->
+          <div class="flex items-center justify-between gap-1.5 sm:gap-2 mb-5 md:hidden">
+            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+              <ShieldCheck size={14} className="text-[#2D89EF] shrink-0" />
+              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">SS316 Grade</span>
+            </div>
+            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+              <Award size={14} className="text-[#C6A66B] shrink-0" />
+              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">15-Yr Warranty</span>
+            </div>
+            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
+              <Eye size={14} className="text-[#2D89EF] shrink-0" />
+              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">100% Clear View</span>
+            </div>
+          </div>
+
+          <!-- =====================================================================
+               DESKTOP TRUST ICONS (≥768px):
+               3 crisp trust icons in the left column
+               ===================================================================== -->
+          <div class="hidden md:grid md:grid-cols-3 gap-3 my-6 py-4 border-y border-slate-200/80">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/20">
+                <ShieldCheck size={20} />
+              </div>
+              <div>
+                <span class="block text-sm font-bold text-[#0F233D]">100% Safety</span>
+                <span class="block text-xs text-slate-500">400+ kg breaking load</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#FDF6EE] flex items-center justify-center text-[#C6A66B] shrink-0 border border-[#C6A66B]/30">
+                <Award size={20} />
+              </div>
+              <div>
+                <span class="block text-sm font-bold text-[#0F233D]">SS316 Marine</span>
+                <span class="block text-xs text-slate-500">Virgin Japanese steel</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/20">
+                <Eye size={20} />
+              </div>
+              <div>
+                <span class="block text-sm font-bold text-[#0F233D]">Clear View</span>
+                <span class="block text-xs text-slate-500">98% daylight clarity</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =====================================================================
+               SIDE-BY-SIDE PILL CTA BUTTONS (min-h-[48px])
+               ===================================================================== -->
+          <div class="grid grid-cols-2 gap-3 sm:flex sm:items-center sm:gap-4 mb-3">
+            <!-- Call Now CTA -->
+            <a
+              href={`tel:${business.phoneRaw}`}
+              class="btn-hero-call flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-full bg-[#0F233D] hover:bg-[#1A365D] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
+              aria-label={`Call Now at ${business.phone}`}
+            >
+              <Phone size={16} className="text-[#C6A66B] shrink-0" />
+              <span>Call Now</span>
+            </a>
+
+            <!-- WhatsApp CTA -->
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20an%20instant%20quote%20for%20balcony%20invisible%20grills%20%26%20safety%20nets.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-hero-whatsapp flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
+              aria-label="Chat on WhatsApp"
+            >
+              <MessageCircle size={17} className="text-white shrink-0" />
+              <span class="md:hidden">WhatsApp</span>
+              <span class="hidden md:inline">Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Quick Jump Link to Estimator -->
+          <div class="pt-2 text-center md:text-left">
+            <a href="#interactive-planner" class="inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-slate-500 hover:text-[#0F233D] transition-colors">
+              <span>Calculate Cost &amp; Preview 3D Balcony</span>
+              <ArrowRight size={13} className="text-[#C6A66B]" />
+            </a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  /* =========================================================================
-     FULL-BLEED ARCHITECTURAL HERO & TRUST STRIP
-     ========================================================================= */
-  .arch-hero {
-    position: relative;
-    width: 100%;
-    min-height: clamp(580px, 100dvh, 880px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-color: #0F233D;
-    overflow: hidden;
+  /* Ensure smooth transition and prevent any CLS */
+  .arch-hero-section {
+    contain: layout paint;
   }
 
-  .hero-media-wrapper {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
+  .hero-img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-media-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: contrast(1.05) saturate(1.04);
-    transform: scale(1.0);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  .hero-photo-frame:hover .hero-img {
+    transform: scale(1.02);
   }
 
-  .arch-hero:hover .hero-media-img {
-    transform: scale(1.025);
-  }
-
-  /* Architectural Multi-Stop Scrim */
-  .hero-cinematic-scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(15, 35, 61, 0.45) 0%,
-      rgba(15, 35, 61, 0.25) 35%,
-      rgba(15, 35, 61, 0.82) 85%,
-      rgba(15, 35, 61, 0.95) 100%
-    );
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  /* Content Anchor */
-  .hero-content-container {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: clamp(5rem, 10vh, 7rem) clamp(1rem, 3.5vw, 2.5rem) clamp(2.5rem, 5vh, 4rem);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  .hero-editorial-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 860px;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-sans);
-    font-size: clamp(10px, 1.1vw, 12px);
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #D8BE8A;
-    margin-bottom: 0.85rem;
-    text-shadow: 0 1px 6px rgba(15, 35, 61, 0.8);
-  }
-
-  .hero-title {
-    font-family: var(--font-brand, 'Cinzel', serif);
-    font-size: clamp(1.85rem, 4.4vw, 3.6rem);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    color: #FFFFFF;
-    line-height: 1.18;
-    margin: 0 0 1.25rem 0;
-    text-shadow: 0 2px 16px rgba(15, 35, 61, 0.7);
-  }
-
-  .hero-subtitle {
-    font-family: var(--font-sans);
-    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-    color: #F1F5F9;
-    line-height: 1.65;
-    margin: 0 0 2rem 0;
-    max-width: 720px;
-    text-shadow: 0 1px 8px rgba(15, 35, 61, 0.8);
-  }
-
-  /* Action Buttons */
-  .hero-action-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    width: 100%;
-  }
-
-  .btn-hero-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.65rem;
-    min-height: 52px;
-    padding: 0 2rem;
-    background: #16A34A;
-    color: #FFFFFF !important;
-    border: 1px solid #16A34A;
-    border-radius: 9999px;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35);
-    transition: all 0.25s ease;
-  }
-
-  .btn-hero-whatsapp:hover {
-    background: #15803D;
-    border-color: #15803D;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.45);
-  }
-
-  .btn-hero-call {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    min-height: 52px;
-    padding: 0 1.85rem;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #FFFFFF !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 9999px;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 8px 24px rgba(15, 35, 61, 0.3);
-    transition: all 0.25s ease;
-  }
-
-  .btn-hero-call:hover {
-    background: #FFFFFF;
-    color: #1A365D !important;
-    border-color: #FFFFFF;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(255, 255, 255, 0.25);
-  }
-
-  .call-icon {
-    color: #D8BE8A;
-    transition: color 0.25s ease;
-  }
-
-  .btn-hero-call:hover .call-icon {
-    color: #1A365D;
-  }
-
-  .hero-jump-wrap {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-jump-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #D8BE8A;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
-
-  .hero-jump-link:hover {
-    color: #FFFFFF;
-    transform: translateY(1px);
-  }
-
-  /* =========================================================================
-     INSTANT TRUST STRIP
-     ========================================================================= */
-  .hero-trust-strip {
-    position: relative;
-    z-index: 4;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 -4px 20px rgba(15, 35, 61, 0.08);
-  }
-
-  .trust-strip-container {
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 1.25rem clamp(1rem, 3.5vw, 2.5rem);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    box-sizing: border-box;
-  }
-
-  .trust-pillar-item {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-  }
-
-  .pillar-icon-circle {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #EBF4FA;
-    border: 1px solid #BAE6FD;
-    color: #0284C7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .pillar-text-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .pillar-main-title {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #1A365D;
-    line-height: 1.25;
-  }
-
-  .pillar-sub-text {
-    font-size: 0.76rem;
-    color: #64748B;
-    line-height: 1.35;
-    margin-top: 2px;
-  }
-
-  /* Responsive Rules */
-  @media (max-width: 1024px) {
-    .trust-strip-container {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .hero-content-container {
-      padding-top: 4.5rem;
-      padding-bottom: 2rem;
-    }
-
-    .hero-action-group {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .btn-hero-whatsapp,
-    .btn-hero-call {
-      width: 100%;
-    }
-
-    .trust-strip-container {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 1rem;
-    }
-
-    .pillar-icon-circle {
-      width: 36px;
-      height: 36px;
-    }
-
-    .pillar-main-title {
-      font-size: 0.85rem;
-    }
-
-    .pillar-sub-text {
-      font-size: 0.72rem;
+  /* Responsive shadow & card refinement */
+  @media (max-width: 767px) {
+    .hero-photo-frame {
+      border-radius: 0 0 1.25rem 1.25rem;
     }
   }
 </style>

@@ -6,7 +6,7 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
 <section class="trust-section">
   <div class="container">
     <div class="section-header">
-      <span class="badge-emerald">
+      <span class="badge-blue">
         <Award size={14} />
         Metallurgical Certification
       </span>
@@ -84,7 +84,8 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
   .trust-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background: #FFFFFF;
+    background: #F0F5FA; /* Soft Sky Blue for Trust Sections */
+    border-top: 1px solid #E2E8F0;
     border-bottom: 1px solid #E2E8F0;
   }
 
@@ -92,12 +93,23 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
     display: flex;
     flex-direction: column;
     padding: 1.85rem 1.65rem;
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid rgba(45, 137, 239, 0.15);
+    box-shadow: 0 4px 20px -2px rgba(15, 35, 61, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .trust-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -4px rgba(15, 35, 61, 0.12);
+    border-color: #2D89EF;
   }
 
   .trust-icon-box {
     width: 48px;
     height: 48px;
-    border-radius: var(--radius-sm);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,23 +117,27 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
   }
 
   .anchor-box {
-    background: #E0F2FE;
-    color: #0284C7;
+    background: #F0F5FA;
+    color: #2D89EF;
+    border: 1px solid rgba(45, 137, 239, 0.25);
   }
 
   .load-box {
     background: #DCFCE7;
-    color: #16A34A;
+    color: #15803D;
+    border: 1px solid rgba(37, 211, 102, 0.3);
   }
 
   .harness-box {
-    background: #FEF3C7;
-    color: #D97706;
+    background: #FDF6EE;
+    color: #8C6F32;
+    border: 1px solid rgba(198, 166, 107, 0.35);
   }
 
   .warranty-box {
-    background: #F3E8FF;
-    color: #9333EA;
+    background: #F0F5FA;
+    color: #2D89EF;
+    border: 1px solid rgba(45, 137, 239, 0.25);
   }
 
   .trust-tag-row {
@@ -132,42 +148,46 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
     font-size: 0.72rem;
     font-weight: 700;
     padding: 0.25rem 0.6rem;
-    border-radius: var(--radius-xs);
+    border-radius: 6px;
     letter-spacing: 0.04em;
     display: inline-block;
   }
 
   .ss316-pill {
-    color: #0369A1;
-    background: #E0F2FE;
+    color: #2D89EF;
+    background: #F0F5FA;
+    border: 1px solid rgba(45, 137, 239, 0.25);
   }
 
   .load-pill {
     color: #15803D;
     background: #DCFCE7;
+    border: 1px solid rgba(37, 211, 102, 0.25);
   }
 
   .harness-pill {
-    color: #B45309;
-    background: #FEF3C7;
+    color: #8C6F32;
+    background: #FDF6EE;
+    border: 1px solid rgba(198, 166, 107, 0.3);
   }
 
   .warranty-pill {
-    color: #7E22CE;
-    background: #F3E8FF;
+    color: #2D89EF;
+    background: #F0F5FA;
+    border: 1px solid rgba(45, 137, 239, 0.25);
   }
 
   .trust-card-title {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #0F172A;
+    color: #0F233D;
     margin-bottom: 0.55rem;
     line-height: 1.25;
   }
 
   .trust-card-desc {
     font-size: 0.88rem;
-    color: #475569;
+    color: #1E293B;
     line-height: 1.55;
   }
 </style>

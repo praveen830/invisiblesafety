@@ -16,7 +16,12 @@ import {
   Cpu,
   MapPin,
   Calendar,
-  Sparkles
+  Sparkles,
+  ShieldCheck,
+  Wind,
+  Shield,
+  Award,
+  Star
 } from 'lucide-react';
 
 const localBusinessSchema = getLocalBusinessSchema();
@@ -87,6 +92,186 @@ const metroCities = [
     tag: "Monsoon Resilient",
     localities: ["Marine Drive", "Kakkanad InfoPark", "Edappally", "Panampilly Nagar", "Aluva"],
     desc: "Monsoon-tested balcony safety netting and tensile cable architecture for waterfront luxury apartments."
+  },
+  {
+    name: "Amaravati Capital Region",
+    hubType: "Andhra Capital Hub",
+    href: "/locations/amaravati/",
+    tag: "Laser Survey",
+    localities: ["Mangalagiri", "Tadepalli", "Guntur Road", "Navuluru", "Undavalli", "Nowlur"],
+    desc: "Certified SS316 balcony invisible grills and child safety nets for emerging capital high-rise corridors."
+  }
+];
+
+const coreServices = [
+  {
+    title: "Invisible Grills",
+    category: "SS316 Marine Grade",
+    href: "/invisible-grills/",
+    image: "/images/category-invisible-grills.jpg",
+    alt: "SS316 marine-grade balcony invisible grills with clear skyline view",
+    width: 1376,
+    height: 768,
+    icon: ShieldCheck,
+    tag: "15-Yr Warranty"
+  },
+  {
+    title: "Balcony Safety Nets",
+    category: "Garware Certified HDPE",
+    href: "/safety-nets/",
+    image: "/images/safety-net-balcony.webp",
+    alt: "Garware high-density polyethylene balcony safety nets for high-rise apartments",
+    width: 1376,
+    height: 768,
+    icon: Layers,
+    tag: "5-Yr Warranty"
+  },
+  {
+    title: "Pigeon Safety Nets",
+    category: "Humane Bird Barrier",
+    href: "/pigeon-nets/",
+    image: "/images/pigeon-net.webp",
+    alt: "Translucent anti-pigeon safety nets installed on high-rise residential balcony",
+    width: 1376,
+    height: 768,
+    icon: Wind,
+    tag: "Zero Mess"
+  },
+  {
+    title: "Child Safety Nets",
+    category: "100% Fall Protection",
+    href: "/child-safety-nets/",
+    image: "/images/child-safety.webp",
+    alt: "High-tensile child and pet safety nets for balcony and window fall protection",
+    width: 1200,
+    height: 896,
+    icon: ShieldCheck,
+    tag: "Child Safe"
+  },
+  {
+    title: "Ceiling Cloth Hangers",
+    category: "Space-Saving Pulley System",
+    href: "/cloth-drying-hangers/",
+    image: "/images/cloth-drying-hanger.jpg",
+    alt: "Ceiling mounted stainless steel pull-down cloth drying hanger system",
+    width: 1200,
+    height: 896,
+    icon: CheckCircle2,
+    tag: "100% Rust-Proof"
+  },
+  {
+    title: "Bird Spikes",
+    category: "SS304 Polycarbonate Base",
+    href: "/bird-spikes/",
+    image: "/images/bird-spikes.jpg",
+    alt: "SS304 stainless steel bird spikes for parapet walls and AC outdoor units",
+    width: 1376,
+    height: 768,
+    icon: Shield,
+    tag: "Humane & Durable"
+  }
+];
+
+const whyChoosePillars = [
+  {
+    icon: ShieldCheck,
+    title: "SS316 Marine Grade Steel",
+    subtitle: "2.0mm & 2.5mm Virgin Japanese Steel with 2.5% Molybdenum",
+    color: "gold"
+  },
+  {
+    icon: Award,
+    title: "15-Year Rust-Free Warranty",
+    subtitle: "Direct written certificate against rust, corrosion and cable sag",
+    color: "azure"
+  },
+  {
+    icon: Shield,
+    title: "100% Safe for Kids & Pets",
+    subtitle: "400+ kg tensile breaking load per cable with calibrated 50mm pitch",
+    color: "gold"
+  },
+  {
+    icon: CheckCircle2,
+    title: "Expert RWA-Compliant Team",
+    subtitle: "Pre-approved in Prestige, Sobha, My Home, Aparna & Godrej",
+    color: "azure"
+  },
+  {
+    icon: MapPin,
+    title: "Dedicated South India Support",
+    subtitle: "Local technician fleets across 7 regional metropolitan hubs",
+    color: "gold"
+  }
+];
+
+const recentInstallations = [
+  {
+    title: "My Home Bhooja",
+    city: "HITEC City, Hyderabad",
+    type: "SS316 Balcony Invisible Grills",
+    image: "/images/projects/bhooja-after.webp",
+    alt: "SS316 invisible grills installed at My Home Bhooja high-rise penthouse",
+    floor: "32nd Floor Sky Deck",
+    width: 1200,
+    height: 800
+  },
+  {
+    title: "Prestige High Fields",
+    city: "Financial District, Hyderabad",
+    type: "Double-Height Window Grills",
+    image: "/images/projects/prestige-after.webp",
+    alt: "Double height French window invisible safety grills at Prestige High Fields",
+    floor: "26th Floor Tower",
+    width: 1200,
+    height: 800
+  },
+  {
+    title: "Aparna Serene Park",
+    city: "Kondapur, Hyderabad",
+    type: "Child Safety & Pigeon Nets",
+    image: "/images/projects/aparna-after.webp",
+    alt: "Balcony safety nets and invisible grills installed at Aparna Serene Park",
+    floor: "18th Floor Balcony",
+    width: 1200,
+    height: 800
+  },
+  {
+    title: "Sea Pearl Horizons",
+    city: "Beach Road, Visakhapatnam",
+    type: "Coastal SS316 Marine Grills",
+    image: "/images/projects/vizag-after.webp",
+    alt: "Coastal SS316 marine-grade rust-proof balcony grills at Sea Pearl Vizag",
+    floor: "14th Floor Penthouse",
+    width: 1200,
+    height: 800
+  }
+];
+
+const verifiedReviews = [
+  {
+    author: "Raghavendra S.",
+    role: "Senior Architect",
+    society: "My Home Bhooja, Hyderabad",
+    quote: "Living on the 32nd floor with two energetic children was nerve-wracking. Invisible Safety installed SS316 marine grills that feel like an invisible shield while preserving our entire lake skyline view. Absolute precision work.",
+    rating: 5,
+    tag: "SS316 Invisible Grills"
+  },
+  {
+    author: "Capt. K. Ramanathan (Retd.)",
+    role: "Homeowner",
+    society: "Sea Pearl Horizons, Vizag",
+    quote: "Every metal fitting rusts in Vizag within months due to maritime sea spray. Two monsoons later, Invisible Safety's molybdenum cables are shining like day one. Truly genuine SS316 marine grade.",
+    rating: 5,
+    tag: "Coastal Marine Grade"
+  },
+  {
+    author: "Priyanka & Vikram M.",
+    role: "Residents",
+    society: "Aparna Serene Park, Hyderabad",
+    quote: "Pigeons had ruined our balcony and we feared for our toddler. Their team installed both invisible grills and translucent nets in under 5 hours with zero mess. Exceptional customer service and prompt delivery.",
+    rating: 5,
+    tag: "Dual Balcony Protection"
   }
 ];
 ---
@@ -103,230 +288,116 @@ const metroCities = [
   <Hero />
 
   <!-- =========================================================================
-       SECTION 2: CORE 3-PILLAR SERVICE SHOWCASE
+       SECTION 2: CERTIFIED 6-SERVICE PHOTO-FIRST SHOWCASE
        ========================================================================= -->
   <section class="section-showcase" id="services">
     <div class="arch-container">
-      <div class="section-title-box">
-        <span class="arch-eyebrow">CORE ARCHITECTURAL PILLARS</span>
-        <h2 class="arch-heading">Three Certified Safety Verticals</h2>
-        <p class="arch-lead">
-          Precision-engineered safety solutions designed specifically for South Indian residential towers, high-rise penthouses, and gated luxury communities.
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4">
+        <div>
+          <span class="arch-eyebrow">CORE ARCHITECTURAL PORTFOLIO</span>
+          <h2 class="arch-heading">Our Safety Services</h2>
+          <p class="arch-lead text-slate-600 max-w-2xl mt-2">
+            Engineered fall protection and bird exclusion systems designed specifically for South Indian residential towers, high-rise penthouses, and gated communities.
+          </p>
+        </div>
+        <div class="hidden md:block shrink-0">
+          <a
+            href="/solutions/"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F233D] hover:bg-[#1A365D] text-white text-sm font-bold shadow-sm transition-all hover:gap-3"
+          >
+            <span>Explore All Services</span>
+            <ArrowRight size={14} className="text-[#C6A66B]" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo-First 6-Card Grid: Mobile 2-col, Desktop 3-col -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
+        {coreServices.map((service) => (
+          <a
+            href={service.href}
+            class="group block rounded-2xl bg-white shadow-card hover:shadow-hover transition-all duration-300 overflow-hidden border border-slate-100 hover:border-slate-200"
+            aria-label={`View ${service.title} details`}
+          >
+            <!-- Top Half: Crisp, 100% unobstructed photo (aspect-[16/10] w-full object-cover, ZERO text/overlays) -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+              <img
+                src={service.image}
+                alt={service.alt}
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                loading="lazy"
+                decoding="async"
+                width={service.width}
+                height={service.height}
+              />
+            </div>
+
+            <!-- Bottom Half: Clean white label bar -->
+            <div class="p-3 md:p-4 flex items-center justify-between bg-white border-t border-slate-50">
+              <div class="flex items-center gap-2 md:gap-2.5 min-w-0">
+                <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/15 group-hover:bg-[#0F233D] group-hover:text-white transition-colors duration-200">
+                  <service.icon size={15} />
+                </div>
+                <div class="min-w-0">
+                  <h3 class="text-xs sm:text-sm md:text-base font-bold text-[#0F233D] truncate group-hover:text-[#2D89EF] transition-colors duration-200">
+                    {service.title}
+                  </h3>
+                </div>
+              </div>
+              <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#0F233D] group-hover:text-white transition-all duration-200 shrink-0 ml-1">
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile Button: Explore All Services -->
+      <div class="mt-6 text-center md:hidden">
+        <a
+          href="/solutions/"
+          class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white border border-slate-200 text-sm font-bold text-[#0F233D] shadow-xs active:bg-slate-50"
+        >
+          <span>Explore All 6 Services</span>
+          <ArrowRight size={14} className="text-[#2D89EF]" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2B: HIGH-CONTRAST NAVY TRUST STRIP (Why Choose Invisiblesafety.in?)
+       ========================================================================= -->
+  <section class="section-why-us bg-[#0F233D] text-white py-12 md:py-16" id="why-us">
+    <div class="arch-container">
+      <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#C6A66B] mb-2">
+          WHY CHOOSE INVISIBLESAFETY.IN
+        </span>
+        <h2 class="font-brand text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          South India's Certified High-Rise Safety Leader
+        </h2>
+        <p class="text-slate-300 text-sm md:text-base mt-2 leading-relaxed">
+          Over 15,000+ luxury apartments and penthouses protected with zero view obstruction and 100% elevation compliance.
         </p>
       </div>
 
-      <div class="pillars-showcase-grid">
-        <!-- Pillar 1: SS316 Marine-Grade Invisible Grills -->
-        <div class="pillar-card">
-          <div class="pillar-media-frame">
-            <img
-              src="/images/category-invisible-grills.jpg"
-              alt="SS316 Marine-Grade Balcony Invisible Grills"
-              class="pillar-image"
-              loading="lazy"
-              width="600"
-              height="400"
-            />
-            <span class="pillar-badge badge-gold">PILLAR 1: FLAGSHIP SAFETY</span>
-          </div>
-
-          <div class="pillar-body">
-            <h3 class="pillar-title">SS316 Marine-Grade Invisible Grills</h3>
-            <p class="pillar-desc">
-              Parallel vertical high-tensile SS316 marine cables anchored into structural aluminium tracks, delivering 98% daylight clarity with uncompromising fall protection.
+      <!-- 5 Crisp Trust Pillars: 2-col compact on mobile (5th spans full width), 5-col on desktop -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 lg:gap-5">
+        {whyChoosePillars.map((pillar, idx) => (
+          <div class={`rounded-2xl bg-white/[0.06] border border-white/10 p-4 md:p-5 flex flex-col items-center text-center hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300 ${idx === 4 ? 'col-span-2 md:col-span-1' : ''}`}>
+            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-3 shrink-0 border border-white/10">
+              <pillar.icon size={22} className={pillar.color === 'gold' ? 'text-[#C6A66B]' : 'text-[#2D89EF]'} />
+            </div>
+            <h3 class="text-sm md:text-base font-bold text-white mb-1.5 leading-snug">
+              {pillar.title}
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              {pillar.subtitle}
             </p>
-
-            <div class="pillar-specs-box">
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-gold" />
-                <span>Virgin Japanese AISI 316 Steel with 2.5% Molybdenum</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-gold" />
-                <span>400+ kgf tensile breaking strength per cable</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-gold" />
-                <span>6063-T6 powder-coated structural aluminium track</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-gold" />
-                <span>15-Year Direct Written Guarantee</span>
-              </div>
-            </div>
-
-            <div class="pillar-sublinks">
-              <span class="sublinks-label">Available Applications:</span>
-              <div class="sublinks-cluster">
-                <a href="/invisible-grills/">Balcony Grills</a>
-                <span class="dot">·</span>
-                <a href="/window-invisible-grills/">Window Grills</a>
-                <span class="dot">·</span>
-                <a href="/staircase-invisible-grills/">Staircase Grills</a>
-                <span class="dot">·</span>
-                <a href="/child-safety-invisible-grills/">50mm Spacing</a>
-              </div>
-            </div>
-
-            <div class="pillar-action-row">
-              <a href="/invisible-grills/" class="btn-pillar-primary">
-                <span>Explore Invisible Grills</span>
-                <ArrowRight size={14} />
-              </a>
-              <a
-                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20quote%20for%20SS316%20Invisible%20Grills.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-pillar-whatsapp"
-                aria-label="WhatsApp Quote for Invisible Grills"
-              >
-                <MessageCircle size={16} />
-                <span>Quote</span>
-              </a>
-            </div>
           </div>
-        </div>
-
-        <!-- Pillar 2: Balcony & Anti-Pigeon Safety Nets -->
-        <div class="pillar-card">
-          <div class="pillar-media-frame">
-            <picture>
-              <source srcset="/images/safety-net-balcony.webp" type="image/webp" />
-              <img
-                src="/images/safety-net-balcony.jpg"
-                alt="High-Rise Balcony Safety Nets and Anti-Pigeon Solutions"
-                class="pillar-image"
-                loading="lazy"
-                width="600"
-                height="400"
-              />
-            </picture>
-            <span class="pillar-badge badge-blue">PILLAR 2: CERTIFIED HDPE</span>
-          </div>
-
-          <div class="pillar-body">
-            <h3 class="pillar-title">Balcony &amp; Anti-Pigeon Safety Nets</h3>
-            <p class="pillar-desc">
-              100% Virgin Garware high-density polyethylene netting and stainless steel spikes delivering complete child safety and humane pigeon exclusion without trapping birds.
-            </p>
-
-            <div class="pillar-specs-box">
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-blue" />
-                <span>100% Virgin Garware HDPE polymer with UV stabilization</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-blue" />
-                <span>Translucent monofilament preserves daylight &amp; breezes</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-blue" />
-                <span>Zero bird droppings, respiratory allergens, or pigeon roosts</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-blue" />
-                <span>5-Year Weatherproof Durability Guarantee</span>
-              </div>
-            </div>
-
-            <div class="pillar-sublinks">
-              <span class="sublinks-label">Available Applications:</span>
-              <div class="sublinks-cluster">
-                <a href="/safety-nets/">Balcony Nets</a>
-                <span class="dot">·</span>
-                <a href="/pigeon-nets/">Pigeon Deterrence</a>
-                <span class="dot">·</span>
-                <a href="/bird-spikes/">SS304 Spikes</a>
-                <span class="dot">·</span>
-                <a href="/child-safety-nets/">Child Fall Nets</a>
-              </div>
-            </div>
-
-            <div class="pillar-action-row">
-              <a href="/safety-nets/" class="btn-pillar-primary">
-                <span>Explore Safety Nets</span>
-                <ArrowRight size={14} />
-              </a>
-              <a
-                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20quote%20for%20Safety%20Nets.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-pillar-whatsapp"
-                aria-label="WhatsApp Quote for Safety Nets"
-              >
-                <MessageCircle size={16} />
-                <span>Quote</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pillar 3: Smart Ceiling Cloth Drying Hangers -->
-        <div class="pillar-card">
-          <div class="pillar-media-frame">
-            <img
-              src="/images/cloth-drying-hanger.jpg"
-              alt="Smart Ceiling Mounted Cloth Drying Hangers"
-              class="pillar-image"
-              loading="lazy"
-              width="600"
-              height="400"
-            />
-            <span class="pillar-badge badge-peach">PILLAR 3: SPACE RECLAMATION</span>
-          </div>
-
-          <div class="pillar-body">
-            <h3 class="pillar-title">Smart Ceiling Cloth Drying Hangers</h3>
-            <p class="pillar-desc">
-              Individual pull-down stainless steel ceiling drying pipes engineered with smooth dual nylon pulleys that reclaim 100% usable balcony and utility floor space.
-            </p>
-
-            <div class="pillar-specs-box">
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-peach" />
-                <span>100% Rust-proof heavy-gauge stainless steel tubes</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-peach" />
-                <span>Dual nylon pulley mechanism with high-tensile cords</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-peach" />
-                <span>5 kg wet weight capacity per individual pipe (up to 30 kg)</span>
-              </div>
-              <div class="spec-bullet">
-                <CheckCircle2 size={16} className="bullet-icon text-peach" />
-                <span>3-Year Mechanical Smooth-Glide Guarantee</span>
-              </div>
-            </div>
-
-            <div class="pillar-sublinks">
-              <span class="sublinks-label">Available Applications:</span>
-              <div class="sublinks-cluster">
-                <a href="/cloth-drying-hangers/">Ceiling Pull-Down Racks</a>
-                <span class="dot">·</span>
-                <a href="/cloth-drying-hangers/#utility">Balcony Utility Spaces</a>
-              </div>
-            </div>
-
-            <div class="pillar-action-row">
-              <a href="/cloth-drying-hangers/" class="btn-pillar-primary">
-                <span>Explore Cloth Hangers</span>
-                <ArrowRight size={14} />
-              </a>
-              <a
-                href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20Ceiling%20Cloth%20Drying%20Hangers.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-pillar-whatsapp"
-                aria-label="WhatsApp Quote for Cloth Drying Hangers"
-              >
-                <MessageCircle size={16} />
-                <span>Quote</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -334,53 +405,65 @@ const metroCities = [
   <!-- =========================================================================
        SECTION 3: INTERACTIVE 3D BALCONY VISUALIZER & LIVE COST ESTIMATOR
        ========================================================================= -->
-  <section class="section-interactive" id="interactive-planner">
+  <section class="section-interactive bg-[#F0F5FA] py-12 md:py-16 border-b border-slate-200" id="interactive-planner">
     <div class="arch-container">
-      <div class="section-title-box">
-        <span class="arch-eyebrow">UNIFIED BALCONY LAB</span>
-        <h2 class="arch-heading">Interactive 3D Visualizer &amp; Dynamic Cost Estimator</h2>
-        <p class="arch-lead">
+      <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#C6A66B] mb-2">
+          UNIFIED BALCONY LAB
+        </span>
+        <h2 class="font-brand text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F233D] tracking-tight leading-tight">
+          Interactive 3D Visualizer &amp; Dynamic Cost Estimator
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base mt-2 leading-relaxed">
           Preview cable pitch and aesthetic integration across realistic high-rise layouts, then calibrate your exact balcony dimensions for an instant sq.ft. quotation.
         </p>
       </div>
 
-      <div class="interactive-split-grid">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
         <!-- Left: 3D Balcony Visualizer Island -->
-        <div class="interactive-tool-card" id="visualize">
-          <div class="tool-card-header">
+        <div class="rounded-3xl bg-white shadow-card border border-slate-100 p-5 md:p-8 flex flex-col justify-between" id="visualize">
+          <div class="flex items-start justify-between gap-3 mb-3">
             <div>
-              <span class="tool-step-badge">STEP 1: PREVIEW AESTHETIC</span>
-              <h3 class="tool-card-title">Interactive 3D Balcony Visualizer</h3>
+              <span class="inline-block text-[11px] font-bold text-[#C6A66B] uppercase tracking-wider mb-1">
+                STEP 1: PREVIEW AESTHETIC
+              </span>
+              <h3 class="text-lg md:text-xl font-bold text-[#0F233D]">
+                Interactive 3D Balcony Visualizer
+              </h3>
             </div>
-            <div class="tool-live-pill">
-              <Sparkles size={14} />
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F5FA] border border-[#2D89EF]/20 text-xs font-bold text-[#2D89EF] shrink-0">
+              <Sparkles size={13} />
               <span>Interactive Space View</span>
             </div>
           </div>
-          <p class="tool-card-caption">
+          <p class="text-xs md:text-sm text-slate-500 mb-4 leading-relaxed">
             Simulate 50mm child-safe vs. 75mm panoramic cable pitch across daylight, twilight, and architectural balcony layouts.
           </p>
-          <div class="tool-island-wrapper">
+          <div class="w-full">
             <VisualizerIsland client:visible />
           </div>
         </div>
 
         <!-- Right: Dynamic Cost & Sq.Ft. Estimator -->
-        <div class="interactive-tool-card" id="estimate">
-          <div class="tool-card-header">
+        <div class="rounded-3xl bg-white shadow-card border border-slate-100 p-5 md:p-8 flex flex-col justify-between" id="estimate">
+          <div class="flex items-start justify-between gap-3 mb-3">
             <div>
-              <span class="tool-step-badge">STEP 2: INSTANT CALIBRATION</span>
-              <h3 class="tool-card-title">Dynamic Sq.Ft. Cost Estimator</h3>
+              <span class="inline-block text-[11px] font-bold text-[#2D89EF] uppercase tracking-wider mb-1">
+                STEP 2: INSTANT CALIBRATION
+              </span>
+              <h3 class="text-lg md:text-xl font-bold text-[#0F233D]">
+                Dynamic Sq.Ft. Cost Estimator
+              </h3>
             </div>
-            <div class="tool-live-pill">
-              <Ruler size={14} />
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDF6EE] border border-[#C6A66B]/30 text-xs font-bold text-[#C6A66B] shrink-0">
+              <Ruler size={13} />
               <span>Live Quote Engine</span>
             </div>
           </div>
-          <p class="tool-card-caption">
+          <p class="text-xs md:text-sm text-slate-500 mb-4 leading-relaxed">
             Select product type, approximate balcony dimensions, and city for an instant custom quote sent directly to WhatsApp.
           </p>
-          <div class="tool-island-wrapper">
+          <div class="w-full">
             <CostEstimator client:visible />
           </div>
         </div>
@@ -547,6 +630,155 @@ const metroCities = [
   </section>
 
   <!-- =========================================================================
+       SECTION 4B: RECENT INSTALLATIONS SHOWCASE
+       ========================================================================= -->
+  <section class="section-installations bg-white py-12 md:py-16 border-b border-slate-200" id="installations">
+    <div class="arch-container">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-4">
+        <div>
+          <span class="arch-eyebrow">VERIFIED ARCHITECTURAL SHOWCASE</span>
+          <h2 class="arch-heading">Recent High-Rise Installations</h2>
+          <p class="arch-lead text-slate-600 max-w-2xl mt-2">
+            Real photos from verified installations in premier gated towers across South India.
+          </p>
+        </div>
+        <div class="hidden md:block shrink-0">
+          <a
+            href="/gallery/"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F233D] hover:bg-[#1A365D] text-white text-sm font-bold shadow-sm transition-all hover:gap-3"
+          >
+            <span>View Full Project Gallery</span>
+            <ArrowRight size={14} className="text-[#C6A66B]" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo-first horizontal scroll (mobile) / 4-column grid (desktop) with zero text overlays -->
+      <div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-4 md:gap-6 md:pb-0">
+        {recentInstallations.map((proj) => (
+          <div class="snap-start shrink-0 w-[270px] sm:w-[290px] md:w-auto rounded-2xl bg-white shadow-card hover:shadow-hover border border-slate-100 overflow-hidden transition-all duration-300 group">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+              <img
+                src={proj.image}
+                alt={proj.alt}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                loading="lazy"
+                decoding="async"
+                width={proj.width}
+                height={proj.height}
+              />
+            </div>
+            <div class="p-4 bg-white border-t border-slate-50">
+              <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#2D89EF] mb-1">
+                {proj.floor}
+              </span>
+              <h3 class="text-sm md:text-base font-bold text-[#0F233D] truncate group-hover:text-[#2D89EF] transition-colors">
+                {proj.title}
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5 truncate">
+                {proj.city}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-5 text-center md:hidden">
+        <a
+          href="/gallery/"
+          class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white border border-slate-200 text-sm font-bold text-[#0F233D] shadow-xs active:bg-slate-50"
+        >
+          <span>Explore All Verified Projects</span>
+          <ArrowRight size={14} className="text-[#2D89EF]" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4C: TESTIMONIALS & FINAL CONSULTATION BANNER
+       ========================================================================= -->
+  <section class="section-testimonials bg-[#FAFCFE] py-12 md:py-16 border-b border-slate-200" id="testimonials">
+    <div class="arch-container">
+      <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#C6A66B] mb-2">
+          CLIENT ENDORSEMENTS
+        </span>
+        <h2 class="font-brand text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F233D] tracking-tight leading-tight">
+          Trusted by 15,000+ South Indian Families
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base mt-2 leading-relaxed">
+          Read verified feedback from architects, doctors, and residents living in South India's high-rise communities.
+        </p>
+      </div>
+
+      <!-- 3 Clean Review Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
+        {verifiedReviews.map((rev) => (
+          <div class="rounded-2xl bg-white border border-slate-100 shadow-card p-6 flex flex-col justify-between hover:shadow-hover transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-1 text-[#C6A66B]">
+                  {[...Array(rev.rating)].map(() => (
+                    <Star size={15} fill="#C6A66B" stroke="none" />
+                  ))}
+                </div>
+                <span class="text-[10px] font-bold text-[#2D89EF] bg-[#F0F5FA] px-2 py-0.5 rounded-full border border-[#2D89EF]/15">
+                  {rev.tag}
+                </span>
+              </div>
+              <blockquote class="text-xs md:text-sm text-slate-700 leading-relaxed italic mb-4">
+                "{rev.quote}"
+              </blockquote>
+            </div>
+            <div class="pt-3 border-t border-slate-100">
+              <span class="block text-sm font-bold text-[#0F233D]">
+                {rev.author}
+              </span>
+              <span class="block text-xs text-slate-500">
+                {rev.role} • {rev.society}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bright Final Consultation Banner -->
+      <div class="rounded-3xl bg-gradient-to-r from-[#0F233D] via-[#1A365D] to-[#0F233D] text-white p-6 sm:p-8 md:p-10 shadow-card text-center relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#C6A66B] mb-2">
+            FREE DOORSTEP INSPECTION
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+            Let's Make Your Home Safer Today!
+          </h3>
+          <p class="text-sm md:text-base text-slate-200 mb-6 leading-relaxed">
+            Get free doorstep laser measurements, authentic SS316 wire samples demonstration, and a transparent written quote.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a
+              href="#contact-booking"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0F233D] hover:bg-slate-100 font-bold text-sm shadow-md transition-all active:scale-[0.98]"
+            >
+              <span>Book Free Site Visit</span>
+              <ArrowRight size={15} className="text-[#C6A66B]" />
+            </a>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20schedule%20a%20free%20doorstep%20inspection%20and%20quotation.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98]"
+            >
+              <MessageCircle size={16} />
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        SECTION 5: SERVICE CITIES & LOCAL COVERAGE HUB
        ========================================================================= -->
   <section class="section-locations" id="service-locations">
@@ -555,7 +787,7 @@ const metroCities = [
         <span class="arch-eyebrow">SOUTH INDIA METRO HUBS</span>
         <h2 class="arch-heading">Service Cities &amp; Local Coverage Hub</h2>
         <p class="arch-lead">
-          Our certified in-house technician fleets deliver same-day doorstep laser measurements, physical cable demonstrations, and prompt installation across 6 major metropolitan regions.
+          Our certified in-house technician fleets deliver same-day doorstep laser measurements, physical cable demonstrations, and prompt installation across 7 major metropolitan regions.
         </p>
       </div>
 
@@ -619,6 +851,7 @@ const metroCities = [
   <!-- =========================================================================
        SECTION 6: STREAMLINED CONTACT & FREE INSPECTION BOOKING
        ========================================================================= -->
+  <div id="contact" class="scroll-mt-24"></div>
   <section class="section-booking" id="contact-booking">
     <div class="arch-container">
       <div class="booking-card-main">
@@ -766,243 +999,20 @@ const metroCities = [
   }
 
   /* =========================================================================
-     SECTION 2: CORE 3-PILLAR SERVICE SHOWCASE
+     SECTION 2: CERTIFIED 6-SERVICE PHOTO-FIRST SHOWCASE
      ========================================================================= */
   .section-showcase {
-    background-color: #F4F9FD;
-    padding: clamp(4rem, 7vw, 6rem) 0;
+    background-color: #FAFCFE;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     border-bottom: 1px solid #E2E8F0;
-  }
-
-  .pillars-showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .pillar-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px -2px rgba(26, 54, 93, 0.06), 0 2px 6px -1px rgba(26, 54, 93, 0.04);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .pillar-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px -4px rgba(26, 54, 93, 0.12), 0 6px 12px -2px rgba(26, 54, 93, 0.06);
-    border-color: #CBD5E1;
-  }
-
-  .pillar-media-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background-color: #E2E8F0;
-  }
-
-  .pillar-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.35s ease;
-  }
-
-  .pillar-card:hover .pillar-image {
-    transform: scale(1.035);
-  }
-
-  .pillar-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    padding: 6px 12px;
-    border-radius: 9999px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(15, 35, 61, 0.15);
-  }
-
-  .badge-gold {
-    background: rgba(253, 246, 238, 0.95);
-    color: #9A7738;
-    border: 1px solid #F3E5D0;
-  }
-
-  .badge-blue {
-    background: rgba(235, 244, 250, 0.95);
-    color: #0284C7;
-    border: 1px solid #BAE6FD;
-  }
-
-  .badge-peach {
-    background: rgba(254, 242, 242, 0.95);
-    color: #D97706;
-    border: 1px solid #FED7AA;
-  }
-
-  .pillar-body {
-    padding: 1.75rem 1.5rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .pillar-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1A365D;
-    line-height: 1.3;
-    margin: 0 0 0.65rem 0;
-  }
-
-  .pillar-desc {
-    font-size: 0.88rem;
-    color: #475569;
-    line-height: 1.55;
-    margin: 0 0 1.25rem 0;
-  }
-
-  .pillar-specs-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    padding: 1rem;
-    background: #F8FAFC;
-    border: 1px solid #F1F5F9;
-    border-radius: 12px;
-    margin-bottom: 1.25rem;
-  }
-
-  .spec-bullet {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.55rem;
-    font-size: 0.82rem;
-    color: #334155;
-    line-height: 1.4;
-  }
-
-  .bullet-icon {
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .text-gold {
-    color: #C6A66B;
-  }
-
-  .text-blue {
-    color: #0284C7;
-  }
-
-  .text-peach {
-    color: #D97706;
-  }
-
-  .pillar-sublinks {
-    margin-bottom: 1.5rem;
-  }
-
-  .sublinks-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: #64748B;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    display: block;
-    margin-bottom: 0.35rem;
-  }
-
-  .sublinks-cluster {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 0.82rem;
-  }
-
-  .sublinks-cluster a {
-    color: #1A365D;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.15s ease;
-  }
-
-  .sublinks-cluster a:hover {
-    color: #C6A66B;
-  }
-
-  .sublinks-cluster .dot {
-    color: #CBD5E1;
-  }
-
-  .pillar-action-row {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .btn-pillar-primary {
-    flex: 1;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background: #1A365D;
-    color: #FFFFFF !important;
-    border-radius: 10px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .btn-pillar-primary:hover {
-    background: #0F233D;
-    transform: translateY(-1px);
-  }
-
-  .btn-pillar-whatsapp {
-    min-height: 44px;
-    padding: 0 14px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: #EBF7EE;
-    color: #16A34A !important;
-    border: 1px solid #BBF7D0;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .btn-pillar-whatsapp:hover {
-    background: #16A34A;
-    color: #FFFFFF !important;
-    border-color: #16A34A;
   }
 
   /* =========================================================================
      SECTION 3: INTERACTIVE 3D BALCONY VISUALIZER & COST ESTIMATOR
      ========================================================================= */
   .section-interactive {
-    background-color: #FFFFFF;
-    padding: clamp(4rem, 7vw, 6rem) 0;
+    background-color: #F0F5FA;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     border-bottom: 1px solid #E2E8F0;
   }
 
@@ -1685,11 +1695,6 @@ const metroCities = [
      RESPONSIVE BREAKPOINTS
      ========================================================================= */
   @media (max-width: 1024px) {
-    .pillars-showcase-grid {
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-
     .interactive-split-grid {
       grid-template-columns: 1fr;
     }
