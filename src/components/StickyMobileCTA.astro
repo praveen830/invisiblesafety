@@ -3,44 +3,309 @@ import { business } from '../data/business';
 import { Phone, MessageCircle, Calendar } from 'lucide-react';
 ---
 
-<aside class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg px-3 py-2.5 pb-safe" aria-label="Direct Quick Contact">
-  <div class="flex items-center justify-between gap-2 max-w-md mx-auto">
-    <!-- 1. Free Visit (Deep Royal Navy #0F233D -> scrolls to #contact-booking) -->
-    <a
-      href="#contact-booking"
-      class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-2.5 py-2 rounded-full bg-[#0F233D] hover:bg-[#1E3A5F] text-white text-xs font-bold shadow-xs active:scale-[0.98] transition-all text-center"
-      aria-label="Book Free Site Visit"
-    >
-      <Calendar size={14} className="text-[#C6A66B] shrink-0" />
-      <span class="whitespace-nowrap">Free Visit</span>
-    </a>
+<!-- =========================================================================
+     FIXED VIEWPORT-LEVEL CONTACT ACTIONS
+     Always visible while scrolling across the entire website
+     1. Desktop (≥768px): Floating Luxury Pill Dock anchored bottom-right
+     2. Mobile (<768px): Full-Width Fixed Bottom Bar with min-48px touch targets
+     ========================================================================= -->
 
-    <!-- 2. WhatsApp (Vibrant Green #25D366 -> pre-filled WhatsApp link) -->
-    <a
-      href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20an%20instant%20quote%20and%20free%20site%20inspection.`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-2.5 py-2 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs font-bold shadow-xs active:scale-[0.98] transition-all text-center"
-      aria-label="WhatsApp Invisible Safety"
-    >
-      <MessageCircle size={15} className="text-white shrink-0" />
-      <span class="whitespace-nowrap">WhatsApp</span>
-    </a>
+<!-- DESKTOP FLOATING DOCK (≥768px) -->
+<aside
+  id="desktop-floating-contact"
+  class="desktop-floating-dock"
+  role="region"
+  aria-label="Fixed Direct Contact Actions"
+>
+  <!-- 1. Call Now -->
+  <a
+    href={`tel:${business.phoneRaw}`}
+    class="dock-btn dock-btn-call"
+    aria-label={`Call Invisible Safety at ${business.phone}`}
+  >
+    <span class="dock-pulse-dot"></span>
+    <Phone size={15} className="dock-icon-gold" />
+    <span>Call Now</span>
+  </a>
 
-    <!-- 3. Call (Deep Royal Navy #0F233D -> tel) -->
+  <!-- 2. WhatsApp -->
+  <a
+    href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20free%20site%20visit%20and%20quote.`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="dock-btn dock-btn-whatsapp"
+    aria-label="Chat with Invisible Safety on WhatsApp"
+  >
+    <MessageCircle size={16} className="dock-icon-white" />
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- 3. Free Visit & Survey -->
+  <a
+    href="#contact-booking"
+    class="dock-btn dock-btn-survey fixed-free-visit-link"
+    aria-label="Book Free Site Visit & Survey"
+  >
+    <Calendar size={15} className="dock-icon-blue" />
+    <span>Free Visit &amp; Survey</span>
+  </a>
+</aside>
+
+<!-- MOBILE FIXED BOTTOM CONTACT BAR (<768px) -->
+<aside
+  id="mobile-fixed-contact-bar"
+  class="mobile-fixed-contact-bar"
+  role="region"
+  aria-label="Mobile Quick Contact Actions"
+>
+  <div class="mobile-bar-container">
+    <!-- 1. Call Now (Min 48px touch target) -->
     <a
       href={`tel:${business.phoneRaw}`}
-      class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-2.5 py-2 rounded-full bg-[#0F233D] hover:bg-[#1E3A5F] text-white text-xs font-bold shadow-xs active:scale-[0.98] transition-all text-center"
-      aria-label={`Call Invisible Safety at ${business.phone}`}
+      class="mobile-bar-btn mobile-bar-btn-call"
+      aria-label={`Call ${business.phone}`}
     >
-      <Phone size={14} className="text-[#C6A66B] shrink-0" />
-      <span class="whitespace-nowrap">Call</span>
+      <Phone size={16} className="dock-icon-gold" />
+      <span>Call Now</span>
+    </a>
+
+    <!-- 2. WhatsApp (Min 48px touch target) -->
+    <a
+      href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20a%20free%20site%20visit%20and%20quote.`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-bar-btn mobile-bar-btn-whatsapp"
+      aria-label="WhatsApp Invisible Safety"
+    >
+      <MessageCircle size={17} className="dock-icon-white" />
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- 3. Free Visit & Survey (Min 48px touch target) -->
+    <a
+      href="#contact-booking"
+      class="mobile-bar-btn mobile-bar-btn-survey fixed-free-visit-link"
+      aria-label="Book Free Site Visit & Survey"
+    >
+      <Calendar size={16} className="dock-icon-blue" />
+      <span>Free Visit</span>
     </a>
   </div>
 </aside>
 
-<style>
-  .pb-safe {
+<script is:inline>
+  (function() {
+    function updateFreeVisitTargets() {
+      var isHome = window.location.pathname === '/' || window.location.pathname === '';
+      var targetHref = isHome ? '#contact-booking' : '/contact/#quote';
+      var links = document.querySelectorAll('.fixed-free-visit-link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].setAttribute('href', targetHref);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateFreeVisitTargets);
+    } else {
+      updateFreeVisitTargets();
+    }
+  })();
+</script>
+
+<style is:global>
+  /* =========================================================================
+     DESKTOP FLOATING DOCK (≥768px)
+     ========================================================================= */
+  .desktop-floating-dock {
+    display: none !important;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-floating-dock {
+      display: flex !important;
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 28px !important;
+      z-index: 9999 !important;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 9999px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      box-shadow: 0 12px 36px rgba(15, 35, 61, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .desktop-floating-dock:hover {
+      box-shadow: 0 16px 44px rgba(15, 35, 61, 0.24);
+      transform: translateY(-2px);
+    }
+  }
+
+  .dock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 9999px;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  }
+
+  .dock-btn:active {
+    transform: scale(0.97);
+  }
+
+  .dock-btn-call {
+    background: #0F233D;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(15, 35, 61, 0.2);
+  }
+  .dock-btn-call:hover {
+    background: #1A365D;
+  }
+
+  .dock-btn-whatsapp {
+    background: #25D366;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+  }
+  .dock-btn-whatsapp:hover {
+    background: #20BA5A;
+  }
+
+  .dock-btn-survey {
+    background: #F0F5FA;
+    color: #0F233D !important;
+    border: 1px solid rgba(45, 137, 239, 0.35);
+    box-shadow: 0 1px 3px rgba(15, 35, 61, 0.05);
+  }
+  .dock-btn-survey:hover {
+    background: #E2ECF7;
+  }
+
+  .dock-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #25D366;
+    display: inline-block;
+    animation: dockPulse 2s infinite;
+  }
+
+  @keyframes dockPulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  .dock-icon-gold {
+    color: #C6A66B;
+    flex-shrink: 0;
+  }
+  .dock-icon-white {
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .dock-icon-blue {
+    color: #2D89EF;
+    flex-shrink: 0;
+  }
+
+  /* =========================================================================
+     MOBILE FIXED BOTTOM CONTACT BAR (<768px)
+     ========================================================================= */
+  .mobile-fixed-contact-bar {
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid #E2E8F0;
+    box-shadow: 0 -4px 20px rgba(15, 35, 61, 0.12);
+    padding: 8px 10px;
     padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-fixed-contact-bar {
+      display: none !important;
+    }
+  }
+
+  .mobile-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobile-bar-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 48px;
+    padding: 6px 8px;
+    border-radius: 12px;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: transform 0.1s ease, background 0.15s ease;
+  }
+
+  .mobile-bar-btn:active {
+    transform: scale(0.97);
+  }
+
+  .mobile-bar-btn-call {
+    background: #0F233D;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(15, 35, 61, 0.15);
+  }
+  .mobile-bar-btn-call:active {
+    background: #1A365D;
+  }
+
+  .mobile-bar-btn-whatsapp {
+    background: #25D366;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
+  }
+  .mobile-bar-btn-whatsapp:active {
+    background: #20BA5A;
+  }
+
+  .mobile-bar-btn-survey {
+    background: #F0F5FA;
+    color: #0F233D !important;
+    border: 1px solid rgba(45, 137, 239, 0.35);
+    box-shadow: 0 1px 3px rgba(15, 35, 61, 0.05);
+  }
+  .mobile-bar-btn-survey:active {
+    background: #E2ECF7;
   }
 </style>

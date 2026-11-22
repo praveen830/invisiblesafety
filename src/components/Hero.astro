@@ -1,20 +1,20 @@
 ---
 import { business } from '../data/business';
-import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucide-react';
+import { Phone, MessageCircle, ShieldCheck, Eye, Compass, ArrowRight, CheckCircle2 } from 'lucide-react';
 ---
 
-<section class="arch-hero-section relative bg-gradient-to-b from-[#F0F5FA] via-white to-white md:py-12 lg:py-16 overflow-hidden">
-  <div class="hero-inner-container max-w-7xl mx-auto px-0 md:px-6 lg:px-8">
-    <div class="flex flex-col md:grid md:grid-cols-2 md:gap-8 lg:gap-14 md:items-center">
+<section class="arch-hero-section">
+  <div class="hero-container">
+    <div class="hero-layout-grid">
 
       <!-- =========================================================================
            PHOTO BLOCK:
            Mobile (<768px): Top Photo Block, strictly 4:5, 100% unobstructed, zero text
-           Desktop (≥768px): Right Column (order-2), cleanly framed with full clarity
+           Desktop (≥768px): Right Column, full height, zero blank space
            ========================================================================= -->
-      <div class="hero-media-col order-1 md:order-2 w-full">
-        <div class="hero-photo-frame relative w-full aspect-[4/5] md:aspect-[4/3] lg:aspect-[16/11] overflow-hidden md:rounded-3xl md:shadow-card md:border md:border-slate-200/80">
-          <picture class="block w-full h-full">
+      <div class="hero-media-col">
+        <div class="hero-photo-frame">
+          <picture class="hero-picture">
             <source
               media="(min-width: 768px)"
               srcset="/images/hero-balcony.webp"
@@ -32,7 +32,7 @@ import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucid
             <img
               src="/images/hero-balcony.webp"
               alt="High-rise apartment balcony protected with SS316 invisible safety grills"
-              class="hero-img w-full h-full object-cover object-center"
+              class="hero-img"
               loading="eager"
               fetchpriority="high"
               decoding="async"
@@ -46,117 +46,121 @@ import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucid
       <!-- =========================================================================
            CONTENT / CONVERSION COLUMN:
            Mobile (<768px): Elevated Conversion Card directly below photo (-mt-6 z-10)
-           Desktop (≥768px): Left Column (order-1), architectural high-trust showcase
+           Desktop (≥768px): Left Column, architectural high-trust showcase
            ========================================================================= -->
-      <div class="hero-content-col order-2 md:order-1 w-full">
-        <div class="hero-conversion-card relative z-10 -mt-6 mx-3.5 p-5 md:mt-0 md:mx-0 md:p-0 bg-gradient-to-b from-[#F0F5FA] to-white md:bg-transparent rounded-3xl md:rounded-none shadow-card md:shadow-none border border-slate-100/90 md:border-0">
+      <div class="hero-content-col">
+        <div class="hero-card">
 
           <!-- Architectural Eyebrow Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200/80 text-[11px] font-bold text-[#0F233D] mb-3 shadow-2xs">
-            <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+          <div class="hero-eyebrow">
+            <span class="pulse-dot"></span>
             <span>South India's Architectural Safety Specialist</span>
           </div>
 
           <!-- Single Authoritative SEO H1 -->
-          <h1 class="font-brand text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-[#0F233D] tracking-tight leading-[1.18] mb-2 md:mb-4">
-            Invisible Grills &amp; Safety Nets<span class="hidden md:inline"> for a Safer, Happier Home</span>
+          <h1 class="hero-title">
+            Invisible Grills &amp; Safety Nets
+            <span class="hero-title-sub">
+              Engineered for Modern Balconies &amp; High-Rise Living
+            </span>
           </h1>
 
           <!-- Value Proposition & Subtitle -->
-          <p class="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed mb-4 md:mb-6">
-            <span class="font-bold text-[#0F233D] block md:inline">Safety. Style. Peace of Mind.</span>
-            <span class="text-slate-500 hidden md:inline"> — Preserve 98% panoramic daylight and balcony vistas while safeguarding your loved ones with 400+ kg tensile SS316 marine-grade cables and certified polymer safety nets.</span>
+          <p class="hero-description">
+            <strong class="hero-tagline">Safety. Style. Peace of Mind.</strong>
+            <span class="hero-desc-extended"> — Protect your loved ones without compromising panoramic skyline views. Precision-installed SS316 marine-grade invisible safety grills and certified safety netting tailored for modern apartments, villas, and high-rise balconies across South India.</span>
           </p>
 
-          <!-- =====================================================================
-               MOBILE TRUST BADGES (<768px):
-               3 compact trust badges in a clean horizontal row
-               ===================================================================== -->
-          <div class="flex items-center justify-between gap-1.5 sm:gap-2 mb-5 md:hidden">
-            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
-              <ShieldCheck size={14} className="text-[#2D89EF] shrink-0" />
-              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">SS316 Grade</span>
+          <!-- MOBILE TRUST BADGES (<768px) -->
+          <div class="hero-mobile-badges">
+            <div class="mobile-badge-item">
+              <ShieldCheck size={14} className="badge-icon-blue" />
+              <span>SS316 Grade</span>
             </div>
-            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
-              <Award size={14} className="text-[#C6A66B] shrink-0" />
-              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">15-Yr Warranty</span>
+            <div class="mobile-badge-item">
+              <Eye size={14} className="badge-icon-blue" />
+              <span>Clear Views</span>
             </div>
-            <div class="flex-1 flex items-center justify-center gap-1.5 py-2 px-1 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
-              <Eye size={14} className="text-[#2D89EF] shrink-0" />
-              <span class="text-[11px] font-bold text-[#0F233D] whitespace-nowrap">100% Clear View</span>
+            <div class="mobile-badge-item">
+              <Compass size={14} className="badge-icon-gold" />
+              <span>Free Survey</span>
             </div>
           </div>
 
-          <!-- =====================================================================
-               DESKTOP TRUST ICONS (≥768px):
-               3 crisp trust icons in the left column
-               ===================================================================== -->
-          <div class="hidden md:grid md:grid-cols-3 gap-3 my-6 py-4 border-y border-slate-200/80">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/20">
+          <!-- DESKTOP TRUST PILLARS (≥768px) -->
+          <div class="hero-desktop-pillars">
+            <div class="pillar-item">
+              <div class="pillar-icon-box box-blue">
                 <ShieldCheck size={20} />
               </div>
-              <div>
-                <span class="block text-sm font-bold text-[#0F233D]">100% Safety</span>
-                <span class="block text-xs text-slate-500">400+ kg breaking load</span>
+              <div class="pillar-text">
+                <span class="pillar-title">SS316 Marine</span>
+                <span class="pillar-sub">Marine-grade cables</span>
               </div>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#FDF6EE] flex items-center justify-center text-[#C6A66B] shrink-0 border border-[#C6A66B]/30">
-                <Award size={20} />
-              </div>
-              <div>
-                <span class="block text-sm font-bold text-[#0F233D]">SS316 Marine</span>
-                <span class="block text-xs text-slate-500">Virgin Japanese steel</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/20">
+            <div class="pillar-item">
+              <div class="pillar-icon-box box-blue">
                 <Eye size={20} />
               </div>
-              <div>
-                <span class="block text-sm font-bold text-[#0F233D]">Clear View</span>
-                <span class="block text-xs text-slate-500">98% daylight clarity</span>
+              <div class="pillar-text">
+                <span class="pillar-title">Clear View</span>
+                <span class="pillar-sub">Daylight preservation</span>
+              </div>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-icon-box box-gold">
+                <Compass size={20} />
+              </div>
+              <div class="pillar-text">
+                <span class="pillar-title">Free Survey</span>
+                <span class="pillar-sub">Doorstep laser sizing</span>
               </div>
             </div>
           </div>
 
-          <!-- =====================================================================
-               SIDE-BY-SIDE PILL CTA BUTTONS (min-h-[48px])
-               ===================================================================== -->
-          <div class="grid grid-cols-2 gap-3 sm:flex sm:items-center sm:gap-4 mb-3">
-            <!-- Call Now CTA -->
+          <!-- CTA BUTTONS (min-h-[48px]) -->
+          <div class="hero-cta-group">
             <a
               href={`tel:${business.phoneRaw}`}
-              class="btn-hero-call flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-full bg-[#0F233D] hover:bg-[#1A365D] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
+              class="hero-btn hero-btn-call"
               aria-label={`Call Now at ${business.phone}`}
             >
-              <Phone size={16} className="text-[#C6A66B] shrink-0" />
+              <Phone size={16} className="btn-icon-gold" />
               <span>Call Now</span>
             </a>
 
-            <!-- WhatsApp CTA -->
             <a
               href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20interested%20in%20an%20instant%20quote%20for%20balcony%20invisible%20grills%20%26%20safety%20nets.`}
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-hero-whatsapp flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
+              class="hero-btn hero-btn-whatsapp"
               aria-label="Chat on WhatsApp"
             >
-              <MessageCircle size={17} className="text-white shrink-0" />
-              <span class="md:hidden">WhatsApp</span>
-              <span class="hidden md:inline">Chat on WhatsApp</span>
+              <MessageCircle size={17} className="btn-icon-white" />
+              <span class="label-mobile">WhatsApp</span>
+              <span class="label-desktop">Chat on WhatsApp</span>
             </a>
           </div>
 
-          <!-- Quick Jump Link to Estimator -->
-          <div class="pt-2 text-center md:text-left">
-            <a href="#interactive-planner" class="inline-flex items-center gap-1.5 text-xs md:text-sm font-semibold text-slate-500 hover:text-[#0F233D] transition-colors">
+          <!-- Jump Link & Assurance -->
+          <div class="hero-secondary-row">
+            <a href="#interactive-planner" class="hero-planner-link">
               <span>Calculate Cost &amp; Preview 3D Balcony</span>
-              <ArrowRight size={13} className="text-[#C6A66B]" />
+              <ArrowRight size={13} className="planner-arrow" />
             </a>
+          </div>
+
+          <div class="hero-assurance-bar">
+            <span class="assurance-item">
+              <CheckCircle2 size={13} className="check-icon" />
+              Complimentary Doorstep Survey
+            </span>
+            <span class="assurance-dot">·</span>
+            <span>Zero Obligation Quote</span>
+            <span class="assurance-dot">·</span>
+            <span>South India Wide Support</span>
           </div>
 
         </div>
@@ -167,12 +171,119 @@ import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucid
 </section>
 
 <style>
-  /* Ensure smooth transition and prevent any CLS */
   .arch-hero-section {
-    contain: layout paint;
+    position: relative;
+    background: linear-gradient(180deg, #F0F5FA 0%, #FFFFFF 50%, #FFFFFF 100%);
+    overflow: hidden;
+    padding: 0 0 32px 0;
   }
 
+  @media (min-width: 768px) {
+    .arch-hero-section {
+      padding: 40px 0 56px 0;
+    }
+  }
+
+  .hero-container {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .hero-container {
+      padding: 0 24px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-container {
+      padding: 0 40px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-container {
+      padding: 0 48px;
+    }
+  }
+
+  .hero-layout-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .hero-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-layout-grid {
+      grid-template-columns: 1.08fr 1fr;
+      gap: 48px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-layout-grid {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 56px;
+    }
+  }
+
+  /* MEDIA COLUMN (Mobile order-1, Desktop order-2) */
+  .hero-media-col {
+    order: 1;
+    width: 100%;
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    .hero-media-col {
+      order: 2;
+      align-items: stretch;
+    }
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #E2E8F0;
+  }
+
+  @media (min-width: 768px) {
+    .hero-photo-frame {
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 480px;
+      border-radius: 24px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero-photo-frame {
+      min-height: 560px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .hero-photo-frame {
+      min-height: 620px;
+    }
+  }
+
+  .hero-picture,
   .hero-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -180,10 +291,357 @@ import { Phone, MessageCircle, ShieldCheck, Eye, Award, ArrowRight } from 'lucid
     transform: scale(1.02);
   }
 
-  /* Responsive shadow & card refinement */
-  @media (max-width: 767px) {
-    .hero-photo-frame {
-      border-radius: 0 0 1.25rem 1.25rem;
+  /* CONTENT COLUMN (Mobile order-2, Desktop order-1) */
+  .hero-content-col {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-content-col {
+      order: 1;
+      padding: 12px 0;
     }
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 10;
+    margin-top: -24px;
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 20px 18px;
+    background: linear-gradient(180deg, #F0F5FA 0%, #FFFFFF 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(15, 35, 61, 0.08);
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    .hero-card {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0F233D;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(15, 35, 61, 0.04);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #25D366;
+    animation: heroPulse 2s infinite;
+  }
+
+  @keyframes heroPulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', 'Plus Jakarta Sans', serif;
+    font-size: clamp(1.65rem, 3.8vw, 2.85rem);
+    font-weight: 800;
+    color: #0F233D;
+    letter-spacing: -0.025em;
+    line-height: 1.16;
+    margin: 0 0 10px 0;
+  }
+
+  .hero-title-sub {
+    display: block;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: -0.015em;
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  .hero-description {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: clamp(0.88rem, 1.3vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+  }
+
+  .hero-tagline {
+    font-weight: 700;
+    color: #0F233D;
+  }
+
+  .hero-desc-extended {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .hero-desc-extended {
+      display: inline;
+    }
+  }
+
+  /* MOBILE TRUST BADGES */
+  .hero-mobile-badges {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-mobile-badges {
+      display: none;
+    }
+  }
+
+  .mobile-badge-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 4px;
+    background: #FFFFFF;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0F233D;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(15, 35, 61, 0.04);
+  }
+
+  /* DESKTOP TRUST PILLARS */
+  .hero-desktop-pillars {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .hero-desktop-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+      padding: 16px 0;
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pillar-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .box-blue {
+    background: #F0F5FA;
+    color: #2D89EF;
+    border: 1px solid rgba(45, 137, 239, 0.2);
+  }
+
+  .box-gold {
+    background: #FDF6EE;
+    color: #C6A66B;
+    border: 1px solid rgba(198, 166, 107, 0.3);
+  }
+
+  .pillar-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0F233D;
+  }
+
+  .pillar-sub {
+    font-size: 11px;
+    color: #64748B;
+  }
+
+  /* CTA GROUP */
+  .hero-cta-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 9999px;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(15, 35, 61, 0.12);
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+
+  .hero-btn:active {
+    transform: scale(0.98);
+  }
+
+  .hero-btn-call {
+    background: #0F233D;
+    color: #FFFFFF !important;
+  }
+  .hero-btn-call:hover {
+    background: #1A365D;
+  }
+
+  .hero-btn-whatsapp {
+    background: #25D366;
+    color: #FFFFFF !important;
+  }
+  .hero-btn-whatsapp:hover {
+    background: #20BA5A;
+  }
+
+  .btn-icon-gold {
+    color: #C6A66B;
+    flex-shrink: 0;
+  }
+  .btn-icon-white {
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .badge-icon-blue {
+    color: #2D89EF;
+    flex-shrink: 0;
+  }
+  .badge-icon-gold {
+    color: #C6A66B;
+    flex-shrink: 0;
+  }
+
+  .label-desktop {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .label-mobile {
+      display: none;
+    }
+    .label-desktop {
+      display: inline;
+    }
+  }
+
+  /* SECONDARY ROW & ASSURANCE */
+  .hero-secondary-row {
+    padding-top: 8px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-secondary-row {
+      text-align: left;
+    }
+  }
+
+  .hero-planner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .hero-planner-link:hover {
+    color: #0F233D;
+  }
+
+  .planner-arrow {
+    color: #C6A66B;
+  }
+
+  .hero-assurance-bar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .hero-assurance-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+      font-size: 12px;
+      color: #64748B;
+    }
+  }
+
+  .assurance-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .check-icon {
+    color: #25D366;
+  }
+
+  .assurance-dot {
+    color: #CBD5E1;
   }
 </style>

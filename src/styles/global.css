@@ -119,6 +119,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure mobile fixed bottom bar never covers any footer or form elements */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 12px)) !important;
+  }
+}
+
 /* Headings with Relative Viewport Sizing clamp(1.75rem, 4vw, 3rem) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
