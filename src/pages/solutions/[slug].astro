@@ -14,7 +14,8 @@ export function getStaticPaths() {
       heroEyebrow: "SPECIALTY LEISURE & UTILITIES",
       heroTitle: "THE APERTURE COLLECTION",
       heroSubtitle: "High-impact ball containment sports netting and structural utility arrays for residential rooftops, sports turf enclosures, and villas.",
-      heroImage: "/images/sports-nets-twilight.jpg",
+      heroImage: "/images/ai-generated/safety-nets/sports-nets/sports-net-desktop-hero.webp",
+      heroImageMobile: "/images/ai-generated/safety-nets/sports-nets/sports-net-mobile-hero.webp",
       heroImageAlt: "Sports and Cricket Practice Net Installation",
       specs: [
         { label: "Core Composition", value: "High-Tenacity Multi-Strand HDPE", icon: ShieldCheck },
@@ -94,7 +95,8 @@ export function getStaticPaths() {
       heroEyebrow: "ANIMAL & BIRD EXCLUSION",
       heroTitle: "THE WINGED SANCTUARY",
       heroSubtitle: "Zero-visibility humane bird barrier systems and surgical-grade stainless spikes safeguarding residential balconies without blocking skyline views.",
-      heroImage: "/images/category-bird-protection.jpg",
+      heroImage: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp",
+      heroImageMobile: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-mobile-hero.webp",
       heroImageAlt: "Translucent Pigeon Net Installation",
       specs: [
         { label: "Mesh Diameter", value: "0.7mm Translucent UV Monofilament", icon: ShieldCheck },
@@ -254,8 +256,9 @@ export function getStaticPaths() {
       heroEyebrow: "FLAGSHIP ARCHITECTURE",
       heroTitle: "THE INVISIBLE THRESHOLD",
       heroSubtitle: "Virgin SS316 marine-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing 400+ kgf safety.",
-      heroImage: "/images/category-invisible-grills.jpg",
-      heroImageAlt: "Luxury SS316 Invisible Grills on Skyline Balcony",
+      heroImage: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+      heroImageMobile: "/images/ai-generated/architectural/invisible-grills/invisible-grills-mobile-hero.webp",
+      heroImageAlt: "Architectural Invisible Grills on Skyline Balcony",
       specs: [
         { label: "Cable Metallurgy", value: "Virgin Japanese SS316 Marine Grade", icon: ShieldCheck },
         { label: "Tensile Strength", value: "400+ kgf Breaking Load per Cable", icon: Award },
@@ -334,7 +337,8 @@ export function getStaticPaths() {
       heroEyebrow: "RESIDENTIAL PERIMETERS",
       heroTitle: "BOUNDLESS HORIZONS",
       heroSubtitle: "High-density UV-treated virgin polymer safety nets safeguarding living balconies, internal stairwells, and terrace perimeters.",
-      heroImage: "/images/category-child-safety.jpg",
+      heroImage: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp",
+      heroImageMobile: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-mobile-hero.webp",
       heroImageAlt: "High-Rise Balcony Safety Net Installation",
       specs: [
         { label: "Polymer Standard", value: "Virgin UV-Stabilized Monofilament", icon: ShieldCheck },
@@ -446,6 +450,7 @@ const breadcrumbs = getBreadcrumbSchema([
   heroTitle={solution.heroTitle}
   heroSubtitle={solution.heroSubtitle}
   heroImage={solution.heroImage}
+  heroImageMobile={solution.heroImageMobile}
   heroImageAlt={solution.heroImageAlt}
   specs={solution.specs}
   subcategories={solution.subcategories}

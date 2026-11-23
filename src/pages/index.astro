@@ -21,7 +21,8 @@ import {
   Wind,
   Shield,
   Award,
-  Star
+  Star,
+  Target
 } from 'lucide-react';
 
 const localBusinessSchema = getLocalBusinessSchema();
@@ -106,67 +107,78 @@ const metroCities = [
 const coreServices = [
   {
     title: "Invisible Grills",
-    category: "SS316 Marine Grade",
+    category: "High-Rise Safety",
     href: "/invisible-grills/",
-    image: "/images/category-invisible-grills.jpg",
-    alt: "SS316 marine-grade balcony invisible grills with clear skyline view",
-    width: 1376,
-    height: 768,
+    image: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+    alt: "Balcony invisible safety grills with open skyline view",
+    width: 1024,
+    height: 576,
     icon: ShieldCheck,
-    tag: "15-Yr Warranty"
+    tag: "Flagship Safety"
   },
   {
     title: "Balcony Safety Nets",
-    category: "Garware Certified HDPE",
-    href: "/safety-nets/",
-    image: "/images/safety-net-balcony.webp",
-    alt: "Garware high-density polyethylene balcony safety nets for high-rise apartments",
+    category: "Fall Prevention",
+    href: "/balcony-safety/",
+    image: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp",
+    alt: "Balcony fall safety netting installation for high-rise residences",
     width: 1376,
     height: 768,
     icon: Layers,
-    tag: "5-Yr Warranty"
+    tag: "Fall Defense"
   },
   {
     title: "Pigeon Safety Nets",
     category: "Humane Bird Barrier",
     href: "/pigeon-nets/",
-    image: "/images/pigeon-net.webp",
+    image: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp",
     alt: "Translucent anti-pigeon safety nets installed on high-rise residential balcony",
-    width: 1376,
-    height: 768,
+    width: 1024,
+    height: 576,
     icon: Wind,
     tag: "Zero Mess"
   },
   {
     title: "Child Safety Nets",
-    category: "100% Fall Protection",
+    category: "Toddler & Pet Safety",
     href: "/child-safety-nets/",
-    image: "/images/child-safety.webp",
-    alt: "High-tensile child and pet safety nets for balcony and window fall protection",
-    width: 1200,
-    height: 896,
+    image: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-desktop-hero.webp",
+    alt: "High-tensile child safety net installation for balcony fall protection",
+    width: 1672,
+    height: 941,
     icon: ShieldCheck,
     tag: "Child Safe"
+  },
+  {
+    title: "Sports Nets",
+    category: "High-Impact Containment",
+    href: "/sports-nets/",
+    image: "/images/ai-generated/safety-nets/sports-nets/sports-net-desktop-hero.webp",
+    alt: "Sports and cricket practice netting installation on green turf",
+    width: 1024,
+    height: 576,
+    icon: Target,
+    tag: "Impact Tested"
   },
   {
     title: "Ceiling Cloth Hangers",
     category: "Space-Saving Pulley System",
     href: "/cloth-drying-hangers/",
-    image: "/images/cloth-drying-hanger.jpg",
+    image: "/images/ai-generated/architectural/cloth-drying-hangers/cloth-drying-hanger-desktop-hero.webp",
     alt: "Ceiling mounted stainless steel pull-down cloth drying hanger system",
-    width: 1200,
-    height: 896,
+    width: 1024,
+    height: 576,
     icon: CheckCircle2,
-    tag: "100% Rust-Proof"
+    tag: "Space Saving"
   },
   {
     title: "Bird Spikes",
-    category: "SS304 Polycarbonate Base",
+    category: "Ledge Deterrent",
     href: "/bird-spikes/",
-    image: "/images/bird-spikes.jpg",
-    alt: "SS304 stainless steel bird spikes for parapet walls and AC outdoor units",
-    width: 1376,
-    height: 768,
+    image: "/images/ai-generated/architectural/bird-spikes/bird-spikes-desktop-hero.webp",
+    alt: "Stainless steel bird spikes for parapet walls and AC outdoor ledges",
+    width: 1024,
+    height: 576,
     icon: Shield,
     tag: "Humane & Durable"
   }
@@ -288,7 +300,7 @@ const verifiedReviews = [
   <Hero />
 
   <!-- =========================================================================
-       SECTION 2: CERTIFIED 6-SERVICE PHOTO-FIRST SHOWCASE
+       SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE
        ========================================================================= -->
   <section class="section-showcase" id="services">
     <div class="arch-container">
@@ -359,7 +371,7 @@ const verifiedReviews = [
           href="/solutions/"
           class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white border border-slate-200 text-sm font-bold text-[#0F233D] shadow-xs active:bg-slate-50"
         >
-          <span>Explore All 6 Services</span>
+          <span>Explore All 7 Services</span>
           <ArrowRight size={14} className="text-[#2D89EF]" />
         </a>
       </div>
@@ -999,7 +1011,7 @@ const verifiedReviews = [
   }
 
   /* =========================================================================
-     SECTION 2: CERTIFIED 6-SERVICE PHOTO-FIRST SHOWCASE
+     SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE
      ========================================================================= */
   .section-showcase {
     background-color: #FAFCFE;

@@ -57,6 +57,7 @@ export interface Props {
   heroTitle: string;
   heroSubtitle: string;
   heroImage: string;
+  heroImageMobile?: string;
   heroImageAlt?: string;
   
   // Specifications Ribbon (Technical Hallmarks)
@@ -86,6 +87,7 @@ const {
   heroTitle,
   heroSubtitle,
   heroImage,
+  heroImageMobile,
   heroImageAlt = "Invisible Safety Architectural Installation",
   specs = [
     { label: "Material Metallurgy", value: "Virgin SS316 Marine Grade", icon: ShieldCheck },
@@ -143,16 +145,41 @@ const {
        ========================================================================= -->
   <header class="subpage-hero">
     <div class="subpage-hero-media">
-      <img
-        src={heroImage}
-        alt={heroImageAlt}
-        class="subpage-hero-img"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1920"
-        height="1080"
-      />
+      {heroImageMobile ? (
+        <picture class="subpage-hero-picture">
+          <source
+            media="(max-width: 767px)"
+            srcset={heroImageMobile}
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset={heroImage}
+            type="image/webp"
+          />
+          <img
+            src={heroImage}
+            alt={heroImageAlt}
+            class="subpage-hero-img"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
+          />
+        </picture>
+      ) : (
+        <img
+          src={heroImage}
+          alt={heroImageAlt}
+          class="subpage-hero-img"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="1920"
+          height="1080"
+        />
+      )}
       <!-- Ambient Multi-Stop Vignette Overlay -->
       <div class="subpage-hero-scrim"></div>
     </div>
@@ -477,6 +504,12 @@ const {
     inset: 0;
     z-index: 1;
     overflow: hidden;
+  }
+
+  .subpage-hero-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .subpage-hero-img {
