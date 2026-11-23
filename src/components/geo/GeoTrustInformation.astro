@@ -1,0 +1,104 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoTrustInformation.astro
+ * 
+ * Reusable architectural trust & installation engineering section:
+ * - Details high-rise safety standards, custom measurement, and experienced installers
+ * - Factual, professional, and compliant with Phase 2.1 / 5.0.2 factual safety rules
+ * - Zero unverified certifications, ratings, or promises
+ */
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  locationName?: string;
+  className?: string;
+}
+
+const {
+  locationName,
+  title = locationName ? `Balcony Safety Solutions in ${locationName}` : 'Balcony Safety & Protection Services',
+  subtitle = locationName ? `Balcony safety systems designed for residential apartments in ${locationName}.` : 'Balcony safety systems designed for modern residential apartments and homes.',
+  className = ''
+} = Astro.props;
+
+const trustPillars = [
+  {
+    icon: 'shield',
+    title: 'Invisible Grills',
+    description: 'Stainless steel cable installations for balconies and windows providing safety while preserving outdoor views.'
+  },
+  {
+    icon: 'ruler',
+    title: 'Balcony Safety Nets',
+    description: 'Durable polymer netting fitted to balcony openings to help safeguard children, pets, and residential spaces.'
+  },
+  {
+    icon: 'building',
+    title: 'Bird & Pigeon Exclusion',
+    description: 'Humane netting and spike solutions designed to deter pigeons and birds from nesting on ledges and balconies.'
+  },
+  {
+    icon: 'file-check',
+    title: 'On-Site Measurements',
+    description: 'Technicians inspect openings on-site to take accurate measurements and provide clear, direct quotations.'
+  }
+];
+---
+
+<section class={`geo-trust-info py-12 md:py-16 bg-[#FDFBF7] border-y border-slate-200/60 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mb-10">
+      <span class="text-xs uppercase tracking-widest font-semibold text-[#0F233D]/70 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm">
+        APPROVED SERVICES
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F233D] tracking-tight mt-3">
+        {title}
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 mt-2 text-pretty">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- 4-Pillar Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {trustPillars.map((pillar) => (
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-[#C6A66B] mb-4">
+              {pillar.icon === 'ruler' && (
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5" />
+                </svg>
+              )}
+              {pillar.icon === 'shield' && (
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              )}
+              {pillar.icon === 'building' && (
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                </svg>
+              )}
+              {pillar.icon === 'file-check' && (
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              )}
+            </div>
+
+            <h3 class="text-base font-bold text-[#0F233D] tracking-tight">
+              {pillar.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              {pillar.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

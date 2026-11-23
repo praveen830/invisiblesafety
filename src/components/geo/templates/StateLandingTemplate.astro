@@ -1,0 +1,130 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * StateLandingTemplate.astro
+ * 
+ * Reusable template composition for State-Wide Scope:
+ * - /[state]/ (State Overview)
+ * - /[state]/[product]/ (State Product Campaign)
+ * 
+ * Target States: Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, Kerala
+ * STRICT CONSTRAINT: Does NOT register production routes.
+ */
+
+import type { StateSlug, ProductSlug } from '../../../data/geo/types.ts';
+import { resolveCampaignConfig } from '../../../data/geo/campaigns.ts';
+import { states } from '../../../data/geo/states.ts';
+import { products } from '../../../data/geo/products.ts';
+import GeoLandingLayout from '../../../layouts/GeoLandingLayout.astro';
+import GeoHero from '../GeoHero.astro';
+import GeoLocationContext from '../GeoLocationContext.astro';
+import GeoServiceGrid from '../GeoServiceGrid.astro';
+import GeoTrustInformation from '../GeoTrustInformation.astro';
+import GeoRelatedLocations from '../GeoRelatedLocations.astro';
+import GeoFAQSection from '../GeoFAQSection.astro';
+import GeoConversionCTA from '../GeoConversionCTA.astro';
+
+export interface Props {
+  stateSlug: StateSlug;
+  productSlug?: ProductSlug;
+}
+
+const { stateSlug, productSlug } = Astro.props;
+
+const state = states[stateSlug];
+if (!state) {
+  throw new Error(`StateLandingTemplate: Invalid stateSlug '${stateSlug}'. Must be one of the 5 approved states.`);
+}
+
+// Resolve campaign
+const campaign = resolveCampaignConfig('state', stateSlug, undefined, productSlug);
+const product = productSlug ? products[productSlug] : undefined;
+
+const stateFaqs = product ? product.defaultFaqs : [
+  {
+    question: `How are balcony safety systems engineered for ${state.name}'s climate?`,
+    answer: `Installations in ${state.name} account for local atmospheric factors (${state.regionalContext.climateOverview}) using stainless steel cables and protective safety netting.`
+  },
+  {
+    question: `Which cities in ${state.name} are covered for doorstep surveys?`,
+    answer: `Our technicians coordinate surveys across primary high-rise hubs and residential communities in ${state.name}. Contact our team to confirm current local availability.`
+  },
+  {
+    question: `How does the installation process work in ${state.name}?`,
+    answer: `Following initial inquiry and dimension measurement of your balcony openings, the safety system is installed to fit the opening securely.`
+  }
+];
+---
+
+<GeoLandingLayout
+  level="state"
+  stateSlug={stateSlug}
+  productSlug={productSlug}
+  campaign={campaign}
+>
+  <!-- Hero Section -->
+  <GeoHero
+    eyebrow={campaign.eyebrow}
+    headline={campaign.headline}
+    subheadline={campaign.subheadline}
+    desktopWebp={campaign.heroImage.desktop}
+    mobileWebp={campaign.heroImage.mobile}
+    imageAlt={campaign.heroImage.alt}
+    primaryCtaText={campaign.cta.primaryText}
+    phoneText={campaign.cta.phoneText}
+    phoneNumber={campaign.cta.phoneNumber}
+    whatsappText={campaign.cta.whatsappText}
+    whatsappPrefill={campaign.cta.whatsappPrefill}
+    breadcrumbs={campaign.schema.breadcrumbs}
+    valuePills={state.regionalContext.primaryConcerns}
+    statusPill={{
+      text: state.operationalAvailability === 'confirmed' ? `${state.name} Active Network` : `${state.name} Regional Coverage`,
+      variant: state.operationalAvailability === 'confirmed' ? 'confirmed' : 'pending'
+    }}
+  />
+
+  <!-- State Environmental & Engineering Context -->
+  <GeoLocationContext
+    title={`${state.name} Climate & Wind Engineering`}
+    subtitle={`Calibrating balcony safety systems for ${state.name}'s specific coastal and high-rise wind patterns.`}
+    climateOverview={state.regionalContext.climateOverview}
+    windZoneRating={state.regionalContext.windZoneRating}
+    concerns={state.regionalContext.primaryConcerns}
+  />
+
+  <!-- Trust Information -->
+  <GeoTrustInformation
+    title={`Balcony Safety Standards in ${state.name}`}
+    subtitle="Balcony safety net and invisible grill solutions across residential communities."
+    locationName={state.name}
+  />
+
+  <!-- Approved Catalogue Grid -->
+  <GeoServiceGrid
+    title={product ? `Other Safety Solutions in ${state.name}` : `Approved Safety Catalogue in ${state.name}`}
+    subtitle={`Explore our complete range of architectural safety installations available across ${state.name}.`}
+    currentProductSlug={productSlug}
+    stateSlug={stateSlug}
+  />
+
+  <!-- Hierarchy Navigation (Cities in State + Sister States) -->
+  <GeoRelatedLocations
+    level="state"
+    currentStateSlug={stateSlug}
+    currentProductSlug={productSlug}
+  />
+
+  <!-- FAQ Section -->
+  <GeoFAQSection
+    title={`Balcony Safety FAQs in ${state.name}`}
+    faqs={stateFaqs}
+  />
+
+  <!-- Final CTA -->
+  <GeoConversionCTA
+    headline={`Protect Your Home in ${state.name}`}
+    subheadline={`Book a site measurement survey with our ${state.name} team.`}
+    locationName={state.name}
+    productName={product?.name}
+  />
+</GeoLandingLayout>

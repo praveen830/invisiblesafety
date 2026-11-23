@@ -1,0 +1,209 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * CityProductLandingTemplate.astro
+ * 
+ * Reusable template composition for City + Product Deep Scope:
+ * - /[state]/[city]/[product]/
+ * 
+ * Examples:
+ * - /andhra/vizag/invisible-grills/
+ * - /andhra/vijayawada/balcony-safety-nets/
+ * - /karnataka/bengaluru/child-safety-nets/
+ * 
+ * STRICT CONSTRAINT: Does NOT register production routes.
+ */
+
+import type { StateSlug, ProductSlug } from '../../../data/geo/types.ts';
+import { resolveCampaignConfig } from '../../../data/geo/campaigns.ts';
+import { states } from '../../../data/geo/states.ts';
+import { cities } from '../../../data/geo/cities.ts';
+import { products } from '../../../data/geo/products.ts';
+import GeoLandingLayout from '../../../layouts/GeoLandingLayout.astro';
+import GeoHero from '../GeoHero.astro';
+import GeoLocationContext from '../GeoLocationContext.astro';
+import GeoCoverageSection from '../GeoCoverageSection.astro';
+import GeoTrustInformation from '../GeoTrustInformation.astro';
+import GeoServiceGrid from '../GeoServiceGrid.astro';
+import GeoRelatedLocations from '../GeoRelatedLocations.astro';
+import GeoFAQSection from '../GeoFAQSection.astro';
+import GeoConversionCTA from '../GeoConversionCTA.astro';
+
+export interface Props {
+  stateSlug: StateSlug;
+  citySlug: string;
+  productSlug: ProductSlug;
+}
+
+const { stateSlug, citySlug, productSlug } = Astro.props;
+
+const state = states[stateSlug];
+if (!state) {
+  throw new Error(`CityProductLandingTemplate: Invalid stateSlug '${stateSlug}'.`);
+}
+
+const city = Object.values(cities).find(c => c.slug === citySlug && c.stateSlug === stateSlug);
+if (!city) {
+  throw new Error(`CityProductLandingTemplate: City '${citySlug}' not found under state '${stateSlug}'.`);
+}
+
+const product = products[productSlug];
+if (!product) {
+  throw new Error(`CityProductLandingTemplate: Invalid productSlug '${productSlug}'.`);
+}
+
+// Resolve granular availability
+const productAvail = city.productAvailability[productSlug];
+const isConfirmed = productAvail?.operationalAvailability === 'confirmed';
+
+// Resolve campaign
+const campaign = resolveCampaignConfig('city-product', stateSlug, citySlug, productSlug);
+
+// Merge FAQs: Product default FAQs + City FAQs
+const combinedFaqs = [
+  ...product.defaultFaqs,
+  ...city.faqs
+];
+---
+
+<GeoLandingLayout
+  level="city-product"
+  stateSlug={stateSlug}
+  citySlug={citySlug}
+  productSlug={productSlug}
+  campaign={campaign}
+>
+  <!-- Hero Section -->
+  <GeoHero
+    eyebrow={`${city.name.toUpperCase()} • ${product.categoryTag}`}
+    headline={`${product.name} in ${city.name}`}
+    subheadline={`${product.shortTitle} engineered for high-rise residences, apartments, and villas across ${city.name}.`}
+    desktopWebp={product.heroAssets.desktopWebp}
+    mobileWebp={product.heroAssets.mobileWebp}
+    imageAlt={`${product.name} installation on high-rise balcony in ${city.name}`}
+    primaryCtaText={`Book ${city.name.split(' ')[0]} Site Survey`}
+    phoneText={`Call ${city.name.split(' ')[0]} Specialist`}
+    phoneNumber={city.phone || campaign.cta.phoneNumber}
+    whatsappText="WhatsApp Specialist"
+    whatsappPrefill={campaign.cta.whatsappPrefill}
+    breadcrumbs={campaign.schema.breadcrumbs}
+    valuePills={city.localContext.climateFactors}
+    statusPill={{
+      text: isConfirmed ? `Confirmed in ${city.name}` : `Service on Request in ${city.name}`,
+      variant: isConfirmed ? 'confirmed' : 'pending'
+    }}
+  />
+
+  <!-- Technical Hallmarks & Specifications Section -->
+  <section class="py-12 md:py-16 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10">
+        <span class="text-xs uppercase tracking-widest font-semibold text-[#0F233D]/70 bg-slate-100 px-3 py-1 rounded-full">
+          ENGINEERING SPECIFICATIONS
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F233D] tracking-tight mt-3">
+          {product.name} Architecture & Design
+        </h2>
+        <p class="text-base text-slate-600 mt-2">
+          Key functional features and technical specifications engineered for residential balconies.
+        </p>
+      </div>
+
+      <!-- Core Features Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        {product.coreFeatures.map((feat) => (
+          <div class="p-5 rounded-2xl border border-slate-200/90 bg-slate-50/50 flex flex-col justify-between">
+            <div>
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-3">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-sm font-bold text-[#0F233D] tracking-tight">
+                {feat.title}
+              </h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                {feat.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Technical Specs Table -->
+      {product.technicalSpecs.length > 0 && (
+        <div class="rounded-2xl border border-slate-200 overflow-hidden bg-slate-50/30">
+          <div class="px-6 py-4 bg-slate-100/70 border-b border-slate-200">
+            <h3 class="text-xs font-bold text-[#0F233D] uppercase tracking-wider">
+              Technical Characteristics
+            </h3>
+          </div>
+          <div class="divide-y divide-slate-100">
+            {product.technicalSpecs.map((spec) => (
+              <div class="grid grid-cols-1 sm:grid-cols-3 px-6 py-3.5 text-xs sm:text-sm">
+                <span class="font-semibold text-slate-700">{spec.label}</span>
+                <span class="sm:col-span-2 text-slate-600">{spec.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Localized Environmental & Architecture Profile -->
+  <GeoLocationContext
+    title={`${product.name} Calibration for ${city.name}`}
+    subtitle={`How our ${product.name.toLowerCase()} are installed to withstand ${city.name}'s specific weather and wind conditions.`}
+    climateFactors={city.localContext.climateFactors}
+    architectureStyle={city.localContext.architectureStyle}
+  />
+
+  <!-- Coverage Localities (STRICTLY NON-CLICKABLE CHIPS — ZERO LINKS) -->
+  <GeoCoverageSection
+    cityName={city.name}
+    localities={city.coverageLocalities}
+    title={`${product.name} Installation Areas in ${city.name}`}
+    subtitle={`Key residential sectors and apartment corridors in ${city.name}. Inquire to check current installation scheduling for ${product.name.toLowerCase()}.`}
+  />
+
+  <!-- Trust Information -->
+  <GeoTrustInformation
+    title={`Installation Standards for ${product.name}`}
+    subtitle={`Installation standards customized for ${city.name} apartment balconies.`}
+    locationName={city.name}
+  />
+
+  <!-- Sister Services in City Grid -->
+  <GeoServiceGrid
+    title={`Other Safety Solutions in ${city.name}`}
+    subtitle={`In addition to ${product.name}, explore our full suite of residential balcony protection systems.`}
+    currentProductSlug={productSlug}
+    stateSlug={stateSlug}
+    citySlug={citySlug}
+    showAvailabilityPills={true}
+  />
+
+  <!-- Hierarchy Navigation -->
+  <GeoRelatedLocations
+    level="city-product"
+    currentStateSlug={stateSlug}
+    currentCitySlug={citySlug}
+    currentProductSlug={productSlug}
+  />
+
+  <!-- FAQs -->
+  <GeoFAQSection
+    title={`${product.name} FAQs in ${city.name}`}
+    faqs={combinedFaqs}
+  />
+
+  <!-- Final CTA -->
+  <GeoConversionCTA
+    headline={`Get ${product.name} Installed in ${city.name}`}
+    subheadline={`Connect with our ${city.name} team to discuss ${product.name} requirements and installation availability for your home.`}
+    locationName={city.name}
+    productName={product.name}
+    phone={city.phone}
+  />
+</GeoLandingLayout>

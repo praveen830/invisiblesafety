@@ -1,0 +1,174 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoRelatedLocations.astro
+ * 
+ * Reusable hierarchy navigation block:
+ * - Upward navigation (City -> State -> South India)
+ * - Sibling navigation (Sister cities within state, sister states in South India)
+ * - STRICT CONSTRAINT: Under NO circumstances are locality or neighbourhood links emitted.
+ */
+
+import type { HierarchyLevel, StateSlug, ProductSlug } from '../../data/geo/types.ts';
+import { APPROVED_STATE_SLUGS } from '../../data/geo/helpers.ts';
+import { states } from '../../data/geo/states.ts';
+import { cities } from '../../data/geo/cities.ts';
+import { products } from '../../data/geo/products.ts';
+import { isRouteIndexable } from '../../data/geo/validator.ts';
+
+export interface Props {
+  level?: HierarchyLevel;
+  currentStateSlug?: StateSlug;
+  currentCitySlug?: string;
+  currentProductSlug?: ProductSlug;
+  className?: string;
+}
+
+const {
+  currentStateSlug,
+  currentCitySlug,
+  currentProductSlug,
+  className = ''
+} = Astro.props;
+
+// Filter candidate cities in current state
+const stateCities = currentStateSlug
+  ? Object.values(cities).filter(c => c.stateSlug === currentStateSlug)
+  : [];
+
+// Regional indexability checks
+const isRegionalIndexable = isRouteIndexable();
+const isRegionalProductIndexable = currentProductSlug
+  ? isRouteIndexable(undefined, undefined, currentProductSlug)
+  : false;
+---
+
+<section class={`geo-related-locations py-12 md:py-14 bg-slate-50/70 border-t border-slate-200/80 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-6">
+      <h3 class="text-xs uppercase tracking-widest font-bold text-slate-500">
+        SOUTH INDIA REGIONAL HIERARCHY
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Tier 1: South India Regional Scope -->
+      <div class="p-5 bg-white rounded-xl border border-slate-200">
+        <h4 class="text-sm font-bold text-[#0F233D] mb-3 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#C6A66B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Regional Overview</span>
+        </h4>
+        <ul class="space-y-1.5 text-xs text-slate-600">
+          <li>
+            {isRegionalIndexable ? (
+              <a href="/south-india/" class="hover:text-[#0F233D] font-medium hover:underline">
+                South India Regional Overview
+              </a>
+            ) : (
+              <span class="font-medium text-slate-500 cursor-default">
+                South India Regional Overview
+              </span>
+            )}
+          </li>
+          {currentProductSlug && (
+            <li>
+              {isRegionalProductIndexable ? (
+                <a href={`/south-india/${currentProductSlug}/`} class="hover:text-[#0F233D] font-medium hover:underline">
+                  {products[currentProductSlug].name} Across South India
+                </a>
+              ) : (
+                <span class="font-medium text-slate-500 cursor-default">
+                  {products[currentProductSlug].name} Across South India
+                </span>
+              )}
+            </li>
+          )}
+        </ul>
+      </div>
+
+      <!-- Tier 2: Five Target States -->
+      <div class="p-5 bg-white rounded-xl border border-slate-200">
+        <h4 class="text-sm font-bold text-[#0F233D] mb-3 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#C6A66B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5" />
+          </svg>
+          <span>Target States</span>
+        </h4>
+        <ul class="grid grid-cols-2 gap-1.5 text-xs text-slate-600">
+          {APPROVED_STATE_SLUGS.map((slug) => {
+            const st = states[slug];
+            const isCurrent = slug === currentStateSlug;
+            const isStateIndexable = isRouteIndexable(slug);
+            return (
+              <li>
+                {isStateIndexable ? (
+                  <a
+                    href={`/${st.slug}/`}
+                    class={`hover:underline ${isCurrent ? 'font-bold text-[#0F233D]' : 'text-slate-600 hover:text-[#0F233D]'}`}
+                  >
+                    {st.name}
+                  </a>
+                ) : (
+                  <span
+                    class={`cursor-default ${isCurrent ? 'font-bold text-[#0F233D]' : 'text-slate-500'}`}
+                  >
+                    {st.name}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <!-- Tier 3: Candidate Cities in State -->
+      <div class="p-5 bg-white rounded-xl border border-slate-200">
+        <h4 class="text-sm font-bold text-[#0F233D] mb-3 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[#C6A66B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>{currentStateSlug ? `${states[currentStateSlug]?.name} Candidate Hubs` : 'Candidate City Hubs'}</span>
+        </h4>
+        {stateCities.length > 0 ? (
+          <ul class="space-y-1.5 text-xs text-slate-600">
+            {stateCities.map((c) => {
+              const isCurrent = c.slug === currentCitySlug;
+              const isCityDestinationIndexable = currentProductSlug
+                ? isRouteIndexable(c.stateSlug, c.slug, currentProductSlug)
+                : isRouteIndexable(c.stateSlug, c.slug);
+              const destinationUrl = currentProductSlug
+                ? `/${c.stateSlug}/${c.slug}/${currentProductSlug}/`
+                : `/${c.stateSlug}/${c.slug}/`;
+
+              return (
+                <li>
+                  {isCityDestinationIndexable ? (
+                    <a
+                      href={destinationUrl}
+                      class={`hover:underline ${isCurrent ? 'font-bold text-[#0F233D]' : 'hover:text-[#0F233D]'}`}
+                    >
+                      {c.name}
+                    </a>
+                  ) : (
+                    <span
+                      class={`cursor-default ${isCurrent ? 'font-bold text-[#0F233D]' : 'text-slate-500'}`}
+                    >
+                      {c.name}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p class="text-xs text-slate-500">
+            Candidate city hubs awaiting business operational verification.
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

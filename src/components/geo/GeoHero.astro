@@ -1,0 +1,190 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoHero.astro
+ * 
+ * Cinematic editorial hero section for location landing pages:
+ * - Bright architectural luxury aesthetic (Warm ivory & crisp slate)
+ * - Distinct responsive WebP bindings (16:9 desktop, 4:5 mobile)
+ * - Breadcrumb navigation integration
+ * - Clear conversion pathways (Call, WhatsApp, Site Survey)
+ * - Zero unverified claims or ratings
+ */
+
+import GeoBreadcrumbs, { type BreadcrumbItem } from './GeoBreadcrumbs.astro';
+
+export interface Props {
+  eyebrow?: string;
+  headline: string;
+  subheadline: string;
+  desktopWebp: string;
+  mobileWebp: string;
+  imageAlt: string;
+  primaryCtaText?: string;
+  phoneText?: string;
+  phoneNumber?: string;
+  whatsappText?: string;
+  whatsappPrefill?: string;
+  statusPill?: {
+    text: string;
+    variant?: 'confirmed' | 'pending' | 'neutral';
+  };
+  valuePills?: string[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  eyebrow,
+  headline,
+  subheadline,
+  desktopWebp,
+  mobileWebp,
+  imageAlt,
+  primaryCtaText = 'Book Free Site Survey',
+  phoneText = 'Call Support',
+  phoneNumber = '+91 83097 55398',
+  whatsappText = 'WhatsApp',
+  whatsappPrefill = encodeURIComponent('Hi Invisible Safety, I am inquiring about balcony safety solutions for my home.'),
+  statusPill,
+  valuePills = [
+    'Balcony Safety',
+    'Unobstructed Views',
+    'Natural Airflow'
+  ],
+  breadcrumbs = []
+} = Astro.props;
+
+const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
+const telHref = `tel:+${cleanPhone}`;
+const waHref = `https://wa.me/${cleanPhone}?text=${whatsappPrefill}`;
+---
+
+<section class="geo-hero relative bg-gradient-to-b from-[#FDFBF7] via-white to-slate-50/50 pt-4 pb-12 md:py-16 border-b border-slate-100 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {breadcrumbs.length > 0 && (
+      <div class="mb-4">
+        <GeoBreadcrumbs items={breadcrumbs} />
+      </div>
+    )}
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Left Column: Editorial Content & CTAs -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Eyebrow & Status Pill Container -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          {statusPill && (
+            <span
+              class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase ${
+                statusPill.variant === 'confirmed'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                  : statusPill.variant === 'pending'
+                  ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                  : 'bg-slate-100 text-slate-700 border border-slate-200'
+              }`}
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+              {statusPill.text}
+            </span>
+          )}
+
+          {eyebrow && (
+            <span class="text-xs uppercase tracking-widest font-semibold text-[#0F233D]/80 bg-slate-100 px-3 py-1 rounded-full">
+              {eyebrow}
+            </span>
+          )}
+        </div>
+
+        <!-- Master H1 Headline -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F233D] tracking-tight leading-[1.15] text-balance">
+          {headline}
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal text-pretty max-w-2xl">
+          {subheadline}
+        </p>
+
+        <!-- Value Proposition Pills -->
+        {valuePills.length > 0 && (
+          <div class="flex flex-wrap gap-2 pt-1">
+            {valuePills.map((pill) => (
+              <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-700 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm">
+                <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                {pill}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <!-- Primary Conversion Actions -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0F233D] text-white font-semibold text-sm sm:text-base hover:bg-[#1A365D] transition-all shadow-md hover:shadow-lg active:scale-[0.99]"
+          >
+            <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.529 1.834.811 2.8.812l.004.001c3.182 0 5.769-2.587 5.77-5.767.001-3.181-2.585-5.767-5.778-5.769zm3.376 8.204c-.143.402-.832.748-1.156.793-.324.045-.636.074-1.802-.408-1.424-.59-2.339-2.029-2.408-2.122-.069-.093-.574-.766-.574-1.464s.366-1.042.497-1.184c.131-.143.286-.179.381-.179s.191.006.274.012c.088.006.205-.033.32.245.12.286.408 1.002.444 1.074.036.072.06.155.012.25-.048.096-.072.155-.143.238-.072.083-.152.186-.217.25-.072.072-.147.149-.063.293.083.143.371.611.796.99.548.487 1.011.638 1.154.71.143.072.227.06.311-.036.084-.096.358-.417.454-.56.096-.143.191-.12.322-.072.131.048.834.393.977.464.143.072.239.108.274.167.036.06.036.346-.107.748zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.977-1.396A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+            </svg>
+            <span>{whatsappText || primaryCtaText}</span>
+          </a>
+
+          <a
+            href={telHref}
+            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-[#0F233D] font-semibold text-sm sm:text-base border border-slate-200 hover:border-[#0F233D] hover:bg-slate-50 transition-all shadow-sm"
+          >
+            <svg class="w-4 h-4 text-[#0F233D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>{phoneText}: {phoneNumber}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Responsive Editorial Picture Card -->
+      <div class="lg:col-span-5">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <!-- Subtle Accent Backdrop -->
+          <div class="absolute -inset-1.5 bg-gradient-to-tr from-[#C6A66B]/20 via-transparent to-[#0F233D]/10 rounded-2xl blur-lg -z-10"></div>
+          
+          <picture class="block overflow-hidden rounded-2xl border border-slate-200 shadow-xl bg-slate-100">
+            <!-- 16:9 Desktop Composition -->
+            <source
+              media="(min-width: 768px)"
+              srcset={desktopWebp}
+              type="image/webp"
+              width="1920"
+              height="1080"
+            />
+            <!-- 4:5 Mobile Composition -->
+            <img
+              src={mobileWebp}
+              alt={imageAlt}
+              width="1080"
+              height="1350"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="w-full h-auto object-cover aspect-[4/5] md:aspect-[16/9] lg:aspect-[4/3] xl:aspect-[16/10] hover:scale-[1.02] transition-transform duration-500"
+            />
+          </picture>
+
+          <!-- Floating Architectural Badge -->
+          <div class="absolute bottom-3 left-3 right-3 sm:left-4 sm:right-auto bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-2 text-xs font-semibold text-[#0F233D]">
+            <span class="w-2 h-2 rounded-full bg-[#C6A66B] animate-pulse"></span>
+            <span>Architectural Safety • Invisible Grills & Nets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .geo-hero {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+</style>

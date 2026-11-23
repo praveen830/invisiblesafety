@@ -1,0 +1,125 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * CityLandingTemplate.astro
+ * 
+ * Reusable template composition for City Hub Scope:
+ * - /[state]/[city]/ (City Overview)
+ * 
+ * Examples: /andhra/vizag/, /telangana/hyderabad/, /karnataka/bengaluru/
+ * STRICT CONSTRAINT: Does NOT register production routes.
+ */
+
+import type { StateSlug } from '../../../data/geo/types.ts';
+import { resolveCampaignConfig } from '../../../data/geo/campaigns.ts';
+import { states } from '../../../data/geo/states.ts';
+import { cities } from '../../../data/geo/cities.ts';
+import GeoLandingLayout from '../../../layouts/GeoLandingLayout.astro';
+import GeoHero from '../GeoHero.astro';
+import GeoLocationContext from '../GeoLocationContext.astro';
+import GeoServiceGrid from '../GeoServiceGrid.astro';
+import GeoCoverageSection from '../GeoCoverageSection.astro';
+import GeoTrustInformation from '../GeoTrustInformation.astro';
+import GeoRelatedLocations from '../GeoRelatedLocations.astro';
+import GeoFAQSection from '../GeoFAQSection.astro';
+import GeoConversionCTA from '../GeoConversionCTA.astro';
+
+export interface Props {
+  stateSlug: StateSlug;
+  citySlug: string;
+}
+
+const { stateSlug, citySlug } = Astro.props;
+
+const state = states[stateSlug];
+if (!state) {
+  throw new Error(`CityLandingTemplate: Invalid stateSlug '${stateSlug}'.`);
+}
+
+const city = Object.values(cities).find(c => c.slug === citySlug && c.stateSlug === stateSlug);
+if (!city) {
+  throw new Error(`CityLandingTemplate: City '${citySlug}' not found under state '${stateSlug}'.`);
+}
+
+// Resolve campaign
+const campaign = resolveCampaignConfig('city', stateSlug, citySlug);
+---
+
+<GeoLandingLayout
+  level="city"
+  stateSlug={stateSlug}
+  citySlug={citySlug}
+  campaign={campaign}
+>
+  <!-- Hero Section -->
+  <GeoHero
+    eyebrow={campaign.eyebrow}
+    headline={campaign.headline}
+    subheadline={campaign.subheadline}
+    desktopWebp={campaign.heroImage.desktop}
+    mobileWebp={campaign.heroImage.mobile}
+    imageAlt={campaign.heroImage.alt}
+    primaryCtaText={campaign.cta.primaryText}
+    phoneText={campaign.cta.phoneText}
+    phoneNumber={city.phone || campaign.cta.phoneNumber}
+    whatsappText={campaign.cta.whatsappText}
+    whatsappPrefill={campaign.cta.whatsappPrefill}
+    breadcrumbs={campaign.schema.breadcrumbs}
+    valuePills={city.localContext.climateFactors}
+    statusPill={{
+      text: city.operationalAvailability === 'confirmed' ? `${city.name} Active Network` : `${city.name} Service Area`,
+      variant: city.operationalAvailability === 'confirmed' ? 'confirmed' : 'pending'
+    }}
+  />
+
+  <!-- Localized Environmental & Architecture Profile -->
+  <GeoLocationContext
+    title={`Balcony Engineering in ${city.name}`}
+    subtitle={`Tailored installation standards accounting for ${city.name}'s architectural styles and outdoor conditions.`}
+    climateFactors={city.localContext.climateFactors}
+    architectureStyle={city.localContext.architectureStyle}
+  />
+
+  <!-- 7-Product Catalogue Grid with City-Specific Availability -->
+  <GeoServiceGrid
+    title={`Approved Safety Catalogue in ${city.name}`}
+    subtitle={`Explore our complete range of architectural safety installations available across ${city.name}.`}
+    stateSlug={stateSlug}
+    citySlug={citySlug}
+    showAvailabilityPills={true}
+  />
+
+  <!-- Coverage Localities (STRICTLY NON-CLICKABLE CHIPS — ZERO LINKS) -->
+  <GeoCoverageSection
+    cityName={city.name}
+    localities={city.coverageLocalities}
+  />
+
+  <!-- Trust Information -->
+  <GeoTrustInformation
+    title={`High-Rise Installation Standards in ${city.name}`}
+    subtitle="Balcony safety net and invisible grill solutions across residential communities."
+    locationName={city.name}
+  />
+
+  <!-- Hierarchy Navigation (State Hubs & Sibling Cities) -->
+  <GeoRelatedLocations
+    level="city"
+    currentStateSlug={stateSlug}
+    currentCitySlug={citySlug}
+  />
+
+  <!-- City FAQs -->
+  <GeoFAQSection
+    title={`Balcony Safety FAQs in ${city.name}`}
+    faqs={city.faqs}
+  />
+
+  <!-- Final CTA -->
+  <GeoConversionCTA
+    headline={`Protect Your Balcony in ${city.name}`}
+    subheadline={`Contact our team to discuss balcony safety solutions and schedule a site measurement in ${city.name}.`}
+    locationName={city.name}
+    phone={city.phone}
+  />
+</GeoLandingLayout>

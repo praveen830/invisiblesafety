@@ -6,7 +6,8 @@
     "dev": "node ./node_modules/astro/astro.js dev --host",
     "start": "node ./node_modules/astro/astro.js dev",
     "build": "node ./node_modules/astro/astro.js build",
-    "preview": "node ./node_modules/astro/astro.js preview --host"
+    "preview": "node ./node_modules/astro/astro.js preview --host",
+    "test": "node --test --experimental-strip-types tests/geo-data-foundation.test.ts tests/geo-templates.test.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

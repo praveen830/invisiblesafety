@@ -1,0 +1,198 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoServiceGrid.astro
+ * 
+ * Reusable presentation grid displaying the exactly seven approved services:
+ * 1. Invisible Grills
+ * 2. Balcony Safety Nets
+ * 3. Child Safety Nets
+ * 4. Pigeon Safety Nets
+ * 5. Sports Nets
+ * 6. Cloth-Drying Hangers
+ * 7. Bird Spikes
+ * 
+ * Integrates directly with city-product availability matrices without cross-product pollution.
+ * Respects approved Phase 3.8/3.9 hero WebP assets.
+ */
+
+import type { ProductSlug, StateSlug } from '../../data/geo/types.ts';
+import { APPROVED_PRODUCT_SLUGS } from '../../data/geo/helpers.ts';
+import { products } from '../../data/geo/products.ts';
+import { cities } from '../../data/geo/cities.ts';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  currentProductSlug?: ProductSlug;
+  stateSlug?: StateSlug;
+  citySlug?: string;
+  showAvailabilityPills?: boolean;
+  className?: string;
+}
+
+const {
+  title = 'Approved Balcony Safety Catalogue',
+  subtitle = 'Protective netting, invisible grills, and bird exclusion solutions.',
+  currentProductSlug,
+  stateSlug,
+  citySlug,
+  showAvailabilityPills = true,
+  className = ''
+} = Astro.props;
+
+const city = citySlug ? Object.values(cities).find(c => c.slug === citySlug && c.stateSlug === stateSlug) : undefined;
+---
+
+<section class={`geo-service-grid py-12 md:py-16 bg-white ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mb-10 md:mb-12">
+      <span class="text-xs uppercase tracking-widest font-semibold text-[#0F233D]/70 bg-slate-100 px-3 py-1 rounded-full">
+        APPROVED CATALOGUE
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F233D] tracking-tight mt-3">
+        {title}
+      </h2>
+      <p class="text-base sm:text-lg text-slate-600 mt-2 text-pretty">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- 7-Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {APPROVED_PRODUCT_SLUGS.map((slug) => {
+        const item = products[slug];
+        const isCurrent = slug === currentProductSlug;
+
+        // Resolve city-specific availability if city is present
+        const slotAvail = city?.productAvailability[slug];
+        const statusText = slotAvail?.operationalAvailability === 'confirmed'
+          ? 'Confirmed Local Service'
+          : slotAvail?.operationalAvailability === 'unavailable'
+          ? 'Unavailable'
+          : 'Service on Request';
+
+        const statusVariant = slotAvail?.operationalAvailability === 'confirmed'
+          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+          : slotAvail?.operationalAvailability === 'unavailable'
+          ? 'bg-slate-100 text-slate-600 border-slate-200'
+          : 'bg-amber-50 text-amber-800 border-amber-200';
+
+        const waText = encodeURIComponent(
+          `Hi Invisible Safety, I am interested in ${item.name}${city ? ` in ${city.name}` : ''}. Please arrange a site survey.`
+        );
+        const waHref = `https://wa.me/918309755398?text=${waText}`;
+
+        return (
+          <article
+            class={`relative flex flex-col rounded-2xl border bg-white overflow-hidden transition-all duration-300 hover:shadow-xl ${
+              isCurrent
+                ? 'border-[#C6A66B] shadow-lg ring-2 ring-[#C6A66B]/30'
+                : 'border-slate-200 hover:border-slate-300'
+            }`}
+          >
+            <!-- Card Image Container -->
+            <div class="relative overflow-hidden aspect-[16/10] bg-slate-100">
+              <picture class="block w-full h-full">
+                <source
+                  media="(min-width: 768px)"
+                  srcset={item.heroAssets.desktopWebp}
+                  type="image/webp"
+                  width="1920"
+                  height="1080"
+                />
+                <img
+                  src={item.heroAssets.mobileWebp}
+                  alt={item.heroAssets.altText}
+                  width="1080"
+                  height="1350"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </picture>
+
+              <!-- Category Badge -->
+              <div class="absolute top-3 left-3 bg-[#0F233D]/90 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                {item.categoryTag}
+              </div>
+
+              <!-- Status Badge (if enabled) -->
+              {showAvailabilityPills && (
+                <div class="absolute top-3 right-3">
+                  <span class={`inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-md border ${statusVariant}`}>
+                    <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+                    {statusText}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <!-- Card Content -->
+            <div class="flex-1 p-5 md:p-6 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-xl font-bold text-[#0F233D] tracking-tight">
+                  {item.name}
+                </h3>
+                <p class="text-xs font-medium text-[#C6A66B] mt-0.5">
+                  {item.shortTitle}
+                </p>
+
+                <!-- Spacing Options Chips -->
+                {item.spacingOptions.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    {item.spacingOptions.map((spacing) => (
+                      <span class="text-[11px] font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded">
+                        {spacing}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <!-- Feature Highlights -->
+                <ul class="mt-4 space-y-2 text-xs sm:text-sm text-slate-600">
+                  {item.coreFeatures.slice(0, 3).map((feat) => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>
+                        <strong class="font-semibold text-slate-800">{feat.title}:</strong> {feat.description}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Card Action Button -->
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-[#0F233D] hover:text-white text-[#0F233D] text-xs font-semibold transition-all"
+                >
+                  <span>Request Survey</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+
+                <a
+                  href="tel:+918309755398"
+                  aria-label={`Call for ${item.name}`}
+                  class="p-2.5 rounded-xl border border-slate-200 hover:border-[#0F233D] text-slate-700 hover:text-[#0F233D] transition-colors"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

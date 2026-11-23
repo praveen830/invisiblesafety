@@ -1,0 +1,111 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * RegionalLandingTemplate.astro
+ * 
+ * Reusable template composition for South India Regional Scope:
+ * - /south-india/ (Regional Overview)
+ * - /south-india/[product]/ (Regional Product Campaign)
+ * 
+ * STRICT CONSTRAINT: Does NOT register production routes.
+ * Pure presentation template for downstream consumer pages.
+ */
+
+import type { StateSlug, ProductSlug } from '../../../data/geo/types.ts';
+import { resolveCampaignConfig } from '../../../data/geo/campaigns.ts';
+import { products } from '../../../data/geo/products.ts';
+import GeoLandingLayout from '../../../layouts/GeoLandingLayout.astro';
+import GeoHero from '../GeoHero.astro';
+import GeoServiceGrid from '../GeoServiceGrid.astro';
+import GeoTrustInformation from '../GeoTrustInformation.astro';
+import GeoRelatedLocations from '../GeoRelatedLocations.astro';
+import GeoFAQSection from '../GeoFAQSection.astro';
+import GeoConversionCTA from '../GeoConversionCTA.astro';
+
+export interface Props {
+  productSlug?: ProductSlug;
+  overrideStateSlug?: StateSlug;
+}
+
+const { productSlug, overrideStateSlug = 'telangana' } = Astro.props;
+
+// Resolve strongly typed campaign data
+const campaign = resolveCampaignConfig('south-india', overrideStateSlug, undefined, productSlug);
+const product = productSlug ? products[productSlug] : undefined;
+
+// Regional FAQs
+const regionalFaqs = product ? product.defaultFaqs : [
+  {
+    question: 'Across which South Indian states does Invisible Safety operate?',
+    answer: 'Invisible Safety operates across five target South Indian states: Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, and Kerala, providing architectural safety installations for high-rise residences.'
+  },
+  {
+    question: 'How do I request a site measurement survey?',
+    answer: 'You can contact our regional team via direct telephone (+91 83097 55398) or WhatsApp to schedule a technician visit to your residential society.'
+  },
+  {
+    question: 'Do invisible grills alter apartment building aesthetics?',
+    answer: 'Invisible grills feature slim stainless steel cables that provide a low-visibility profile from a distance, designed to preserve building exterior aesthetics while securing balcony openings.'
+  }
+];
+---
+
+<GeoLandingLayout
+  level="region"
+  campaign={campaign}
+  productSlug={productSlug}
+>
+  <!-- Hero Section -->
+  <GeoHero
+    eyebrow={campaign.eyebrow}
+    headline={campaign.headline}
+    subheadline={campaign.subheadline}
+    desktopWebp={campaign.heroImage.desktop}
+    mobileWebp={campaign.heroImage.mobile}
+    imageAlt={campaign.heroImage.alt}
+    primaryCtaText={campaign.cta.primaryText}
+    phoneText={campaign.cta.phoneText}
+    phoneNumber={campaign.cta.phoneNumber}
+    whatsappText={campaign.cta.whatsappText}
+    whatsappPrefill={campaign.cta.whatsappPrefill}
+    breadcrumbs={campaign.schema.breadcrumbs}
+    valuePills={campaign.valueProposition}
+    statusPill={{
+      text: campaign.operationalAvailability === 'confirmed' ? 'Active Regional Hub' : 'Regional Coordination Hub',
+      variant: campaign.operationalAvailability === 'confirmed' ? 'confirmed' : 'pending'
+    }}
+  />
+
+  <!-- Trust & Protection Section -->
+  <GeoTrustInformation
+    title="South India Balcony Safety Solutions"
+    subtitle="Safety installations across coastal corridors, Deccan plateau high-rises, and tropical monsoon zones."
+  />
+
+  <!-- Approved Catalogue Section -->
+  <GeoServiceGrid
+    title={product ? `Other Safety Solutions Across South India` : `Approved South India Safety Catalogue`}
+    subtitle={product ? `In addition to ${product.name}, explore our full suite of balcony safety and netting systems.` : `Protective netting, invisible grills, and bird exclusion solutions for South Indian apartments.`}
+    currentProductSlug={productSlug}
+  />
+
+  <!-- Hierarchy Navigation (Target States) -->
+  <GeoRelatedLocations
+    level="region"
+    currentProductSlug={productSlug}
+  />
+
+  <!-- FAQ Section -->
+  <GeoFAQSection
+    title={product ? `${product.name} FAQs Across South India` : `South India Regional Safety FAQs`}
+    faqs={regionalFaqs}
+  />
+
+  <!-- Final Conversion CTA -->
+  <GeoConversionCTA
+    headline={campaign.headline}
+    subheadline="Contact our regional coordination team for measurement inquiries and pricing across South India."
+    locationName="South India"
+    productName={product?.name}
+  />
+</GeoLandingLayout>

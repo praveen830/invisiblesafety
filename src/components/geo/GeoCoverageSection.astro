@@ -1,0 +1,92 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoCoverageSection.astro
+ * 
+ * Reusable coverage area showcase for verified cities:
+ * - Displays in-page visual chips representing serviced residential sectors and neighbourhoods
+ * - CRITICAL CONSTRAINT: Under NO circumstances are these chips clickable or linked.
+ * - ZERO <a> tags, href attributes, or sub-city routes are emitted.
+ */
+
+import type { LocalityReference } from '../../data/geo/types.ts';
+
+export interface Props {
+  cityName: string;
+  localities: LocalityReference[];
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+const {
+  cityName,
+  localities = [],
+  title,
+  subtitle,
+  className = ''
+} = Astro.props;
+
+const sectionTitle = title || `Residential Coverage Sectors in ${cityName}`;
+const sectionSubtitle = subtitle || `Residential sectors and apartment corridors in ${cityName}. Contact our team to confirm current service availability for your community.`;
+---
+
+<section class={`geo-coverage-section py-12 md:py-16 bg-white ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mb-8">
+      <span class="text-xs uppercase tracking-widest font-semibold text-[#0F233D]/70 bg-slate-100 px-3 py-1 rounded-full">
+        CITY-WIDE COVERAGE
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0F233D] tracking-tight mt-3">
+        {sectionTitle}
+      </h2>
+      <p class="text-base text-slate-600 mt-2 text-pretty">
+        {sectionSubtitle}
+      </p>
+    </div>
+
+    <!-- Locality Chips Grid (STRICTLY NON-CLICKABLE SPANS/DIVS — ZERO LINKS) -->
+    {localities.length > 0 && (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {localities.map((loc) => (
+          <div class="p-4 rounded-xl border border-slate-200/90 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#C6A66B] flex-shrink-0"></span>
+              <span class="text-sm font-bold text-[#0F233D] tracking-tight">
+                {loc.name}
+              </span>
+            </div>
+            {loc.description && (
+              <p class="text-xs text-slate-600 mt-1.5 pl-4 leading-relaxed">
+                {loc.description}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Assurance Banner -->
+    <div class="mt-8 p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-slate-600">
+      <div class="flex items-center gap-2.5">
+        <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>
+          Contact our team to confirm site survey and installation availability for your residential community in {cityName}.
+        </span>
+      </div>
+
+      <a
+        href="tel:+918309755398"
+        class="font-semibold text-[#0F233D] hover:underline flex items-center gap-1 flex-shrink-0"
+      >
+        <span>Call for coverage check</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

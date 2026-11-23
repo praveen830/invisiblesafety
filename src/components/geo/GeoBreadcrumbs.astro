@@ -1,0 +1,66 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoBreadcrumbs.astro
+ * 
+ * Accessible, semantic navigational breadcrumbs strictly matching the 4-tier taxonomy:
+ * Home -> South India -> State -> City -> Product
+ * Never emits neighbourhood or locality breadcrumbs.
+ */
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+export interface Props {
+  items: BreadcrumbItem[];
+  className?: string;
+}
+
+const { items = [], className = '' } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class={`geo-breadcrumbs py-3 ${className}`}>
+  <ol class="flex items-center flex-wrap gap-1.5 text-xs md:text-sm text-slate-500 font-medium tracking-tight">
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="flex items-center">
+          {index > 0 && (
+            <svg
+              class="w-3.5 h-3.5 text-slate-400 mx-1 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          )}
+          {isLast ? (
+            <span
+              class="text-slate-900 font-semibold truncate max-w-[200px] sm:max-w-none"
+              aria-current="page"
+            >
+              {item.name}
+            </span>
+          ) : (
+            <a
+              href={item.url}
+              class="text-slate-600 hover:text-[#0F233D] transition-colors underline-offset-2 hover:underline truncate max-w-[150px] sm:max-w-none"
+            >
+              {item.name}
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<style>
+  .geo-breadcrumbs {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+</style>

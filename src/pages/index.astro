@@ -110,9 +110,12 @@ const coreServices = [
     category: "High-Rise Safety",
     href: "/invisible-grills/",
     image: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/architectural/invisible-grills/invisible-grills-mobile-hero.webp",
     alt: "Balcony invisible safety grills with open skyline view",
     width: 1024,
     height: 576,
+    mobileWidth: 1122,
+    mobileHeight: 1402,
     icon: ShieldCheck,
     tag: "Flagship Safety"
   },
@@ -121,9 +124,12 @@ const coreServices = [
     category: "Fall Prevention",
     href: "/balcony-safety/",
     image: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-mobile-hero.webp",
     alt: "Balcony fall safety netting installation for high-rise residences",
     width: 1376,
     height: 768,
+    mobileWidth: 896,
+    mobileHeight: 1120,
     icon: Layers,
     tag: "Fall Defense"
   },
@@ -132,9 +138,12 @@ const coreServices = [
     category: "Humane Bird Barrier",
     href: "/pigeon-nets/",
     image: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-mobile-hero.webp",
     alt: "Translucent anti-pigeon safety nets installed on high-rise residential balcony",
     width: 1024,
     height: 576,
+    mobileWidth: 819,
+    mobileHeight: 1024,
     icon: Wind,
     tag: "Zero Mess"
   },
@@ -143,9 +152,12 @@ const coreServices = [
     category: "Toddler & Pet Safety",
     href: "/child-safety-nets/",
     image: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-mobile-hero.webp",
     alt: "High-tensile child safety net installation for balcony fall protection",
     width: 1672,
     height: 941,
+    mobileWidth: 1122,
+    mobileHeight: 1402,
     icon: ShieldCheck,
     tag: "Child Safe"
   },
@@ -154,9 +166,12 @@ const coreServices = [
     category: "High-Impact Containment",
     href: "/sports-nets/",
     image: "/images/ai-generated/safety-nets/sports-nets/sports-net-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/safety-nets/sports-nets/sports-net-mobile-hero.webp",
     alt: "Sports and cricket practice netting installation on green turf",
     width: 1024,
     height: 576,
+    mobileWidth: 819,
+    mobileHeight: 1024,
     icon: Target,
     tag: "Impact Tested"
   },
@@ -165,9 +180,12 @@ const coreServices = [
     category: "Space-Saving Pulley System",
     href: "/cloth-drying-hangers/",
     image: "/images/ai-generated/architectural/cloth-drying-hangers/cloth-drying-hanger-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/architectural/cloth-drying-hangers/cloth-drying-hanger-mobile-hero.webp",
     alt: "Ceiling mounted stainless steel pull-down cloth drying hanger system",
     width: 1024,
     height: 576,
+    mobileWidth: 819,
+    mobileHeight: 1024,
     icon: CheckCircle2,
     tag: "Space Saving"
   },
@@ -176,9 +194,12 @@ const coreServices = [
     category: "Ledge Deterrent",
     href: "/bird-spikes/",
     image: "/images/ai-generated/architectural/bird-spikes/bird-spikes-desktop-hero.webp",
+    mobileImage: "/images/ai-generated/architectural/bird-spikes/bird-spikes-mobile-hero.webp",
     alt: "Stainless steel bird spikes for parapet walls and AC outdoor ledges",
     width: 1024,
     height: 576,
+    mobileWidth: 819,
+    mobileHeight: 1024,
     icon: Shield,
     tag: "Humane & Durable"
   }
@@ -305,72 +326,86 @@ const verifiedReviews = [
   <section class="section-showcase" id="services">
     <div class="arch-container">
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4">
-        <div>
+      <div class="services-header-row">
+        <div class="services-header-text">
           <span class="arch-eyebrow">CORE ARCHITECTURAL PORTFOLIO</span>
           <h2 class="arch-heading">Our Safety Services</h2>
-          <p class="arch-lead text-slate-600 max-w-2xl mt-2">
+          <p class="arch-lead services-header-desc">
             Engineered fall protection and bird exclusion systems designed specifically for South Indian residential towers, high-rise penthouses, and gated communities.
           </p>
         </div>
-        <div class="hidden md:block shrink-0">
-          <a
-            href="/solutions/"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F233D] hover:bg-[#1A365D] text-white text-sm font-bold shadow-sm transition-all hover:gap-3"
-          >
+        <div class="services-header-action">
+          <a href="/solutions/" class="btn-explore-all">
             <span>Explore All Services</span>
             <ArrowRight size={14} className="text-[#C6A66B]" />
           </a>
         </div>
       </div>
 
-      <!-- Photo-First 6-Card Grid: Mobile 2-col, Desktop 3-col -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
+      <!-- Full-Size Editorial Service Showcase: Desktop 1-col full-width, Mobile 2-col -->
+      <div class="services-cards-grid">
         {coreServices.map((service) => (
           <a
             href={service.href}
-            class="group block rounded-2xl bg-white shadow-card hover:shadow-hover transition-all duration-300 overflow-hidden border border-slate-100 hover:border-slate-200"
+            class="service-card"
             aria-label={`View ${service.title} details`}
           >
-            <!-- Top Half: Crisp, 100% unobstructed photo (aspect-[16/10] w-full object-cover, ZERO text/overlays) -->
-            <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
-              <img
-                src={service.image}
-                alt={service.alt}
-                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                loading="lazy"
-                decoding="async"
-                width={service.width}
-                height={service.height}
-              />
+            <!-- Top Bar: Clean architectural header bar with title & category -->
+            <div class="service-card-bar">
+              <div class="service-card-bar-left">
+                <div class="service-card-icon-box">
+                  <service.icon size={18} />
+                </div>
+                <div class="service-card-title-group">
+                  <span class="service-card-category">{service.category}</span>
+                  <h3 class="service-card-title">{service.title}</h3>
+                </div>
+              </div>
+              <div class="service-card-bar-right">
+                <span class="service-card-tag-pill">{service.tag}</span>
+                <span class="service-card-cta-label">Explore Details</span>
+                <div class="service-card-arrow-box">
+                  <ArrowRight size={15} />
+                </div>
+              </div>
             </div>
 
-            <!-- Bottom Half: Clean white label bar -->
-            <div class="p-3 md:p-4 flex items-center justify-between bg-white border-t border-slate-50">
-              <div class="flex items-center gap-2 md:gap-2.5 min-w-0">
-                <div class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-[#F0F5FA] flex items-center justify-center text-[#2D89EF] shrink-0 border border-[#2D89EF]/15 group-hover:bg-[#0F233D] group-hover:text-white transition-colors duration-200">
-                  <service.icon size={15} />
-                </div>
-                <div class="min-w-0">
-                  <h3 class="text-xs sm:text-sm md:text-base font-bold text-[#0F233D] truncate group-hover:text-[#2D89EF] transition-colors duration-200">
-                    {service.title}
-                  </h3>
-                </div>
-              </div>
-              <div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#0F233D] group-hover:text-white transition-all duration-200 shrink-0 ml-1">
-                <ArrowRight size={13} />
-              </div>
+            <!-- Full-Size Media: Crisp 16:9 desktop, 4:5 mobile -->
+            <div class="service-card-media">
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset={service.mobileImage}
+                  type="image/webp"
+                  width={service.mobileWidth}
+                  height={service.mobileHeight}
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset={service.image}
+                  type="image/webp"
+                  width={service.width}
+                  height={service.height}
+                />
+                <img
+                  src={service.image}
+                  alt={service.alt}
+                  class="service-card-img"
+                  loading="lazy"
+                  decoding="async"
+                  width={service.width}
+                  height={service.height}
+                />
+              </picture>
+              <span class="service-card-tag-mobile">{service.tag}</span>
             </div>
           </a>
         ))}
       </div>
 
       <!-- Mobile Button: Explore All Services -->
-      <div class="mt-6 text-center md:hidden">
-        <a
-          href="/solutions/"
-          class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-white border border-slate-200 text-sm font-bold text-[#0F233D] shadow-xs active:bg-slate-50"
-        >
+      <div class="services-mobile-btn-wrap">
+        <a href="/solutions/" class="services-mobile-btn">
           <span>Explore All 7 Services</span>
           <ArrowRight size={14} className="text-[#2D89EF]" />
         </a>
@@ -396,16 +431,16 @@ const verifiedReviews = [
       </div>
 
       <!-- 5 Crisp Trust Pillars: 2-col compact on mobile (5th spans full width), 5-col on desktop -->
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 lg:gap-5">
+      <div class="why-us-grid">
         {whyChoosePillars.map((pillar, idx) => (
-          <div class={`rounded-2xl bg-white/[0.06] border border-white/10 p-4 md:p-5 flex flex-col items-center text-center hover:bg-white/[0.1] hover:border-white/20 transition-all duration-300 ${idx === 4 ? 'col-span-2 md:col-span-1' : ''}`}>
-            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-3 shrink-0 border border-white/10">
+          <div class={`why-pillar-card ${idx === 4 ? 'why-pillar-last' : ''}`}>
+            <div class="why-pillar-icon-box">
               <pillar.icon size={22} className={pillar.color === 'gold' ? 'text-[#C6A66B]' : 'text-[#2D89EF]'} />
             </div>
-            <h3 class="text-sm md:text-base font-bold text-white mb-1.5 leading-snug">
+            <h3 class="why-pillar-title">
               {pillar.title}
             </h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
+            <p class="why-pillar-subtitle">
               {pillar.subtitle}
             </p>
           </div>
@@ -1017,6 +1052,439 @@ const verifiedReviews = [
     background-color: #FAFCFE;
     padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     border-bottom: 1px solid #E2E8F0;
+  }
+
+  .services-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  @media (min-width: 768px) {
+    .services-header-row {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+
+  .services-header-text {
+    max-width: 720px;
+  }
+
+  .services-header-desc {
+    margin-top: 0.5rem;
+    color: #475569;
+  }
+
+  .services-header-action {
+    display: none;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .services-header-action {
+      display: block;
+    }
+  }
+
+  .btn-explore-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    background: #0F233D;
+    color: #FFFFFF !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(15, 35, 61, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .btn-explore-all:hover {
+    background: #1A365D;
+    gap: 12px;
+  }
+
+  /* Full-Size Editorial Showcase: Desktop 1-col (16:9), Mobile 1-col (4:5) */
+  .services-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  @media (max-width: 767px) {
+    .services-cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 4px 20px -2px rgba(15, 35, 61, 0.06);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+  }
+
+  @media (max-width: 767px) {
+    .service-card {
+      border-radius: 16px;
+      box-shadow: 0 3px 14px -2px rgba(15, 35, 61, 0.08);
+    }
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -4px rgba(15, 35, 61, 0.12);
+    border-color: #CBD5E1;
+  }
+
+  /* Top Bar (Title & Category) — Stays AT THE TOP on BOTH desktop and mobile */
+  .service-card-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.5rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #F1F5F9;
+    gap: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-bar {
+      padding: 0.85rem 1rem;
+      gap: 0.75rem;
+    }
+  }
+
+  .service-card-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    min-width: 0;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-bar-left {
+      gap: 0.75rem;
+    }
+  }
+
+  .service-card-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #F0F5FA;
+    color: #2D89EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(45, 137, 239, 0.15);
+    transition: all 0.25s ease;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+  }
+
+  .service-card:hover .service-card-icon-box {
+    background: #0F233D;
+    color: #FFFFFF;
+    border-color: #0F233D;
+  }
+
+  .service-card-title-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-category {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .service-card-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 700;
+    color: #0F233D;
+    line-height: 1.3;
+    margin: 2px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-title {
+      font-size: 1.05rem;
+    }
+  }
+
+  .service-card:hover .service-card-title {
+    color: #2D89EF;
+  }
+
+  .service-card-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .service-card-tag-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    background: #F0F5FA;
+    color: #2D89EF;
+    border: 1px solid rgba(45, 137, 239, 0.2);
+  }
+
+  .service-card-cta-label {
+    display: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2D89EF;
+    transition: color 0.2s ease;
+  }
+
+  @media (min-width: 1024px) {
+    .service-card-cta-label {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .service-card-tag-pill {
+      display: none;
+    }
+    .service-card-cta-label {
+      display: none;
+    }
+  }
+
+  .service-card:hover .service-card-cta-label {
+    color: #0F233D;
+  }
+
+  .service-card-arrow-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F8FAFC;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-arrow-box {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .service-card:hover .service-card-arrow-box {
+    background: #0F233D;
+    color: #FFFFFF;
+    transform: translateX(3px);
+  }
+
+  /* Media Container: 16:9 Full Desktop, 4:5 Mobile */
+  .service-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #F1F5F9;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-media {
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  .service-card-media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .service-card-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-card:hover .service-card-img {
+    transform: scale(1.025);
+  }
+
+  /* Mobile overlay tag */
+  .service-card-tag-mobile {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .service-card-tag-mobile {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 35, 61, 0.88);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      pointer-events: none;
+      z-index: 2;
+    }
+  }
+
+  .services-mobile-btn-wrap {
+    display: none;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    .services-mobile-btn-wrap {
+      display: block;
+    }
+  }
+
+  .services-mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #0F233D;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(15, 35, 61, 0.05);
+  }
+
+  /* Section 2B: Why Us Trust Strip */
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .why-us-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .why-us-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .why-pillar-last {
+      grid-column: span 2;
+    }
+  }
+
+  .why-pillar-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .why-pillar-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .why-pillar-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .why-pillar-title {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 0.35rem 0;
+    line-height: 1.3;
+  }
+
+  .why-pillar-subtitle {
+    font-size: 0.78rem;
+    color: #CBD5E1;
+    margin: 0;
+    line-height: 1.45;
   }
 
   /* =========================================================================

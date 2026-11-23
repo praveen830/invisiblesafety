@@ -1,0 +1,157 @@
+---
+/**
+ * Invisible Safety — Location Architecture & Presentation Foundation
+ * GeoLandingLayout.astro
+ * 
+ * Reusable master layout for all South India location landing experiences:
+ * 1. Regional (/south-india/)
+ * 2. State (/[state]/)
+ * 3. City (/[state]/[city]/)
+ * 4. City + Product (/[state]/[city]/[product]/)
+ * 
+ * Enforces strict SEO gating:
+ * Automatically computes `isRouteIndexable(stateSlug, citySlug, productSlug)`.
+ * If any of the six mandatory indexing conditions fails, `noindex` is strictly enforced.
+ */
+
+import BaseLayout from './BaseLayout.astro';
+import type { CampaignConfig, HierarchyLevel, StateSlug, ProductSlug } from '../data/geo/types.ts';
+import { isRouteIndexable } from '../data/geo/validator.ts';
+import { buildCanonicalUrl } from '../data/geo/helpers.ts';
+import { states, regionalSouthIndia } from '../data/geo/states.ts';
+import { cities } from '../data/geo/cities.ts';
+import { products } from '../data/geo/products.ts';
+
+export interface Props {
+  level: HierarchyLevel;
+  stateSlug?: StateSlug;
+  citySlug?: string;
+  productSlug?: ProductSlug;
+  campaign?: CampaignConfig;
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  additionalSchemas?: Record<string, any>[];
+  forceNoindex?: boolean;
+}
+
+const {
+  level,
+  stateSlug,
+  citySlug,
+  productSlug,
+  campaign,
+  title: overrideTitle,
+  description: overrideDescription,
+  canonicalUrl: overrideCanonicalUrl,
+  ogImage: overrideOgImage,
+  additionalSchemas = [],
+  forceNoindex
+} = Astro.props;
+
+// 1. Canonical URL resolution (Strict 4-tier taxonomy)
+const resolvedCanonical = overrideCanonicalUrl || (
+  campaign?.canonicalUrl || buildCanonicalUrl(stateSlug, citySlug, productSlug)
+);
+
+// 2. Strict SEO Gatekeeping (Validation Engine Integration)
+// Route indexability is computed directly from pure validator functions.
+const routeIsIndexable = isRouteIndexable(stateSlug, citySlug, productSlug);
+const effectiveNoindex = forceNoindex !== undefined ? forceNoindex : !routeIsIndexable;
+
+// 3. Resolve Titles & Meta Descriptions
+const state = stateSlug ? states[stateSlug] : undefined;
+const city = citySlug ? Object.values(cities).find(c => c.slug === citySlug && c.stateSlug === stateSlug) : undefined;
+const product = productSlug ? products[productSlug] : undefined;
+
+let pageTitle = overrideTitle || campaign?.headline;
+let pageDescription = overrideDescription || campaign?.subheadline;
+
+if (!pageTitle) {
+  if (level === 'city-product' && city && product) {
+    pageTitle = `${product.name} in ${city.name} | Invisible Safety`;
+    pageDescription = `${product.name} for high-rise balconies and residences across ${city.name}. Professional site survey and installation.`;
+  } else if (level === 'city' && city) {
+    pageTitle = `Invisible Grills & Balcony Safety Nets in ${city.name} | Invisible Safety`;
+    pageDescription = `Architectural safety grills and protective balcony netting systems across ${city.name} residential towers and gated communities.`;
+  } else if (level === 'state' && state) {
+    pageTitle = `${state.headline} | Invisible Safety`;
+    pageDescription = state.seo.description;
+  } else {
+    pageTitle = `${regionalSouthIndia.headline} | Invisible Safety`;
+    pageDescription = regionalSouthIndia.seo.description;
+  }
+}
+
+// 4. Resolve OpenGraph Image
+const resolvedOgImage = overrideOgImage || (
+  product?.heroAssets.desktopWebp ||
+  campaign?.heroImage.desktop ||
+  '/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp'
+);
+
+// 5. Build Structured Data (Schema.org Graph)
+const schemas: Record<string, any>[] = [...additionalSchemas];
+
+// 5a. BreadcrumbList Schema
+const breadcrumbs = campaign?.schema.breadcrumbs || [
+  { name: 'Home', url: '/' },
+  { name: 'South India', url: '/south-india/' },
+  ...(state ? [{ name: state.name, url: `/${state.slug}/` }] : []),
+  ...(city && state ? [{ name: city.name, url: `/${state.slug}/${city.slug}/` }] : []),
+  ...(product && city && state ? [{ name: product.name, url: resolvedCanonical }] : [])
+];
+
+schemas.push({
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": crumb.name,
+    "item": `https://invisiblesafety.in${crumb.url}`
+  }))
+});
+
+// 5b. Service Schema
+// Only emitted for city-product pages when operational availability is explicitly confirmed.
+// Strictly avoids synthetic local branches or fabricated physical addresses for service areas.
+// Global Organization schema is already provided by BaseLayout.
+if (level === 'city-product' && city && product && productSlug && (city.productAvailability[productSlug]?.operationalAvailability === 'confirmed')) {
+  schemas.push({
+    "@type": "Service",
+    "name": `${product.name} Installation in ${city.name}`,
+    "serviceType": product.name,
+    "provider": {
+      "@type": "Organization",
+      "name": "Invisible Safety",
+      "url": "https://invisiblesafety.in",
+      "telephone": city.phone || "+91 83097 55398"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": city.name
+    }
+  });
+}
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={resolvedCanonical}
+  ogImage={resolvedOgImage}
+  schema={schemas}
+  noindex={effectiveNoindex}
+>
+  <div class="geo-landing-container bg-white text-[#1E293B]">
+    <slot />
+  </div>
+</BaseLayout>
+
+<style>
+  .geo-landing-container {
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+</style>
