@@ -1,0 +1,190 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Shield, Eye, Check, ArrowRight } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Balcony Safety Nets",
+  "Durable balcony safety nets for residential apartments and high-rises across Andhra Pradesh and Telangana. Contact Invisible Safety for custom measurements.",
+  25
+);
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Balcony Safety Nets", url: "/balcony-safety-nets/" }
+];
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Balcony Safety Nets", url: "https://invisiblesafety.in/balcony-safety-nets/" }
+]);
+
+const specs = [
+  { label: "Core Material", value: "UV-Stabilized High-Density Polymer", icon: ShieldCheck },
+  { label: "Safety Feature", value: "Residential Balcony Fall Protection", icon: Award },
+  { label: "Visual Impact", value: "Discreet Profile Preserving Daylight", icon: Eye },
+  { label: "Service Support", value: "Installation & Fitting Support", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Balcony Invisible Grills",
+    subtitle: "Floor-to-ceiling stainless steel cables providing durable fall safety with unobstructed panoramic views.",
+    href: "/invisible-grills/",
+    image: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+    spec: "Stainless Steel Wire System",
+    badge: "Flagship Safety"
+  },
+  {
+    title: "Child Safety Nets",
+    subtitle: "Calibrated protective netting preventing accidental toddler falls and toy drops from balconies.",
+    href: "/child-safety-nets/",
+    image: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-desktop-hero.webp",
+    spec: "Reinforced Balcony Barrier",
+    badge: "Child & Pet Safety"
+  },
+  {
+    title: "Pigeon Safety Nets",
+    subtitle: "Discreet anti-pigeon netting denying roosting access while preserving natural ventilation.",
+    href: "/pigeon-safety-nets/",
+    image: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp",
+    spec: "Translucent Bird Netting",
+    badge: "Bird Exclusion"
+  },
+  {
+    title: "Bird Spikes",
+    subtitle: "Stainless steel spikes on polycarbonate bases preventing birds from perching on narrow ledges.",
+    href: "/bird-spikes/",
+    image: "/images/ai-generated/architectural/bird-spikes/bird-spikes-desktop-hero.webp",
+    spec: "Ledge Protection",
+    badge: "Ledge Shield"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp",
+    alt: "Balcony Fall Safety Netting Installation",
+    title: "High-Rise Balcony Suite",
+    caption: "Durable protective netting securing an apartment balcony overlooking the city skyline.",
+    badge: "High-Rise Safety"
+  },
+  {
+    src: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+    alt: "Panoramic Balcony Safety Installation",
+    title: "Panoramic Skyline Balcony",
+    caption: "Discreet cable installation preserving daylight and open outdoor vistas.",
+    badge: "Balcony Safety"
+  },
+  {
+    src: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-card.webp",
+    alt: "Balcony Safety Net Array",
+    title: "Resilient Balcony Netting",
+    caption: "UV-treated high-density netting anchored with stainless steel eye bolts.",
+    badge: "Quality Fit"
+  },
+  {
+    src: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-desktop-hero.webp",
+    alt: "Toddler and Pet Safe Balcony",
+    title: "Toddler Anti-Fall System",
+    caption: "Tensioned protective barrier giving families peace of mind in high-rise residences.",
+    badge: "Family Peace of Mind"
+  }
+];
+---
+
+<SubPageLayout
+  title="Balcony Safety Nets for Apartments & High-Rises | Invisible Safety"
+  description="Durable balcony safety nets for residential apartments and high-rises across Andhra Pradesh and Telangana. Contact Invisible Safety for custom measurements."
+  canonicalUrl="/balcony-safety-nets/"
+  breadcrumbs={breadcrumbsList}
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HIGH-RISE BALCONY PROTECTION"
+  heroTitle="BALCONY SAFETY NETS"
+  heroSubtitle="Protective balcony netting engineered for modern high-rises and residential apartments across Andhra Pradesh and Telangana, helping safeguard children and pets while allowing full airflow."
+  heroImage="/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp"
+  heroImageMobile="/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-mobile-hero.webp"
+  heroImageAlt="Balcony Safety Nets for Residential Apartments"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
+>
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section estimator-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">ESTIMATE YOUR PROJECT</span>
+        <h2 class="editorial-title">Calculate Balcony Safety Cost</h2>
+        <p class="editorial-subtitle">
+          Configure your balcony dimensions for an estimate and quotation enquiry.
+        </p>
+      </div>
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Balcony Safety Nets Questions &amp; Answers" />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #FFFFFF;
+    color: #1A365D;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
+  }
+</style>

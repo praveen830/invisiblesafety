@@ -12,7 +12,7 @@
  */
 
 import type { StateSlug, ProductSlug, IndexingValidationResult } from './types.ts';
-import { states, regionalSouthIndia } from './states.ts';
+import { states } from './states.ts';
 import { cities } from './cities.ts';
 import { products } from './products.ts';
 import { buildCanonicalUrl, isValidHierarchyUrl } from './helpers.ts';
@@ -32,7 +32,7 @@ export function validateCityProductIndexing(
   if (!state) {
     return {
       isIndexable: false,
-      failedConditions: [`Invalid state '${stateSlug}'. Must be one of the 5 approved states.`]
+      failedConditions: [`Invalid state '${stateSlug}'. Must be one of the 2 approved states (andhra, telangana).`]
     };
   }
 
@@ -131,7 +131,7 @@ export function validateCityProductIndexing(
 
 /**
  * Validates State-Level Product Campaign Coverage (/[state]/[product]/).
- * Regional and state-wide campaigns require independently validated service coverage.
+ * State-wide campaigns require independently validated service coverage.
  * One confirmed city does not automatically authorize a state-wide campaign.
  */
 export function validateStateProductIndexing(
@@ -193,47 +193,6 @@ export function validateStateProductIndexing(
 }
 
 /**
- * Validates Regional South India Product Coverage (/south-india/[product]/).
- * Requires independently validated multi-state operational coverage.
- */
-export function validateRegionalProductIndexing(
-  productSlug: ProductSlug
-): IndexingValidationResult {
-  const failedConditions: string[] = [];
-
-  const product = products[productSlug];
-  if (!product) {
-    return {
-      isIndexable: false,
-      failedConditions: [`Invalid product '${productSlug}'.`]
-    };
-  }
-
-  const regProductAvail = regionalSouthIndia.productAvailability[productSlug];
-  if (!regProductAvail || regProductAvail.operationalAvailability !== 'confirmed') {
-    failedConditions.push(
-      `Condition 1 Failed: Regional coverage for '${productSlug}' across South India is not confirmed.`
-    );
-  }
-  if (!regProductAvail || regProductAvail.seoIndexingStatus !== 'indexable') {
-    failedConditions.push(
-      `Condition 1 Failed: Regional SEO status for '${productSlug}' is not 'indexable'.`
-    );
-  }
-
-  const canonicalUrl = buildCanonicalUrl(undefined, undefined, productSlug);
-  const urlCheck = isValidHierarchyUrl(canonicalUrl);
-  if (!urlCheck.isValid) {
-    failedConditions.push(`Condition 6 Failed: ${urlCheck.reason}`);
-  }
-
-  return {
-    isIndexable: failedConditions.length === 0,
-    failedConditions
-  };
-}
-
-/**
  * High-level boolean check for route indexability across any level of the hierarchy
  */
 export function isRouteIndexable(
@@ -241,17 +200,8 @@ export function isRouteIndexable(
   citySlug?: string,
   productSlug?: string
 ): boolean {
-  // Regional South India Root (/south-india/)
-  if (!stateSlug && !citySlug && !productSlug) {
-    return (
-      regionalSouthIndia.operationalAvailability === 'confirmed' &&
-      regionalSouthIndia.seoIndexingStatus === 'indexable'
-    );
-  }
-
-  // Regional Product (/south-india/[product]/)
-  if (!stateSlug && !citySlug && productSlug) {
-    return validateRegionalProductIndexing(productSlug as ProductSlug).isIndexable;
+  if (!stateSlug) {
+    return false;
   }
 
   // State Root (/[state]/)

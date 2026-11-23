@@ -34,7 +34,7 @@ const cleanPhone = phone.replace(/[^0-9]/g, '');
 const telHref = `tel:+${cleanPhone}`;
 
 const waText = encodeURIComponent(
-  `Hi Invisible Safety, I am in ${locationName} and would like to schedule a free doorstep measurement survey${productName ? ` for ${productName}` : ''}.`
+  `Hi Invisible Safety, I am in ${locationName} and would like to schedule a free measurement inquiry survey${productName ? ` for ${productName}` : ''}.`
 );
 const waHref = `https://wa.me/${whatsapp}?text=${waText}`;
 

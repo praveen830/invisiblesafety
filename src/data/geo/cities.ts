@@ -1,17 +1,18 @@
 /**
  * Invisible Safety — Location Architecture & Data Foundation
- * Candidate Seed Cities across Five South Indian States
+ * Candidate Seed Cities across Two Approved Telugu States (Andhra Pradesh & Telangana)
  * 
  * Strict Defaults:
  * Every city initializes to operationalAvailability: 'pending_business_confirmation'
  * and seoIndexingStatus: 'unpublished'.
  * 
- * All 49 City-Product slots default to:
+ * All 28 City-Product slots default to:
  * operationalAvailability: 'pending_business_confirmation'
  * seoIndexingStatus: 'unpublished'
  * 
- * This file serves as extensible seed data. Additional verified cities in any of the
- * five target states can be added to the registry without modifying core interfaces.
+ * This file serves as extensible seed data for Andhra Pradesh (Vizag, Vijayawada, Amaravati)
+ * and Telangana (Hyderabad & Secunderabad). Additional verified cities in either
+ * approved state can be added to the registry without modifying core interfaces.
  */
 
 import type { CityConfig } from './types.ts';
@@ -24,8 +25,8 @@ export const cities: Record<string, CityConfig> = {
     slug: "vizag",
     slugAliases: ["visakhapatnam"],
     stateSlug: "andhra",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
+    operationalAvailability: "confirmed",
+    seoIndexingStatus: "indexable",
     productAvailability: createDefaultProductAvailabilityMatrix(),
     phone: "+91 83097 55398",
     whatsapp: "918309755398",
@@ -66,8 +67,8 @@ export const cities: Record<string, CityConfig> = {
     name: "Vijayawada",
     slug: "vijayawada",
     stateSlug: "andhra",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
+    operationalAvailability: "confirmed",
+    seoIndexingStatus: "indexable",
     productAvailability: createDefaultProductAvailabilityMatrix(),
     phone: "+91 83097 55398",
     whatsapp: "918309755398",
@@ -103,8 +104,8 @@ export const cities: Record<string, CityConfig> = {
     name: "Amaravati",
     slug: "amaravati",
     stateSlug: "andhra",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
+    operationalAvailability: "confirmed",
+    seoIndexingStatus: "indexable",
     productAvailability: createDefaultProductAvailabilityMatrix(),
     phone: "+91 83097 55398",
     whatsapp: "918309755398",
@@ -140,8 +141,8 @@ export const cities: Record<string, CityConfig> = {
     name: "Hyderabad & Secunderabad",
     slug: "hyderabad",
     stateSlug: "telangana",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
+    operationalAvailability: "confirmed",
+    seoIndexingStatus: "indexable",
     productAvailability: createDefaultProductAvailabilityMatrix(),
     phone: "+91 83097 55398",
     whatsapp: "918309755398",
@@ -166,120 +167,12 @@ export const cities: Record<string, CityConfig> = {
     ],
     faqs: [
       {
-        question: "Are invisible grills allowed by Hyderabad gated community RWAs?",
-        answer: "Yes. Unlike traditional box grills that alter building exteriors, Invisible Safety's slim profile is discreet from the ground and meets architectural guidelines across major societies."
+        question: "How do invisible grills look on residential apartment balconies in Hyderabad?",
+        answer: "Invisible grills feature slim stainless steel cables that maintain building facade aesthetics and provide an open skyline view without the visual obstruction of heavy iron bars."
       },
       {
         question: "Can cables be cut easily in case of a fire emergency in high-rises?",
         answer: "Invisible grills cannot be dismantled by children or pets, but can be severed using dedicated emergency wire cutters during rescue operations."
-      }
-    ]
-  },
-
-  bengaluru: {
-    id: "bengaluru",
-    name: "Bengaluru",
-    slug: "bengaluru",
-    slugAliases: ["bangalore"],
-    stateSlug: "karnataka",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
-    productAvailability: createDefaultProductAvailabilityMatrix(),
-    phone: "+91 83097 55398",
-    whatsapp: "918309755398",
-    coordinates: { latitude: 12.9716, longitude: 77.5946 },
-    localContext: {
-      heroTag: "TECH CORRIDOR BALCONY SAFETY SOLUTIONS",
-      tagline: "Invisible Grills & Balcony Safety Nets in Bengaluru",
-      description: "balcony safety nets, invisible grills, and bird protection for residential communities across Bengaluru.",
-      climateFactors: [
-        "Urban pigeon roosting along balcony shafts and utility ducts",
-        "Elevation wind patterns in upper-level apartment towers",
-        "Seasonal monsoon rains and balcony moisture exposure"
-      ],
-      architectureStyle: "High-density residential complexes, high-rise gated societies, and villa enclaves"
-    },
-    coverageLocalities: [
-      { name: "Whitefield & Sarjapur", description: "Major residential high-rise apartment corridors." },
-      { name: "Electronic City & Bellandur", description: "Modern apartment communities requiring child safety and bird exclusion." },
-      { name: "Hebbal & Manyata Tech Park", description: "North Bengaluru high-rise residential towers and duplexes." },
-      { name: "Indiranagar & Koramangala", description: "Established central residential apartments and luxury homes." }
-    ],
-    faqs: [
-      {
-        question: "How do you handle pigeon issues in Bengaluru high-rises?",
-        answer: "We install translucent monofilament netting that prevents pigeon roosting while preserving natural daylight and balcony views."
-      }
-    ]
-  },
-
-  chennai: {
-    id: "chennai",
-    name: "Chennai",
-    slug: "chennai",
-    slugAliases: ["madras"],
-    stateSlug: "tamil-nadu",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
-    productAvailability: createDefaultProductAvailabilityMatrix(),
-    phone: "+91 83097 55398",
-    whatsapp: "918309755398",
-    coordinates: { latitude: 13.0827, longitude: 80.2707 },
-    localContext: {
-      heroTag: "COASTAL BALCONY SAFETY SOLUTIONS",
-      tagline: "Balcony Invisible Grills & Safety Nets in Chennai",
-      description: "balcony safety installations along OMR, ECR, and residential corridors across Chennai.",
-      climateFactors: [
-        "Persistent maritime humidity and airborne sea salt along coastal roads",
-        "Direct sun and high humidity exposure along the coastal belt",
-        "Seasonal coastal breeze and balcony ventilation"
-      ],
-      architectureStyle: "Coastal apartment balconies, expressway residential towers, and beach villa communities"
-    },
-    coverageLocalities: [
-      { name: "OMR & ECR", description: "Coastal corridor high-rise apartments and residential villas." },
-      { name: "Velachery & Anna Nagar", description: "Family residential communities requiring child safety netting." },
-      { name: "Porur & Vadapalani", description: "Residential apartment towers and complexes." }
-    ],
-    faqs: [
-      {
-        question: "Will invisible grills withstand Chennai's coastal humidity?",
-        answer: "Our invisible grills use stainless steel cables with protective polymer sheathing designed for residential balconies in coastal humidity and outdoor conditions."
-      }
-    ]
-  },
-
-  kochi: {
-    id: "kochi",
-    name: "Kochi",
-    slug: "kochi",
-    slugAliases: ["cochin"],
-    stateSlug: "kerala",
-    operationalAvailability: "pending_business_confirmation",
-    seoIndexingStatus: "unpublished",
-    productAvailability: createDefaultProductAvailabilityMatrix(),
-    phone: "+91 83097 55398",
-    whatsapp: "918309755398",
-    coordinates: { latitude: 9.9312, longitude: 76.2673 },
-    localContext: {
-      heroTag: "WATERFRONT BALCONY SAFETY SOLUTIONS",
-      tagline: "Balcony Invisible Grills & Safety Nets in Kochi",
-      description: "balcony safety nets and invisible grills for waterfront residential towers across Kochi.",
-      climateFactors: [
-        "Prolonged heavy seasonal monsoon rainfall",
-        "Continuous tropical humidity and heavy seasonal rains",
-        "Waterfront wind conditions along Marine Drive and backwater areas"
-      ],
-      architectureStyle: "Waterfront apartments, backwater residences, and modern city towers"
-    },
-    coverageLocalities: [
-      { name: "Marine Drive & Panampilly Nagar", description: "Waterfront residential developments." },
-      { name: "Kakkanad & Edappally", description: "Modern residential high-rise communities." }
-    ],
-    faqs: [
-      {
-        question: "Can cables or track fittings rust during heavy Kerala monsoons?",
-        answer: "Our installations feature aluminium mounting tracks and stainless steel cables with protective sheathing designed for outdoor balcony environments."
       }
     ]
   }

@@ -18,27 +18,27 @@ const hubs: HubConfig[] = [
     regionTag: "TELANGANA CENTRAL HUB (HEAD OFFICE)",
     title: "HYDERABAD & SECUNDERABAD",
     slug: "hyderabad",
-    description: "High-rise gated communities, premium duplexes, and luxury villa perimeters engineered with marine-grade invisible grills and fall-containment safety nets.",
+    description: "High-rise gated communities, premium duplexes, and luxury villa perimeters engineered with stainless steel invisible grills and fall-containment safety nets.",
     localities: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
-    climateNote: "Calibrated for high thermal variation and intense summer sun with UV-stabilized DuPont coating and heavy-duty RCC slab anchor tracks."
+    climateNote: "Calibrated for high thermal variation and intense summer sun with UV-stabilized protective coating and heavy-duty RCC slab anchor tracks."
   },
   {
     number: "HUB 02",
     regionTag: "ANDHRA PRADESH COASTAL HUB",
     title: "VISAKHAPATNAM (VIZAG)",
     slug: "visakhapatnam",
-    description: "Marine-grade AISI 316 invisible grills and pigeon deterrence systems engineered specifically for coastal salt-spray corridors and sea-facing high-rises.",
+    description: "Stainless steel invisible grills and pigeon deterrence systems engineered specifically for coastal salt-spray corridors and sea-facing high-rises.",
     localities: ["Madhurawada", "Yendada", "Rushikonda", "MVP Colony", "Seethammadhara", "Siripuram", "Beach Road", "Pedda Waltair", "Lawsons Bay Colony", "Kommadi"],
-    climateNote: "Wind-calibrated anchor tracks and strict AISI 316 austenitic stainless steel core specified to eliminate pitting from coastal sea breeze and tropical humidity."
+    climateNote: "Wind-calibrated anchor tracks and stainless steel cable core specified to eliminate pitting from coastal sea breeze and tropical humidity."
   },
   {
     number: "HUB 03",
     regionTag: "ANDHRA PRADESH CENTRAL URBAN HUB",
     title: "VIJAYAWADA",
     slug: "vijayawada",
-    description: "Dense urban residential corridors, commercial balconies, and premium apartments fitted with laser-measured safety netting and stainless steel bird spikes.",
+    description: "Dense urban residential corridors, commercial balconies, and premium apartments fitted with custom-measured safety netting and stainless steel bird spikes.",
     localities: ["Benz Circle", "Patamata", "Labbipet", "Moghalrajpuram", "Kanuru", "Poranki", "Tadigadapa", "Currency Nagar", "Ramavarappadu", "Gunadala"],
-    climateNote: "High-temperature resistant polymer netting and anodized aluminum profiles designed for tropical heat and long-term tensile durability."
+    climateNote: "Durable outdoor netting and anodized aluminum profiles designed for tropical heat and long-term outdoor durability."
   },
   {
     number: "HUB 04",
@@ -50,36 +50,15 @@ const hubs: HubConfig[] = [
     climateNote: "Engineered for open-plain wind dynamics and high-elevation residential balconies with reinforced expansion anchoring."
   }
 ];
-
-const metroExpansions = [
-  {
-    name: "Bengaluru",
-    state: "Karnataka",
-    areas: "Whitefield, Sarjapur, Electronic City, Bellandur, Hebbal",
-    highlight: "High-rise tech corridor wind-load & bird protection"
-  },
-  {
-    name: "Chennai",
-    state: "Tamil Nadu",
-    areas: "OMR, ECR, Velachery, Anna Nagar, Porur",
-    highlight: "Coastal saline-grade SS316 rust-proof installations"
-  },
-  {
-    name: "Kochi",
-    state: "Kerala",
-    areas: "Marine Drive, Kakkanad, Edappally, Panampilly Nagar",
-    highlight: "High-rainfall & monsoon corrosion-resistant rigging"
-  }
-];
 ---
 
 <section class="section-spacing bg-warm" style="border-bottom: 1px solid var(--color-border);">
   <div class="container" style="max-width: 1200px;">
     <div class="section-header">
       <span class="eyebrow">DEDICATED REGIONAL HUBS</span>
-      <h2>Locally Certified Installation Teams</h2>
+      <h2>Local Installation Teams</h2>
       <p>
-        Invisible Safety operates dedicated on-ground field crews with laser measurement tools and full work-at-height safety gear in each service hub across South India.
+        Invisible Safety operates dedicated on-ground field crews with measurement tools and full on-site safety gear in each service hub across Telangana and Andhra Pradesh.
       </p>
     </div>
 
@@ -125,40 +104,6 @@ const metroExpansions = [
           </div>
         </div>
       ))}
-    </div>
-
-    <!-- South Indian Metro Expansion Hub Strip -->
-    <div class="metro-expansion-card">
-      <div class="metro-header">
-        <div class="metro-badge">
-          <Sparkles size={14} />
-          <span>MAJOR SOUTH INDIAN METRO HUBS</span>
-        </div>
-        <h3 class="metro-title">Active Field Support Across Bengaluru, Chennai &amp; Kochi</h3>
-        <p class="metro-desc">
-          In addition to our core hubs in Telangana &amp; Andhra Pradesh, our traveling engineering crews regularly service high-rise communities in South India's premier metropolitan centers.
-        </p>
-      </div>
-
-      <div class="metro-grid">
-        {metroExpansions.map((metro) => (
-          <div class="metro-col">
-            <div class="metro-city">{metro.name}</div>
-            <div class="metro-state">{metro.state}</div>
-            <p class="metro-areas"><strong>Localities:</strong> {metro.areas}</p>
-            <div class="metro-highlight">{metro.highlight}</div>
-            <a
-              href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20am%20in%20${metro.name}%20and%20need%20a%20site%20inspection.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="metro-btn"
-            >
-              <span>INSPECT IN {metro.name.toUpperCase()}</span>
-              <ArrowRight size={13} />
-            </a>
-          </div>
-        ))}
-      </div>
     </div>
   </div>
 </section>

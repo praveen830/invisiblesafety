@@ -33,9 +33,9 @@ export const products: Record<ProductSlug, ProductConfig> = {
       { title: 'Emergency Evacuation Access', description: 'Can be severed by emergency rescue personnel using specialized wire cutters, avoiding the trapped enclosure risk of traditional fixed iron cages.' }
     ],
     technicalSpecs: [
-      { label: 'Cable Material', value: 'Stainless steel multi-strand cable' },
-      { label: 'Cable Construction', value: 'Multi-strand braided wire rope' },
-      { label: 'Protective Casing', value: 'Transparent polymer sleeve' },
+      { label: 'Cable Material', value: 'Stainless steel stainless steel cable' },
+      { label: 'Cable Construction', value: 'stainless steel braided wire rope' },
+      { label: 'Protective Casing', value: 'Transparent protective coating' },
       { label: 'Track System', value: 'Extruded aluminium framework' }
     ],
     defaultFaqs: [
@@ -45,7 +45,7 @@ export const products: Record<ProductSlug, ProductConfig> = {
       },
       {
         question: 'Will invisible grills rust over time?',
-        answer: 'Our invisible grills are built using stainless steel cables encased in a protective polymer sleeve, designed for residential balconies and outdoor exposure.'
+        answer: 'Our invisible grills are built using stainless steel cables encased in a protective coating, designed for residential balconies and outdoor exposure.'
       }
     ]
   },

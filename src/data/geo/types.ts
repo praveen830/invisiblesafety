@@ -2,7 +2,8 @@
  * Invisible Safety — Location Architecture & Data Foundation
  * Core TypeScript Type Definitions & Data Contracts
  * 
- * Strict 4-Tier Hierarchy: South India -> State -> City -> Product
+ * Strict 3-Tier Hierarchy: State -> City -> Product
+ * Approved Telugu States: Andhra Pradesh & Telangana
  * (No neighbourhood or locality routes permitted)
  */
 
@@ -34,9 +35,9 @@ export type SeoIndexingStatus =
 export type RedirectStatus = 'proposed_pending_manual_validation';
 
 /**
- * The 5 approved South Indian states
+ * The 2 approved Telugu states
  */
-export type StateSlug = 'andhra' | 'telangana' | 'karnataka' | 'tamil-nadu' | 'kerala';
+export type StateSlug = 'andhra' | 'telangana';
 
 /**
  * The 7 approved product categories
@@ -53,12 +54,12 @@ export type ProductSlug =
 /**
  * Hierarchy tier level
  */
-export type HierarchyLevel = 'region' | 'state' | 'city' | 'city-product';
+export type HierarchyLevel = 'state' | 'city' | 'city-product';
 
 /**
  * Campaign scope levels
  */
-export type CampaignScope = 'south-india' | 'state' | 'city' | 'city-product';
+export type CampaignScope = 'state' | 'city' | 'city-product';
 
 /**
  * Granular operational and indexing state for a single product within a location.
@@ -120,7 +121,7 @@ export interface ProductConfig {
 }
 
 /**
- * State Configuration Contract (The 5 Target States)
+ * State Configuration Contract (The 2 Target Telugu States)
  */
 export interface StateConfig {
   id: string;

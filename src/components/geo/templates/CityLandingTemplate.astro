@@ -6,7 +6,7 @@
  * Reusable template composition for City Hub Scope:
  * - /[state]/[city]/ (City Overview)
  * 
- * Examples: /andhra/vizag/, /telangana/hyderabad/, /karnataka/bengaluru/
+ * Examples: /andhra/vizag/, /telangana/hyderabad/, /andhra/vijayawada/
  * STRICT CONSTRAINT: Does NOT register production routes.
  */
 
@@ -43,6 +43,9 @@ if (!city) {
 
 // Resolve campaign
 const campaign = resolveCampaignConfig('city', stateSlug, citySlug);
+
+const cityTitle = `Invisible Grills & Safety Nets in ${city.name} | Invisible Safety`;
+const cityDescription = `Explore invisible safety grills, balcony safety nets, and bird exclusion solutions for residential balconies in ${city.name}, ${state.name}. Contact Invisible Safety.`;
 ---
 
 <GeoLandingLayout
@@ -50,6 +53,8 @@ const campaign = resolveCampaignConfig('city', stateSlug, citySlug);
   stateSlug={stateSlug}
   citySlug={citySlug}
   campaign={campaign}
+  title={cityTitle}
+  description={cityDescription}
 >
   <!-- Hero Section -->
   <GeoHero

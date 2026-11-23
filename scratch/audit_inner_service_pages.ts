@@ -44,8 +44,8 @@ async function checkInnerPages() {
       console.log(`SS316 claim: Live = ${liveHasSS316}, Local = ${localHasSS316}`);
       console.log(`400+ kg claim: Live = ${liveHas400kg}`);
       console.log(`10/15-yr warranty: Live = ${liveHasWarranty}`);
-    } catch (e) {
-      console.log(`Error checking ${s}:`, e.message);
+    } catch (e: any) {
+      console.log(`Error checking ${s}:`, e?.message);
     }
   }
 }

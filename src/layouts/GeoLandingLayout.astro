@@ -3,11 +3,10 @@
  * Invisible Safety — Location Architecture & Presentation Foundation
  * GeoLandingLayout.astro
  * 
- * Reusable master layout for all South India location landing experiences:
- * 1. Regional (/south-india/)
- * 2. State (/[state]/)
- * 3. City (/[state]/[city]/)
- * 4. City + Product (/[state]/[city]/[product]/)
+ * Reusable master layout for Telugu states location landing experiences:
+ * 1. State (/[state]/)
+ * 2. City (/[state]/[city]/)
+ * 3. City + Product (/[state]/[city]/[product]/)
  * 
  * Enforces strict SEO gating:
  * Automatically computes `isRouteIndexable(stateSlug, citySlug, productSlug)`.
@@ -18,7 +17,7 @@ import BaseLayout from './BaseLayout.astro';
 import type { CampaignConfig, HierarchyLevel, StateSlug, ProductSlug } from '../data/geo/types.ts';
 import { isRouteIndexable } from '../data/geo/validator.ts';
 import { buildCanonicalUrl } from '../data/geo/helpers.ts';
-import { states, regionalSouthIndia } from '../data/geo/states.ts';
+import { states } from '../data/geo/states.ts';
 import { cities } from '../data/geo/cities.ts';
 import { products } from '../data/geo/products.ts';
 
@@ -79,8 +78,8 @@ if (!pageTitle) {
     pageTitle = `${state.headline} | Invisible Safety`;
     pageDescription = state.seo.description;
   } else {
-    pageTitle = `${regionalSouthIndia.headline} | Invisible Safety`;
-    pageDescription = regionalSouthIndia.seo.description;
+    pageTitle = 'Invisible Grills & Balcony Safety Solutions | Invisible Safety';
+    pageDescription = 'Architectural invisible safety grills, child protection nets, and pigeon exclusion solutions for high-rises and residences in Telangana and Andhra Pradesh.';
   }
 }
 
@@ -97,7 +96,6 @@ const schemas: Record<string, any>[] = [...additionalSchemas];
 // 5a. BreadcrumbList Schema
 const breadcrumbs = campaign?.schema.breadcrumbs || [
   { name: 'Home', url: '/' },
-  { name: 'South India', url: '/south-india/' },
   ...(state ? [{ name: state.name, url: `/${state.slug}/` }] : []),
   ...(city && state ? [{ name: city.name, url: `/${state.slug}/${city.slug}/` }] : []),
   ...(product && city && state ? [{ name: product.name, url: resolvedCanonical }] : [])

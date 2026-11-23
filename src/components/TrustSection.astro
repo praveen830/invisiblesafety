@@ -8,11 +8,11 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
     <div class="section-header">
       <span class="badge-blue">
         <Award size={14} />
-        Metallurgical Certification
+        Installation Standards
       </span>
       <h2>Safety Is Not A Marketing Slogan</h2>
       <p>
-        Every Invisible Safety installation is backed by physical laboratory metallurgical certification, calibrated mechanical tensioning, and strict work-at-height engineering standards.
+        Every Invisible Safety installation focuses on structural alignment, calibrated mechanical tensioning, and disciplined on-site safety standards.
       </p>
     </div>
 
@@ -22,13 +22,13 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
           <Anchor size={24} />
         </div>
         <div class="trust-tag-row">
-          <span class="trust-pill ss316-pill">
-            SS316 MARINE ALLOY
+          <span class="trust-pill steel-pill">
+            STAINLESS STEEL CORE
           </span>
         </div>
-        <h3 class="trust-card-title">Virgin SS316 Marine Grade</h3>
+        <h3 class="trust-card-title">Stainless steel</h3>
         <p class="trust-card-desc">
-          Enriched with 2.5% Molybdenum to prevent pitting corrosion. Will never rust or stain, even in coastal salt air or heavy monsoon climates.
+          Stainless steel cables encased in a transparent protective sleeve, designed for outdoor balconies and weathering resistance.
         </p>
       </div>
 
@@ -38,12 +38,12 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
         </div>
         <div class="trust-tag-row">
           <span class="trust-pill load-pill">
-            400+ KGF TESTED
+            FALL PROTECTION
           </span>
         </div>
-        <h3 class="trust-card-title">400+ kg Breaking Load</h3>
+        <h3 class="trust-card-title">Balcony Safety</h3>
         <p class="trust-card-desc">
-          High-tensile cables withstand massive instantaneous impact. Impossible for toddlers or energetic pets to separate or force through.
+          durable wire system designed to help safeguard children and household pets on balconies without blocking views.
         </p>
       </div>
 
@@ -53,12 +53,12 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
         </div>
         <div class="trust-tag-row">
           <span class="trust-pill harness-pill">
-            IS 3521 HARNESS
+            SAFETY PROTOCOLS
           </span>
         </div>
-        <h3 class="trust-card-title">Certified Technicians</h3>
+        <h3 class="trust-card-title">Experienced Rigging Team</h3>
         <p class="trust-card-desc">
-          Our field teams undergo rigorous work-at-height certification. Every high-rise tower installation utilizes dual-lanyard lifelines and helmet gear.
+          Our on-site installation teams use dedicated safety harnesses and personal protective equipment for secure balcony installations.
         </p>
       </div>
 
@@ -68,12 +68,12 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
         </div>
         <div class="trust-tag-row">
           <span class="trust-pill warranty-pill">
-            10 YEARS DIRECT
+            DIRECT SERVICE
           </span>
         </div>
-        <h3 class="trust-card-title">10-Year Direct Guarantee</h3>
+        <h3 class="trust-card-title">Direct Workmanship Assurance</h3>
         <p class="trust-card-desc">
-          Written guarantee certificate on cable tensile integrity and aluminium track anchoring, including complimentary re-tensioning inspection.
+          Clear quotation and workmanship warranty covering cable alignment, track fixings, and scheduled support.
         </p>
       </div>
     </div>
@@ -101,14 +101,82 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
   }
 
   .trust-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px -4px rgba(15, 35, 61, 0.12);
+    transform: translateY(-4px);
     border-color: #2D89EF;
+    box-shadow: 0 12px 28px -4px rgba(15, 35, 61, 0.1);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto 3.5rem auto;
+  }
+
+  .badge-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2D89EF;
+    background: #FFFFFF;
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(45, 137, 239, 0.25);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-brand);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0F233D;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-header h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .section-header p {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   .trust-icon-box {
-    width: 48px;
-    height: 48px;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -117,77 +185,71 @@ import { ShieldCheck, HardHat, FileText, Anchor, Award } from 'lucide-react';
   }
 
   .anchor-box {
-    background: #F0F5FA;
+    background: #EBF3FA;
     color: #2D89EF;
-    border: 1px solid rgba(45, 137, 239, 0.25);
   }
 
   .load-box {
-    background: #DCFCE7;
-    color: #15803D;
-    border: 1px solid rgba(37, 211, 102, 0.3);
+    background: #FEF3C7;
+    color: #D97706;
   }
 
   .harness-box {
-    background: #FDF6EE;
-    color: #8C6F32;
-    border: 1px solid rgba(198, 166, 107, 0.35);
+    background: #E0E7FF;
+    color: #4F46E5;
   }
 
   .warranty-box {
-    background: #F0F5FA;
-    color: #2D89EF;
-    border: 1px solid rgba(45, 137, 239, 0.25);
+    background: #D1FAE5;
+    color: #059669;
   }
 
   .trust-tag-row {
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.75rem;
   }
 
   .trust-pill {
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     padding: 0.25rem 0.6rem;
     border-radius: 6px;
-    letter-spacing: 0.04em;
-    display: inline-block;
+    text-transform: uppercase;
   }
 
-  .ss316-pill {
-    color: #2D89EF;
-    background: #F0F5FA;
-    border: 1px solid rgba(45, 137, 239, 0.25);
+  .steel-pill {
+    background: #EBF3FA;
+    color: #1E40AF;
   }
 
   .load-pill {
-    color: #15803D;
-    background: #DCFCE7;
-    border: 1px solid rgba(37, 211, 102, 0.25);
+    background: #FEF3C7;
+    color: #92400E;
   }
 
   .harness-pill {
-    color: #8C6F32;
-    background: #FDF6EE;
-    border: 1px solid rgba(198, 166, 107, 0.3);
+    background: #E0E7FF;
+    color: #3730A3;
   }
 
   .warranty-pill {
-    color: #2D89EF;
-    background: #F0F5FA;
-    border: 1px solid rgba(45, 137, 239, 0.25);
+    background: #D1FAE5;
+    color: #065F46;
   }
 
   .trust-card-title {
-    font-size: 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
     font-weight: 700;
     color: #0F233D;
-    margin-bottom: 0.55rem;
-    line-height: 1.25;
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
   }
 
   .trust-card-desc {
-    font-size: 0.88rem;
-    color: #1E293B;
+    font-size: 0.875rem;
+    color: #475569;
     line-height: 1.55;
+    margin: 0;
   }
 </style>

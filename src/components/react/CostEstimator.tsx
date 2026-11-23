@@ -34,7 +34,7 @@ export default function CostEstimator() {
   const whatsappUrl = useMemo(() => {
     const productName = productType === "invisible-grill" ? "Invisible Grills" : "Safety Nets";
     const configDetail = productType === "invisible-grill"
-      ? `${wireGauge} SS316, ${spacing} spacing`
+      ? `${wireGauge} Stainless Steel, ${spacing} spacing`
       : `${safetyNetType === 'balconyStandard' ? 'Balcony Standard' : safetyNetType === 'childSafetyHeavy' ? 'Child Safety Heavy' : 'Anti-Pigeon'}`;
 
     return buildWhatsAppLink({
@@ -80,7 +80,7 @@ export default function CostEstimator() {
           </h3>
         </div>
         <p style={{ fontSize: '0.92rem', color: '#64748B', margin: 0 }}>
-          Select your product type, approximate dimensions, and city to request a complimentary laser measurement & custom quote.
+          Select your product type, approximate dimensions, and city to request a complimentary custom measurement & custom quote.
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export default function CostEstimator() {
                   textAlign: 'center'
                 }}
               >
-                Invisible Grills (SS316)
+                Invisible Grills (Stainless Steel)
               </button>
               <button
                 type="button"
@@ -359,7 +359,7 @@ export default function CostEstimator() {
             }}>
               <Info size={16} color="#D97706" style={{ flexShrink: 0, marginTop: '2px' }} />
               <span>
-                <strong>Accurate Pricing:</strong> Costs depend on building floor height, concrete anchoring points, and curvature. We provide a <strong>100% Free On-Site Laser Measurement</strong> to give you the exact best quote.
+                <strong>Accurate Pricing:</strong> Costs depend on building floor height, concrete anchoring points, and curvature. We provide a <strong>100% Free On-Site custom Measurement</strong> to give you the exact best quote.
               </span>
             </div>
           </div>
@@ -379,7 +379,7 @@ export default function CostEstimator() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
-                <span>{productType === 'invisible-grill' ? 'Virgin SS316 marine-grade tensile cables' : 'UV-stabilized virgin polymer netting'}</span>
+                <span>{productType === 'invisible-grill' ? 'Stainless steel cables with protective coating' : 'Durable nylon netting'}</span>
               </li>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
@@ -387,11 +387,11 @@ export default function CostEstimator() {
               </li>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
-                <span>Certified technicians with IS 3521 safety harness gear</span>
+                <span>Experienced technicians with dedicated safety gear</span>
               </li>
               <li style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <CheckCircle2 size={15} color="#16A34A" />
-                <span>Free on-site laser measurement & material demonstration</span>
+                <span>Free on-site custom measurement & material demonstration</span>
               </li>
             </ul>
           </div>

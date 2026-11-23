@@ -18,108 +18,108 @@ export interface ProjectItem {
 
 export const projects: ProjectItem[] = [
   {
-    id: "proj-my-home-bhooja",
-    slug: "my-home-bhooja-hitec-city",
-    title: "Sky Deck Invisible Grills at My Home Bhooja",
+    id: "proj-residential-skydeck",
+    slug: "residential-skydeck-invisible-grills",
+    title: "High-Rise Balcony Invisible Grills",
     category: "invisible-grill",
-    city: "Hyderabad",
-    locality: "Hitec City",
-    apartmentName: "My Home Bhooja",
+    city: "Telangana",
+    locality: "High-Rise Corridor",
+    apartmentName: "Residential High-Rise Tower",
     sqft: 280,
-    configuration: "2.5 mm SS316 Marine Grade • 50 mm Child-Safe Spacing",
-    floor: "32nd Floor",
+    configuration: "2.5 mm Stainless Steel Cables • 50 mm Spacing",
+    floor: "Upper Floor Sky Deck",
     imageBefore: "/images/projects/bhooja-before.webp",
     imageAfter: "/images/projects/bhooja-after.webp",
     highlights: [
-      "Custom anodized bronze-grey tracks matching building exterior",
-      "Full perimeter anchoring into M40 reinforced concrete",
-      "Laser aligned with zero cable deviation"
+      "Custom anodized framework matching building elevation standards",
+      "Perimeter anchoring into reinforced concrete slab",
+      "Precision alignment maintaining unobstructed panoramic views"
     ],
-    clientQuote: "Living on the 32nd floor with two energetic children was nerve-wracking. Invisible Safety installed SS316 grills that feel like an invisible shield. We preserved our entire Durgam Cheruvu lake view!",
-    clientName: "Raghavendra S., Senior Architect"
+    clientQuote: "Installed for residential balcony fall protection while preserving open panoramic views.",
+    clientName: "Residential Installation"
   },
   {
-    id: "proj-aparna-serene",
-    slug: "aparna-serene-kondapur",
-    title: "Balcony Invisible Grills & Integrated Pigeon Screen",
+    id: "proj-balcony-integrated-mesh",
+    slug: "balcony-integrated-safety-screen",
+    title: "Balcony Invisible Grills & Bird Screen",
     category: "balcony",
-    city: "Hyderabad",
-    locality: "Kondapur",
-    apartmentName: "Aparna Serene Park",
+    city: "Telangana",
+    locality: "Residential Corridor",
+    apartmentName: "Apartment Balcony Installation",
     sqft: 195,
-    configuration: "2.0 mm SS316 Marine Grade • 50 mm Spacing + Translucent Mesh",
-    floor: "18th Floor",
+    configuration: "2.0 mm Stainless Steel Cables • 50 mm Spacing + Polymer Mesh",
+    floor: "Mid-Rise Balcony",
     imageBefore: "/images/projects/aparna-before.webp",
     imageAfter: "/images/projects/aparna-after.webp",
     highlights: [
-      "Combined anti-fall protection with humane bird deterrent",
-      "Installed in 4.5 hours with zero mess",
-      "Seamless integration with existing glass railing"
+      "Combines fall protection with humane bird deterrent netting",
+      "Neat on-site installation with zero debris left behind",
+      "Clean integration alongside existing balustrade framework"
     ],
-    clientQuote: "Pigeons had ruined our balcony furniture. This dual installation solved both our toddler's safety and the pigeon menace in one go. Excellent finish.",
-    clientName: "Priyanka & Vikram M."
+    clientQuote: "Dual installation providing child fall protection and effective pigeon deterrence.",
+    clientName: "Apartment Resident"
   },
   {
-    id: "proj-sea-pearl-vizag",
-    slug: "sea-pearl-beach-road-vizag",
-    title: "Sea-Facing Rust-Proof Marine Grills",
+    id: "proj-coastal-balcony-grills",
+    slug: "coastal-balcony-invisible-grills",
+    title: "Coastal Balcony Invisible Grills",
     category: "invisible-grill",
-    city: "Visakhapatnam",
-    locality: "Beach Road",
-    apartmentName: "Sea Pearl Horizons",
+    city: "Andhra Pradesh",
+    locality: "Coastal Region",
+    apartmentName: "Coastal Residential Apartment",
     sqft: 225,
-    configuration: "2.5 mm SS316 Marine Grade (Molybdenum 2.5%) • 75 mm Spacing",
-    floor: "14th Floor",
+    configuration: "2.5 mm Stainless Steel Cables • 75 mm Spacing",
+    floor: "Sea-Facing Balcony",
     imageBefore: "/images/projects/vizag-before.webp",
     imageAfter: "/images/projects/vizag-after.webp",
     highlights: [
-      "Guaranteed rust-proof in heavy maritime sea salt spray",
-      "Preserves unbroken panoramic view of the Bay of Bengal",
-      "Marine-grade 316 stainless anchors with silicone sealant"
+      "Corrosion-resistant stainless steel cables suited for humid conditions",
+      "Preserves unbroken panoramic coastal horizons",
+      "Stainless steel expansion fasteners with weather-resistant track covers"
     ],
-    clientQuote: "Every metal fitting rusts in Vizag within months. Two monsoons later, Invisible Safety cables are shining like day one. Truly marine grade.",
-    clientName: "Capt. K. Ramanathan (Retd.)"
+    clientQuote: "Designed for open balcony safety in humid coastal weather conditions.",
+    clientName: "Coastal Resident"
   },
   {
-    id: "proj-prestige-high-fields",
-    slug: "prestige-high-fields-financial-district",
-    title: "Double-Height French Window Invisible Grills",
+    id: "proj-double-height-windows",
+    slug: "double-height-window-invisible-grills",
+    title: "Double-Height Window Invisible Grills",
     category: "high-rise",
-    city: "Hyderabad",
-    locality: "Financial District",
-    apartmentName: "Prestige High Fields",
+    city: "Telangana",
+    locality: "Urban Residential Tower",
+    apartmentName: "High-Rise Apartment Complex",
     sqft: 340,
-    configuration: "2.5 mm SS316 • Vertical Tensioning with Stiffener Bar",
-    floor: "26th Floor",
+    configuration: "2.5 mm Stainless Steel Cables • Vertical Tensioning System",
+    floor: "High-Rise Window Opening",
     imageBefore: "/images/projects/prestige-before.webp",
     imageAfter: "/images/projects/prestige-after.webp",
     highlights: [
-      "Engineered cross-stiffener bar to prevent cable deflection over 9-foot spans",
-      "Society RWA approved without objections",
-      "Preserves natural cross-ventilation"
+      "Vertical tensioning framework preventing cable deflection across tall spans",
+      "Compatible with residential society architectural elevation guidelines",
+      "Maintains natural daylight and airflow"
     ],
-    clientQuote: "The large French windows in the master suite were dangerous for our cat. The grills look so sleek you forget they are even there.",
-    clientName: "Dr. Ananya Reddy"
+    clientQuote: "Frameless safety installation for large sliding glass windows.",
+    clientName: "High-Rise Resident"
   },
   {
-    id: "proj-fortune-vijayawada",
-    slug: "fortune-heights-kanuru-vijayawada",
-    title: "High-Density Child Safety Mesh & Balcony Grills",
+    id: "proj-anti-bird-balcony",
+    slug: "anti-bird-balcony-netting-installation",
+    title: "Apartment Balcony Bird Safety Netting",
     category: "safety-net",
-    city: "Vijayawada",
-    locality: "Kanuru",
-    apartmentName: "Fortune Heights",
+    city: "Andhra Pradesh",
+    locality: "Urban Residential District",
+    apartmentName: "Multi-Storey Apartment Tower",
     sqft: 180,
-    configuration: "Virgin UV-Treated HDPE Safety Mesh • 30 mm Grid",
-    floor: "8th Floor",
+    configuration: "High-Density Polyethylene Mesh (25 mm) • Perimeter Anchoring",
+    floor: "Apartment Balcony",
     imageBefore: "/images/projects/kanuru-before.webp",
     imageAfter: "/images/projects/kanuru-after.webp",
     highlights: [
-      "Zero sagging guarantee with perimeter stainless steel border wire",
-      "Weather-proof in humid tropical temperatures",
-      "Clean anchoring into ceiling and granite floor"
+      "Fine translucent netting offering high visual permeability",
+      "Protects utility balconies and AC compressors from pigeon roosting",
+      "Secure perimeter rigging preventing edge sag"
     ],
-    clientQuote: "Extremely affordable and dependable. The team finished in less than 3 hours on a Sunday morning.",
-    clientName: "S. Venkateswara Rao"
+    clientQuote: "Clean anti-pigeon netting installation preventing roosting without blocking breeze.",
+    clientName: "Apartment Resident"
   }
 ];

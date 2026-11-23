@@ -1,0 +1,191 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import CostEstimator from '../components/react/CostEstimator';
+import TrustSection from '../components/TrustSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import { business } from '../data/business';
+import { pricing } from '../data/pricing';
+import { getServiceSchema, getBreadcrumbSchema } from '../utils/seo';
+import { ShieldCheck, Award, Wrench, CheckCircle2, Eye, Shield } from 'lucide-react';
+
+const serviceSchema = getServiceSchema(
+  "Pigeon Safety Nets",
+  "High-durability pigeon safety netting for apartment balconies and utility ducts across Andhra Pradesh and Telangana. Contact Invisible Safety.",
+  pricing.safetyNet.pigeonProtection
+);
+
+const breadcrumbsList = [
+  { name: "Home", url: "/" },
+  { name: "Pigeon Safety Nets", url: "/pigeon-safety-nets/" }
+];
+
+const breadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://invisiblesafety.in/" },
+  { name: "Pigeon Safety Nets", url: "https://invisiblesafety.in/pigeon-safety-nets/" }
+]);
+
+const specs = [
+  { label: "Netting Type", value: "Translucent Bird Netting", icon: ShieldCheck },
+  { label: "Optical Transparency", value: "Preserves Daylight & Ventilation", icon: Award },
+  { label: "Material Composition", value: "UV-Stabilized High-Density Polymer", icon: Wrench },
+  { label: "Service Support", value: "Installation & Fitting Support", icon: CheckCircle2 }
+];
+
+const subcategories = [
+  {
+    title: "Bird Spikes",
+    subtitle: "Humane blunt stainless steel spikes preventing birds from perching on narrow parapets and AC ledges.",
+    href: "/bird-spikes/",
+    image: "/images/ai-generated/architectural/bird-spikes/bird-spikes-desktop-hero.webp",
+    spec: "Ledge Protection",
+    badge: "Ledge Shield"
+  },
+  {
+    title: "Balcony Safety Nets",
+    subtitle: "UV-stabilized high-density polymer netting preventing accidental falls from balconies.",
+    href: "/balcony-safety-nets/",
+    image: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-desktop-hero.webp",
+    spec: "Residential Balcony Barrier",
+    badge: "Fall Safety"
+  },
+  {
+    title: "Invisible Grills",
+    subtitle: "High-tensile stainless steel cables providing balcony safety without obstructing open skyline views.",
+    href: "/invisible-grills/",
+    image: "/images/ai-generated/architectural/invisible-grills/invisible-grills-desktop-hero.webp",
+    spec: "Stainless Steel Wire System",
+    badge: "Flagship Safety"
+  },
+  {
+    title: "Child Safety Nets",
+    subtitle: "Calibrated protective netting preventing accidental toddler falls and toy drops from balconies.",
+    href: "/child-safety-nets/",
+    image: "/images/ai-generated/safety-nets/child-safety-nets/child-safety-net-desktop-hero.webp",
+    spec: "Reinforced Balcony Barrier",
+    badge: "Child & Pet Safety"
+  }
+];
+
+const gallery = [
+  {
+    src: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp",
+    alt: "Anti-Pigeon Balcony Netting Installation",
+    title: "Residential Balcony Bird Exclusion",
+    caption: "Translucent anti-pigeon netting installed on a modern high-rise balcony.",
+    badge: "Balcony Protection"
+  },
+  {
+    src: "/images/ai-generated/architectural/bird-spikes/bird-spikes-desktop-hero.webp",
+    alt: "Stainless Steel Bird Spikes for Ledges",
+    title: "Parapet Ledge Deterrent",
+    caption: "Stainless steel spikes installed along parapet ledges to prevent pigeon roosting.",
+    badge: "Ledge Deterrent"
+  },
+  {
+    src: "/images/ai-generated/safety-nets/balcony-safety-nets/balcony-safety-net-card.webp",
+    alt: "Balcony Safety Netting System",
+    title: "Balcony Perimeter Enclosure",
+    caption: "High-density polymer netting secured cleanly around the outer balcony perimeter.",
+    badge: "Quality Fit"
+  },
+  {
+    src: "/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-card.webp",
+    alt: "Discreet Pigeon Netting Detail",
+    title: "Discreet Optical Profile",
+    caption: "Close-up showing thin translucent strands that blend with outdoor natural light.",
+    badge: "Optical Clarity"
+  }
+];
+---
+
+<SubPageLayout
+  title="Pigeon Safety Nets & Anti-Bird Balcony Netting | Invisible Safety"
+  description="High-durability pigeon safety netting for apartment balconies and utility ducts across Andhra Pradesh and Telangana. Contact Invisible Safety."
+  canonicalUrl="/pigeon-safety-nets/"
+  breadcrumbs={breadcrumbsList}
+  schema={[serviceSchema, breadcrumbs]}
+  heroEyebrow="HUMANE BIRD EXCLUSION"
+  heroTitle="PIGEON SAFETY NETS"
+  heroSubtitle="Discreet, durable anti-pigeon netting engineered for residential balconies, utility shafts, and AC outdoor units across Andhra Pradesh and Telangana, keeping spaces hygienic while maintaining ventilation."
+  heroImage="/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-desktop-hero.webp"
+  heroImageMobile="/images/ai-generated/safety-nets/pigeon-safety-nets/pigeon-safety-net-mobile-hero.webp"
+  heroImageAlt="Pigeon Safety Nets Balcony Installation"
+  specs={specs}
+  subcategories={subcategories}
+  gallery={gallery}
+>
+  <!-- Interactive Smart Cost Estimator -->
+  <section class="editorial-detail-section estimator-section" id="estimator">
+    <div class="subpage-container">
+      <div class="subpage-section-header">
+        <span class="editorial-eyebrow">ESTIMATE YOUR PROJECT</span>
+        <h2 class="editorial-title">Calculate Pigeon Netting Cost</h2>
+        <p class="editorial-subtitle">
+          Configure your balcony dimensions for an estimate and quotation enquiry.
+        </p>
+      </div>
+
+      <div class="estimator-box">
+        <CostEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <TrustSection />
+  <FAQSection category="safety-nets" title="Pigeon Safety Nets Questions &amp; Answers" />
+</SubPageLayout>
+
+<style>
+  .editorial-detail-section {
+    background-color: #FFFFFF;
+    color: #1A365D;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .subpage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .subpage-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .editorial-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0284C7;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-heading, 'Cinzel', serif);
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #0F233D;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+
+  .editorial-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .estimator-box {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(15, 35, 61, 0.06);
+  }
+</style>

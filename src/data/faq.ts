@@ -7,57 +7,57 @@ export interface FAQItem {
 export const faqs: FAQItem[] = [
   {
     question: "What exactly are invisible grills, and how do they work?",
-    answer: "Invisible grills are high-tensile safety systems manufactured from marine-grade 316 stainless steel wire ropes (2.0mm or 2.5mm thick) encased in a transparent protective nylon sheath. The cables are anchored under high tension into aircraft-grade aluminium track frames along the perimeter of balconies or windows, spaced 50mm or 75mm apart. They provide 400+ kg impact resistance while remaining virtually invisible from a short distance.",
+    answer: "Invisible grills are durable safety systems manufactured from stainless steel wire cables (typically 2.0mm or 2.5mm thick) encased in a transparent protective polymer sheath. The cables are anchored under tension into structural aluminium track frames along the perimeter of balconies or windows, spaced 50mm or 75mm apart. They provide reliable fall protection while preserving panoramic outdoor views.",
     category: "invisible-grill"
   },
   {
     question: "Are invisible grills strong enough to prevent a child or adult from falling?",
-    answer: "Yes. Each individual Invisible Safety SS316 wire is engineered and laboratory-tested to withstand up to 400 kgf (kilogram-force) of tensile breaking load. When properly tensioned and anchored into reinforced concrete with stainless steel expansion bolts, the system cannot be prised apart by hand and easily withstands high-impact accidental falls.",
+    answer: "Yes. Each individual stainless steel wire is engineered for durable strength. When properly tensioned and anchored into reinforced perimeter slabs with expansion fasteners, the tensioned cable array forms an effective barrier against accidental falls.",
     category: "invisible-grill"
   },
   {
     question: "How do invisible grills compare with traditional iron or steel grills?",
-    answer: "Traditional MS or cast-iron grills are heavy, block natural light, obscure outdoor views, require periodic repainting against rust, and create a prison-like feel. In contrast, invisible grills preserve 98% of your panoramic view, never rust (using SS316), allow unrestricted airflow, comply with high-rise society elevation rules, and can be cut by firemen with wire cutters in an emergency.",
+    answer: "Traditional MS or cast-iron grills are heavy, block natural light, obscure outdoor views, and require periodic repainting against rust. In contrast, invisible grills preserve panoramic views, use corrosion-resistant stainless steel cables, allow unrestricted airflow, comply with high-rise society elevation rules, and can be cut by rescue personnel with dedicated wire cutters during a fire emergency.",
     category: "invisible-grill"
   },
   {
     question: "Can invisible grills be cut easily by burglars or intruders?",
-    answer: "Invisible grills are designed primarily as architectural fall-protection for high-rise balconies and windows (typically 3rd floor and above). While they cannot be cut with scissors or domestic knives, in a fire emergency rescue personnel can sever individual wires using high-leverage industrial cable cutters. For low-ground residential anti-theft, optional alarm-triggering smart sensors can be integrated.",
+    answer: "Invisible grills are designed primarily as architectural fall-protection for high-rise balconies and windows (typically 3rd floor and above). While they cannot be cut with domestic scissors or kitchen knives, in a fire emergency rescue personnel can sever individual wires using wire cutters.",
     category: "invisible-grill"
   },
   {
     question: "What is the difference between 50mm and 75mm wire spacing?",
-    answer: "50mm (approx. 2 inches) is our child and pet safety standard, preventing small hands, toddler heads, and toys from slipping through. 75mm (approx. 3 inches) provides maximum visual transparency and is popular for sky-villas and adult-only panoramic balconies.",
+    answer: "50mm (approx. 2 inches) is our recommended child and pet safety standard, helping prevent small hands, toddler heads, and toys from slipping through. 75mm (approx. 3 inches) provides maximum visual transparency and is popular for expansive view balconies.",
     category: "invisible-grill"
   },
   {
     question: "Will the wires rust or discolour over time?",
-    answer: "No. Invisible Safety uses virgin SS316 marine-grade steel containing molybdenum, which prevents corrosion even in humid coastal areas like Visakhapatnam. The outer transparent nylon coating additionally shields against dust, UV rays, and moisture.",
+    answer: "Our invisible grills use stainless steel cables encased in a protective coating designed for outdoor residential balconies and weathering resistance. The outer casing additionally shields the stainless steel core against airborne dust and moisture.",
     category: "warranty"
   },
   {
     question: "What warranty do you offer on invisible grills and safety nets?",
-    answer: "We provide a comprehensive up to 10-year warranty on SS316 invisible grill cables and track integrity, and a 2 to 3-year anti-sag and UV degradation warranty on high-density HDPE safety nets. Additionally, we provide one complimentary re-tensioning inspection within the first 3 months.",
+    answer: "We focus on proper installation and secure anchoring for all invisible grills and safety nets. Detailed service information and care guidelines are provided with your quotation.",
     category: "warranty"
   },
   {
     question: "How long does installation take, and what is the process?",
-    answer: "A standard apartment balcony (up to 150-250 sq ft) takes approximately 3 to 5 hours to install. Our 4-step workflow: 1) Free site laser measurement and sample demonstration, 2) Same-day transparent quote, 3) Precision installation by harness-equipped technicians, 4) Digital tension verification, client sign-off, and warranty certificate issuance.",
+    answer: "A standard residential balcony takes approximately 3 to 5 hours to install. Our 4-step workflow: 1) Complimentary site measurement and sample demonstration, 2) Upfront transparent quotation, 3) Precision installation by an experienced rigging team equipped with proper safety gear, 4) Final alignment check and client sign-off.",
     category: "installation"
   },
   {
     question: "What safety equipment do your technicians use during high-rise installations?",
-    answer: "Our technicians strictly follow Indian Work-At-Height safety regulations. Every technician wears an IS 3521-certified full-body harness secured by a dual-lanyard lifeline system anchored to structural load points, along with safety helmets, non-slip footwear, and tool tethers to prevent dropped objects.",
+    answer: "Our on-site technicians follow established work-at-height safety practices. Each technician uses safety harnesses attached to secure anchor points, safety helmets, and tethered tools to ensure secure, accident-free installations.",
     category: "installation"
   },
   {
     question: "How is the price calculated for invisible grills and safety nets?",
-    answer: "Every apartment and villa is unique in floor elevation, wind exposure, concrete anchoring conditions, and balcony curvature. Rather than fixed generic rates that may compromise installation safety, our senior structural engineers conduct a 100% free on-site laser measurement and provide a transparent, customized written quote with zero obligation. Bulk society bookings (5+ flats) also receive attractive volume concessions.",
+    answer: "Balcony dimensions, railing design, and anchoring requirements vary by property. We provide customized price estimates based on your dimensions and specifications.",
     category: "pricing"
   },
   {
     question: "How do anti-pigeon nets work without blocking the view?",
-    answer: "Our anti-pigeon nets are manufactured from ultra-fine 0.7mm to 1.0mm high-strength monofilament nylon or HDPE mesh with a 25mm to 30mm square grid. From 10-15 feet away, the mesh is nearly imperceptible, allowing breeze and light while humanely barring pigeons from roosting and depositing corrosive droppings.",
+    answer: "Our anti-pigeon nets are manufactured from fine, high-strength translucent polymer or HDPE netting with a 25mm to 30mm square grid. From a short distance, the mesh is nearly imperceptible, allowing breeze and light while humanely barring pigeons from roosting on balconies and AC ledges.",
     category: "safety-net"
   }
 ];

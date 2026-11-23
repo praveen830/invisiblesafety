@@ -8,7 +8,7 @@ export default function GalleryFilter() {
 
   const categories = [
     { id: "all", label: "All Completed Works" },
-    { id: "invisible-grill", label: "SS316 Invisible Grills" },
+    { id: "invisible-grill", label: "Stainless Steel Invisible Grills" },
     { id: "balcony", label: "Balcony Installations" },
     { id: "high-rise", label: "High-Rise Towers" },
     { id: "safety-net", label: "Safety & Pigeon Nets" },

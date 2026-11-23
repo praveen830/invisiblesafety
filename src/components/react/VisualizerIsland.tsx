@@ -237,7 +237,7 @@ export default function VisualizerIsland() {
       setGenerationStep('Computing 3D opening geometry and anchor planes...');
     }, 450);
     setTimeout(() => {
-      setGenerationStep('Synthesizing SS316 marine cables & specular reflection model...');
+      setGenerationStep('Synthesizing stainless steel cables & perspective model...');
     }, 950);
     setTimeout(() => {
       setGenerationStep('Refining ambient light and final architectural blend...');
@@ -356,7 +356,7 @@ export default function VisualizerIsland() {
   // Cable stroke styling based on finish
   const cableColor =
     finish === 'marine'
-      ? 'url(#ss316-gradient)'
+      ? 'url(#cable-gradient)'
       : finish === 'silver'
       ? 'url(#silver-gradient)'
       : 'url(#anthracite-gradient)';
@@ -425,7 +425,7 @@ export default function VisualizerIsland() {
               </span>
             </div>
             <p style={{ fontSize: '0.8rem', color: '#64748B', margin: 0 }}>
-              Realistic perspective alignment & physical SS316 tension cable simulation
+              Realistic perspective alignment & physical tension cable simulation
             </p>
           </div>
         </div>
@@ -678,7 +678,7 @@ export default function VisualizerIsland() {
             </span>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
               {[
-                { id: 'vertical', title: 'Vertical Grills', desc: 'SS316 Marine Cables', badge: 'Popular' },
+                { id: 'vertical', title: 'Vertical Grills', desc: 'Stainless Steel Cables', badge: 'Popular' },
                 { id: 'horizontal', title: 'Horizontal Grills', desc: 'Panoramic Lines', badge: 'Modern' },
                 { id: 'net', title: 'Safety Net', desc: 'Translucent High-Tenacity', badge: 'Aesthetic' },
                 { id: 'combo', title: 'Combo System', desc: 'Grills + Safety Net', badge: 'Max Safety' }
@@ -781,7 +781,7 @@ export default function VisualizerIsland() {
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.4rem' }}>
                 {[
-                  { id: 'marine', label: 'SS316 Marine', color: '#CBD5E1' },
+                  { id: 'marine', label: 'Stainless Steel', color: '#CBD5E1' },
                   { id: 'silver', label: 'Metallic Silver', color: '#E2E8F0' },
                   { id: 'anthracite', label: 'Anthracite Dark', color: '#334155' }
                 ].map((f) => {
@@ -1026,7 +1026,7 @@ export default function VisualizerIsland() {
             }}
           />
 
-          {/* SVG Vector Perspective Layer: SS316 Invisible Grills & Nets */}
+          {/* SVG Vector Perspective Layer: Invisible Grills & Nets */}
           {viewMode !== 'before' && (
             <div
               style={{
@@ -1054,8 +1054,8 @@ export default function VisualizerIsland() {
                 }}
               >
                 <defs>
-                  {/* Natural SS316 Marine Multi-Stop Gradient */}
-                  <linearGradient id="ss316-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  {/* Natural Stainless Steel Multi-Stop Gradient */}
+                  <linearGradient id="cable-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#64748B" stopOpacity="0.75" />
                     <stop offset="35%" stopColor="#E2E8F0" stopOpacity="0.95" />
                     <stop offset="60%" stopColor="#FFFFFF" stopOpacity="1" />
@@ -1474,7 +1474,7 @@ export default function VisualizerIsland() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Shield size={14} color="#38BDF8" />
               <span>
-                <strong>System:</strong> {solutionType === 'vertical' ? 'SS316 Vertical Invisible Grills' : solutionType === 'horizontal' ? 'SS316 Horizontal Invisible Grills' : solutionType === 'net' ? 'Translucent Safety Net' : 'Combo System'}
+                <strong>System:</strong> {solutionType === 'vertical' ? 'Vertical Invisible Grills' : solutionType === 'horizontal' ? 'Horizontal Invisible Grills' : solutionType === 'net' ? 'Translucent Safety Net' : 'Combo System'}
               </span>
               <span style={{ color: '#64748B' }}>•</span>
               <span><strong>Spacing:</strong> {spacing}</span>
@@ -1482,7 +1482,7 @@ export default function VisualizerIsland() {
               <span><strong>Gauge:</strong> {wireGauge}</span>
             </div>
             <div style={{ color: '#94A3B8', fontSize: '0.7rem' }}>
-              High-Tension SS316 Marine Grade (Breaking Load &gt; 400kg)
+              High-Tension Stainless Steel Cables
             </div>
           </div>
         </div>

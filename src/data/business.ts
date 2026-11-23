@@ -26,7 +26,7 @@ export interface BusinessConfig {
   }[];
   stats: {
     completedJobs: string;
-    satisfactionRate: string;
+    supportCommitment: string;
     warrantyYears: string;
     responseMinutes: string;
   };
@@ -40,19 +40,19 @@ export interface BusinessConfig {
 export const business: BusinessConfig = {
   name: "Invisible Safety",
   legalName: "Invisible Safety Architectural Home Safety Solutions",
-  tagline: "Invisible Safety. Uninterrupted Views.",
-  subtitle: "India's premier architectural invisible grill and certified safety net specialist for modern high-rises and luxury residences.",
+  tagline: "Safety. Style. Peace of Mind.",
+  subtitle: "Architectural invisible grills, balcony safety nets, and bird exclusion systems across Andhra Pradesh and Telangana.",
   phone: "+91 83097 55398",
   phoneRaw: "+918309755398",
   whatsapp: "918309755398",
   email: "invisiblesafety4@gmail.com",
-  hours: "Monday to Sunday (All Days): 8:00 AM – 9:00 PM",
+  hours: "Monday to Sunday: 8:00 AM – 9:00 PM",
   address: {
-    street: "Plot 42, Silicon Valley Hub, Hitec City",
-    locality: "Madhapur",
+    street: "Regional Service Coverage",
+    locality: "Hyderabad & Amaravati Corridors",
     city: "Hyderabad",
     state: "Telangana",
-    pincode: "500081",
+    pincode: "500001",
     country: "India"
   },
   cities: [
@@ -62,7 +62,7 @@ export const business: BusinessConfig = {
       state: "Andhra Pradesh",
       phone: "+91 83097 55398",
       popularAreas: ["Madhurawada", "Yendada", "Rushikonda", "MVP Colony", "Seethammadhara", "Siripuram", "Beach Road", "Pedda Waltair", "Lawsons Bay Colony", "Kommadi"],
-      tagline: "Marine-grade AISI 316 invisible grills & pigeon deterrence engineered for coastal sea-breeze durability."
+      tagline: "Stainless steel invisible grills and pigeon deterrence netting suited for coastal residential balconies."
     },
     {
       slug: "hyderabad",
@@ -70,7 +70,7 @@ export const business: BusinessConfig = {
       state: "Telangana",
       phone: "+91 83097 55398",
       popularAreas: ["Financial District", "Gachibowli", "HITEC City", "Kokapet", "Kondapur", "Madhapur", "Nanakramguda", "Jubilee Hills", "Banjara Hills", "Tellapur"],
-      tagline: "High-rise balcony safety grills & fall-containment safety nets for premium gated communities."
+      tagline: "Balcony invisible grills and fall-protection safety nets for residential high-rise communities."
     },
     {
       slug: "vijayawada",
@@ -78,7 +78,7 @@ export const business: BusinessConfig = {
       state: "Andhra Pradesh",
       phone: "+91 83097 55398",
       popularAreas: ["Benz Circle", "Patamata", "Labbipet", "Moghalrajpuram", "Kanuru", "Poranki", "Tadigadapa", "Currency Nagar", "Ramavarappadu", "Gunadala"],
-      tagline: "Laser-measured safety netting and stainless steel bird spikes for urban apartments and balconies."
+      tagline: "Custom-measured safety netting and stainless steel bird spikes for residential apartments and balconies."
     },
     {
       slug: "amaravati",
@@ -86,35 +86,35 @@ export const business: BusinessConfig = {
       state: "Andhra Pradesh",
       phone: "+91 83097 55398",
       popularAreas: ["Tadepalli", "Mangalagiri", "Undavalli", "Penumaka", "Neerukonda", "Kuragallu", "Mandadam", "Velagapudi", "Rayapudi", "Thullur"],
-      tagline: "Reinforced expansion anchoring invisible grills for villas, high-rises and government quarters in the capital region."
+      tagline: "Balcony safety systems and invisible grills for residences across the capital region."
     }
   ],
   stats: {
-    completedJobs: "12,400+",
-    satisfactionRate: "99.4%",
-    warrantyYears: "10 Years",
-    responseMinutes: "<15 Mins"
+    completedJobs: "Residential",
+    supportCommitment: "Dedicated Support",
+    warrantyYears: "Standard Support",
+    responseMinutes: "Prompt Support"
   },
   trustPillars: [
     {
-      title: "SS316 Marine Grade Cables",
-      description: "Japanese imported virgin 316 stainless steel with DuPont nylon casing, rust-proof even in coastal zones.",
-      badge: "Zero Corrosion"
+      title: "Stainless Steel Cable Systems",
+      description: "Stainless steel cables with transparent protective coating, designed for outdoor balconies.",
+      badge: "Weather Resistant"
     },
     {
-      title: "400+ kg Tensile Break-Load",
-      description: "Independently tested high-tensile wire system safeguarding children and pets from accidental falls.",
-      badge: "High-Rise Safe"
+      title: "Residential Fall Protection",
+      description: "durable wire system designed to help safeguard children and household pets on balconies.",
+      badge: "High-Rise Safety"
     },
     {
-      title: "Harness-Certified Technicians",
-      description: "Rigorous work-at-height safety with dual-lanyard IS 3521 harnesses and laser-guided track anchors.",
-      badge: "Certified Pros"
+      title: "Professional Installation",
+      description: "Trained on-site technicians equipped with proper safety gear and precision alignment tools.",
+      badge: "Professional Fit"
     },
     {
-      title: "10-Year Warranty & Free Re-Tensioning",
-      description: "Official digital certificate covering cable integrity and workmanship, with a free re-tension check within 3 months.",
-      badge: "Direct Guarantee"
+      title: "Direct Workmanship Assurance",
+      description: "Transparent quotation with quality check upon installation and scheduled support.",
+      badge: "Clear Terms"
     }
   ]
 };

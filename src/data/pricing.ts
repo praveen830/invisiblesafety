@@ -61,5 +61,5 @@ export const pricing: PricingConfig = {
     societyDiscountPercentage: 12
   },
   currencySymbol: "₹",
-  disclaimer: "Final pricing is confirmed following an on-site laser measurement and surface anchoring audit. Figures above reflect planning estimates based on standard installations."
+  disclaimer: "Final pricing is confirmed following an on-site physical measurement and surface inspection. Figures above reflect planning estimates based on standard installations."
 };

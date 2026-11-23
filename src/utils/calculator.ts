@@ -58,7 +58,7 @@ export function calculateQuote(input: CalculationInput): CalculationResult {
 
   if (input.includePigeonNet && input.productType === "invisible-grill") {
     const pigeonNetCost = Math.round(billableAreaSqFt * pricing.addOns.pigeonNetPerSqFt);
-    addOnsBreakdown.push({ name: "Anti-Pigeon Monofilament Netting", cost: pigeonNetCost });
+    addOnsBreakdown.push({ name: "Anti-Pigeon nylon netting", cost: pigeonNetCost });
   }
 
   if (input.includeMosquitoMesh) {

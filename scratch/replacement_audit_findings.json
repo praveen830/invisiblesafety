@@ -1,0 +1,1730 @@
+[
+  {
+    "file": "src/components/EngineeringSection.astro",
+    "line": 23,
+    "text": "Cross-Section Multi-Strand Cable",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/components/EngineeringSection.astro",
+    "line": 42,
+    "text": "Multi-strand high-tensile stainless steel wire tightly wound for reliable containment capacity while preserving smooth flexural handling.",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/components/EngineeringSection.astro",
+    "line": 65,
+    "text": "Multi-strand braided alloy core engineered for outdoor residential weather resistance.",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/components/EngineeringSection.astro",
+    "line": 73,
+    "text": "Certified to withstand massive kinetic impact forces without cable deformation.",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/components/FAQSection.astro",
+    "line": 6,
+    "text": "category?: \"invisible-grill\" | \"safety-net\" | \"installation\" | \"warranty\" | \"pricing\" | \"invisible-grills\" | \"safety-nets\";",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/Footer.astro",
+    "line": 71,
+    "text": "<li><a href=\"/warranty/\">Warranty & Guarantee Terms</a></li>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/Footer.astro",
+    "line": 101,
+    "text": "<a href=\"/warranty/\">Warranty Terms</a>",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/geo/GeoTrustInformation.astro",
+    "line": 44,
+    "text": "title: 'On-Site Measurements',",
+    "matched": "On-Site Measurement"
+  },
+  {
+    "file": "src/components/Header.astro",
+    "line": 22,
+    "text": "badge: \"Certified\"",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/components/Header.astro",
+    "line": 173,
+    "text": "<span>Society &amp; RWA compliant installations backed by genuine material warranty.</span>",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/Header.astro",
+    "line": 296,
+    "text": "<a href=\"/warranty/\" class=\"drawer-touch-item\">Warranty & Guarantee Terms</a>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/Hero.astro",
+    "line": 71,
+    "text": "<span class=\"hero-desc-extended\"> — Protect your loved ones without compromising panoramic skyline views. Precision-installed stainless steel invisible safety grills and certified safety netting tailored for modern apartments, villas, and high-rise balconies across South India.</span>",
+    "matched": "certified"
+  },
+  {
+    "file": "src/components/Hero.astro",
+    "line": 98,
+    "text": "<span class=\"pillar-sub\">Multi-strand cables</span>",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/components/LocationLinks.astro",
+    "line": 32,
+    "text": "climateNote: \"Wind-calibrated anchor tracks and multi-strand stainless steel cable core specified to eliminate pitting from coastal sea breeze and tropical humidity.\"",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/components/LocationLinks.astro",
+    "line": 80,
+    "text": "<h2>Locally Certified Installation Teams</h2>",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/components/ProcessSection.astro",
+    "line": 11,
+    "text": "From your initial enquiry to final tension sign-off, experience transparent pricing, certified high-rise safety, and flawless installation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/components/ProcessSection.astro",
+    "line": 73,
+    "text": "Sign-Off & 10-Yr Warranty",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/components/ProcessSection.astro",
+    "line": 76,
+    "text": "You inspect and approve the finished installation. We issue your written documentation and warranty guarantee with scheduled follow-up support.",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 46,
+    "text": "<span class=\"warranty-text\">",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 47,
+    "text": "{product.warranty}",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 53,
+    "text": "<div class=\"warranty-strip\">",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 55,
+    "text": "<span>{product.warranty}</span>",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 197,
+    "text": ".warranty-text {",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/ProductCard.astro",
+    "line": 203,
+    "text": ".warranty-strip {",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 29,
+    "text": "material: \"Multi-strand stainless steel with protective polymer sleeve\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 32,
+    "text": "warranty: \"10-Year Direct Written Guarantee\"",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 53,
+    "text": "warranty: \"3-Year Clean Balcony Living Guarantee\"",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 71,
+    "text": "material: \"High-Tenacity Multi-Strand Polyethylene\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 74,
+    "text": "warranty: \"Certified High-Tension Long-Life Guarantee\"",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 95,
+    "text": "warranty: \"3 to 5-Year Certified Replacement Guarantee\"",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/components/SolutionsAccordion.astro",
+    "line": 116,
+    "text": "warranty: \"Commercial Site-Grade Certification\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 29,
+    "text": "<h3 class=\"trust-card-title\">Multi-Strand Stainless Steel</h3>",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 31,
+    "text": "Multi-strand stainless steel cables encased in a transparent protective sleeve, designed for outdoor balconies and weathering resistance.",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 44,
+    "text": "<h3 class=\"trust-card-title\">Residential Fall Protection</h3>",
+    "matched": "Residential Fall Protection"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 66,
+    "text": "<div class=\"trust-icon-box warranty-box\">",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 70,
+    "text": "<span class=\"trust-pill warranty-pill\">",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 71,
+    "text": "DIRECT GUARANTEE",
+    "matched": "GUARANTEE"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 76,
+    "text": "Clear quotation and workmanship warranty covering cable alignment, track fixings, and scheduled support.",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 202,
+    "text": ".warranty-box {",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/components/TrustSection.astro",
+    "line": 235,
+    "text": ".warranty-pill {",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/business.ts",
+    "line": 30,
+    "text": "warrantyYears: string;",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/business.ts",
+    "line": 95,
+    "text": "warrantyYears: \"Quality Guarantee\",",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/data/business.ts",
+    "line": 101,
+    "text": "description: \"Multi-strand stainless steel cables with transparent protective coating, designed for outdoor balconies.\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/data/business.ts",
+    "line": 105,
+    "text": "title: \"Residential Fall Protection\",",
+    "matched": "Residential Fall Protection"
+  },
+  {
+    "file": "src/data/business.ts",
+    "line": 110,
+    "text": "title: \"Experienced Installation Team\",",
+    "matched": "Experienced Installation Team"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 4,
+    "text": "category: \"invisible-grill\" | \"safety-net\" | \"installation\" | \"warranty\" | \"pricing\";",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 10,
+    "text": "answer: \"Invisible grills are high-tensile safety systems manufactured from multi-strand stainless steel wire cables (typically 2.0mm or 2.5mm thick) encased in a transparent protective polymer sheath. The cables are anchored under tension into structural aluminium track frames along the perimeter of balconies or windows, spaced 50mm or 75mm apart. They provide reliable fall protection while preserving panoramic outdoor views.\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 35,
+    "text": "answer: \"Our invisible grills use stainless steel cables encased in a protective polymer sleeve designed for outdoor residential balconies and weathering resistance. The outer casing additionally shields the multi-strand core against airborne dust and moisture.\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 36,
+    "text": "category: \"warranty\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 39,
+    "text": "question: \"What warranty do you offer on invisible grills and safety nets?\",",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 40,
+    "text": "answer: \"We provide a direct workmanship guarantee covering cable integrity and installation alignment, alongside standard manufacturer warranties on high-density polymer netting materials. Clear terms and documentation are provided with every quotation.\",",
+    "matched": "workmanship guarantee"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 41,
+    "text": "category: \"warranty\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/faq.ts",
+    "line": 55,
+    "text": "answer: \"Every residential balcony is unique in dimension, structural anchoring points, and elevation. Rather than generic rates that may overlook site specifics, our team conducts a complimentary on-site measurement to provide a clear, customized written estimate with zero obligation.\",",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/data/geo/campaigns.ts",
+    "line": 24,
+    "text": "* Guarantees unique campaignId, verified asset mapping, and tailored conversion copy.",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/data/geo/products.ts",
+    "line": 36,
+    "text": "{ label: 'Cable Material', value: 'Stainless steel multi-strand cable' },",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/geo/products.ts",
+    "line": 37,
+    "text": "{ label: 'Cable Construction', value: 'Multi-strand braided wire rope' },",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/data/geo/products.ts",
+    "line": 38,
+    "text": "{ label: 'Protective Casing', value: 'Transparent polymer sleeve' },",
+    "matched": "polymer sleeve"
+  },
+  {
+    "file": "src/data/geo/products.ts",
+    "line": 48,
+    "text": "answer: 'Our invisible grills are built using stainless steel cables encased in a protective polymer sleeve, designed for residential balconies and outdoor exposure.'",
+    "matched": "protective polymer sleeve"
+  },
+  {
+    "file": "src/data/geo/types.ts",
+    "line": 103,
+    "text": "warrantyYears?: number;",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 40,
+    "text": "localDescription: \"Visakhapatnam's coastal environment requires durable balcony materials. Invisible Safety installs multi-strand stainless steel invisible grills with protective polymer casing, providing residential fall protection while preserving panoramic outdoor views.\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 44,
+    "text": "\"Multi-strand stainless steel cable system suited for outdoor residential balconies\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 81,
+    "text": "answer: \"Stainless steel cables encased in a protective polymer sleeve resist weather exposure while providing reliable fall safety without blocking natural light or airflow.\"",
+    "matched": "protective polymer sleeve"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 100,
+    "text": "\"Multi-strand high-tensile stainless steel wire matrix for child and pet safety\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 150,
+    "text": "heroSubheadline: \"Residential fall protection and bird deterrence netting for apartments and residential balconies.\",",
+    "matched": "Residential fall protection"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 195,
+    "text": "answer: \"You can click our WhatsApp button or call +91 83097 55398 directly to arrange a complimentary on-site measurement.\"",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/data/locations.ts",
+    "line": 205,
+    "text": "heroSubheadline: \"Residential fall protection and safety netting for modern apartments and private villas.\",",
+    "matched": "Residential fall protection"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 11,
+    "text": "warranty: string;",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 40,
+    "text": "warranty: \"Direct Workmanship Guarantee\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 44,
+    "text": "wireGauge: \"2.0 mm or 2.5 mm Multi-Strand Core\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 45,
+    "text": "loadRating: \"Engineered multi-strand cable matrix\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 46,
+    "text": "coating: \"Transparent Protective Polymer Sleeve\",",
+    "matched": "Protective Polymer Sleeve"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 64,
+    "text": "description: \"Invisible Safety invisible grills provide residential safety using multi-strand stainless steel cables enclosed in a transparent protective sheath, offering fall protection with panoramic visual openness.\"",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 76,
+    "text": "warranty: \"Quality Workmanship Guarantee\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 110,
+    "text": "warranty: \"Standard Service Guarantee\",",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 114,
+    "text": "loadRating: \"Engineered residential fall protection\",",
+    "matched": "residential fall protection"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 141,
+    "text": "warranty: \"Standard Quality Guarantee\",",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 172,
+    "text": "warranty: \"Quality Workmanship Guarantee\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 202,
+    "text": "warranty: \"Standard Service Guarantee\",",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/data/products.ts",
+    "line": 233,
+    "text": "warranty: \"Quality Workmanship Guarantee\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/layouts/SubPageLayout.astro",
+    "line": 95,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench },",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/layouts/SubPageLayout.astro",
+    "line": 103,
+    "text": "caption: \"Multi-strand 2mm cables preserving unobstructed 180° penthouse view in crisp daylight.\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/layouts/SubPageLayout.astro",
+    "line": 447,
+    "text": "href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20schedule%20a%20doorstep%20laser%20measurement.`}",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/about.astro",
+    "line": 61,
+    "text": "Every meter of cable installed uses multi-strand stainless steel cable systems designed for residential balcony containment.",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/about.astro",
+    "line": 71,
+    "text": "Safety starts with our own team. We never permit technicians to work at dangerous heights without full-body certified harnesses and dual lifelines.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/about.astro",
+    "line": 81,
+    "text": "We provide clear written documentation and warranty assurance with scheduled follow-up checks. If your cables require re-alignment, our team provides timely support.",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/animals-birds-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Clean Living Guarantee\", value: \"3-Year Replacement Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/animals-birds-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"Certified Animals & Birds Safety Nets with custom site quote 0.7mm translucent bird exclusion mesh and high-tensile pet balcony netting.\"",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/animals-birds-safety-nets.astro",
+    "line": 160,
+    "text": "Configure balcony dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/balconies.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Written Guarantee\", value: \"3 to 5-Year Replacement Warranty\", icon: Wrench }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/balconies.astro",
+    "line": 111,
+    "text": "answer: \"A standard apartment balcony installation takes approximately 1 to 2 hours with our certified installation crew.\"",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 14,
+    "text": "\"Architectural Stainless Steel-grade invisible safety grills for high-rise balconies. high-tensile load tested, transparent panoramic views with 10-year direct warranty.\",",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 31,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 34,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 77,
+    "text": "caption: \"Multi-Strand Stainless Steel marine cables offering uncompromised 180° skyline vistas with high-tensile fall protection.\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 106,
+    "text": "description=\"Engineered Stainless Steel-grade invisible grills for high-rise balconies with custom site quote high-tensile load tested, RWA compliant with 10-year zero-rust warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/balcony-invisible-grills.astro",
+    "line": 112,
+    "text": "heroSubtitle=\"Multi-Strand Stainless Steel corrosion-resistant tensile cables tensioned into structural aluminium tracks, safeguarding high-rise balconies with Engineered Fall Protection while preserving 180° uninterrupted panoramic skyline vistas.\"",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/balcony-safety.astro",
+    "line": 27,
+    "text": "{ label: \"Core Metallurgy\", value: \"Multi-Strand Stainless Steel / HDPE Polymer\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/balcony-safety.astro",
+    "line": 30,
+    "text": "{ label: \"Compliance Guarantee\", value: \"Society Elevation Compliant\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/balcony-safety.astro",
+    "line": 108,
+    "text": "heroSubtitle=\"Balcony heights above the 4th floor present severe fall hazards. Our certified Stainless Steel-grade tensile cables safeguard children and pets with high-tensile load resistance while preserving open 180° panoramic vistas.\"",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/balcony-safety.astro",
+    "line": 123,
+    "text": "Configure your balcony dimensions for real-time instant quotation and certified on-site measurement scheduling.",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/bird-protection.astro",
+    "line": 30,
+    "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/bird-protection.astro",
+    "line": 110,
+    "text": "answer: \"No. All our netting is crafted from 100% virgin UV-stabilized polymers guaranteed to endure extreme temperature swings, humidity, and rainfall.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/bird-protection.astro",
+    "line": 117,
+    "text": "description=\"Discreet translucent bird exclusion netting and Stainless Steel spikes for apartments, balconies, and windows. 100% skyline clarity with 3-year warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/bird-spikes.astro",
+    "line": 32,
+    "text": "{ label: \"Durability Guarantee\", value: \"5-Year Rust & Crack Warranty\", icon: Wrench }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/bird-spikes.astro",
+    "line": 104,
+    "text": "description=\"High-grade Stainless Steel stainless steel bird spikes on UV-stabilized polycarbonate base for AC ledges, parapets, and sills with custom site quote 100% humane, zero-rust guaranteed.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/bird-spikes.astro",
+    "line": 164,
+    "text": "Configure running feet of parapets and AC ledges for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/building-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Warranty\", value: \"5-Year High-Altitude Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/building-safety-nets.astro",
+    "line": 64,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/building-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"High-rise building safety nets for societies, commercial towers, and apartments with custom site quote RWA compliant with Quality Guarantee.\"",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/building-safety-nets.astro",
+    "line": 138,
+    "text": "Safeguards multi-story building perimeters during window cleaning and exterior facade maintenance, providing certified peace of mind for facility management.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/building-safety-nets.astro",
+    "line": 159,
+    "text": "Configure society tower or shaft dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/car-parking-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Warranty\", value: \"3 to 5-Year Weatherproof Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/car-parking-safety-nets.astro",
+    "line": 159,
+    "text": "Configure parking bay dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/child-safety-invisible-grills.astro",
+    "line": 29,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/child-safety-invisible-grills.astro",
+    "line": 32,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/child-safety-invisible-grills.astro",
+    "line": 164,
+    "text": "Configure balcony dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/child-safety-nets.astro",
+    "line": 32,
+    "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: Wrench }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/child-safety-nets.astro",
+    "line": 104,
+    "text": "description=\"High-density polymer balcony safety nets for toddlers and pets with custom site quote engineered fall safety, anti-abrasive knots with 5-year replacement guarantee.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/child-safety-nets.astro",
+    "line": 164,
+    "text": "Configure balcony dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/cloth-drying-hangers.astro",
+    "line": 32,
+    "text": "{ label: \"Direct Warranty\", value: \"3-Year Mechanical Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/cloth-drying-hangers.astro",
+    "line": 41,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/cloth-drying-hangers.astro",
+    "line": 104,
+    "text": "description=\"Space-saving ceiling mounted stainless steel cloth drying hangers with smooth pull-down pulley system. 100% rust-proof with 3-year warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/coconut-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Durability Guarantee\", value: \"3-Year Weather & Sun Resistance\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/coconut-safety-nets.astro",
+    "line": 48,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/coconut-safety-nets.astro",
+    "line": 56,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/coconut-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"Heavy-duty coconut tree safety netting preventing falling coconut injuries and vehicle damage. UV-stabilized polymer with 3-year warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/coconut-safety-nets.astro",
+    "line": 159,
+    "text": "Configure number of trees and perimeter radius for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/construction-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/construction-safety-nets.astro",
+    "line": 64,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/construction-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"Heavy-duty scaffolding fall-arrest and debris containment safety nets for construction sites with custom site quote Certified 300+ kg drop catch with industrial certification.\"",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/construction-safety-nets.astro",
+    "line": 159,
+    "text": "Configure construction site or shaft dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/construction-safety.astro",
+    "line": 29,
+    "text": "{ label: \"Commercial Warranty\", value: \"Certified Site-Grade Safety Documentation\", icon: Wrench }",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/construction-safety.astro",
+    "line": 109,
+    "text": "answer: \"Yes, all commercial and industrial installations are provided with tension test certificates and written structural anchorage guarantees.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/contact.astro",
+    "line": 29,
+    "text": "description=\"Book your free on-site measurement and site survey for invisible grills and safety nets. Transparent pricing, high-grade stainless steel cables in Hyderabad, Vizag & Vijayawada.\"",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/contact.astro",
+    "line": 38,
+    "text": "<h1 class=\"hero-main-heading\">Schedule Your Free on-site measurement</h1>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/contact.astro",
+    "line": 171,
+    "text": "<span>Complimentary on-site measurement</span>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/contact.astro",
+    "line": 231,
+    "text": "Speak directly with a certified installation engineer for technical consultation and scheduling.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/duct-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Site Compliance\", value: \"Commercial High-Rise Certified\", icon: CheckCircle2 }",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/duct-safety-nets.astro",
+    "line": 56,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/duct-safety-nets.astro",
+    "line": 159,
+    "text": "Configure duct dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/faq.astro",
+    "line": 19,
+    "text": "description=\"Comprehensive questions and answers regarding invisible grills, tensile ratings, child fall prevention, society approval, pricing per sq ft, and warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 32,
+    "text": "answer: \"Our invisible grills are constructed from multi-strand stainless steel cables with a transparent protective polymer sleeve, mounted into structural powder-coated aluminium tracks.\"",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 40,
+    "text": "answer: \"On-site measurement and consultation takes 30-45 minutes. Once confirmed, standard balcony installation is completed in 3 to 5 hours by our experienced installation team.\"",
+    "matched": "On-site measurement"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 212,
+    "text": "subtitle: \"2.0mm & 2.5mm high-tensile multi-strand stainless steel cables\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 218,
+    "text": "subtitle: \"Written documentation and clear warranty on materials and installation alignment\",",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 223,
+    "text": "title: \"Residential Fall Protection\",",
+    "matched": "Residential Fall Protection"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 224,
+    "text": "subtitle: \"High-tensile multi-strand wire system with calibrated 50mm child-safe pitch\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 297,
+    "text": "quote: \"Engineered using corrosion-resistant multi-strand cables and UV-treated polymer netting designed to withstand tropical monsoon and coastal conditions.\",",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 324,
+    "text": "SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE",
+    "matched": "CERTIFIED"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 426,
+    "text": "South India's Certified High-Rise Safety Leader",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 551,
+    "text": "<span class=\"eng-spec-val\">Multi-Strand Stainless Steel Cable System</span>",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 555,
+    "text": "<span class=\"eng-spec-val\">High-tensile multi-strand construction</span>",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 559,
+    "text": "<span class=\"eng-spec-val\">7×7 multi-strand core (49 micro-wires wound in counter-tension)</span>",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 574,
+    "text": "<span class=\"eng-spec-label\">Direct Warranty Coverage:</span>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 575,
+    "text": "<span class=\"eng-spec-val\">Direct Workmanship Guarantee covering materials &amp; alignment</span>",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 603,
+    "text": "<span class=\"eng-spec-val\">0.7mm to 1.2mm multi-strand braided monofilament &amp; co-polymer</span>",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 618,
+    "text": "<span class=\"eng-spec-label\">Direct Warranty Coverage:</span>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 619,
+    "text": "<span class=\"eng-spec-val\">5-Year Weatherproof Guarantee against rotting &amp; UV degradation</span>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 803,
+    "text": "Get free doorstep on-site measurements, authentic Stainless Steel wire samples demonstration, and a transparent written quote.",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 837,
+    "text": "Our experienced installation teams deliver scheduled on-site measurements, physical cable demonstrations, and prompt installation across residential hubs.",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 906,
+    "text": "<h2 class=\"booking-heading\">Schedule Your Free Doorstep on-site measurement</h2>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 908,
+    "text": "Our senior structural safety engineer will visit your residence with authentic Stainless Steel wire and aluminium track samples, measure your balconies with laser accuracy, and provide a clear quotation.",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 924,
+    "text": "href={`https://wa.me/${business.whatsapp}?text=Hello%20Invisible%20Safety%2C%20I%20would%20like%20to%20book%20a%20free%20doorstep%20laser%20measurement%20and%20quotation%20for%20my%20residence.`}",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/index.astro",
+    "line": 1049,
+    "text": "SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE",
+    "matched": "CERTIFIED"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 12,
+    "text": "\"High-load industrial warehouse, racking, and factory safety netting certified to industrial standards with custom site quote\",",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Site Guarantee\", value: \"Commercial Industrial Safety Certification\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 56,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"Heavy-duty industrial fall protection and warehouse pallet rack safety netting with custom site quote Factory compliance certified.\"",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 121,
+    "text": "<h2 class=\"editorial-title\">Certified Workplace Protection</h2>",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/industrial-safety-nets.astro",
+    "line": 159,
+    "text": "Configure warehouse or factory area for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 18,
+    "text": "description=\"Request a complimentary on-site on-site measurement and custom transparent quotation for invisible safety grills and safety nets based on your balcony structure, height, and area.\"",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 30,
+    "text": "<span style=\"color: #0284C7;\">on-site measurement</span>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 33,
+    "text": "Every residential tower and villa balcony has distinct structural requirements — including floor elevation, wind-load exposure, and mounting concrete. We provide 100% free on-site on-site measurement to give you an exact, highly competitive quote with zero hidden charges.",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 42,
+    "text": "href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible%20Safety%2C%20I%20would%20like%20to%20book%20a%20free%20site%20laser%20measurement%20and%20quote%20for%20my%20balcony.`}",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 60,
+    "text": "<p>Instead of generic one-size-fits-all estimates, our senior structural engineers evaluate your exact space to guarantee uncompromised safety and fair pricing.</p>",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 90,
+    "text": "We engineer solutions using Multi-Strand Stainless Steel corrosion-resistant cables (2.0mm or 2.5mm) with transparent UV-nylon coating and 50mm or 75mm spacing matched to your child and pet protection requirements.",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 98,
+    "text": "<h3 style=\"font-size: 1.15rem; font-weight: 700; color: #0F172A; margin-bottom: 0.6rem;\">4. Certified Safety Installation</h3>",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 100,
+    "text": "Every quote includes certified work-at-height technicians equipped with safety protocols full-body harnesses, precision-aligned cable anchoring, digital tension calibration, and written 10-year guarantee.",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 138,
+    "text": "<h4 style=\"font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 0.4rem;\">on-site measurement</h4>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 139,
+    "text": "<p style=\"font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;\">Accurate millimeter laser measuring of balconies, windows, and duct voids.</p>",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/invisible-grill-cost.astro",
+    "line": 151,
+    "text": "<p style=\"font-size: 0.86rem; color: #64748B; line-height: 1.5; margin: 0;\">Installation by Experienced Rigging Technicians with written 10-year guarantee.</p>",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 15,
+    "text": "\"Architectural high-tensile invisible grills for balconies and windows with engineered fall protection and Direct Workmanship Guarantee.\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 30,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 33,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 105,
+    "text": "description=\"Premium Japanese Stainless Steel-grade invisible safety grills for high-rise balconies and windows. high-tensile load tested, rust-proof, RWA approved with Direct Workmanship Guarantee.\"",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 142,
+    "text": "<li><Check size={16} color=\"#0284C7\" /> high-tensile multi-strand cable strength</li>",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 145,
+    "text": "<li><Check size={16} color=\"#0284C7\" /> 5-Year Workmanship Warranty</li>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 163,
+    "text": "<li><Check size={16} color=\"#16A34A\" /> high-tensile multi-strand cable matrix</li>",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 165,
+    "text": "<li><Check size={16} color=\"#16A34A\" /> Child &amp; pet anti-spread guarantee</li>",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/invisible-grills.astro",
+    "line": 166,
+    "text": "<li><Check size={16} color=\"#16A34A\" /> 10-Year Comprehensive Warranty</li>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/locations/amaravati.astro",
+    "line": 22,
+    "text": "description=\"Architectural invisible safety grills and balcony nets for apartments and villas in Tadepalli, Mangalagiri, Undavalli & Thullur. Direct Workmanship Guarantee, Stainless Steel Cables.\"",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/locations/hyderabad.astro",
+    "line": 22,
+    "text": "description=\"Premier invisible safety grills for high-rise balconies in Gachibowli, Kondapur, Hitec City, Kokapet & Financial District. Stainless Steel-grade, high-tensile load, same-day on-site measurement.\"",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/locations/hyderabad.astro",
+    "line": 131,
+    "text": "<p>Free on-site measurement across Gachibowli, Kondapur, Madhapur, and Kokapet within 24 hours.</p>",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/locations/vijayawada.astro",
+    "line": 22,
+    "text": "description=\"Architectural invisible safety grills and pigeon nets for apartments in Benz Circle, Kanuru, Poranki & Tadepalli. 100% natural ventilation, child safe, Direct Workmanship Guarantee.\"",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/locations/visakhapatnam.astro",
+    "line": 22,
+    "text": "description=\"100% rust-proof Stainless Steel invisible grills for coastal homes in Beach Road, MVP Colony, Madhurawada & Rushikonda. Salt-spray tested with 10-year anti-rust guarantee.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/materials.astro",
+    "line": 18,
+    "text": "description=\"Explore the material engineering behind our stainless steel invisible grills: multi-strand cable matrix, protective polymer casing, and structural aluminium tracks.\"",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/materials.astro",
+    "line": 34,
+    "text": "Outdoor balconies require materials suited for exposure to sun and rain. Discover how our multi-strand stainless steel cable systems and protective polymer sleeves provide lasting safety.",
+    "matched": "multi-strand"
+  },
+  {
+    "file": "src/pages/materials.astro",
+    "line": 77,
+    "text": "Invisible Safety Multi-Strand Stainless Steel",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/monkey-safety-nets.astro",
+    "line": 28,
+    "text": "{ label: \"Core Tensile Gauge\", value: \"Reinforced Multi-Strand Stainless / HDPE\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/monkey-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Warranty\", value: \"3-Year Wildlife Defense Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/monkey-safety-nets.astro",
+    "line": 103,
+    "text": "description=\"High-tensile reinforced anti-monkey balcony safety nets with custom site quote Stops aggressive monkey entry and destruction with 3-year warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/monkey-safety-nets.astro",
+    "line": 159,
+    "text": "Configure balcony dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/mosquito-safety-nets.astro",
+    "line": 159,
+    "text": "Configure window and door frame dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/pigeon-nets.astro",
+    "line": 33,
+    "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/pigeon-nets.astro",
+    "line": 165,
+    "text": "Configure balcony or duct shaft dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/safety-nets.astro",
+    "line": 13,
+    "text": "\"Certified high-density polyethylene (HDPE) and nylon safety netting for residential balconies, child safety, and pigeon deterrent.\",",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/safety-nets.astro",
+    "line": 103,
+    "text": "description=\"High-density UV-treated balcony safety nets, sports nets, and translucent anti-pigeon netting. 100% humane, zero-sag guarantee, Stainless Steel anchors.\"",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/safety-nets.astro",
+    "line": 163,
+    "text": "Configure balcony dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 21,
+    "text": "{ label: \"Core Composition\", value: \"High-Tenacity Multi-Strand HDPE\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 24,
+    "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 32,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Braided Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 105,
+    "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 175,
+    "text": "description: \"Certified heavy-duty fall arrest and debris containment netting for commercial construction, shafts, and industrial perimeters.\",",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 185,
+    "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 217,
+    "text": "spec: \"Weather-Resistant Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 258,
+    "text": "heroSubtitle: \"Multi-strand stainless steel tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing reliable fall safety.\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 263,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 266,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 307,
+    "text": "caption: \"Multi-strand stainless steel cables preserving 180° panoramic skyline vistas.\",",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 336,
+    "text": "description: \"High-density polymer balcony and child protection safety nets with engineered impact containment and quality guarantee.\",",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 347,
+    "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 427,
+    "text": "solution.slug === \"invisible-grills\" ? \"Stainless Steel System\" : \"Certified Architectural Safety System\"",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/solutions/[slug].astro",
+    "line": 466,
+    "text": "Configure balcony or window dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/solutions.astro",
+    "line": 44,
+    "text": "<span class=\"concierge-eyebrow\">DOORSTEP LASER CALIBRATION</span>",
+    "matched": "LASER"
+  },
+  {
+    "file": "src/pages/solutions.astro",
+    "line": 47,
+    "text": "Our certified architectural surveyor will inspect your structure, measure cable lengths with high-precision lasers, present authentic Stainless Steel wire samples, and deliver a zero-obligation quotation across Hyderabad, Vizag, and Vijayawada.",
+    "matched": "laser"
+  },
+  {
+    "file": "src/pages/sports-nets.astro",
+    "line": 27,
+    "text": "{ label: \"Core Composition\", value: \"High-Tenacity Multi-Strand HDPE\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/sports-nets.astro",
+    "line": 30,
+    "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/sports-nets.astro",
+    "line": 39,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Braided Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/sports-nets.astro",
+    "line": 162,
+    "text": "Configure turf or terrace area dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/sports-practice-nets.astro",
+    "line": 28,
+    "text": "{ label: \"Mesh Composition\", value: \"High-Tenacity Multi-Strand HDPE\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/sports-practice-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Tension Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/sports-practice-nets.astro",
+    "line": 160,
+    "text": "Configure pitch length, width, and height for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/staircase-invisible-grills.astro",
+    "line": 12,
+    "text": "\"Floor-to-ceiling vertical tension safety cables for duplex staircases and luxury floating stairs with Direct Workmanship Guarantee with custom site quote\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/staircase-invisible-grills.astro",
+    "line": 29,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/staircase-invisible-grills.astro",
+    "line": 32,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/staircase-invisible-grills.astro",
+    "line": 104,
+    "text": "description=\"Floor-to-ceiling Stainless Steel vertical cable tension safety grills for duplex staircases and floating steps with custom site quote Architectural elegance with Direct Workmanship Guarantee.\"",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/staircase-invisible-grills.astro",
+    "line": 163,
+    "text": "Configure stairwell dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/staircase-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Warranty\", value: \"5-Year Certified Replacement Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/staircase-safety-nets.astro",
+    "line": 159,
+    "text": "Configure stairwell dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/swimming-pool-nets.astro",
+    "line": 28,
+    "text": "{ label: \"Core Tensile Webbing\", value: \"Multi-Strand UV-Stabilized Polyethylene\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/swimming-pool-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Direct Warranty\", value: \"5-Year Chlorine & UV Resistant\", icon: CheckCircle2 }",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/swimming-pool-nets.astro",
+    "line": 64,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/swimming-pool-nets.astro",
+    "line": 103,
+    "text": "description=\"High-tension swimming pool safety nets with flush brass anchors. Prevents toddler and pet accidental falls with 5-year chlorine-resistant warranty.\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/swimming-pool-nets.astro",
+    "line": 159,
+    "text": "Configure pool dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/terrace-safety-nets.astro",
+    "line": 31,
+    "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/terrace-safety-nets.astro",
+    "line": 48,
+    "text": "spec: \"Heavy-Gauge Multi-Strand Mesh\",",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/terrace-safety-nets.astro",
+    "line": 143,
+    "text": "<h3 class=\"terrace-card-title\">Pet Anti-Jump Guarantee</h3>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/terrace-safety-nets.astro",
+    "line": 159,
+    "text": "Configure terrace perimeter running feet for an instant certified engineering quotation.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/thank-you.astro",
+    "line": 26,
+    "text": "Our technical coordinator will review your balcony details and contact you via phone/WhatsApp promptly to schedule your complimentary on-site measurement.",
+    "matched": "on-site measurement"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 28,
+    "text": "{ name: \"Warranty & Care\", url: \"https://invisiblesafety.in/warranty/\" }",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 33,
+    "text": "title=\"Warranty Terms & Care Promise | Invisible Safety\"",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 34,
+    "text": "description=\"Official warranty terms for Invisible Safety invisible grills and safety nets. Includes scheduled follow-up checks, workmanship guarantee, and clear written terms.\"",
+    "matched": "workmanship guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 35,
+    "text": "canonicalUrl=\"/warranty/\"",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 45,
+    "text": "<span style=\"color: #0284C7;\">WARRANTY & CUSTOMER PROTECTION</span>",
+    "matched": "WARRANTY"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 56,
+    "text": "<span style=\"color: #0284C7;\">Warranty & Care Promise</span>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 60,
+    "text": "We stand 100% behind our materials, Japanese Stainless Steel marine alloy, and field craft. Every customer receives an official digital warranty certificate backed by complimentary doorstep re-tensioning inspections.",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 67,
+    "text": "<div style=\"font-size: 0.82rem; font-weight: 700; color: #0F172A; text-transform: uppercase;\">Direct Anti-Rust Guarantee</div>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 87,
+    "text": "href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20want%20to%20verify%20or%20claim%20warranty%20coverage%20for%20my%20installation.`}",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 94,
+    "text": "<span>Claim / Verify Warranty on WhatsApp</span>",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 113,
+    "text": "Your Direct Digital Certificate of Warranty",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 135,
+    "text": "href={`https://wa.me/${business.whatsapp}?text=Hi%20Invisible Safety%2C%20I%20have%20an%20existing%20installation%20and%20want%20to%20download%20my%20warranty%20certificate.`}",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 151,
+    "text": "<div style=\"font-size: 0.75rem; font-weight: 700; color: #0284C7; letter-spacing: 0.1em; text-transform: uppercase;\">OFFICIAL CERTIFICATE OF DIRECT WARRANTY</div>",
+    "matched": "WARRANTY"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 164,
+    "text": "<span style=\"display: block; font-size: 0.7rem; color: #64748B; font-weight: 700; text-transform: uppercase;\">WARRANTY PERIOD:</span>",
+    "matched": "WARRANTY"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 170,
+    "text": "<strong>Material Certified:</strong> Multi-strand stainless steel cables designed for residential balcony containment.</div>",
+    "matched": "Multi-strand"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 197,
+    "text": "What Is Covered Under Your Guarantee",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 214,
+    "text": "Quality Direct Warranty",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 223,
+    "text": "<span style=\"font-size: 0.92rem; color: #1E293B; line-height: 1.5;\"><strong>100% Anti-Rust Guarantee:</strong> Zero pitting corrosion on Japanese Stainless Steel 7x7 marine cables even in coastal monsoon weather.</span>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 227,
+    "text": "<span style=\"font-size: 0.92rem; color: #1E293B; line-height: 1.5;\"><strong>Track Anchoring & Torque Stability:</strong> Powder-coated heavy aluminum base profile guaranteed against frame detachment.</span>",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 231,
+    "text": "<span style=\"font-size: 0.92rem; color: #1E293B; line-height: 1.5;\"><strong>polymer Nylon UV Membrane:</strong> Guaranteed against peeling, cracking, or turning brittle from scorching sunlight.</span>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 254,
+    "text": "3-Year Anti-Sag Certified Warranty",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 257,
+    "text": "Guaranteed whole-balcony mesh tension, anti-fall strength, and stainless steel hardware anchor integrity.",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 267,
+    "text": "<span style=\"font-size: 0.92rem; color: #1E293B; line-height: 1.5;\"><strong>Stainless Steel Perimeter Fasteners:</strong> Rust-free hooks and steel border cables guaranteed against loosening.</span>",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 324,
+    "text": "How To Claim Your Warranty in 3 Steps",
+    "matched": "Warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 354,
+    "text": "Our technical support team pulls up your central warranty record within 30 minutes and assigns a installation technician ticket.",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 383,
+    "text": "In alignment with international ISO/IS rigging standards, our warranty guarantees manufacturer craftsmanship, genuine Japanese Stainless Steel raw materials, and on-site tension anchoring. It excludes:",
+    "matched": "guarantee"
+  },
+  {
+    "file": "src/pages/warranty.astro",
+    "line": 408,
+    "text": "<FAQSection category=\"warranty\" title=\"Frequently Asked Warranty Questions\" />",
+    "matched": "warranty"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 17,
+    "text": "description=\"See why luxury homeowners trust Invisible Safety over unorganized local fabricators. Multi-strand stainless steel cables, disciplined safety protocols, and direct workmanship guarantees.\"",
+    "matched": "workmanship guarantee"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 55,
+    "text": "<p>A transparent look at the differences between certified engineering and low-cost shortcuts.</p>",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 66,
+    "text": "Certified Architectural Excellence",
+    "matched": "Certified"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 72,
+    "text": "<span><strong>Multi-Strand Stainless Steel:</strong> Corrosion-resistant cables designed for residential balcony weather resistance.</span>",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 84,
+    "text": "<span><strong>Direct Workmanship Guarantee:</strong> Documentation terms with scheduled follow-up support.</span>",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/why-invisible-safety.astro",
+    "line": 118,
+    "text": "<span><strong>Verbal False Guarantees:</strong> No registered business identity; contractor stops answering calls after payment.</span>",
+    "matched": "Guarantee"
+  },
+  {
+    "file": "src/pages/window-invisible-grills.astro",
+    "line": 12,
+    "text": "\"Frameless architectural Stainless Steel invisible grills for sliding windows and French doors with Direct Workmanship Guarantee with custom site quote\",",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/window-invisible-grills.astro",
+    "line": 29,
+    "text": "{ label: \"Cable Metallurgy\", value: \"Multi-Strand Stainless Steel\", icon: ShieldCheck },",
+    "matched": "Multi-Strand"
+  },
+  {
+    "file": "src/pages/window-invisible-grills.astro",
+    "line": 32,
+    "text": "{ label: \"Direct Warranty\", value: \"Direct Workmanship Guarantee\", icon: Wrench }",
+    "matched": "Workmanship Guarantee"
+  },
+  {
+    "file": "src/pages/window-invisible-grills.astro",
+    "line": 141,
+    "text": "Unlike welded iron bars that trap occupants during fire emergencies, invisible grills can be severed with certified emergency rescue cable cutters in seconds by firefighters.",
+    "matched": "certified"
+  },
+  {
+    "file": "src/pages/window-invisible-grills.astro",
+    "line": 163,
+    "text": "Configure window dimensions for an instant certified engineering quotation.",
+    "matched": "certified"
+  }
+]

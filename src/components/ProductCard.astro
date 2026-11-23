@@ -70,10 +70,10 @@ const { product, featured = false } = Astro.props;
         <span class="spec-name">Material:</span>
         <span class="spec-val">{product.specs.material}</span>
       </div>
-      {product.specs.breakingLoad && (
+      {product.specs.loadRating && (
         <div class="spec-row">
           <span class="spec-name">Load Capacity:</span>
-          <span class="spec-val spec-highlight">{product.specs.breakingLoad}</span>
+          <span class="spec-val spec-highlight">{product.specs.loadRating}</span>
         </div>
       )}
       {product.specs.spacings && (

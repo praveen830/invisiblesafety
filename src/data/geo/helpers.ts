@@ -1,16 +1,16 @@
 /**
  * Invisible Safety — Location Architecture & Data Foundation
  * Core Helper Functions & Matrix Generators
+ * 
+ * Strict 3-Tier Hierarchy: State -> City -> Product
+ * Approved Telugu States: Andhra Pradesh & Telangana
  */
 
 import type { StateSlug, ProductSlug, ProductAvailabilityMatrix } from './types.ts';
 
 export const APPROVED_STATE_SLUGS: StateSlug[] = [
   'andhra',
-  'telangana',
-  'karnataka',
-  'tamil-nadu',
-  'kerala'
+  'telangana'
 ];
 
 export const APPROVED_PRODUCT_SLUGS: ProductSlug[] = [
@@ -30,10 +30,7 @@ export const APPROVED_PRODUCT_SLUGS: ProductSlug[] = [
  */
 export const APPROVED_CITY_SLUGS_BY_STATE: Record<StateSlug, readonly string[]> = {
   andhra: ['vizag', 'vijayawada', 'amaravati', 'visakhapatnam'],
-  telangana: ['hyderabad', 'secunderabad'],
-  karnataka: ['bengaluru', 'bangalore'],
-  'tamil-nadu': ['chennai', 'madras'],
-  kerala: ['kochi', 'cochin']
+  telangana: ['hyderabad', 'secunderabad']
 } as const;
 
 /**
@@ -82,14 +79,12 @@ export function createDefaultProductAvailabilityMatrix(): ProductAvailabilityMat
 }
 
 /**
- * Builds canonical URL enforcing strict lowercase, trailing slash, and 4-tier taxonomy.
+ * Builds canonical URL enforcing strict lowercase, trailing slash, and 3-tier taxonomy.
+ * State -> City -> Product
  */
 export function buildCanonicalUrl(stateSlug?: string, citySlug?: string, productSlug?: string): string {
   if (!stateSlug) {
-    if (productSlug) {
-      return `/south-india/${productSlug.toLowerCase()}/`;
-    }
-    return '/south-india/';
+    return '/';
   }
   if (stateSlug && !citySlug && !productSlug) {
     return `/${stateSlug.toLowerCase()}/`;
@@ -103,12 +98,12 @@ export function buildCanonicalUrl(stateSlug?: string, citySlug?: string, product
   if (stateSlug && citySlug && productSlug) {
     return `/${stateSlug.toLowerCase()}/${citySlug.toLowerCase()}/${productSlug.toLowerCase()}/`;
   }
-  return '/south-india/';
+  return '/';
 }
 
 /**
- * Validates whether a proposed URL strictly adheres to the approved 4-tier taxonomy,
- * validates parent-child relationships (state -> city -> product), and rejects any 5-level,
+ * Validates whether a proposed URL strictly adheres to the approved 3-tier taxonomy,
+ * validates parent-child relationships (state -> city -> product), and rejects any 4-level,
  * sub-city, neighbourhood, mismatched geography, duplicate separator, or malformed URL.
  */
 export function isValidHierarchyUrl(url: string): { isValid: boolean; reason?: string } {
@@ -141,22 +136,21 @@ export function isValidHierarchyUrl(url: string): { isValid: boolean; reason?: s
     return { isValid: false, reason: "URL must contain at least one path segment." };
   }
 
-  // Region: /south-india/ or /south-india/[product]/
+  // Region: /south-india/ is explicitly rejected
   if (segments[0] === 'south-india') {
-    if (segments.length === 1) return { isValid: true };
-    if (segments.length === 2) {
-      if (APPROVED_PRODUCT_SLUGS.includes(segments[1] as ProductSlug)) {
-        return { isValid: true };
-      }
-      return { isValid: false, reason: `Invalid regional product slug '${segments[1]}'. Must be one of the 7 approved products.` };
-    }
-    return { isValid: false, reason: `Regional hierarchy depth cannot exceed 2 segments. Found ${segments.length} segments.` };
+    return {
+      isValid: false,
+      reason: "Regional South India URLs are no longer supported. The approved hierarchy is restricted to Telugu states (andhra, telangana)."
+    };
   }
 
-  // State: must be one of the 5 approved states
+  // State: must be one of the approved Telugu states
   const stateSlug = segments[0] as StateSlug;
   if (!APPROVED_STATE_SLUGS.includes(stateSlug)) {
-    return { isValid: false, reason: `Invalid state slug '${segments[0]}'. Must be one of the 5 approved states: ${APPROVED_STATE_SLUGS.join(', ')}.` };
+    return {
+      isValid: false,
+      reason: `Invalid state slug '${segments[0]}'. Must be one of the 2 approved states: ${APPROVED_STATE_SLUGS.join(', ')}.`
+    };
   }
 
   // Segment length 1: State overview (/[state]/)
@@ -222,6 +216,6 @@ export function isValidHierarchyUrl(url: string): { isValid: boolean; reason?: s
   // Segment length 4 or greater: STRICTLY FORBIDDEN (No neighbourhood or locality URLs)
   return {
     isValid: false,
-    reason: `Hierarchy depth of ${segments.length} segments violates the 4-tier taxonomy. Neighbourhood / locality URLs and 5-level routing are strictly prohibited.`
+    reason: `Hierarchy depth of ${segments.length} segments violates the 3-tier taxonomy. Neighbourhood / locality URLs and 4-level routing are strictly prohibited.`
   };
 }

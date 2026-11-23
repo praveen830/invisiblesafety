@@ -7,7 +7,7 @@
  * - /[state]/ (State Overview)
  * - /[state]/[product]/ (State Product Campaign)
  * 
- * Target States: Andhra Pradesh, Telangana, Karnataka, Tamil Nadu, Kerala
+ * Target States: Andhra Pradesh & Telangana
  * STRICT CONSTRAINT: Does NOT register production routes.
  */
 
@@ -33,7 +33,7 @@ const { stateSlug, productSlug } = Astro.props;
 
 const state = states[stateSlug];
 if (!state) {
-  throw new Error(`StateLandingTemplate: Invalid stateSlug '${stateSlug}'. Must be one of the 5 approved states.`);
+  throw new Error(`StateLandingTemplate: Invalid stateSlug '${stateSlug}'. Must be one of the 2 approved states (andhra, telangana).`);
 }
 
 // Resolve campaign
@@ -46,8 +46,8 @@ const stateFaqs = product ? product.defaultFaqs : [
     answer: `Installations in ${state.name} account for local atmospheric factors (${state.regionalContext.climateOverview}) using stainless steel cables and protective safety netting.`
   },
   {
-    question: `Which cities in ${state.name} are covered for doorstep surveys?`,
-    answer: `Our technicians coordinate surveys across primary high-rise hubs and residential communities in ${state.name}. Contact our team to confirm current local availability.`
+    question: `Which cities in ${state.name} are covered for service?`,
+    answer: `Our team coordinates on-site measurements and installations across primary residential hubs in ${state.name}. Contact our team to confirm current local availability.`
   },
   {
     question: `How does the installation process work in ${state.name}?`,
@@ -61,6 +61,8 @@ const stateFaqs = product ? product.defaultFaqs : [
   stateSlug={stateSlug}
   productSlug={productSlug}
   campaign={campaign}
+  title={state.seo.title}
+  description={state.seo.description}
 >
   <!-- Hero Section -->
   <GeoHero

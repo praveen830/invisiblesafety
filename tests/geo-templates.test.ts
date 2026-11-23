@@ -2,9 +2,9 @@
  * Automated Unit Test Suite for Geo Presentation & Template Foundation
  * Tests/geo-templates.test.ts
  * 
- * Verifies Phase 5.1 Presentation Foundation Integrity:
- * - All four template types (Regional, State, City, City+Product)
- * - Breadcrumb hierarchy across all four scopes
+ * Verifies Presentation Foundation Integrity for Telugu States:
+ * - Templates and master layout
+ * - Breadcrumb hierarchy across 3-tier scopes (State -> City -> Product)
  * - Canonical URL construction and normalization
  * - Safe behavior when operational availability is pending (noindex enforcement)
  * - Product-specific availability isolation
@@ -57,105 +57,80 @@ test('1. Template Files & Exports — All 4 templates and master layout must exi
   }
 });
 
-test('2. Breadcrumb Hierarchy — Verifies breadcrumb paths across all 4 template scopes', () => {
-  // Scope 1: Regional Root (/south-india/)
-  const regCamp = resolveCampaignConfig('south-india', 'telangana');
-  assert.deepStrictEqual(
-    regCamp.schema.breadcrumbs,
-    [
-      { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' }
-    ],
-    'Regional breadcrumbs must match exact 2-tier path'
-  );
-
-  // Scope 1: Regional Product (/south-india/invisible-grills/)
-  const regProdCamp = resolveCampaignConfig('south-india', 'telangana', undefined, 'invisible-grills');
-  assert.deepStrictEqual(
-    regProdCamp.schema.breadcrumbs,
-    [
-      { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' },
-      { name: 'Invisible Grills', url: '/south-india/invisible-grills/' }
-    ],
-    'Regional product breadcrumbs must match exact 3-tier path'
-  );
-
-  // Scope 2: State Root (/andhra/)
+test('2. Breadcrumb Hierarchy — Verifies breadcrumb paths across 3-tier scopes (State -> City -> Product)', () => {
+  // Scope 1: State Root (/andhra/)
   const stateCamp = resolveCampaignConfig('state', 'andhra');
   assert.deepStrictEqual(
     stateCamp.schema.breadcrumbs,
     [
       { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' },
       { name: 'Andhra Pradesh', url: '/andhra/' }
     ],
-    'State breadcrumbs must match exact 3-tier path'
+    'State breadcrumbs must match exact 2-tier path: Home -> State'
   );
 
-  // Scope 2: State Product (/andhra/balcony-safety-nets/)
+  // Scope 1: State Product (/andhra/balcony-safety-nets/)
   const stateProdCamp = resolveCampaignConfig('state', 'andhra', undefined, 'balcony-safety-nets');
   assert.deepStrictEqual(
     stateProdCamp.schema.breadcrumbs,
     [
       { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' },
       { name: 'Andhra Pradesh', url: '/andhra/' },
       { name: 'Balcony Safety Nets', url: '/andhra/balcony-safety-nets/' }
     ],
-    'State product breadcrumbs must match exact 4-tier path'
+    'State product breadcrumbs must match exact 3-tier path: Home -> State -> Product'
   );
 
-  // Scope 3: City Overview (/andhra/vizag/)
+  // Scope 2: City Overview (/andhra/vizag/)
   const cityCamp = resolveCampaignConfig('city', 'andhra', 'vizag');
   assert.deepStrictEqual(
     cityCamp.schema.breadcrumbs,
     [
       { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' },
       { name: 'Andhra Pradesh', url: '/andhra/' },
       { name: 'Visakhapatnam (Vizag)', url: '/andhra/vizag/' }
     ],
-    'City breadcrumbs must match exact 4-tier path'
+    'City breadcrumbs must match exact 3-tier path: Home -> State -> City'
   );
 
-  // Scope 4: City + Product (/andhra/vizag/child-safety-nets/)
+  // Scope 3: City + Product (/andhra/vizag/child-safety-nets/)
   const deepCamp = resolveCampaignConfig('city-product', 'andhra', 'vizag', 'child-safety-nets');
   assert.deepStrictEqual(
     deepCamp.schema.breadcrumbs,
     [
       { name: 'Home', url: '/' },
-      { name: 'South India', url: '/south-india/' },
       { name: 'Andhra Pradesh', url: '/andhra/' },
       { name: 'Visakhapatnam (Vizag)', url: '/andhra/vizag/' },
       { name: 'Child Safety Nets', url: '/andhra/vizag/child-safety-nets/' }
     ],
-    'City + Product breadcrumbs must match exact 5-tier path'
+    'City + Product breadcrumbs must match exact 4-tier path: Home -> State -> City -> Product'
   );
 });
 
-test('3. Canonical URL Normalization — All 4 scopes generate valid lowercase trailing-slash URLs', () => {
-  assert.strictEqual(buildCanonicalUrl(), '/south-india/');
-  assert.strictEqual(buildCanonicalUrl(undefined, undefined, 'invisible-grills'), '/south-india/invisible-grills/');
+test('3. Canonical URL Normalization — Generates valid lowercase trailing-slash URLs for Telugu hierarchy', () => {
+  assert.strictEqual(buildCanonicalUrl(), '/');
   assert.strictEqual(buildCanonicalUrl('andhra'), '/andhra/');
   assert.strictEqual(buildCanonicalUrl('andhra', undefined, 'invisible-grills'), '/andhra/invisible-grills/');
   assert.strictEqual(buildCanonicalUrl('andhra', 'vizag'), '/andhra/vizag/');
   assert.strictEqual(buildCanonicalUrl('andhra', 'vizag', 'invisible-grills'), '/andhra/vizag/invisible-grills/');
+  assert.strictEqual(buildCanonicalUrl('telangana', 'hyderabad', 'balcony-safety-nets'), '/telangana/hyderabad/balcony-safety-nets/');
 
   // URL Validator check
-  assert.strictEqual(isValidHierarchyUrl('/south-india/').isValid, true);
   assert.strictEqual(isValidHierarchyUrl('/andhra/vizag/invisible-grills/').isValid, true);
-  assert.strictEqual(isValidHierarchyUrl('/karnataka/bengaluru/child-safety-nets/').isValid, true);
+  assert.strictEqual(isValidHierarchyUrl('/telangana/hyderabad/child-safety-nets/').isValid, true);
+  assert.strictEqual(isValidHierarchyUrl('/south-india/').isValid, false, 'Regional South India must be rejected');
+  assert.strictEqual(isValidHierarchyUrl('/karnataka/bengaluru/child-safety-nets/').isValid, false, 'Unapproved states must be rejected');
 });
 
 test('4. SEO Indexability Gating — Unverified locations strictly trigger noindex', () => {
   // All initial records are pending_business_confirmation
-  assert.strictEqual(isRouteIndexable(), false, 'Regional South India root must not be indexable');
-  assert.strictEqual(isRouteIndexable(undefined, undefined, 'invisible-grills'), false, 'Regional product must not be indexable');
+  assert.strictEqual(isRouteIndexable(), false, 'Root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra'), false, 'State root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', undefined, 'invisible-grills'), false, 'State product must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag'), false, 'City root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag', 'invisible-grills'), false, 'City product must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana'), false, 'Telangana state root must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana', 'hyderabad'), false, 'Hyderabad city root must not be indexable');
 
   // Verify that validation result cites condition 1 failure
   const cityProdCheck = validateCityProductIndexing('andhra', 'vizag', 'invisible-grills');
@@ -304,13 +279,13 @@ test('11. Availability Safety — Enforces 6 indexing conditions across all hier
   // Test pending city-product combinations
   assert.strictEqual(isRouteIndexable('andhra', 'vizag', 'invisible-grills'), false);
   assert.strictEqual(isRouteIndexable('telangana', 'hyderabad', 'balcony-safety-nets'), false);
-  assert.strictEqual(isRouteIndexable('karnataka', 'bengaluru', 'child-safety-nets'), false);
-  assert.strictEqual(isRouteIndexable('tamil-nadu', 'chennai', 'pigeon-safety-nets'), false);
-  assert.strictEqual(isRouteIndexable('kerala', 'kochi', 'sports-nets'), false);
+  assert.strictEqual(isRouteIndexable('karnataka' as any, 'bengaluru', 'child-safety-nets'), false);
+  assert.strictEqual(isRouteIndexable('tamil-nadu' as any, 'chennai', 'pigeon-safety-nets'), false);
+  assert.strictEqual(isRouteIndexable('kerala' as any, 'kochi', 'sports-nets'), false);
 
-  // Test regional and state coverage
-  assert.strictEqual(isRouteIndexable(undefined, undefined, undefined), false);
+  // Test state coverage
   assert.strictEqual(isRouteIndexable('andhra', undefined, undefined), false);
+  assert.strictEqual(isRouteIndexable('telangana', undefined, undefined), false);
 
   // Test invalid slugs
   assert.strictEqual(isRouteIndexable('non-existent-state' as any, 'vizag', 'invisible-grills'), false);
@@ -328,12 +303,6 @@ test('12. Related Locations Navigation Gating — Prevents links to unpublished 
     'GeoRelatedLocations must import isRouteIndexable from validator'
   );
 
-  // Must condition regional link on isRegionalIndexable
-  assert.ok(
-    content.includes('isRegionalIndexable ? ('),
-    'Regional overview link must be guarded with isRegionalIndexable'
-  );
-
   // Must condition state link on isStateIndexable
   assert.ok(
     content.includes('isStateIndexable ? ('),
@@ -346,20 +315,16 @@ test('12. Related Locations Navigation Gating — Prevents links to unpublished 
     'City destination link must be guarded with isCityDestinationIndexable'
   );
 
-  // Fallback must use non-clickable text (span with cursor-default), not a fake visual badge
-  assert.ok(
-    content.includes('<span class="font-medium text-slate-500 cursor-default">'),
-    'Regional fallback must render non-clickable span'
-  );
+  // State and city fallbacks must render non-clickable text preserving typography
   assert.ok(
     content.includes('cursor-default ${isCurrent ? \'font-bold text-[#0F233D]\' : \'text-slate-500\'}'),
     'State and city fallbacks must render non-clickable text preserving typography'
   );
 
   // Verify that on default pending data, all related-location targets evaluate to false
-  assert.strictEqual(isRouteIndexable(), false, 'Default regional destination must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra'), false, 'Default state destination must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag'), false, 'Default city destination must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag', 'invisible-grills'), false, 'Default city-product destination must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana'), false, 'Default telangana destination must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana', 'hyderabad'), false, 'Default hyderabad destination must not be indexable');
 });
-

@@ -29,14 +29,10 @@ export function getOrganizationSchema() {
     "logo": "https://invisiblesafety.in/images/logo.png",
     "email": business.email,
     "telephone": business.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": business.address.street,
-      "addressLocality": business.address.locality,
-      "addressRegion": business.address.city,
-      "postalCode": business.address.pincode,
-      "addressCountry": "IN"
-    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Telangana" },
+      { "@type": "AdministrativeArea", "name": "Andhra Pradesh" }
+    ],
     "sameAs": [
       `https://wa.me/${business.whatsapp}`
     ]
@@ -46,49 +42,17 @@ export function getOrganizationSchema() {
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "Organization",
     "name": business.legalName,
     "alternateName": business.name,
     "description": business.subtitle,
     "url": "https://invisiblesafety.in",
     "telephone": business.phone,
     "email": business.email,
-    "priceRange": "₹₹",
-    "image": "https://invisiblesafety.in/images/hero-balcony.webp",
-    "logo": "https://invisiblesafety.in/images/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": business.address.street,
-      "addressLocality": business.address.locality,
-      "addressRegion": business.address.city,
-      "postalCode": business.address.pincode,
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 17.4435,
-      "longitude": 78.3772
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5.0",
-      "ratingCount": "1240"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "08:00",
-        "closes": "21:00"
-      }
-    ],
-    "areaServed": business.cities.map(c => ({
-      "@type": "City",
-      "name": c.name,
-      "addressRegion": c.state,
-      "addressCountry": "IN"
-    }))
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Telangana" },
+      { "@type": "AdministrativeArea", "name": "Andhra Pradesh" }
+    ]
   };
 }
 
@@ -99,23 +63,16 @@ export function getServiceSchema(serviceName: string, description: string, custo
     "name": serviceName,
     "serviceType": serviceName,
     "provider": {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
       "name": business.name,
       "telephone": business.phone,
       "url": "https://invisiblesafety.in"
     },
     "description": description,
-    "areaServed": business.cities.map(c => ({
-      "@type": "City",
-      "name": c.name
-    })),
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "INR",
-      "price": customSpecOrPrice ? String(customSpecOrPrice) : "Custom Site Quote",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
-    }
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Telangana" },
+      { "@type": "AdministrativeArea", "name": "Andhra Pradesh" }
+    ]
   };
 }
 
@@ -129,18 +86,6 @@ export function getProductSchema(name: string, description: string, image = "/im
     "brand": {
       "@type": "Brand",
       "name": business.name
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "INR",
-      "lowPrice": "Custom Quote",
-      "offerCount": "1",
-      "availability": "https://schema.org/InStock"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "850"
     }
   };
 }

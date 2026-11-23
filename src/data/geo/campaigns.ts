@@ -1,12 +1,13 @@
 /**
  * Invisible Safety — Location Architecture & Data Foundation
- * Campaign Resolution Engine for Multi-Scope Landing Experiences
+ * Campaign Resolution Engine for Telugu States Landing Experiences
  * 
- * Supports Four Independent Campaign Scopes:
- * 1. South India Regional Scope (/south-india/ or /south-india/[product]/)
- * 2. State-Wide Scope (/[state]/ or /[state]/[product]/)
- * 3. City-Wide Scope (/[state]/[city]/)
- * 4. City + Product Deep Scope (/[state]/[city]/[product]/)
+ * Supports Three Independent Campaign Scopes:
+ * 1. State-Wide Scope (/[state]/ or /[state]/[product]/)
+ * 2. City-Wide Scope (/[state]/[city]/)
+ * 3. City + Product Deep Scope (/[state]/[city]/[product]/)
+ * 
+ * Target States: Andhra Pradesh & Telangana
  * 
  * Factual Safety Standard:
  * Purely factual, functional descriptions. No unverified assertions, load ratings,
@@ -14,13 +15,13 @@
  */
 
 import type { CampaignConfig, CampaignScope, StateSlug, ProductSlug } from './types.ts';
-import { states, regionalSouthIndia } from './states.ts';
+import { states } from './states.ts';
 import { cities } from './cities.ts';
 import { products } from './products.ts';
 import { buildCanonicalUrl } from './helpers.ts';
 
 /**
- * Resolves a campaign configuration object for any of the 4 approved campaign scopes.
+ * Resolves a campaign configuration object for any of the 3 approved campaign scopes.
  * Guarantees unique campaignId, verified asset mapping, and tailored conversion copy.
  */
 export function resolveCampaignConfig(
@@ -29,14 +30,12 @@ export function resolveCampaignConfig(
   citySlug?: string,
   productSlug?: ProductSlug
 ): CampaignConfig {
-  const state = states[stateSlug];
+  const state = states[stateSlug] || states.telangana;
   const city = citySlug ? Object.values(cities).find(c => c.slug === citySlug && c.stateSlug === stateSlug) : undefined;
   const product = productSlug ? products[productSlug] : undefined;
 
-  // Canonical URL resolution based on scope
-  const canonicalUrl = scope === 'south-india'
-    ? buildCanonicalUrl(undefined, undefined, productSlug)
-    : buildCanonicalUrl(stateSlug, citySlug, productSlug);
+  // Canonical URL resolution based on 3-tier hierarchy
+  const canonicalUrl = buildCanonicalUrl(stateSlug, citySlug, productSlug);
 
   // Default fallback assets (Invisible Grills master asset)
   const defaultAssets = products['invisible-grills'].heroAssets;
@@ -47,51 +46,10 @@ export function resolveCampaignConfig(
   } : {
     desktop: defaultAssets.desktopWebp,
     mobile: defaultAssets.mobileWebp,
-    alt: state ? `${state.name} Architectural Home Safety` : 'South India Architectural Safety'
+    alt: state ? `${state.name} Architectural Home Safety` : 'Architectural Home Safety'
   };
 
-  // Scope 1: Regional Campaign (South India)
-  if (scope === 'south-india') {
-    const campaignId = productSlug ? `cmp-southindia-${productSlug}-2026` : 'cmp-southindia-regional-2026';
-    const prodAvail = productSlug ? regionalSouthIndia.productAvailability[productSlug] : undefined;
-
-    return {
-      campaignId,
-      scope: 'south-india',
-      stateSlug,
-      productSlug,
-      canonicalUrl,
-      operationalAvailability: prodAvail ? prodAvail.operationalAvailability : regionalSouthIndia.operationalAvailability,
-      seoIndexingStatus: prodAvail ? prodAvail.seoIndexingStatus : regionalSouthIndia.seoIndexingStatus,
-      eyebrow: product ? `SOUTH INDIA REGIONAL • ${product.categoryTag}` : 'SOUTH INDIA REGIONAL HEADQUARTERS',
-      headline: product ? `${product.name} Across South India` : regionalSouthIndia.headline,
-      subheadline: product ? `${product.shortTitle} designed for high-rises and residential communities across South India.` : regionalSouthIndia.subheadline,
-      valueProposition: [
-        'Balcony safety and protection solutions across South India',
-        'Stainless steel cables and protective netting systems',
-        'Custom measurements tailored to balcony and window openings',
-        'Approved range of invisible grills, safety nets, and bird spikes'
-      ],
-      heroImage,
-      cta: {
-        primaryText: 'Book Free South India Site Survey',
-        phoneText: 'Call Invisible Safety Regional Team',
-        phoneNumber: '+91 83097 55398',
-        whatsappText: 'Chat on WhatsApp',
-        whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I am inquiring about ${product ? product.name : 'home safety solutions'} across South India.`),
-        trackingEventId: `${campaignId}-cta`
-      },
-      schema: {
-        breadcrumbs: [
-          { name: 'Home', url: '/' },
-          { name: 'South India', url: '/south-india/' },
-          ...(product ? [{ name: product.name, url: canonicalUrl }] : [])
-        ]
-      }
-    };
-  }
-
-  // Scope 2: State Campaign
+  // Scope 1: State Campaign
   if (scope === 'state' && state) {
     const campaignId = productSlug ? `cmp-${stateSlug}-${productSlug}-2026` : `cmp-${stateSlug}-statewide-2026`;
     const prodAvail = productSlug ? state.productAvailability[productSlug] : undefined;
@@ -110,17 +68,16 @@ export function resolveCampaignConfig(
       valueProposition: state.regionalContext.primaryConcerns,
       heroImage,
       cta: {
-        primaryText: `Book Free Survey in ${state.name}`,
+        primaryText: `Request Quote in ${state.name}`,
         phoneText: `Call ${state.name} Support Team`,
         phoneNumber: '+91 83097 55398',
         whatsappText: 'Chat on WhatsApp',
-        whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I live in ${state.name} and need a survey for ${product ? product.name : 'balcony safety'}.`),
+        whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I live in ${state.name} and would like a quotation for ${product ? product.name : 'balcony safety'}.`),
         trackingEventId: `${campaignId}-cta`
       },
       schema: {
         breadcrumbs: [
           { name: 'Home', url: '/' },
-          { name: 'South India', url: '/south-india/' },
           { name: state.name, url: `/${state.slug}/` },
           ...(product ? [{ name: product.name, url: canonicalUrl }] : [])
         ]
@@ -128,7 +85,7 @@ export function resolveCampaignConfig(
     };
   }
 
-  // Scope 3: City Overview Campaign
+  // Scope 2: City Overview Campaign
   if (scope === 'city' && city) {
     const campaignId = `cmp-${stateSlug}-${city.slug}-city-2026`;
 
@@ -146,17 +103,16 @@ export function resolveCampaignConfig(
       valueProposition: city.localContext.climateFactors,
       heroImage,
       cta: {
-        primaryText: `Book Free Doorstep Survey in ${city.name.split(' ')[0]}`,
+        primaryText: `Request Quote in ${city.name.split(' ')[0]}`,
         phoneText: `Call ${city.name.split(' ')[0]} Team`,
         phoneNumber: city.phone || '+91 83097 55398',
-        whatsappText: 'WhatsApp Dispatch',
-        whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I am in ${city.name} and need a free doorstep measurement.`),
+        whatsappText: 'WhatsApp Enquiry',
+        whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I am in ${city.name} and would like a quotation inquiry.`),
         trackingEventId: `${campaignId}-cta`
       },
       schema: {
         breadcrumbs: [
           { name: 'Home', url: '/' },
-          { name: 'South India', url: '/south-india/' },
           { name: state.name, url: `/${state.slug}/` },
           { name: city.name, url: canonicalUrl }
         ]
@@ -164,7 +120,7 @@ export function resolveCampaignConfig(
     };
   }
 
-  // Scope 4: City + Product Deep Campaign
+  // Scope 3: City + Product Deep Campaign
   const resolvedCity = city || Object.values(cities)[0];
   const resolvedProduct = product || products['invisible-grills'];
   const prodAvail = resolvedCity.productAvailability[resolvedProduct.slug];
@@ -185,17 +141,16 @@ export function resolveCampaignConfig(
     valueProposition: resolvedCity.localContext.climateFactors,
     heroImage,
     cta: {
-      primaryText: `Book Free ${resolvedCity.name.split(' ')[0]} Site Survey`,
-      phoneText: `Call ${resolvedCity.name.split(' ')[0]} Specialist`,
+      primaryText: `Request ${resolvedCity.name.split(' ')[0]} Site Quote`,
+      phoneText: `Call ${resolvedCity.name.split(' ')[0]} Team`,
       phoneNumber: resolvedCity.phone || '+91 83097 55398',
-      whatsappText: 'WhatsApp Dispatch',
-      whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I am in ${resolvedCity.name} and need a doorstep survey for ${resolvedProduct.name}.`),
+      whatsappText: 'WhatsApp Enquiry',
+      whatsappPrefill: encodeURIComponent(`Hi Invisible Safety, I am in ${resolvedCity.name} and would like a quotation for ${resolvedProduct.name}.`),
       trackingEventId: `${campaignId}-cta`
     },
     schema: {
       breadcrumbs: [
         { name: 'Home', url: '/' },
-        { name: 'South India', url: '/south-india/' },
         { name: state.name, url: `/${state.slug}/` },
         { name: resolvedCity.name, url: `/${state.slug}/${resolvedCity.slug}/` },
         { name: resolvedProduct.name, url: canonicalUrl }

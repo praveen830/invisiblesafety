@@ -2,15 +2,15 @@
  * Automated Unit Test Suite for Astro Location Data Foundation
  * Uses Node.js native test runner (node:test & node:assert)
  * 
- * Verifies Phase 5.0 Data Foundation Integrity:
- * - 5 State Configurations
+ * Verifies Telugu States Location Configuration:
+ * - 2 State Configurations (Andhra Pradesh & Telangana)
  * - 7 Product Configurations
  * - Physical Image Asset Existence (14 Files)
- * - Initial 49 City-Product Matrix
+ * - Initial 28 City-Product Matrix (4 cities × 7 products)
  * - Safe Pending & Unpublished Defaults
  * - Strict Product & City Isolation
- * - State & Regional Coverage Gates
- * - Invalid Hierarchy & Locality Route Rejection
+ * - State Coverage Gates
+ * - Invalid Hierarchy & Locality Route Rejection (Rejection of South India & Non-Telugu States)
  * - Empty Array Static Path Return on Defaults
  */
 
@@ -21,7 +21,6 @@ import path from 'node:path';
 
 import {
   states,
-  regionalSouthIndia,
   cities,
   products,
   APPROVED_STATE_SLUGS,
@@ -32,19 +31,18 @@ import {
   isRouteIndexable,
   validateCityProductIndexing,
   validateStateProductIndexing,
-  validateRegionalProductIndexing,
   getConfirmedCityProductPaths,
   resolveCampaignConfig
 } from '../src/data/geo/index.ts';
 
 import type { ProductSlug, CityConfig } from '../src/data/geo/types.ts';
 
-test('1. State Configuration — All 5 approved states must exist with safe defaults', () => {
-  assert.strictEqual(APPROVED_STATE_SLUGS.length, 5, 'Must have exactly 5 approved state slugs');
+test('1. State Configuration — All 2 approved states must exist with safe defaults', () => {
+  assert.strictEqual(APPROVED_STATE_SLUGS.length, 2, 'Must have exactly 2 approved state slugs');
   assert.deepStrictEqual(
     APPROVED_STATE_SLUGS,
-    ['andhra', 'telangana', 'karnataka', 'tamil-nadu', 'kerala'],
-    'Approved states must match exact specification'
+    ['andhra', 'telangana'],
+    'Approved states must match exact specification (Andhra Pradesh & Telangana only)'
   );
 
   for (const slug of APPROVED_STATE_SLUGS) {
@@ -66,11 +64,6 @@ test('1. State Configuration — All 5 approved states must exist with safe defa
     assert.ok(state.regionalContext.climateOverview.length > 10, `State '${slug}' must have climateOverview`);
     assert.ok(state.regionalContext.primaryConcerns.length >= 2, `State '${slug}' must document primary concerns`);
   }
-
-  // Regional South India Root Config
-  assert.strictEqual(regionalSouthIndia.id, 'south-india');
-  assert.strictEqual(regionalSouthIndia.operationalAvailability, 'pending_business_confirmation');
-  assert.strictEqual(regionalSouthIndia.seoIndexingStatus, 'unpublished');
 });
 
 test('2. Product Configuration — Exactly 7 approved products must exist with full technical specs', () => {
@@ -160,9 +153,9 @@ test('4. Duplicate Slug Detection — All state, city, and product slugs must be
   assert.strictEqual(citySlugs.length, uniqueCitySlugs.size, 'City slugs must be unique');
 });
 
-test('5. Initial 49 City-Product Matrix — All records must default to pending and unpublished', () => {
+test('5. Initial 28 City-Product Matrix — All records must default to pending and unpublished', () => {
   const cityList = Object.values(cities);
-  assert.ok(cityList.length >= 7, 'Must have at least 7 seed candidate cities');
+  assert.strictEqual(cityList.length, 4, 'Must have exactly 4 seed candidate cities (vizag, vijayawada, amaravati, hyderabad)');
 
   let totalSlotsCount = 0;
 
@@ -200,13 +193,12 @@ test('5. Initial 49 City-Product Matrix — All records must default to pending 
 
   assert.strictEqual(
     totalSlotsCount,
-    cityList.length * 7,
-    `Expected exactly ${cityList.length * 7} total city-product slots across ${cityList.length} candidate cities`
+    28,
+    'Expected exactly 28 total city-product slots across 4 candidate cities'
   );
 });
 
 test('6. Product Isolation Test — Confirming one product in a city does NOT change any other product', () => {
-  // Create an isolated city copy using the matrix generator
   const testMatrix = createDefaultProductAvailabilityMatrix();
   
   // Mutate product 1 (invisible-grills)
@@ -263,7 +255,7 @@ test('7. City Isolation Test — Confirming a product in City A does NOT change 
   );
 });
 
-test('8. State & Regional Coverage Gates — Premature state/regional indexing is blocked', () => {
+test('8. State Coverage Gates — Premature state indexing is blocked', () => {
   // City product check when city product is pending
   const cityProdCheck = validateCityProductIndexing('andhra', 'vizag', 'invisible-grills');
   assert.strictEqual(cityProdCheck.isIndexable, false, 'City product must not be indexable on default pending slot');
@@ -273,81 +265,71 @@ test('8. State & Regional Coverage Gates — Premature state/regional indexing i
   const stateCheck = validateStateProductIndexing('andhra', 'invisible-grills');
   assert.strictEqual(stateCheck.isIndexable, false, 'State product must not be indexable on default pending state');
   assert.ok(stateCheck.failedConditions.length > 0, 'Must report failed conditions for state product');
-
-  // Regional product check when regional is pending
-  const regCheck = validateRegionalProductIndexing('invisible-grills');
-  assert.strictEqual(regCheck.isIndexable, false, 'Regional product must not be indexable on default pending regional');
-  assert.ok(regCheck.failedConditions.length > 0, 'Must report failed conditions for regional product');
 });
 
-test('9. Invalid Hierarchy & Locality Route Rejection — No 5-level or area URLs permitted', () => {
+test('9. Invalid Hierarchy & Locality Route Rejection — No 4-level, sub-city, or unapproved state URLs permitted', () => {
   // Canonical URL construction
   assert.strictEqual(buildCanonicalUrl('andhra', 'vizag', 'invisible-grills'), '/andhra/vizag/invisible-grills/');
   assert.strictEqual(buildCanonicalUrl('andhra', 'vizag'), '/andhra/vizag/');
   assert.strictEqual(buildCanonicalUrl('andhra'), '/andhra/');
-  assert.strictEqual(buildCanonicalUrl(), '/south-india/');
+  assert.strictEqual(buildCanonicalUrl(), '/');
 
-  // 1. Valid URLs across all 4 tiers
-  assert.strictEqual(isValidHierarchyUrl('/south-india/').isValid, true);
-  assert.strictEqual(isValidHierarchyUrl('/south-india/invisible-grills/').isValid, true);
+  // 1. Valid URLs across approved 3 tiers
   assert.strictEqual(isValidHierarchyUrl('/andhra/').isValid, true);
   assert.strictEqual(isValidHierarchyUrl('/andhra/invisible-grills/').isValid, true);
   assert.strictEqual(isValidHierarchyUrl('/andhra/vizag/').isValid, true);
   assert.strictEqual(isValidHierarchyUrl('/andhra/vizag/invisible-grills/').isValid, true);
   assert.strictEqual(isValidHierarchyUrl('/telangana/hyderabad/balcony-safety-nets/').isValid, true);
-  assert.strictEqual(isValidHierarchyUrl('/karnataka/bengaluru/child-safety-nets/').isValid, true);
-  assert.strictEqual(isValidHierarchyUrl('/tamil-nadu/chennai/pigeon-safety-nets/').isValid, true);
-  assert.strictEqual(isValidHierarchyUrl('/kerala/kochi/sports-nets/').isValid, true);
 
-  // 2. Invalid: Unknown state slugs
-  const unknownState1 = isValidHierarchyUrl('/delhi/');
-  assert.strictEqual(unknownState1.isValid, false, 'Must reject unknown state Delhi');
-  assert.ok(unknownState1.reason?.includes('Invalid state slug'), 'Must cite invalid state slug');
+  // 2. Invalid: Regional South India URLs are strictly rejected
+  const southIndiaCheck = isValidHierarchyUrl('/south-india/');
+  assert.strictEqual(southIndiaCheck.isValid, false, 'Must reject regional /south-india/');
+  assert.ok(southIndiaCheck.reason?.includes('Regional South India URLs are no longer supported'));
 
-  const unknownState2 = isValidHierarchyUrl('/maharashtra/mumbai/');
-  assert.strictEqual(unknownState2.isValid, false, 'Must reject unknown state Maharashtra');
+  const southIndiaProdCheck = isValidHierarchyUrl('/south-india/invisible-grills/');
+  assert.strictEqual(southIndiaProdCheck.isValid, false, 'Must reject regional /south-india/[product]/');
 
-  // 3. Invalid: Cities that do NOT belong to the specified state (Parent-child validation)
+  // 3. Invalid: Unapproved state slugs (Karnataka, Tamil Nadu, Kerala, Delhi, Maharashtra)
+  assert.strictEqual(isValidHierarchyUrl('/karnataka/').isValid, false, 'Must reject removed state Karnataka');
+  assert.strictEqual(isValidHierarchyUrl('/tamil-nadu/').isValid, false, 'Must reject removed state Tamil Nadu');
+  assert.strictEqual(isValidHierarchyUrl('/kerala/').isValid, false, 'Must reject removed state Kerala');
+  assert.strictEqual(isValidHierarchyUrl('/delhi/').isValid, false, 'Must reject unknown state Delhi');
+  assert.strictEqual(isValidHierarchyUrl('/karnataka/bengaluru/child-safety-nets/').isValid, false);
+  assert.strictEqual(isValidHierarchyUrl('/tamil-nadu/chennai/pigeon-safety-nets/').isValid, false);
+  assert.strictEqual(isValidHierarchyUrl('/kerala/kochi/sports-nets/').isValid, false);
+
+  // 4. Invalid: Cities that do NOT belong to the specified state (Parent-child validation)
   const wrongStateCity1 = isValidHierarchyUrl('/andhra/mumbai/');
   assert.strictEqual(wrongStateCity1.isValid, false, 'Must reject Mumbai under Andhra Pradesh');
 
-  const wrongStateCity2 = isValidHierarchyUrl('/andhra/bengaluru/');
-  assert.strictEqual(wrongStateCity2.isValid, false, 'Must reject Bengaluru under Andhra Pradesh');
+  const wrongStateCity2 = isValidHierarchyUrl('/andhra/hyderabad/');
+  assert.strictEqual(wrongStateCity2.isValid, false, 'Must reject Hyderabad under Andhra Pradesh');
   assert.ok(wrongStateCity2.reason?.includes('does not belong to state'), 'Must cite city state mismatch');
 
-  const wrongStateCity3 = isValidHierarchyUrl('/telangana/chennai/');
-  assert.strictEqual(wrongStateCity3.isValid, false, 'Must reject Chennai under Telangana');
+  const wrongStateCity3 = isValidHierarchyUrl('/telangana/vizag/');
+  assert.strictEqual(wrongStateCity3.isValid, false, 'Must reject Vizag under Telangana');
+  assert.ok(wrongStateCity3.reason?.includes('does not belong to state'), 'Must cite city state mismatch');
 
-  const wrongStateCity4 = isValidHierarchyUrl('/karnataka/vizag/child-safety-nets/');
-  assert.strictEqual(wrongStateCity4.isValid, false, 'Must reject Vizag under Karnataka');
-  assert.ok(wrongStateCity4.reason?.includes('does not belong to state'), 'Must cite city state mismatch in 3-segment URL');
+  // 5. Invalid: Unapproved product categories
+  const unapprovedProd = isValidHierarchyUrl('/andhra/vizag/coconut-nets/');
+  assert.strictEqual(unapprovedProd.isValid, false, 'Must reject unapproved product coconut-nets');
 
-  // 4. Invalid: Unapproved product categories
-  const unapprovedProd1 = isValidHierarchyUrl('/south-india/car-parking/');
-  assert.strictEqual(unapprovedProd1.isValid, false, 'Must reject unapproved product at regional level');
-
-  const unapprovedProd2 = isValidHierarchyUrl('/andhra/vizag/coconut-nets/');
-  assert.strictEqual(unapprovedProd2.isValid, false, 'Must reject unapproved product coconut-nets');
-
-  // 5. Invalid: Locality / Sub-city / Neighbourhood URLs
+  // 6. Invalid: Locality / Sub-city / Neighbourhood URLs
   const invalidLocality1 = isValidHierarchyUrl('/andhra/vizag/beach-road/');
   assert.strictEqual(invalidLocality1.isValid, false, 'Must reject locality Beach Road');
 
   const invalidLocality2 = isValidHierarchyUrl('/telangana/hyderabad/gachibowli/');
   assert.strictEqual(invalidLocality2.isValid, false, 'Must reject locality Gachibowli');
 
-  const invalidLocality3 = isValidHierarchyUrl('/karnataka/bengaluru/whitefield/');
-  assert.strictEqual(invalidLocality3.isValid, false, 'Must reject locality Whitefield');
-
-  // 6. Invalid: 4+ segments (5-level hierarchy violations)
+  // 7. Invalid: 4+ segments (4-level hierarchy violations)
   const invalidDepth1 = isValidHierarchyUrl('/andhra/vizag/mvp-colony/invisible-grills/');
-  assert.strictEqual(invalidDepth1.isValid, false, '5-segment URL must be rejected');
+  assert.strictEqual(invalidDepth1.isValid, false, '4-segment URL must be rejected');
   assert.ok(invalidDepth1.reason?.includes('Hierarchy depth'), 'Must cite depth violation');
 
   const invalidDepth2 = isValidHierarchyUrl('/telangana/hyderabad/gachibowli/balcony-safety-nets/');
   assert.strictEqual(invalidDepth2.isValid, false, 'Locality-level URL must be rejected');
 
-  // 7. Invalid: Malformed paths & duplicate separators
+  // 8. Invalid: Malformed paths & duplicate separators
   assert.strictEqual(isValidHierarchyUrl('//andhra/vizag/').isValid, false, 'Must reject duplicate leading slash');
   assert.strictEqual(isValidHierarchyUrl('/andhra//vizag/').isValid, false, 'Must reject duplicate internal slash');
   assert.strictEqual(isValidHierarchyUrl('/andhra/vizag//').isValid, false, 'Must reject duplicate trailing slash');
@@ -370,12 +352,14 @@ test('10. Safe Defaults: getConfirmedCityProductPaths() must return empty array 
 });
 
 test('11. Safe Defaults: isRouteIndexable() must return false for all default routes', () => {
-  assert.strictEqual(isRouteIndexable(), false, 'Regional South India root must not be indexable');
-  assert.strictEqual(isRouteIndexable(undefined, undefined, 'invisible-grills'), false, 'Regional product must not be indexable');
+  assert.strictEqual(isRouteIndexable(), false, 'Root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra'), false, 'State root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', undefined, 'invisible-grills'), false, 'State product must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag'), false, 'City root must not be indexable');
   assert.strictEqual(isRouteIndexable('andhra', 'vizag', 'invisible-grills'), false, 'City product must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana'), false, 'Telangana state root must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana', 'hyderabad'), false, 'Hyderabad city root must not be indexable');
+  assert.strictEqual(isRouteIndexable('telangana', 'hyderabad', 'invisible-grills'), false, 'Hyderabad city product must not be indexable');
 });
 
 test('12. Locality Treatment — Coverage localities are strictly descriptive chips', () => {
@@ -392,31 +376,27 @@ test('12. Locality Treatment — Coverage localities are strictly descriptive ch
   }
 });
 
-test('13. Campaign Configuration Engine — Resolves all 4 scopes with proper IDs and breadcrumbs', () => {
-  // Scope 1: Regional
-  const regCamp = resolveCampaignConfig('south-india', 'telangana', undefined, 'invisible-grills');
-  assert.strictEqual(regCamp.scope, 'south-india');
-  assert.strictEqual(regCamp.campaignId, 'cmp-southindia-invisible-grills-2026');
-  assert.strictEqual(regCamp.canonicalUrl, '/south-india/invisible-grills/');
-
-  // Scope 2: State
+test('13. Campaign Configuration Engine — Resolves all 3 scopes with proper IDs and breadcrumbs', () => {
+  // Scope 1: State
   const stateCamp = resolveCampaignConfig('state', 'andhra', undefined, 'balcony-safety-nets');
   assert.strictEqual(stateCamp.scope, 'state');
   assert.strictEqual(stateCamp.campaignId, 'cmp-andhra-balcony-safety-nets-2026');
   assert.strictEqual(stateCamp.canonicalUrl, '/andhra/balcony-safety-nets/');
+  assert.strictEqual(stateCamp.schema.breadcrumbs.length, 3, 'State Product breadcrumb must have 3 positions: Home -> State -> Product');
 
-  // Scope 3: City
+  // Scope 2: City
   const cityCamp = resolveCampaignConfig('city', 'telangana', 'hyderabad');
   assert.strictEqual(cityCamp.scope, 'city');
   assert.strictEqual(cityCamp.campaignId, 'cmp-telangana-hyderabad-city-2026');
   assert.strictEqual(cityCamp.canonicalUrl, '/telangana/hyderabad/');
+  assert.strictEqual(cityCamp.schema.breadcrumbs.length, 3, 'City breadcrumb must have 3 positions: Home -> State -> City');
 
-  // Scope 4: City + Product
+  // Scope 3: City + Product
   const deepCamp = resolveCampaignConfig('city-product', 'andhra', 'vizag', 'child-safety-nets');
   assert.strictEqual(deepCamp.scope, 'city-product');
   assert.strictEqual(deepCamp.campaignId, 'cmp-andhra-vizag-child-safety-nets-2026');
   assert.strictEqual(deepCamp.canonicalUrl, '/andhra/vizag/child-safety-nets/');
-  assert.strictEqual(deepCamp.schema.breadcrumbs.length, 5, 'City + Product breadcrumb must have 5 positions');
+  assert.strictEqual(deepCamp.schema.breadcrumbs.length, 4, 'City + Product breadcrumb must have 4 positions: Home -> State -> City -> Product');
 });
 
 const PROHIBITED_PATTERNS = [
@@ -459,7 +439,7 @@ test('14. Factual Safety — Zero prohibited claims in all 7 product configurati
   }
 });
 
-test('15. Factual Safety — Zero prohibited claims in state & regional configurations', () => {
+test('15. Factual Safety — Zero prohibited claims in state configurations', () => {
   for (const slug of APPROVED_STATE_SLUGS) {
     const state = states[slug];
     const serialized = JSON.stringify(state);
@@ -471,15 +451,6 @@ test('15. Factual Safety — Zero prohibited claims in state & regional configur
         `State '${slug}' must not contain prohibited claim '${name}'. Found match in: ${serialized}`
       );
     }
-  }
-
-  const regSerialized = JSON.stringify(regionalSouthIndia);
-  for (const { name, regex } of PROHIBITED_PATTERNS) {
-    assert.strictEqual(
-      regex.test(regSerialized),
-      false,
-      `Regional South India must not contain prohibited claim '${name}'.`
-    );
   }
 });
 
@@ -498,13 +469,11 @@ test('16. Factual Safety — Zero prohibited claims in candidate city configurat
 });
 
 test('17. Factual Safety — Zero prohibited claims in campaign resolution engine outputs', () => {
-  // Test all 4 scopes
-  const regCamp = resolveCampaignConfig('south-india', 'telangana', undefined, 'invisible-grills');
   const stateCamp = resolveCampaignConfig('state', 'andhra', undefined, 'balcony-safety-nets');
   const cityCamp = resolveCampaignConfig('city', 'telangana', 'hyderabad');
   const deepCamp = resolveCampaignConfig('city-product', 'andhra', 'vizag', 'child-safety-nets');
 
-  const campaigns = [regCamp, stateCamp, cityCamp, deepCamp];
+  const campaigns = [stateCamp, cityCamp, deepCamp];
 
   for (const camp of campaigns) {
     const serialized = JSON.stringify(camp);
@@ -521,18 +490,13 @@ test('17. Factual Safety — Zero prohibited claims in campaign resolution engin
 test('18. Factual Safety — Safe handling of missing warranty & load fields (no fabrication)', () => {
   for (const slug of APPROVED_PRODUCT_SLUGS) {
     const product = products[slug];
-    // Fields must be undefined rather than fabricated numbers or strings
     assert.strictEqual(product.warrantyYears, undefined, `Product '${slug}' warrantyYears must be undefined`);
     assert.strictEqual(product.breakLoadKg, undefined, `Product '${slug}' breakLoadKg must be undefined`);
   }
 
-  // Confirm validation utilities execute without error when warrantyYears and breakLoadKg are missing
   const cityProdCheck = validateCityProductIndexing('andhra', 'vizag', 'invisible-grills');
   assert.strictEqual(typeof cityProdCheck.isIndexable, 'boolean');
 
   const stateCheck = validateStateProductIndexing('andhra', 'invisible-grills');
   assert.strictEqual(typeof stateCheck.isIndexable, 'boolean');
-
-  const regCheck = validateRegionalProductIndexing('invisible-grills');
-  assert.strictEqual(typeof regCheck.isIndexable, 'boolean');
 });

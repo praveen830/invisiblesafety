@@ -1,0 +1,1216 @@
+{
+  "certified": [
+    {
+      "file": "src/components/geo/GeoTrustInformation.astro",
+      "line": 9,
+      "text": "* - Zero unverified certifications, ratings, or promises",
+      "match": "certifications"
+    },
+    {
+      "file": "src/pages/animals-birds-safety-nets.astro",
+      "line": 103,
+      "text": "description=\"Certified Animals & Birds Safety Nets with custom site quote 0.7mm translucent bird exclusion mesh and durable pet balcony netting.\"",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/balconies.astro",
+      "line": 111,
+      "text": "answer: \"A standard apartment balcony installation takes approximately 1 to 2 hours with our certified installation crew.\"",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 108,
+      "text": "heroSubtitle=\"Balcony heights above the 4th floor present severe fall hazards. Our certified Stainless Steel-grade tensile cables safeguard children and pets with durable load resistance while preserving open 180° panoramic vistas.\"",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/building-safety-nets.astro",
+      "line": 138,
+      "text": "Safeguards multi-story building perimeters during window cleaning and exterior facade maintenance, providing certified peace of mind for facility management.",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/child-safety-nets.astro",
+      "line": 32,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: Wrench }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/construction-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+      "match": "Certification"
+    },
+    {
+      "file": "src/pages/construction-safety-nets.astro",
+      "line": 103,
+      "text": "description=\"Heavy-duty scaffolding fall-arrest and debris containment safety nets for construction sites with custom site quote Certified 300+ kg drop catch with industrial certification.\"",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/construction-safety.astro",
+      "line": 29,
+      "text": "{ label: \"Commercial Warranty\", value: \"Certified Site-Grade Safety Documentation\", icon: Wrench }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/contact.astro",
+      "line": 231,
+      "text": "Speak directly with a certified installation engineer for technical consultation and scheduling.",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/duct-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Site Compliance\", value: \"Commercial High-Rise Certified\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 324,
+      "text": "SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE",
+      "match": "CERTIFIED"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 1049,
+      "text": "SECTION 2: CERTIFIED 7-SERVICE PHOTO-FIRST SHOWCASE",
+      "match": "CERTIFIED"
+    },
+    {
+      "file": "src/pages/industrial-safety-nets.astro",
+      "line": 12,
+      "text": "\"High-load industrial warehouse, racking, and factory safety netting certified to industrial standards with custom site quote\",",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/industrial-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Industrial Safety Certification\", icon: CheckCircle2 }",
+      "match": "Certification"
+    },
+    {
+      "file": "src/pages/industrial-safety-nets.astro",
+      "line": 103,
+      "text": "description=\"Heavy-duty industrial fall protection and warehouse pallet rack safety netting with custom site quote Factory compliance certified.\"",
+      "match": "certified"
+    },
+    {
+      "file": "src/pages/industrial-safety-nets.astro",
+      "line": 121,
+      "text": "<h2 class=\"editorial-title\">Certified Workplace Protection</h2>",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 199,
+      "text": "<!-- Trust Certification -->",
+      "match": "Certification"
+    },
+    {
+      "file": "src/pages/materials.astro",
+      "line": 27,
+      "text": "<span>METALLURGICAL CERTIFICATION & STANDARDS</span>",
+      "match": "CERTIFICATION"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 13,
+      "text": "\"Certified high-density polyethylene (HDPE) and nylon safety netting for residential balconies, child safety, and pigeon deterrent.\",",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 24,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 175,
+      "text": "description: \"Certified heavy-duty fall arrest and debris containment netting for commercial construction, shafts, and industrial perimeters.\",",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 185,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+      "match": "Certification"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 347,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 427,
+      "text": "solution.slug === \"invisible-grills\" ? \"Stainless Steel System\" : \"Certified Architectural Safety System\"",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/solutions.astro",
+      "line": 30,
+      "text": "Explore our five architectural safety systems below. Select any collection to discover detailed metallurgy, load certifications, and dedicated format specifications.",
+      "match": "certifications"
+    },
+    {
+      "file": "src/pages/sports-nets.astro",
+      "line": 30,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/sports-practice-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Tension Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/staircase-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year Certified Replacement Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    },
+    {
+      "file": "src/pages/terrace-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Certified"
+    }
+  ],
+  "laser": [],
+  "guarantee": [
+    {
+      "file": "src/data/geo/campaigns.ts",
+      "line": 24,
+      "text": "* Guarantees unique campaignId, verified asset mapping, and tailored conversion copy.",
+      "match": "Guarantees"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 76,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 110,
+      "text": "warranty: \"Standard Service Guarantee\",",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 172,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 202,
+      "text": "warranty: \"Standard Service Guarantee\",",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 233,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/animals-birds-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Clean Living Guarantee\", value: \"3-Year Replacement Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/balconies.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Written Guarantee\", value: \"3 to 5-Year Replacement Warranty\", icon: Wrench }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 30,
+      "text": "{ label: \"Compliance Guarantee\", value: \"Society Elevation Compliant\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 30,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 110,
+      "text": "answer: \"No. All our netting is crafted from 100% virgin UV-stabilized polymers guaranteed to endure extreme temperature swings, humidity, and rainfall.\"",
+      "match": "guaranteed"
+    },
+    {
+      "file": "src/pages/bird-spikes.astro",
+      "line": 32,
+      "text": "{ label: \"Durability Guarantee\", value: \"5-Year Rust & Crack Warranty\", icon: Wrench }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/bird-spikes.astro",
+      "line": 104,
+      "text": "description=\"High-grade Stainless Steel stainless steel bird spikes on UV-stabilized polycarbonate base for AC ledges, parapets, and sills with custom site quote 100% humane, zero-rust guaranteed.\"",
+      "match": "guaranteed"
+    },
+    {
+      "file": "src/pages/building-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year High-Altitude Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/car-parking-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"3 to 5-Year Weatherproof Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/child-safety-nets.astro",
+      "line": 32,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: Wrench }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/child-safety-nets.astro",
+      "line": 104,
+      "text": "description=\"High-density polymer balcony safety nets for toddlers and pets with custom site quote engineered fall safety, anti-abrasive knots with 5-year replacement guarantee.\"",
+      "match": "guarantee"
+    },
+    {
+      "file": "src/pages/cloth-drying-hangers.astro",
+      "line": 32,
+      "text": "{ label: \"Direct Warranty\", value: \"3-Year Mechanical Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/coconut-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Durability Guarantee\", value: \"3-Year Weather & Sun Resistance\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/construction-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/construction-safety.astro",
+      "line": 109,
+      "text": "answer: \"Yes, all commercial and industrial installations are provided with tension test certificates and written structural anchorage guarantees.\"",
+      "match": "guarantees"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 619,
+      "text": "<span class=\"eng-spec-val\">5-Year Weatherproof Guarantee against rotting &amp; UV degradation</span>",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/industrial-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Industrial Safety Certification\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 165,
+      "text": "<li><Check size={16} color=\"#16A34A\" /> Child &amp; pet anti-spread guarantee</li>",
+      "match": "guarantee"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"3-Year Wildlife Defense Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/pigeon-nets.astro",
+      "line": 33,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 103,
+      "text": "description=\"High-density UV-treated balcony safety nets, sports nets, and translucent anti-pigeon netting. 100% humane, zero-sag guarantee, Stainless Steel anchors.\"",
+      "match": "guarantee"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 24,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 105,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 185,
+      "text": "{ label: \"Site Guarantee\", value: \"Commercial Site Safety Certification\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 347,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/sports-nets.astro",
+      "line": 30,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/sports-practice-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Tension Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/staircase-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year Certified Replacement Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/terrace-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Guarantee"
+    },
+    {
+      "file": "src/pages/terrace-safety-nets.astro",
+      "line": 143,
+      "text": "<h3 class=\"terrace-card-title\">Pet Anti-Jump Guarantee</h3>",
+      "match": "Guarantee"
+    }
+  ],
+  "warranty": [
+    {
+      "file": "src/components/FAQSection.astro",
+      "line": 6,
+      "text": "category?: \"invisible-grill\" | \"safety-net\" | \"installation\" | \"warranty\" | \"pricing\" | \"invisible-grills\" | \"safety-nets\";",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/Footer.astro",
+      "line": 71,
+      "text": "<li><a href=\"/warranty/\">Service & Care Guide</a></li>",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/Footer.astro",
+      "line": 101,
+      "text": "<a href=\"/warranty/\">Service & Care</a>",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/Header.astro",
+      "line": 296,
+      "text": "<a href=\"/warranty/\" class=\"drawer-touch-item\">Service & Maintenance</a>",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 46,
+      "text": "<span class=\"warranty-text\">",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 47,
+      "text": "{product.warranty}",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 53,
+      "text": "<div class=\"warranty-strip\">",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 55,
+      "text": "<span>{product.warranty}</span>",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 197,
+      "text": ".warranty-text {",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/ProductCard.astro",
+      "line": 203,
+      "text": ".warranty-strip {",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/SolutionsAccordion.astro",
+      "line": 32,
+      "text": "warranty: \"Standard installation details on inquiry\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/SolutionsAccordion.astro",
+      "line": 53,
+      "text": "warranty: \"Standard installation details on inquiry\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/SolutionsAccordion.astro",
+      "line": 74,
+      "text": "warranty: \"Standard installation details on inquiry\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/SolutionsAccordion.astro",
+      "line": 95,
+      "text": "warranty: \"Standard installation details on inquiry\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/SolutionsAccordion.astro",
+      "line": 116,
+      "text": "warranty: \"Standard installation details on inquiry\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/TrustSection.astro",
+      "line": 66,
+      "text": "<div class=\"trust-icon-box warranty-box\">",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/TrustSection.astro",
+      "line": 70,
+      "text": "<span class=\"trust-pill warranty-pill\">",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/TrustSection.astro",
+      "line": 76,
+      "text": "Clear quotation and workmanship warranty covering cable alignment, track fixings, and scheduled support.",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/TrustSection.astro",
+      "line": 202,
+      "text": ".warranty-box {",
+      "match": "warranty"
+    },
+    {
+      "file": "src/components/TrustSection.astro",
+      "line": 235,
+      "text": ".warranty-pill {",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/faq.ts",
+      "line": 4,
+      "text": "category: \"invisible-grill\" | \"safety-net\" | \"installation\" | \"warranty\" | \"pricing\";",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/faq.ts",
+      "line": 36,
+      "text": "category: \"warranty\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/faq.ts",
+      "line": 39,
+      "text": "question: \"What warranty do you offer on invisible grills and safety nets?\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/faq.ts",
+      "line": 41,
+      "text": "category: \"warranty\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 11,
+      "text": "warranty: string;",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 40,
+      "text": "warranty: \"Standard installation\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 76,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 110,
+      "text": "warranty: \"Standard Service Guarantee\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 141,
+      "text": "warranty: \"Standard standard support\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 172,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 202,
+      "text": "warranty: \"Standard Service Guarantee\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 233,
+      "text": "warranty: \"Quality Workmanship Guarantee\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/layouts/SubPageLayout.astro",
+      "line": 95,
+      "text": "{ label: \"Direct Warranty\", value: \"direct service support\", icon: Wrench },",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/about.astro",
+      "line": 81,
+      "text": "We provide clear written documentation and warranty assurance with scheduled follow-up checks. If your cables require re-alignment, our team provides timely support.",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/balconies.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Written Guarantee\", value: \"3 to 5-Year Replacement Warranty\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/balcony-invisible-grills.astro",
+      "line": 14,
+      "text": "\"Architectural Stainless Steel-grade invisible safety grills for high-rise balconies. durable load tested, transparent panoramic views with 10-year direct warranty.\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/balcony-invisible-grills.astro",
+      "line": 34,
+      "text": "{ label: \"Direct Warranty\", value: \"professional installation support\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/balcony-invisible-grills.astro",
+      "line": 106,
+      "text": "description=\"Engineered Stainless Steel-grade invisible grills for high-rise balconies with custom site quote durable load tested, RWA compliant with 10-year zero-rust warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 30,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 117,
+      "text": "description=\"Discreet translucent bird exclusion netting and Stainless Steel spikes for apartments, balconies, and windows. 100% skyline clarity with 3-year warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/bird-spikes.astro",
+      "line": 32,
+      "text": "{ label: \"Durability Guarantee\", value: \"5-Year Rust & Crack Warranty\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/building-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year High-Altitude Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/car-parking-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"3 to 5-Year Weatherproof Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/child-safety-invisible-grills.astro",
+      "line": 32,
+      "text": "{ label: \"Direct Warranty\", value: \"professional installation support\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/child-safety-nets.astro",
+      "line": 32,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/cloth-drying-hangers.astro",
+      "line": 32,
+      "text": "{ label: \"Direct Warranty\", value: \"3-Year Mechanical Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/cloth-drying-hangers.astro",
+      "line": 104,
+      "text": "description=\"Space-saving ceiling mounted stainless steel cloth drying hangers with smooth pull-down pulley system. 100% rust-proof with 3-year warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/coconut-safety-nets.astro",
+      "line": 103,
+      "text": "description=\"Heavy-duty coconut tree safety netting preventing falling coconut injuries and vehicle damage. UV-stabilized polymer with 3-year warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/construction-safety.astro",
+      "line": 29,
+      "text": "{ label: \"Commercial Warranty\", value: \"Certified Site-Grade Safety Documentation\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/faq.astro",
+      "line": 19,
+      "text": "description=\"Comprehensive questions and answers regarding invisible grills, tensile ratings, child fall prevention, society approval, pricing per sq ft, and warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 218,
+      "text": "subtitle: \"Written documentation and clear warranty on materials and installation alignment\",",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 574,
+      "text": "<span class=\"eng-spec-label\">Direct Warranty Coverage:</span>",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 618,
+      "text": "<span class=\"eng-spec-label\">Direct Warranty Coverage:</span>",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 33,
+      "text": "{ label: \"Direct Warranty\", value: \"professional installation support\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 145,
+      "text": "<li><Check size={16} color=\"#0284C7\" /> 5-Year Workmanship Warranty</li>",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 166,
+      "text": "<li><Check size={16} color=\"#16A34A\" /> 10-Year Comprehensive Warranty</li>",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"3-Year Wildlife Defense Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 103,
+      "text": "description=\"durable reinforced anti-monkey balcony safety nets with custom site quote Stops aggressive monkey entry and destruction with 3-year warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/pigeon-nets.astro",
+      "line": 33,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 24,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 105,
+      "text": "{ label: \"Living Guarantee\", value: \"3-Year Clean Balcony Warranty\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 266,
+      "text": "{ label: \"Direct Warranty\", value: \"professional installation support\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 347,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/sports-nets.astro",
+      "line": 30,
+      "text": "{ label: \"Direct Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/sports-practice-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Tension Warranty\", value: \"Certified High-Tension Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/staircase-invisible-grills.astro",
+      "line": 32,
+      "text": "{ label: \"Direct Warranty\", value: \"professional installation support\", icon: Wrench }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/staircase-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year Certified Replacement Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/swimming-pool-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Direct Warranty\", value: \"5-Year Chlorine & UV Resistant\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/swimming-pool-nets.astro",
+      "line": 103,
+      "text": "description=\"High-tension swimming pool safety nets with flush brass anchors. Prevents toddler and pet accidental falls with 5-year chlorine-resistant warranty.\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/terrace-safety-nets.astro",
+      "line": 31,
+      "text": "{ label: \"Replacement Warranty\", value: \"3 to 5-Year Certified Guarantee\", icon: CheckCircle2 }",
+      "match": "Warranty"
+    },
+    {
+      "file": "src/pages/warranty.astro",
+      "line": 19,
+      "text": "{ name: \"Service & Care\", url: \"https://invisiblesafety.in/warranty/\" }",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/warranty.astro",
+      "line": 26,
+      "text": "canonicalUrl=\"/warranty/\"",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/warranty.astro",
+      "line": 255,
+      "text": "<FAQSection category=\"warranty\" title=\"Frequently Asked Service & Care Questions\" />",
+      "match": "warranty"
+    },
+    {
+      "file": "src/pages/window-invisible-grills.astro",
+      "line": 32,
+      "text": "{ label: \"Direct Warranty\", value: \"Standard Installation\", icon: Wrench }",
+      "match": "Warranty"
+    }
+  ],
+  "on_site": [
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 123,
+      "text": "Configure your balcony dimensions for real-time instant quotation and on-site measurement scheduling.",
+      "match": "on-site measurement"
+    },
+    {
+      "file": "src/pages/locations/hyderabad.astro",
+      "line": 22,
+      "text": "description=\"Premier invisible safety grills for high-rise balconies in Gachibowli, Kondapur, Hitec City, Kokapet & Financial District. Stainless Steel-grade, durable load, same-day on-site measurement.\"",
+      "match": "on-site measurement"
+    }
+  ],
+  "technical_specs": [
+    {
+      "file": "src/components/LocationLinks.astro",
+      "line": 41,
+      "text": "climateNote: \"Durable outdoor netting and anodized aluminum profiles designed for tropical heat and long-term tensile durability.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/components/react/CostEstimator.tsx",
+      "line": 382,
+      "text": "<span>{productType === 'invisible-grill' ? 'Virgin Stainless Steel corrosion-resistant tensile cables' : 'UV-stabilized virgin polymer netting'}</span>",
+      "match": "tensile"
+    },
+    {
+      "file": "src/data/geo/products.ts",
+      "line": 130,
+      "text": "materialGrade: 'Monofilament Polymer Netting',",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/data/geo/products.ts",
+      "line": 142,
+      "text": "{ title: 'Discreet Visual Profile', description: 'Translucent monofilament mesh blends cleanly into the daylight backdrop without obstructing outdoor views.' },",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/data/geo/products.ts",
+      "line": 148,
+      "text": "{ label: 'Filament Type', value: 'Translucent monofilament' },",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/data/products.ts",
+      "line": 144,
+      "text": "material: \"Translucent Nylon Monofilament or Durable HDPE Netting\",",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/layouts/SubPageLayout.astro",
+      "line": 94,
+      "text": "{ label: \"Tensile Strength\", value: \"Engineered Fall Protection\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/layouts/SubPageLayout.astro",
+      "line": 110,
+      "text": "caption: \"0.7mm monofilament mesh and stainless steel spikes on AC ledges for bird exclusion.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/animals-birds-safety-nets.astro",
+      "line": 37,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/balconies.astro",
+      "line": 29,
+      "text": "{ label: \"Impact Tensile Load\", value: \"high-load Impact Rating per Mesh Unit\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/balconies.astro",
+      "line": 103,
+      "text": "answer: \"No. Our high-tenacity monofilament nets are ultra-thin and translucent, allowing over 95% light and ventilation transmission while providing 100% fall protection.\"",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/balcony-invisible-grills.astro",
+      "line": 32,
+      "text": "{ label: \"Tensile Strength\", value: \"safety cables Matrix\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/balcony-invisible-grills.astro",
+      "line": 112,
+      "text": "heroSubtitle=\"stainless steel corrosion-resistant tensile cables tensioned into structural aluminium tracks, safeguarding high-rise balconies with Engineered Fall Protection while preserving 180° uninterrupted panoramic skyline vistas.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 52,
+      "text": "subtitle: \"Frameless tensile cable installations for floor-to-ceiling bedroom and living room glass sliding fenestrations.\",",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 80,
+      "text": "caption: \"Full-width tensile installation preserving daylight and evening skyline vistas.\",",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/balcony-safety.astro",
+      "line": 108,
+      "text": "heroSubtitle=\"Balcony heights above the 4th floor present severe fall hazards. Our certified Stainless Steel-grade tensile cables safeguard children and pets with durable load resistance while preserving open 180° panoramic vistas.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 27,
+      "text": "{ label: \"Mesh Diameter\", value: \"0.7mm Translucent UV Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/pages/bird-protection.astro",
+      "line": 36,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without obstructing daylight.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/bird-spikes.astro",
+      "line": 38,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/building-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"High-Altitude Tensile\", value: \"Virgin UV-Stabilized Polymer\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/child-safety-nets.astro",
+      "line": 30,
+      "text": "{ label: \"Impact Capacity\", value: \"high-load Breaking Strength per Mesh\", icon: Award },",
+      "match": "Breaking Strength"
+    },
+    {
+      "file": "src/pages/coconut-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Impact Tensile Core\", value: \"Multi-Ply Heavy Nylon / HDPE\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/construction-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Tensile Fiber\", value: \"Industrial Braided High-Ply Nylon / HDPE\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/construction-safety.astro",
+      "line": 27,
+      "text": "{ label: \"Tensile Fall Rating\", value: \"Industrial Fall Arrest & Debris Containment\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/duct-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Shaft Tensile Rope\", value: \"Heavy-Gauge UV-Stabilized Nylon\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/faq.astro",
+      "line": 19,
+      "text": "description=\"Comprehensive questions and answers regarding invisible grills, tensile ratings, child fall prevention, society approval, pricing per sq ft, and warranty.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 95,
+      "text": "desc: \"Monsoon-tested balcony safety netting and tensile cable architecture for waterfront luxury apartments.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 554,
+      "text": "<span class=\"eng-spec-label\">Cable Tensile Strength:</span>",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 598,
+      "text": "<span class=\"eng-spec-label\">Tensile Energy Absorption:</span>",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 603,
+      "text": "<span class=\"eng-spec-val\">0.7mm to 1.2mm stainless steel braided monofilament &amp; co-polymer</span>",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "line": 638,
+      "text": "<td class=\"feature-name\">Cable Tensile Strength</td>",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 31,
+      "text": "{ label: \"Tensile Strength\", value: \"safety cables Matrix\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/invisible-grills.astro",
+      "line": 111,
+      "text": "heroSubtitle=\"Stainless Steel-grade tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing durable safety.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Core Tensile Gauge\", value: \"Reinforced stainless steel Stainless / HDPE\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 37,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/monkey-safety-nets.astro",
+      "line": 109,
+      "text": "heroSubtitle=\"Reinforced heavy-gauge tensile wire and polymer netting designed to withstand vigorous monkey chewing, shaking, and scaling, securing hillside and perimeter apartments.\"",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/mosquito-safety-nets.astro",
+      "line": 45,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without daylight blockage.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/pigeon-nets.astro",
+      "line": 30,
+      "text": "{ label: \"Mesh Diameter\", value: \"0.7mm Translucent UV Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/pages/pigeon-nets.astro",
+      "line": 39,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without obstructing daylight.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Polymer Standard\", value: \"Virgin UV-Stabilized Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 121,
+      "text": "<span class=\"editorial-eyebrow\">TENSILE MONOFILAMENT DYNAMICS</span>",
+      "match": "TENSILE"
+    },
+    {
+      "file": "src/pages/safety-nets.astro",
+      "line": 141,
+      "text": "Ultra-smooth monofilament joints will not scratch toddler hands or pet paws during vigorous contact or balcony play.",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 102,
+      "text": "{ label: \"Mesh Diameter\", value: \"0.7mm Translucent UV Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 110,
+      "text": "subtitle: \"Near-invisible monofilament grid denying roosting access to pigeons without obstructing daylight.\",",
+      "match": "monofilament"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 182,
+      "text": "{ label: \"Tensile Fiber\", value: \"Industrial Braided High-Ply Nylon / HDPE\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 258,
+      "text": "heroSubtitle: \"stainless steel tensile cables tensioned into structural tracks, preserving 180° uninterrupted panoramic views while providing reliable fall safety.\",",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 264,
+      "text": "{ label: \"Tensile Strength\", value: \"safety cables Matrix\", icon: Award },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 328,
+      "text": "caption: \"Zero footholds preventing climbing leverage with engineered tensile strength.\",",
+      "match": "tensile"
+    },
+    {
+      "file": "src/pages/solutions/[slug].astro",
+      "line": 344,
+      "text": "{ label: \"Polymer Standard\", value: \"Virgin UV-Stabilized Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    },
+    {
+      "file": "src/pages/staircase-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Tensile Webbing\", value: \"High-Tenacity Polymer / HDPE\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/swimming-pool-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Core Tensile Webbing\", value: \"stainless steel UV-Stabilized Polyethylene\", icon: ShieldCheck },",
+      "match": "Tensile"
+    },
+    {
+      "file": "src/pages/terrace-safety-nets.astro",
+      "line": 28,
+      "text": "{ label: \"Polymer Quality\", value: \"Virgin UV-Stabilized Monofilament\", icon: ShieldCheck },",
+      "match": "Monofilament"
+    }
+  ],
+  "commitments": [],
+  "turnaround_experience": [
+    {
+      "file": "src/pages/locations/hyderabad.astro",
+      "line": 22,
+      "text": "description=\"Premier invisible safety grills for high-rise balconies in Gachibowli, Kondapur, Hitec City, Kokapet & Financial District. Stainless Steel-grade, durable load, same-day on-site measurement.\"",
+      "match": "same-day"
+    },
+    {
+      "file": "src/pages/locations/visakhapatnam.astro",
+      "line": 131,
+      "text": "<p>Same-day measurement inquiry across Beach Road, MVP Colony, and Madhurawada.</p>",
+      "match": "Same-day"
+    },
+    {
+      "file": "src/pages/thank-you.astro",
+      "line": 35,
+      "text": "<li><strong style=\"color: #0F233D;\">Same-Day Transparent Quote:</strong> Fixed, itemized quotation provided on the spot.</li>",
+      "match": "Same-Day"
+    }
+  ]
+}
